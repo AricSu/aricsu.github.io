@@ -1,0 +1,1 @@
+import{_ as o,c as i,o as e,N as t}from"./chunks/framework.0799945b.js";const u=JSON.parse('{"title":"生活","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/02英语口语/2-1场景_生活.md"}'),l={name:"zh/english/02英语口语/2-1场景_生活.md"},a=t("",7),n=[a];function d(r,g,c,s,h,b){return e(),i("div",null,n)}const _=o(l,[["render",d]]);export{u as __pageData,_ as default};

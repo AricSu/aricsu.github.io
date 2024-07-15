@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as t,N as r}from"./chunks/framework.0799945b.js";const m=JSON.parse('{"title":"记录英语学习过程","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/index.md"}'),o={name:"zh/english/index.md"},n=r("",6),i=[n];function s(h,c,d,_,l,p){return t(),e("div",null,i)}const f=a(o,[["render",s]]);export{m as __pageData,f as default};

@@ -1,0 +1,1 @@
+import{_ as a,c as e,o,N as t}from"./chunks/framework.0799945b.js";const m=JSON.parse('{"title":"奇怪事件","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/02英语口语/2-11场景_奇怪事件.md"}'),l={name:"zh/english/02英语口语/2-11场景_奇怪事件.md"},i=t("",9),n=[i];function r(s,h,d,c,_,p){return o(),e("div",null,n)}const b=a(l,[["render",r]]);export{m as __pageData,b as default};

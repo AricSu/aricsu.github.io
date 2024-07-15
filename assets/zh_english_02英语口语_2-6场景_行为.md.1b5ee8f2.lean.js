@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as i,N as l}from"./chunks/framework.0799945b.js";const g=JSON.parse('{"title":"行为","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/02英语口语/2-6场景_行为.md"}'),t={name:"zh/english/02英语口语/2-6场景_行为.md"},o=l("",9),h=[o];function d(s,r,c,n,u,_){return i(),a("div",null,h)}const p=e(t,[["render",d]]);export{g as __pageData,p as default};

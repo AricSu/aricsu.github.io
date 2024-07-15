@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as l}from"./chunks/framework.0799945b.js";const d=JSON.parse('{"title":"我的 TiDB 笔记简介","description":"","frontmatter":{},"headers":[],"relativePath":"zh/tidb/index.md"}'),o={name:"zh/tidb/index.md"},p=l("",10),e=[p];function t(C,c,r,y,i,D){return n(),a("div",null,e)}const F=s(o,[["render",t]]);export{d as __pageData,F as default};

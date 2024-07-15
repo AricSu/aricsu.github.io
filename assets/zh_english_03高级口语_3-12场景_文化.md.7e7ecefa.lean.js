@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as i,N as o}from"./chunks/framework.0799945b.js";const p=JSON.parse('{"title":"文化","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/03高级口语/3-12场景_文化.md"}'),l={name:"zh/english/03高级口语/3-12场景_文化.md"},r=o("",11),a=[r];function d(h,n,s,c,m,b){return i(),t("div",null,a)}const u=e(l,[["render",d]]);export{p as __pageData,u as default};

@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as t,N as r}from"./chunks/framework.0799945b.js";const f=JSON.parse('{"title":"快速交友","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/03高级口语/3-1场景_快速交友.md"}'),o={name:"zh/english/03高级口语/3-1场景_快速交友.md"},_=r("",5),n=[_];function h(i,s,l,c,d,u){return t(),e("div",null,n)}const p=a(o,[["render",h]]);export{f as __pageData,p as default};

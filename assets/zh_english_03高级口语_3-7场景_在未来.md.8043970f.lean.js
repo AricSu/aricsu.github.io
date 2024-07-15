@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,N as o}from"./chunks/framework.0799945b.js";const g=JSON.parse('{"title":"在未来","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/03高级口语/3-7场景_在未来.md"}'),l={name:"zh/english/03高级口语/3-7场景_在未来.md"},i=o("",11),r=[i];function n(d,s,h,c,u,m){return a(),t("div",null,r)}const p=e(l,[["render",n]]);export{g as __pageData,p as default};

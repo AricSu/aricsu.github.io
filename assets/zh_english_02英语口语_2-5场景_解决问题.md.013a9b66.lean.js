@@ -1,0 +1,1 @@
+import{_ as e,c as a,o,N as t}from"./chunks/framework.0799945b.js";const b=JSON.parse('{"title":"解决问题","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/02英语口语/2-5场景_解决问题.md"}'),r={name:"zh/english/02英语口语/2-5场景_解决问题.md"},i=t("",8),n=[i];function h(l,s,d,c,u,_){return o(),a("div",null,n)}const p=e(r,[["render",h]]);export{b as __pageData,p as default};

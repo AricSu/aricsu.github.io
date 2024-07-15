@@ -1,0 +1,1 @@
+import{_ as e,c as a,o,N as r}from"./chunks/framework.0799945b.js";const b=JSON.parse('{"title":"趋势","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/02英语口语/2-4场景_趋势.md"}'),t={name:"zh/english/02英语口语/2-4场景_趋势.md"},i=r("",7),l=[i];function s(n,d,c,h,u,_){return o(),a("div",null,l)}const m=e(t,[["render",s]]);export{b as __pageData,m as default};

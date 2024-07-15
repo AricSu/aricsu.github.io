@@ -1,0 +1,1 @@
+import{_ as e,c as a,o,N as t}from"./chunks/framework.0799945b.js";const b=JSON.parse('{"title":"评论","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/03高级口语/3-3场景_评论.md"}'),i={name:"zh/english/03高级口语/3-3场景_评论.md"},n=t("",13),r=[n];function l(h,s,d,c,u,m){return o(),a("div",null,r)}const _=e(i,[["render",l]]);export{b as __pageData,_ as default};

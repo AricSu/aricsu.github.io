@@ -1,0 +1,1 @@
+import{_ as e,c as o,o as l,N as a}from"./chunks/framework.0799945b.js";const u=JSON.parse('{"title":"名人","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/02英语口语/2-2场景_名人.md"}'),i={name:"zh/english/02英语口语/2-2场景_名人.md"},c=a("",15),t=[c];function d(r,n,h,s,p,_){return l(),o("div",null,t)}const f=e(i,[["render",d]]);export{u as __pageData,f as default};

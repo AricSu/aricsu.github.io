@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as r,N as o}from"./chunks/framework.0799945b.js";const b=JSON.parse('{"title":"体系简介","description":"","frontmatter":{},"headers":[],"relativePath":"zh/oracle/Summary-Oracle.md"}'),t={name:"zh/oracle/Summary-Oracle.md"},h=o("",46),l=[h];function i(n,p,d,c,s,u){return r(),e("div",null,l)}const q=a(t,[["render",i]]);export{b as __pageData,q as default};

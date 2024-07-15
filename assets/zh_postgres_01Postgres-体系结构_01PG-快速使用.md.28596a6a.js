@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as s}from"./chunks/framework.0799945b.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"zh/postgres/01Postgres-体系结构/01PG-快速使用.md"}'),r={name:"zh/postgres/01Postgres-体系结构/01PG-快速使用.md"};function o(a,_,c,n,p,d){return s(),t("div")}const f=e(r,[["render",o]]);export{m as __pageData,f as default};

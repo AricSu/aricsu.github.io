@@ -1,4 +1,4 @@
-# TiKV Details 监控详解
+# TIKV 监控面板 - Approximate region size
 
 # Server
 

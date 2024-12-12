@@ -1,19 +1,40 @@
 {
-  "hash": "5730283e",
-  "browserHash": "7e7b5d52",
+  "hash": "de9de415",
+  "configHash": "9f798deb",
+  "lockfileHash": "3c002a94",
+  "browserHash": "b3a35789",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "d6c6706a",
+      "fileHash": "f038d337",
+      "needsInterop": false
+    },
+    "vitepress > @vue/devtools-api": {
+      "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
+      "file": "vitepress___@vue_devtools-api.js",
+      "fileHash": "6ad9389f",
+      "needsInterop": false
+    },
+    "vitepress > @vueuse/core": {
+      "src": "../../../../node_modules/@vueuse/core/index.mjs",
+      "file": "vitepress___@vueuse_core.js",
+      "fileHash": "48dddf9a",
       "needsInterop": false
     },
     "@theme/index": {
       "src": "../../../../node_modules/vitepress/dist/client/theme-default/index.js",
       "file": "@theme_index.js",
-      "fileHash": "4143a258",
+      "fileHash": "97fab626",
       "needsInterop": false
     }
   },
-  "chunks": {}
+  "chunks": {
+    "chunk-PPB56V7G": {
+      "file": "chunk-PPB56V7G.js"
+    },
+    "chunk-Z45BZPBJ": {
+      "file": "chunk-Z45BZPBJ.js"
+    }
+  }
 }

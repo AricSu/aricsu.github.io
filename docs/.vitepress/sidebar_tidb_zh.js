@@ -26,15 +26,16 @@ export default tidbDocZhSideBar = [
             ] },
     ] },
     {text: "TiDB-运维管理", items: [
-            { text: "基础运维管理", items: [
-                { text: "TLS 原理与应用", link: "/zh/tidb/03TiDB-运维管理/3-1基础运维管理/01TLS 原理与应用.md"},
-                { text: "TiDB 的 Prometheus", link: "/zh/tidb/03TiDB-运维管理/3-1基础运维管理/02TiDB 的 Prometheus.md"},
+            { text: "TiDB 监控详解", items: [
+                { text: "TLS 原理与应用", link: "/zh/tidb/03TiDB-运维管理/3-1TiDB 监控详解/01TLS 原理与应用.md"},
+                { text: "TiDB 的 Prometheus", link: "/zh/tidb/03TiDB-运维管理/3-1TiDB 监控详解/02TiDB 的 Prometheus.md"},
+                { text: "TiKV Details 详解", link: "/zh/tidb/03TiDB-运维管理/3-1TiDB 监控详解/03TiKV Details 详解.md"},
             ] },
-            { text: "常规备份恢复", items: [
-                { text: "版本升级与回退", link: "/zh/tidb/03TiDB-运维管理/3-2常规备份恢复/01版本升级与回退.md"},
+            { text: "TiKV 监控详解", items: [
+                { text: "TIKV 监控面板 - Allocator Stats", link: "/zh/tidb/03TiDB-运维管理/3-2TiKV 监控详解/01TIKV 监控面板 - Allocator Stats.md"},
             ] },
             { text: "非常规恢复", items: [
-                { text: "重建PD", link: "/zh/tidb/03TiDB-运维管理/3-3非常规恢复/01重建PD.md"},
+                { text: "重建PD", link: "/zh/tidb/03TiDB-运维管理/3-4非常规恢复/01重建PD.md"},
             ] },
     ] },
     {text: "TiDB-调优实践", items: [
@@ -86,7 +87,7 @@ export default tidbDocZhSideBar = [
                 { text: "TiDB-Operator 部署 TiDB", link: "/zh/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/01TiDB-Operator 部署 TiDB.md"},
                 { text: "TiDB-Operator 部署 DM", link: "/zh/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/02TiDB-Operator 部署 DM.md"},
                 { text: "TiDB-Operator 部署 Lightning", link: "/zh/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/03TiDB-Operator 部署 Lightning.md"},
-                { text: "TiDB-Operator 部署 TiCDC", link: "/zh/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/04TiDB-Operator 部署 TiCDC.md"},
+                { text: "TiDB-Operator 部署 TICDC", link: "/zh/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/04TiDB-Operator 部署 TICDC.md"},
             ] },
     ] }
 ]

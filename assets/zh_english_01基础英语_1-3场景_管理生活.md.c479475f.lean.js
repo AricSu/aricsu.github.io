@@ -1,1 +1,0 @@
-import{_ as e,c as o,o as t,N as a}from"./chunks/framework.0799945b.js";const b=JSON.parse('{"title":"管理生活","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/01基础英语/1-3场景_管理生活.md"}'),l={name:"zh/english/01基础英语/1-3场景_管理生活.md"},i=a("",9),r=[i];function n(c,d,s,h,_,p){return t(),o("div",null,r)}const g=e(l,[["render",n]]);export{b as __pageData,g as default};

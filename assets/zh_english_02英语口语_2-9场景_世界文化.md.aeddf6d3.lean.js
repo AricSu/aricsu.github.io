@@ -1,1 +1,0 @@
-import{_ as e,c as i,o as a,N as o}from"./chunks/framework.0799945b.js";const u=JSON.parse('{"title":"世界文化","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/02英语口语/2-9场景_世界文化.md"}'),t={name:"zh/english/02英语口语/2-9场景_世界文化.md"},l=o("",9),r=[l];function n(s,c,d,h,p,g){return a(),i("div",null,r)}const b=e(t,[["render",n]]);export{u as __pageData,b as default};

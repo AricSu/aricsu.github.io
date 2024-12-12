@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as i,N as t}from"./chunks/framework.0799945b.js";const m=JSON.parse('{"title":"名气","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/02英语口语/2-12场景_名气.md"}'),l={name:"zh/english/02英语口语/2-12场景_名气.md"},o=t("",9),h=[o];function n(s,r,d,c,_,p){return i(),a("div",null,h)}const u=e(l,[["render",n]]);export{m as __pageData,u as default};

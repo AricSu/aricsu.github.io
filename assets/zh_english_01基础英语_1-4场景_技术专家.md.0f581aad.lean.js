@@ -1,1 +1,0 @@
-import{_ as i,c as t,o as a,N as l}from"./chunks/framework.0799945b.js";const m=JSON.parse('{"title":"技术专家","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/01基础英语/1-4场景_技术专家.md"}'),o={name:"zh/english/01基础英语/1-4场景_技术专家.md"},e=l("",9),r=[e];function n(h,s,p,_,u,c){return a(),t("div",null,r)}const b=i(o,[["render",n]]);export{m as __pageData,b as default};

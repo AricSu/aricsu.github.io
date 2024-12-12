@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as t,N as l}from"./chunks/framework.0799945b.js";const m=JSON.parse('{"title":"出游","description":"","frontmatter":{},"headers":[],"relativePath":"zh/english/03高级口语/3-11场景_出游.md"}'),i={name:"zh/english/03高级口语/3-11场景_出游.md"},o=l("",11),s=[o];function r(h,n,d,u,c,p){return t(),a("div",null,s)}const g=e(i,[["render",r]]);export{m as __pageData,g as default};

@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as s,N as r}from"./chunks/framework.0799945b.js";const P=JSON.parse('{"title":"我的 Postgres 笔记简介","description":"","frontmatter":{},"headers":[],"relativePath":"zh/postgres/index.md"}'),a={name:"zh/postgres/index.md"},o=r("",4),n=[o];function _(i,c,d,h,l,p){return s(),t("div",null,n)}const f=e(a,[["render",_]]);export{P as __pageData,f as default};

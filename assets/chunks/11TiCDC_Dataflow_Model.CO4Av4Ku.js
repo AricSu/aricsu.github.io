@@ -1,0 +1,1 @@
+const s="/assets/07TiCDC_DataFlow_Model.CqHFLR20.png",t="/assets/08ticdc_architecture.B56QG-SW.png",_="/assets/09incremental_scan_continues_push.Cl_E5HFR.jpeg",a="/assets/10TiCDC_ResolvedTs_CheckpointTs.veurqjqS.png",e="/assets/11TiCDC_Dataflow_Model.B0NJvafV.jpeg";export{s as _,t as a,_ as b,a as c,e as d};

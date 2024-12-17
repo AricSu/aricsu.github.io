@@ -1,0 +1,4472 @@
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_agent_agr_flow`
+--
+
+DROP TABLE IF EXISTS `ps_agent_agr_flow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_agr_flow` (
+  `ID` int(16) NOT NULL,
+  `orgcd2` varchar(36) COLLATE utf8_bin DEFAULT NULL,
+  `orgcd3` varchar(36) COLLATE utf8_bin DEFAULT NULL,
+  `POLICYHOLDERID` varchar(36) COLLATE utf8_bin DEFAULT NULL,
+  `AGRAGENTID` varchar(36) COLLATE utf8_bin DEFAULT NULL COMMENT '代理协议编号',
+  `AGENTAGREEMENTNO` varchar(36) COLLATE utf8_bin DEFAULT NULL COMMENT '代理协议号',
+  `SALESMANID` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '归属业务员代码',
+  `AGENTNM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '代理人名称',
+  `ORGCD` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '归属机构代码',
+  `APPROVALSTATUS` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '审批状态',
+  `SUPCHECKCONTENT` varchar(1000) COLLATE utf8_bin DEFAULT NULL COMMENT '申报说明',
+  `REPORTERCD` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '申报人代码',
+  `SUPCHECKTIME` datetime DEFAULT NULL COMMENT '申报时间',
+  `APPROVECONTENT` varchar(1000) COLLATE utf8_bin DEFAULT NULL COMMENT '审批意见',
+  `APPROVERCD` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '审批人代码',
+  `CHECKTIME` datetime DEFAULT NULL COMMENT '审批时间',
+  `RESUPCHECKFLAG` varchar(2) COLLATE utf8_bin DEFAULT NULL COMMENT '重新申报标志',
+  `TASKID` varchar(36) COLLATE utf8_bin DEFAULT NULL COMMENT '工作流实例ID',
+  `WORKFLOWSTATUS` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '工作流状态',
+  `DATASYNCTIME` datetime DEFAULT NULL COMMENT '数据同步时间',
+  `LASTNODEAPPROVERCD` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '上一节点审批人代码',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `CREATEID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '创建人姓名',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `UPDATEID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '更新人姓名',
+  `ORGNM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '归属机构名称',
+  `OPERATORCD` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '操作员代码',
+  `DECLARESTATUS` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '申报状态',
+  `AGRCREATEDATE` date DEFAULT NULL COMMENT '协议创建日期',
+  `AGRVALIDDATE` date DEFAULT NULL COMMENT '协议生效日期',
+  `AGRINVALIDDATE` date DEFAULT NULL COMMENT '协议终止日期',
+  `SALESMANNM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '归属业务员名称',
+  `SOURCEBIZ` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '业务来源',
+  `BIZCHAN` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '业务渠道',
+  `inserttime` date DEFAULT NULL,
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+  UNIQUE KEY (`ID_TiDB`),
+  KEY `AGENTAGREEMENTNO` (`AGENTAGREEMENTNO`,`orgcd2`,`orgcd3`),
+  KEY `AGRAGENTID` (`AGRAGENTID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=68798 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='代理协议表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_fleet_bizunit`
+--
+
+DROP TABLE IF EXISTS `ps_fleet_bizunit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_fleet_bizunit` (
+  `ID` int(16) NOT NULL,
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `VALIDSTATUS` char(2) DEFAULT NULL COMMENT '有效状态',
+  `CREATEID` varchar(20) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) DEFAULT NULL COMMENT '创建人姓名',
+  `UPDATEID` varchar(20) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) DEFAULT NULL COMMENT '更新人姓名',
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `BIZUNITNM` char(18) DEFAULT NULL COMMENT '业务单元名称',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `BIZUNITTY` char(18) DEFAULT NULL COMMENT '业务单元类型',
+  `COMMBIZUNITID` char(18) DEFAULT NULL COMMENT '通用业务单元编号',
+  `AGRMOTORCADEID` varchar(36) DEFAULT NULL COMMENT '车队协议编号',
+  `COREBIZUNITNO` varchar(20) DEFAULT NULL COMMENT '对接核心业务单元编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `BIZUNITID` (`BIZUNITID`) USING BTREE,
+  KEY `index_org` (`ORGCD2`,`BIZUNITID`,`AGRMOTORCADEID`,`CARTYCD`,`BIZUNITTY`)
+) ENGINE=InnoDB AUTO_INCREMENT=5554 DEFAULT CHARSET=utf8 COMMENT='车队协议业务单元表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_fleet_bizunit_factor_group`
+--
+
+DROP TABLE IF EXISTS `ps_fleet_bizunit_factor_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_fleet_bizunit_factor_group` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `FACTORGROUPID` varchar(20) DEFAULT NULL COMMENT '因子分组编号',
+  `AGRMOTORCADEID` varchar(36) DEFAULT NULL COMMENT '车队协议编号',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `DEFAULTFLAG` char(2) DEFAULT NULL COMMENT '缺省标志',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `BIZUNITID` (`BIZUNITID`) USING BTREE,
+  KEY `FACTORGROUPID` (`FACTORGROUPID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=14716 DEFAULT CHARSET=utf8 COMMENT='车队协议业务单元-因子分组关系表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_fleet_bizunit_track`
+--
+
+DROP TABLE IF EXISTS `ps_fleet_bizunit_track`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_fleet_bizunit_track` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `DETAILBIZUNITID` varchar(20) DEFAULT NULL COMMENT '明细业务单元编号',
+  `AGRMOTORCADEID` varchar(36) DEFAULT NULL COMMENT '车队协议编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `bizunitid` (`BIZUNITID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=572 DEFAULT CHARSET=utf8 COMMENT='车队协议业务单元轨迹表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_fleet_factor_group`
+--
+
+DROP TABLE IF EXISTS `ps_fleet_factor_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_fleet_factor_group` (
+  `ID` int(16) NOT NULL,
+  `FACTORGROUPID` varchar(20) DEFAULT NULL COMMENT '因子分组编号',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `FACTORCD` varchar(32) DEFAULT NULL COMMENT '因子代码',
+  `FACTORGROUPNM` varchar(100) DEFAULT NULL COMMENT '因子分组名称',
+  `FACTORGROUPCONTENT` longtext COMMENT '因子分组内容',
+  `PREMIUMPCT` decimal(10,6) DEFAULT NULL COMMENT '因子分组保费占比',
+  `FULLLOSSRATE` decimal(10,6) DEFAULT NULL COMMENT '因子分组历史满期标费赔付率',
+  `EXPLOSSRATE` decimal(10,6) DEFAULT NULL COMMENT '因子分组预期标费赔付率',
+  `CREATEID` varchar(20) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) DEFAULT NULL COMMENT '创建人姓名',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATEID` varchar(20) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) DEFAULT NULL COMMENT '更新人姓名',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `FACTORENUMFLAG` char(1) DEFAULT NULL COMMENT '因子枚举标志',
+  `FACTORGROUPTY` char(2) DEFAULT NULL COMMENT '因子分组类型',
+  `SELECTEDFLAGFACTOR` char(2) DEFAULT NULL COMMENT '是否选中因子',
+  `SGLCARINTELRECOMMENDID` char(18) DEFAULT NULL COMMENT '智能推荐编号',
+  `PREMIUMINCOME` decimal(10,6) DEFAULT NULL COMMENT '因子分组保费收入',
+  `AGRMOTORCADEID` varchar(36) DEFAULT NULL COMMENT '车队协议编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `factorgroupid` (`FACTORGROUPID`) USING BTREE,
+  KEY `index_org` (`ORGCD2`,`AGRMOTORCADEID`,`FACTORCD`,`CARTYCD`,`FACTORGROUPTY`),
+  KEY `index_FACTORCD` (`FACTORCD`)
+) ENGINE=InnoDB AUTO_INCREMENT=25366 DEFAULT CHARSET=utf8 COMMENT='车队协议因子分组表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_motorcade_agr_flow`
+--
+
+DROP TABLE IF EXISTS `ps_motorcade_agr_flow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_motorcade_agr_flow` (
+  `ID` int(16) NOT NULL,
+  `AGRMOTORCADEID` varchar(36) COLLATE utf8_bin DEFAULT NULL COMMENT '车队协议编号',
+  `FLEETAGREEMENTNO` varchar(36) COLLATE utf8_bin DEFAULT NULL COMMENT '车队协议号',
+  `AGRCARCOUNT` decimal(10,0) DEFAULT NULL COMMENT '协议车辆数',
+  `RENEWFLAG` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '续保标志',
+  `OPERATORCD` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '操作员代码',
+  `POLICYHOLDERID` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '投保人编号',
+  `POLICYHOLDERNM` varchar(128) COLLATE utf8_bin DEFAULT NULL COMMENT '投保人姓名',
+  `ORGCD2` varchar(18) COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(18) COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ORGCD` varchar(18) COLLATE utf8_bin DEFAULT NULL COMMENT '归属机构代码',
+  `APPROVALSTATUS` varchar(8) COLLATE utf8_bin DEFAULT NULL COMMENT '审批状态',
+  `SUPCHECKCONTENT` varchar(1000) COLLATE utf8_bin DEFAULT NULL COMMENT '申报说明',
+  `REPORTERCD` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '申报人代码',
+  `SUPCHECKTIME` datetime DEFAULT NULL COMMENT '申报时间',
+  `APPROVECONTENT` varchar(1000) COLLATE utf8_bin DEFAULT NULL COMMENT '审批意见',
+  `APPROVERCD` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '审批人代码',
+  `CHECKTIME` datetime DEFAULT NULL COMMENT '审批时间',
+  `RESUPCHECKFLAG` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '重新申报标志',
+  `TASKID` varchar(36) COLLATE utf8_bin DEFAULT NULL COMMENT '工作流实例ID',
+  `WORKFLOWSTATUS` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '工作流状态',
+  `DATASYNCTIME` datetime DEFAULT NULL COMMENT '数据同步时间',
+  `LASTNODEAPPROVERCD` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '上一节点审批人代码',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `CREATEID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '创建人姓名',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `UPDATEID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '更新人姓名',
+  `ORGNM` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '归属机构名称',
+  `OWNERNM` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '车主姓名',
+  `INSUREDNM` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '被保人姓名',
+  `DECLARESTATUS` char(18) COLLATE utf8_bin DEFAULT NULL COMMENT '申报状态',
+  `AGRCREATEDATE` date DEFAULT NULL COMMENT '协议创建日期',
+  `AGRVALIDDATE` date DEFAULT NULL COMMENT '协议生效日期',
+  `AGRINVALIDDATE` date DEFAULT NULL COMMENT '协议终止日期',
+  `CONFIRMTIME` datetime DEFAULT NULL COMMENT '确认时间',
+  `CONFFEEMODE` varchar(2) COLLATE utf8_bin DEFAULT NULL COMMENT '配费模式',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `POLICYHOLDERNM` (`POLICYHOLDERNM`),
+  KEY `ORGCD3` (`ORGCD3`),
+  KEY `AGRMOTORCADEID` (`AGRMOTORCADEID`),
+  KEY `index_org` (`ORGCD2`,`AGRVALIDDATE`,`FLEETAGREEMENTNO`)
+) ENGINE=InnoDB AUTO_INCREMENT=16226 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='车队协议表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_motorcade_core`
+--
+
+DROP TABLE IF EXISTS `ps_motorcade_core`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_motorcade_core` (
+  `ID` int(16) NOT NULL,
+  `FLEETAGREEMENTNO` varchar(100) DEFAULT NULL COMMENT '车队协议号',
+  `FLEETAGRACCNO` varchar(100) DEFAULT NULL COMMENT '车队协议申请号',
+  `PRODCD` varchar(50) DEFAULT NULL COMMENT '产品代码',
+  `CARFLAG` varchar(50) DEFAULT NULL COMMENT '新旧车标识',
+  `CARTYDETSENCD` varchar(50) DEFAULT NULL COMMENT '二级细分市场代码',
+  `AUTODISCOUNT` decimal(18,4) DEFAULT NULL COMMENT '自主折扣率',
+  `HANDLINGFEERATE` decimal(18,4) DEFAULT NULL COMMENT '手续费率',
+  `BIZUNITID` varchar(50) DEFAULT NULL COMMENT '业务单元编号',
+  `OUTID` varchar(50) NOT NULL COMMENT '输出编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `fleetagraccno` (`FLEETAGRACCNO`),
+  KEY `OUTID` (`OUTID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2058 DEFAULT CHARSET=utf8 COMMENT='车队协议核心系统输出' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_motorcade_core_mid`
+--
+
+DROP TABLE IF EXISTS `ps_motorcade_core_mid`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_motorcade_core_mid` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(50) DEFAULT NULL COMMENT '业务单元编号',
+  `CARFLAG` varchar(50) DEFAULT NULL COMMENT '新旧车标识',
+  `CARTYDETSENCD` varchar(50) DEFAULT NULL COMMENT '二级细分市场代码',
+  `TCIPREMIUMPCT` decimal(10,6) DEFAULT '0.000000' COMMENT '目标车险保费占比',
+  `CIPREMIUMPCT` decimal(10,6) DEFAULT '0.000000' COMMENT '目标交强险保费占比',
+  `HISBIDISCOUNT` decimal(10,6) DEFAULT '0.000000' COMMENT '历史商业险自主折扣率',
+  `BIHANDLINGFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '商业险手续费率',
+  `BCIPREMIUMPCT` decimal(10,6) DEFAULT NULL COMMENT '目标商业险保费占比',
+  `CIHANDLINGRATE` decimal(10,6) DEFAULT NULL COMMENT '目标交强险手续费率',
+  `FLEETAGREEMENTNO` varchar(100) DEFAULT NULL,
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `FLEETAGREEMENTNO` (`FLEETAGREEMENTNO`)
+) ENGINE=InnoDB AUTO_INCREMENT=2746 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_motorcade_step_data`
+--
+
+DROP TABLE IF EXISTS `ps_motorcade_step_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_motorcade_step_data` (
+  `ID` int(16) NOT NULL,
+  `STEP` varchar(50) NOT NULL COMMENT '步骤号',
+  `CARTYCD` varchar(32) NOT NULL COMMENT '车种代码',
+  `DATASTATUS` int(11) NOT NULL COMMENT '数据状态',
+  `AGRMOTORCADEID` varchar(36) NOT NULL COMMENT '车队协议编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `AGRMOTORCADEID` (`AGRMOTORCADEID`),
+  KEY `cartycd` (`CARTYCD`),
+  KEY `STEP` (`STEP`,`DATASTATUS`)
+) ENGINE=InnoDB AUTO_INCREMENT=3082 DEFAULT CHARSET=utf8 COMMENT='车队协议定价步骤数据表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_motorcare_conf_fee`
+--
+
+DROP TABLE IF EXISTS `ps_motorcare_conf_fee`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_motorcare_conf_fee` (
+  `ID` int(16) NOT NULL,
+  `MOTORCARECONFID` varchar(36) NOT NULL COMMENT '车队协议配费编号',
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `AGRMOTORCADEID` varchar(36) NOT NULL COMMENT '车队协议编号',
+  `COMMBIZUNITID` varchar(20) DEFAULT NULL COMMENT '通用业务单元编号',
+  `COREBIZUNITNO` varchar(32) DEFAULT NULL COMMENT '对接核心业务单元编号',
+  `PSMODELCD` char(2) DEFAULT NULL COMMENT '定价方案模式代码',
+  `EXPBINCDLOSS` decimal(22,8) unsigned zerofill DEFAULT '00000000000000.00000000' COMMENT '商业险预期标费赔付率（含NCD）',
+  `FLEETHISBIFULLLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车队历史商业险满期标费赔付率',
+  `FLEETHISBIPREMIUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '车队历史商业险保费收入',
+  `FLEETHISBIPOLICYNUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '车队历史商业险保单件数',
+  `SGLCARHISBIFULLLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车历史商业险满期标费赔付率',
+  `SGLCARBIAVGPREMIUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车商业险件均标准保费',
+  `SGLCARBIAVGLOSS` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车商业险综合案均赔款',
+  `SGLCARBIFULLRISKRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车商业险满期出险率',
+  `BIFCSTLOSSRATE` decimal(22,8) DEFAULT NULL COMMENT '商业险核保人预估标费赔付率',
+  `HISBIDISCOUNT` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史商业险自主折扣率',
+  `BIDISCOUNT` decimal(22,8) DEFAULT '0.00000000' COMMENT '商业险自主折扣系数',
+  `HISBIHANDLINGFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史商业险手续费率',
+  `BIHANDLINGFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '商业险手续费率',
+  `TCIPREMIUMPCT` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标车险保费占比',
+  `HISTCIPREMIUMPCT` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史车险保费占比',
+  `HISCIPREMIUMPCT` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史交强险保费占比',
+  `CIPREMIUMPCT` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标交强险保费占比',
+  `HISCIEXPLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史交强险预期赔付率',
+  `FLEETHISCIFULLLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车队历史交强险满期赔付率',
+  `FLEETHISCIPREMIUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '车队历史交强险保费收入',
+  `HISCIPOLICYNUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '车队历史交强险保单件数',
+  `SGLCARHISCIFULLLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车历史交强险满期赔付率',
+  `CIAVGPREMIUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '交强险件均保费',
+  `CIAVGLOSS` decimal(22,8) DEFAULT '0.00000000' COMMENT '交强险综合案均赔款',
+  `CIFULLRISKRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '交强险满期出险率',
+  `CIFCSTLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '交强险核保人预估赔付率',
+  `HISCIHANDLINGRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史交强险手续费率',
+  `CIHANDLINGRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标交强险手续费率',
+  `MARKETPROMOTIONRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '营销推动费用率',
+  `SALESALARYRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '销售人力薪酬率',
+  `TCICLAIMEXPENSERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险理赔费用率',
+  `FIXEDFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '固定费用率',
+  `OTHERFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '其他费用率',
+  `TCIEXPLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险预估赔付率',
+  `TCIPLOLICYFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险保单费用率',
+  `TCIMARGINALCOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险边际成本率',
+  `TCICHANGECOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险变动成本率',
+  `TCIPLOLICYCOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标车险保单成本率',
+  `TCIPLOLICYLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险保单赔付率',
+  `INSSERVERRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险手续费率',
+  `FUTCIPLOLICYCOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '预测车险保单成本率',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `agrmotorcadeid` (`AGRMOTORCADEID`),
+  KEY `cartycd` (`CARTYCD`),
+  KEY `motorcareconfid` (`MOTORCARECONFID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3048 DEFAULT CHARSET=utf8 COMMENT='车队协议配费表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_motorcare_fcst`
+--
+
+DROP TABLE IF EXISTS `ps_motorcare_fcst`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_motorcare_fcst` (
+  `ID` int(16) NOT NULL,
+  `MOTORCADEFCSTID` varchar(20) NOT NULL COMMENT '车队协议预测结果编号',
+  `AGRMOTORCADEID` varchar(36) NOT NULL COMMENT '车队协议编号',
+  `FUBIPLOLICYCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险保单成本率',
+  `FUBICHANGECOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险变动成本率',
+  `FUBIMARGINALCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险边际成本率',
+  `FUBIPLOLICYLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险保单赔付率',
+  `FUBIDISCOUNT` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险自主折扣率',
+  `FUBIESTLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险预估赔付率',
+  `FUBIEXPLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险预期赔付率',
+  `FUBICLAIMEXPENSERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险理赔费用率',
+  `FUBIPLOLICYFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险保单费用率',
+  `FUBIHANDLINGFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险手续费率',
+  `FUBIMARKETPROMOTIONRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险营销推动费用率',
+  `FUBISALESALARYRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险销售人力薪酬率',
+  `FUBIFIXEDFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险固定费用率',
+  `FUBIOTHERFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险其他费用率',
+  `FUTCIPREMIUM` decimal(18,4) DEFAULT '0.0000' COMMENT '预测车险保费收入',
+  `FUTCIPLOLICYCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险保单成本率',
+  `FUTCICHANGECOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险变动成本率',
+  `FUTCIMARGINALCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险边际成本率',
+  `FUTCIPLOLICYLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险保单赔付率',
+  `FUTCIESTLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险预估赔付率',
+  `FUTCIEXPLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险预期赔付率',
+  `FUTCICLAIMEXPENSERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险理赔费用率',
+  `FUTCIPLOLICYFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险保单费用率',
+  `FUTCIHANDLINGFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险手续费率',
+  `FUTCIMARKETPROMOTIONRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险营销推动费用率',
+  `FUTCISALESALARYRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险销售人力薪酬率',
+  `FUTCIFIXEDFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险固定费用率',
+  `FUTCIOTHERFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险其他费用率',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `agrmotorcadeid` (`AGRMOTORCADEID`),
+  KEY `motorcadefcstid` (`MOTORCADEFCSTID`)
+) ENGINE=InnoDB AUTO_INCREMENT=418 DEFAULT CHARSET=utf8 COMMENT='车队协议经营结果预测表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_sglcar_bizunit`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_bizunit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_bizunit` (
+  `ID` int(16) NOT NULL,
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `VALIDSTATUS` char(2) DEFAULT NULL COMMENT '有效状态',
+  `CREATEID` varchar(20) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) DEFAULT NULL COMMENT '创建人姓名',
+  `UPDATEID` varchar(20) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) DEFAULT NULL COMMENT '更新人姓名',
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `BIZUNITNM` varchar(100) DEFAULT NULL COMMENT '业务单元名称',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `BIZUNITTY` char(18) DEFAULT NULL COMMENT '业务单元类型',
+  `SGLCARMAINID` varchar(36) DEFAULT NULL COMMENT '个车定价方案编号',
+  `COMMBIZUNITID` varchar(20) DEFAULT NULL COMMENT '通用业务单元编号',
+  `RECOMMENDBIZUNITNO` varchar(20) DEFAULT NULL COMMENT '智能推荐返回业务单元编号',
+  `RECOMDISCOUNT` decimal(24,8) DEFAULT NULL COMMENT '推荐自主折扣系数',
+  `RECOMHANDLING` decimal(24,8) DEFAULT NULL COMMENT '推荐手续费率',
+  `HISPOLICYNUM` decimal(24,8) DEFAULT NULL COMMENT '历史保单件数',
+  `HISPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '历史保费收入',
+  `HISPREMIUMPCT` decimal(24,8) DEFAULT NULL COMMENT '历史业务占比',
+  `EXPLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '预期标费赔付率',
+  `HISFULLLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '历史满期标费赔付率',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `BIZUNITID` (`BIZUNITID`) USING BTREE,
+  KEY `index_org` (`ORGCD2`,`SGLCARMAINID`,`CARTYCD`,`BIZUNITID`,`BIZUNITTY`)
+) ENGINE=InnoDB AUTO_INCREMENT=76112 DEFAULT CHARSET=utf8 COMMENT='个车定价方案业务单元表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_sglcar_bizunit_copy`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_bizunit_copy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_bizunit_copy` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `SGLCARMAINID` varchar(36) DEFAULT NULL COMMENT '个车定价方案编号',
+  `BIZUNITID_COPY` varchar(20) NOT NULL COMMENT '复用业务单元编号',
+  `CARTYCD_COPY` varchar(32) DEFAULT NULL COMMENT '复用车种代码',
+  `SGLCARMAINID_COPY` varchar(36) DEFAULT NULL COMMENT '复用个车定价方案编号',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `CREATEID` varchar(20) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) DEFAULT NULL COMMENT '创建人姓名',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `BIZUNITID` (`BIZUNITID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=10658 DEFAULT CHARSET=utf8 COMMENT='个车业务单元复用表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_sglcar_bizunit_factor_group`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_bizunit_factor_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_bizunit_factor_group` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `FACTORGROUPID` varchar(20) DEFAULT NULL COMMENT '因子分组编号',
+  `SGLCARMAINID` varchar(36) DEFAULT NULL COMMENT '个车定价方案编号',
+  `DEFAULTFLAG` char(2) DEFAULT NULL,
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `IDX_FACTORGROUPID` (`FACTORGROUPID`) USING BTREE,
+  KEY `IDX_SGLCARMAINID` (`SGLCARMAINID`) USING BTREE,
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `BIZUNITID` (`BIZUNITID`)
+) ENGINE=InnoDB AUTO_INCREMENT=191070 DEFAULT CHARSET=utf8 COMMENT='个车定价方案业务单元-因子分组关系表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_sglcar_bizunit_tmp`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_bizunit_tmp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_bizunit_tmp` (
+  `ID` int(16) NOT NULL,
+  `CARTYCD` varchar(2) COLLATE utf8_bin DEFAULT NULL,
+  `SGLCARMAINID` varchar(36) COLLATE utf8_bin NOT NULL COMMENT '个车定价方案编号',
+  `ORGCD` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '机构代码',
+  `PLANVERSIONNO` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '定价方案版本号',
+  `CHECKSTATUSCD` varchar(8) COLLATE utf8_bin DEFAULT NULL COMMENT '审批状态代码',
+  `PLANSTARTDATE` date DEFAULT NULL COMMENT '方案作用区间起始日期',
+  `PLANENDDATE` date DEFAULT NULL COMMENT '方案作用区间终止日期',
+  `ORGCD2` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '二级机构代码',
+  `COREBIZUNITNO` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '对接核心业务单元编号',
+  `BIZUNITID` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '业务单元编号',
+  `BIZUNITNM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '业务单元名称',
+  `ORGLEVEL` varchar(2) COLLATE utf8_bin DEFAULT NULL COMMENT '机构等级',
+  `sysdate` datetime DEFAULT NULL,
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `CHECKSTATUSCD` (`CHECKSTATUSCD`,`ORGCD2`),
+  KEY `COREBIZUNITNO` (`COREBIZUNITNO`),
+  KEY `COREBIZUNITNO_2` (`COREBIZUNITNO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='生效方案业务单元表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_sglcar_factor_group`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_factor_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_factor_group` (
+  `ID` int(16) NOT NULL,
+  `FACTORGROUPID` varchar(20) DEFAULT NULL COMMENT '因子分组编号',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `FACTORCD` varchar(32) DEFAULT NULL COMMENT '因子代码',
+  `FACTORGROUPNM` varchar(8000) DEFAULT NULL COMMENT '因子分组名称',
+  `FACTORGROUPCONTENT` longtext COMMENT '因子分组内容',
+  `PREMIUMPCT` decimal(10,6) DEFAULT NULL COMMENT '因子分组保费占比',
+  `FULLLOSSRATE` decimal(10,6) DEFAULT NULL COMMENT '因子分组历史满期标费赔付率',
+  `EXPLOSSRATE` decimal(10,6) DEFAULT NULL COMMENT '因子分组预期标费赔付率',
+  `CREATEID` varchar(20) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) DEFAULT NULL COMMENT '创建人姓名',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATEID` varchar(20) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) DEFAULT NULL COMMENT '更新人姓名',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `FACTORENUMFLAG` char(1) DEFAULT NULL COMMENT '因子枚举标志',
+  `FACTORGROUPTY` char(2) DEFAULT NULL COMMENT '因子分组类型',
+  `SGLCARMAINID` varchar(36) DEFAULT NULL COMMENT '个车定价方案编号',
+  `SELECTEDFLAGFACTOR` char(2) DEFAULT NULL COMMENT '是否选中因子',
+  `SGLCARINTELRECOMMENDID` char(30) DEFAULT NULL COMMENT '智能推荐编号',
+  `PREMIUMINCOME` decimal(10,6) DEFAULT NULL COMMENT '因子分组保费收入',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ORDERNUMBER` int(16) DEFAULT NULL COMMENT '排序字段',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `index_org` (`ORGCD2`,`SGLCARMAINID`,`FACTORCD`,`CARTYCD`,`FACTORGROUPTY`),
+  KEY `index_FACTORCD` (`FACTORCD`),
+  KEY `index_factorgroupid` (`FACTORGROUPID`)
+) ENGINE=InnoDB AUTO_INCREMENT=229006 DEFAULT CHARSET=utf8 COMMENT='个车定价方案因子分组表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_sglcar_fcst_flow`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_fcst_flow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_fcst_flow` (
+  `ID` int(16) NOT NULL,
+  `sysdate` datetime DEFAULT NULL,
+  `PRSTRESULTID` varchar(36) DEFAULT NULL COMMENT '定价方案结果编号',
+  `SGLCARMAINID` varchar(36) DEFAULT NULL COMMENT '个车定价方案编号',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `BIDISCOUNT` decimal(20,4) DEFAULT NULL COMMENT '目标商业险自主折扣率',
+  `BIFCSTLOSSRATE` decimal(20,4) DEFAULT NULL COMMENT '商业险核保人预估标费赔付率',
+  `EXPBINCDLOSS` decimal(20,4) DEFAULT NULL COMMENT '商业险预期标费赔付率（含NCD）',
+  `HISBIFULLLOSSRATE` decimal(20,4) DEFAULT NULL COMMENT '历史商业险满期标费赔付率',
+  `TCIPREMIUMPCT` decimal(20,4) DEFAULT NULL COMMENT '目标车险保费占比',
+  `CIPREMIUMPCT` decimal(20,4) DEFAULT NULL COMMENT '目标交强险保费占比',
+  `HISCIEXPLOSSRATE` decimal(20,4) DEFAULT NULL COMMENT '历史交强险预期赔付率',
+  `CIHANDLINGRATE` decimal(20,4) DEFAULT NULL COMMENT '目标交强险手续费率',
+  `CLAIMEXPENSERATE` decimal(20,4) DEFAULT NULL COMMENT '目标理赔费用率',
+  `SALESALARYRATE` decimal(20,4) DEFAULT NULL COMMENT '目标销售人力薪酬率',
+  `MARKETPROMOTIONRATE` decimal(20,4) DEFAULT NULL COMMENT '目标营销推动费用率',
+  `FIXEDFEERATE` decimal(20,4) DEFAULT NULL COMMENT '目标固定费用率',
+  `OTHERFEERATE` decimal(20,4) DEFAULT NULL COMMENT '目标其他费用率',
+  `FUBIPLOLICYCOSTRATE` decimal(20,4) DEFAULT NULL COMMENT '预测商业险保单成本率',
+  `FUBIESTLOSSRATE` decimal(20,4) DEFAULT NULL COMMENT '预测商业险预估赔付率',
+  `FUBIEXPLOSSRATE` decimal(20,4) DEFAULT NULL COMMENT '预测商业险预期赔付率',
+  `FUBIPLOLICYFEERATE` decimal(20,4) DEFAULT NULL COMMENT '预测商业险保单费用率',
+  `FUBIHANDLINGFEERATE` decimal(20,4) DEFAULT NULL COMMENT '预测商业险手续费率',
+  `FUTCIPLOLICYCOSTRATE` decimal(20,4) DEFAULT NULL COMMENT '预测车险保单成本率',
+  `FUTCIESTLOSSRATE` decimal(20,4) DEFAULT NULL COMMENT '预测车险预估赔付率',
+  `FUTCIEXPLOSSRATE` decimal(20,4) DEFAULT NULL COMMENT '预测车险预期赔付率',
+  `FUTCIPLOLICYFEERATE` decimal(20,4) DEFAULT NULL COMMENT '预测车险保单费用率',
+  `FUTCIHANDLINGFEERATE` decimal(20,4) DEFAULT NULL COMMENT '预测车险手续费率',
+  `FUBIPLOLICYLOSSRATE` decimal(20,4) DEFAULT NULL COMMENT '预测商业险保单赔付率',
+  `FUTCIPLOLICYLOSSRATE` decimal(20,4) DEFAULT NULL COMMENT '预测车险保单赔付率',
+  `HISCIFULLLOSSRATE` decimal(20,4) DEFAULT NULL COMMENT '历史交强险满期赔付率',
+  `ORGCD` varchar(20) DEFAULT NULL COMMENT '机构代码',
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `BIZUNITTY` char(18) DEFAULT NULL COMMENT '业务单元类型',
+  `BACKSTARTTIME` date DEFAULT NULL COMMENT '回溯开始时间',
+  `BACKENDTIME` date DEFAULT NULL COMMENT '回溯结束时间',
+  `ACTEFFECTSTARTDATE` datetime DEFAULT NULL COMMENT '实际生效开始时间',
+  `ACTEFFECTENDDATE` datetime DEFAULT NULL COMMENT '实际生效结束时间',
+  `orgcd2` varchar(20) DEFAULT NULL,
+  `CIFCSTLOSSRATE` decimal(20,4) DEFAULT NULL COMMENT '交强险核保人预估标费赔付率',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `ORGCD` (`ORGCD`),
+  KEY `orgcd2` (`orgcd2`),
+  KEY `CARTYCD` (`CARTYCD`),
+  KEY `ACTEFFECTSTARTDATE` (`ACTEFFECTSTARTDATE`),
+  KEY `ACTEFFECTENDDATE` (`ACTEFFECTENDDATE`)
+) ENGINE=InnoDB AUTO_INCREMENT=476 DEFAULT CHARSET=utf8 COMMENT='个车回溯预测表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_sglcar_result`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_result`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_result` (
+  `ID` int(16) NOT NULL,
+  `PRSTRESULTID` varchar(36) DEFAULT NULL COMMENT '定价方案结果编号',
+  `SGLCARMAINID` varchar(36) DEFAULT NULL COMMENT '个车定价方案编号',
+  `SGLCARINTELRECOMMENDID` varchar(36) DEFAULT NULL COMMENT '智能推荐编号',
+  `COREBIZUNITNO` varchar(32) DEFAULT NULL COMMENT '对接核心业务单元编号',
+  `ORGCD` varchar(20) DEFAULT NULL COMMENT '机构代码',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `COMMBIZUNITID` varchar(20) DEFAULT NULL COMMENT '通用业务单元编号',
+  `RECOMMENDBIZUNITNO` varchar(20) DEFAULT NULL COMMENT '智能推荐返回业务单元编号',
+  `BIZUNITTY` char(8) DEFAULT NULL COMMENT '业务单元类型',
+  `RECOMDISCOUNT` decimal(24,8) DEFAULT NULL COMMENT '推荐商业险自主折扣系数',
+  `RECOMHANDLING` decimal(24,8) DEFAULT NULL COMMENT '推荐车险手续费率',
+  `PSMODELCD` char(2) DEFAULT NULL COMMENT '定价方案模式代码',
+  `TCIPLOLICYCOSTRATE` decimal(24,8) DEFAULT NULL COMMENT '目标车险保单成本率',
+  `BIDISCOUNT` decimal(24,8) DEFAULT NULL COMMENT '目标商业险自主折扣率',
+  `BIHANDLINGFEERATE` decimal(24,8) DEFAULT NULL COMMENT '目标商业险手续费率',
+  `BIFCSTLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '商业险核保人预估标费赔付率',
+  `EXPBINCDLOSS` decimal(24,8) DEFAULT NULL COMMENT '商业险预期标费赔付率（含NCD）',
+  `HISBIFULLLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '历史商业险满期标费赔付率',
+  `HISTCIPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '历史车险保费收入',
+  `HISTCIPREMIUMPCT` decimal(24,8) DEFAULT NULL COMMENT '历史车险保费占比',
+  `TCIPREMIUMPCT` decimal(24,8) DEFAULT NULL COMMENT '目标车险保费占比',
+  `HISCIPREMIUMPCT` decimal(24,8) DEFAULT NULL COMMENT '历史交强险保费占比',
+  `CIPREMIUMPCT` decimal(24,8) DEFAULT NULL COMMENT '目标交强险保费占比',
+  `HISCIEXPLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '历史交强险预期赔付率',
+  `CIFCSTLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '交强险核保人预估赔付率',
+  `HISCIHANDLINGRATE` decimal(24,8) DEFAULT NULL COMMENT '历史交强险手续费率',
+  `CIHANDLINGRATE` decimal(24,8) DEFAULT NULL COMMENT '目标交强险手续费率',
+  `CLAIMEXPENSERATE` decimal(24,8) DEFAULT NULL COMMENT '目标理赔费用率',
+  `SALESALARYRATE` decimal(24,8) DEFAULT NULL COMMENT '目标销售人力薪酬率',
+  `MARKETPROMOTIONRATE` decimal(24,8) DEFAULT NULL COMMENT '目标营销推动费用率',
+  `FIXEDFEERATE` decimal(24,8) DEFAULT NULL COMMENT '目标固定费用率',
+  `OTHERFEERATE` decimal(24,8) DEFAULT NULL COMMENT '目标其他费用率',
+  `FUBIPLOLICYCOSTRATE` decimal(24,8) DEFAULT NULL COMMENT '预测商业险保单成本率',
+  `FUBIESTLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '预测商业险预估赔付率',
+  `FUBIEXPLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '预测商业险预期赔付率',
+  `FUBICLAIMEXPENSERATE` decimal(24,8) DEFAULT NULL COMMENT '预测商业险理赔费用率',
+  `FUBIPLOLICYFEERATE` decimal(24,8) DEFAULT NULL COMMENT '预测商业险保单费用率',
+  `FUBIHANDLINGFEERATE` decimal(24,8) DEFAULT NULL COMMENT '预测商业险手续费率',
+  `FUBISALESALARYRATE` decimal(24,8) DEFAULT NULL COMMENT '预测商业险销售人力薪酬率',
+  `FUBIMARKETPROMOTIONRATE` decimal(24,8) DEFAULT NULL COMMENT '预测商业险营销推动费用率',
+  `FUBIFIXEDFEERATE` decimal(24,8) DEFAULT NULL COMMENT '预测商业险固定费用率',
+  `FUBIOTHERFEERATE` decimal(24,8) DEFAULT NULL COMMENT '预测商业险其他费用率',
+  `FUTCIPLOLICYCOSTRATE` decimal(24,8) DEFAULT NULL COMMENT '预测车险保单成本率',
+  `FUTCIESTLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '预测车险预估赔付率',
+  `FUTCIEXPLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '预测车险预期赔付率',
+  `FUTCICLAIMEXPENSERATE` decimal(24,8) DEFAULT NULL COMMENT '预测车险理赔费用率',
+  `FUTCIPLOLICYFEERATE` decimal(24,8) DEFAULT NULL COMMENT '预测车险保单费用率',
+  `FUTCIHANDLINGFEERATE` decimal(24,8) DEFAULT NULL COMMENT '预测车险手续费率',
+  `FUTCISALESALARYRATE` decimal(24,8) DEFAULT NULL COMMENT '预测车险销售人力薪酬率',
+  `FUTCIMARKETPROMOTIONRATE` decimal(24,8) DEFAULT NULL COMMENT '预测车险营销推动费用率',
+  `FUTCIFIXEDFEERATE` decimal(24,8) DEFAULT NULL COMMENT '预测车险固定费用率',
+  `FUTCIOTHERFEERATE` decimal(24,8) DEFAULT NULL COMMENT '预测车险其他费用率',
+  `BIPLOLICYCOSTRATE` decimal(24,8) DEFAULT NULL COMMENT '目标商业险保单成本率',
+  `HISBIPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '历史商业险保费收入',
+  `HISBIPREMIUMPCT` decimal(24,8) DEFAULT NULL COMMENT '历史商业险保费占比',
+  `BIPREMIUMPCT` decimal(24,8) DEFAULT NULL COMMENT '目标商业险保费占比',
+  `FUBIPLOLICYLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '预测商业险保单赔付率',
+  `FUTCIPLOLICYLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '预测车险保单赔付率',
+  `BIAVGPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '商业险件均标准保费',
+  `BIAVGLOSS` decimal(24,8) DEFAULT NULL COMMENT '商业险综合案均赔款',
+  `BIFULLRISKRATE` decimal(24,8) DEFAULT NULL COMMENT '商业险满期出险率',
+  `CIAVGPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '交强险件均保费',
+  `CIAVGLOSS` decimal(24,8) DEFAULT NULL COMMENT '交强险综合案均赔款',
+  `CIFULLRISKRATE` decimal(24,8) DEFAULT NULL COMMENT '交强险满期出险率',
+  `HISCIFULLLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '历史交强险满期赔付率',
+  `HISBISTANDPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '历史商业险标准保费	',
+  `HISBIFULLSTANDPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '历史商业险满期标准保费',
+  `HISBIPOLICYNUM` decimal(24,8) DEFAULT NULL COMMENT '历史商业险保单件数	',
+  `HISBIHAPPENNUMBER` decimal(24,8) DEFAULT NULL COMMENT '历史商业险已决数量	',
+  `HISBINOHAPPENNUMBER` decimal(24,8) DEFAULT NULL COMMENT '历史商业险未决数量	',
+  `HISBIFULLPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '历史商业险满期保费',
+  `HISCIHAPPENNUMBER` decimal(24,8) DEFAULT NULL COMMENT '历史交强险已决数量	',
+  `HISCINOHAPPENNUMBER` decimal(24,8) DEFAULT NULL COMMENT '历史交强险未决数量	',
+  `HISCIPOLICYNUM` decimal(24,8) DEFAULT NULL COMMENT '历史交强险保单件数',
+  `HISCIFULLPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '历史交强险满期保费',
+  `BIZTERMSQL` longtext CHARACTER SET utf8mb4 COMMENT '业务单元结构sql',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ADJUSTMENTCOEFFICIENT` decimal(24,8) DEFAULT '1.00000000' COMMENT '调整系数，默认值为1',
+  `BIDISCOUNTUP` decimal(24,8) DEFAULT NULL COMMENT '目标商业险自主折扣率上限',
+  `BIDISCOUNTDOWN` decimal(24,8) DEFAULT NULL COMMENT '目标商业险自主折扣率下限',
+  `BIHANDLINGFEERATEUP` decimal(24,8) DEFAULT NULL COMMENT '目标商业险手续费率上限',
+  `BIHANDLINGFEERATEDOWN` decimal(24,8) DEFAULT NULL COMMENT '目标商业险手续费率下限',
+  `HISBIFULLDISCOUNT` double(24,8) DEFAULT NULL COMMENT '历史商业险自主折扣率',
+  `HISBIFULLFEERATE` double(24,8) DEFAULT NULL COMMENT '历史商业险手续费率',
+  `HISCIPOLICYPREMIUM` double(24,8) DEFAULT NULL COMMENT '历史交强险保费收入',
+  `CICLAIMEXPENSERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险理赔费用率',
+  `CISALESALARYRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险销售人力薪酬率(%)',
+  `CIMARKETPROMOTIONRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险营销推动费用率(%)',
+  `CIFIXEDFEERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险固定费用率(%)',
+  `CIOTHERFEERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险其他费用率(%)',
+  `CIPLOLICYCOSTRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险保单成本率(%)',
+  `CIPLOLICYLOSSRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险保单赔付率(%)',
+  `CIFUBIESTLOSSRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险预估赔付率(%)',
+  `CIBIEXPLOSSRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险预期赔付率(%)',
+  `CITCICLAIMEXPENSERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险理赔费用率(%)',
+  `CITCIPLOLICYFEERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险保单费用率(%)',
+  `CIAPROCEDURESRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险手续费率平均值(%)',
+  `CITCISALESALARYRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险销售人力薪酬率(%)',
+  `CIMDRIVEEXPENSERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险营销推动费用率(%)',
+  `CITCIFIXEDFEERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险固定费用率(%)',
+  `CITCIOTHERFEERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险其他费用率(%)',
+  `SIMULATIONCALCULATIONFLAG` varchar(2) DEFAULT '0' COMMENT '模拟测算标志（0 未计算，1已完成计算）',
+  `CALCULATEHISTORICALFLAG` varchar(2) DEFAULT '0' COMMENT '计算历史数据标志（0 未计算，1已完成计算）',
+  `HISCISPEXRNTIRATE` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 标准保费-不含税*NCD*交通违法系数*自主定价系数',
+  `HISCISPEXTNTVRATE` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 标准保费-不含税*NCD*交通违法系数*满期比例',
+  `HISCISPEXRNTRATE` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 标准保费-不含税*NCD*交通违法系数',
+  `HISCISPETPDRATE` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 标准保费-不含税*满期比例',
+  `HISCISPETRATE` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 标准保费-不含税',
+  `HISCICOMMISSIONCHARGES` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 手续费',
+  `HISCIREPARATIONS` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 赔款',
+  `HISCIREPARATIONSAMOUNT` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 赔款数量',
+  `HISCIPURERISKPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 纯风险保费',
+  `HISCOICOMMISSIONCHARGES` decimal(24,8) DEFAULT NULL COMMENT '历史交强险 手续费',
+  `HISCOIPOM` decimal(24,8) DEFAULT NULL COMMENT '历史交强险 保费收入*满期比例',
+  `HISCOIREPARATIONS` decimal(24,8) DEFAULT NULL COMMENT '历史交强险 赔款',
+  `HISCOIREPARATIONSAMOUNT` decimal(24,8) DEFAULT NULL COMMENT '历史交强险 赔款数量',
+  `HISCOIPURERISKPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '历史交强险 纯风险保费',
+  `CISIMULATIONOFTHEPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '商业险 模拟保费',
+  `CARISIMULATIONOFTHEPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '车险 模拟保费',
+  `PROCESSSTATUS` int(2) DEFAULT '0' COMMENT '流程状态：初始状态0 业务单元模拟测算1 车种结构测算2（执行过可跳过） 车种结果预测3',
+  `MAXPROCESSSTATUS` int(2) DEFAULT '0' COMMENT '最大流程状态：初始状态0 业务单元模拟测算1 车种结构测算2（执行过可跳过） 车种结果预测3',
+  `EXECUTIONOPTIONS` varchar(2) DEFAULT '0' COMMENT '业务单元模拟测算执行逻辑：0 全逻辑 商业险、交强险、车险预测全计算 ; 1交强车险 交强险、车险预测计算（用计算过的指标进行计算，不再次查询宽表数据）',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `IDX_ORGCD` (`ORGCD`) USING BTREE,
+  KEY `PRSTRESULTID` (`PRSTRESULTID`) USING BTREE,
+  KEY `BIZUNITID` (`BIZUNITID`),
+  KEY `IDX_SGLCARMAINID_group` (`SGLCARMAINID`,`CARTYCD`,`ORGCD2`,`BIZUNITID`)
+) ENGINE=InnoDB AUTO_INCREMENT=28412 DEFAULT CHARSET=utf8 COMMENT='个车定价方案编制结果表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_sglcar_step_data`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_step_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_step_data` (
+  `ID` int(16) NOT NULL,
+  `SGLCARMAINID` varchar(36) DEFAULT NULL,
+  `CARTYCD` varchar(32) DEFAULT NULL,
+  `STEP` varchar(50) DEFAULT NULL,
+  `DATASTATUS` int(1) DEFAULT NULL,
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `SGLCARMAINID` (`SGLCARMAINID`,`CARTYCD`,`STEP`,`DATASTATUS`)
+) ENGINE=InnoDB AUTO_INCREMENT=17180 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_agent_agr_factor_group`
+--
+
+DROP TABLE IF EXISTS `ps_agent_agr_factor_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_agr_factor_group` (
+  `ID` int(16) NOT NULL,
+  `FACTORGROUPID` varchar(20) NOT NULL COMMENT '因子分组编号',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `FACTORCD` varchar(32) DEFAULT NULL COMMENT '因子代码',
+  `FACTORGROUPNM` varchar(100) DEFAULT NULL COMMENT '因子分组名称',
+  `FACTORGROUPCONTENT` longtext COMMENT '因子分组内容',
+  `PREMIUMPCT` decimal(10,6) DEFAULT NULL COMMENT '因子分组保费占比',
+  `FULLLOSSRATE` decimal(10,6) DEFAULT NULL COMMENT '因子分组历史满期标费赔付率',
+  `EXPLOSSRATE` decimal(10,6) DEFAULT NULL COMMENT '因子分组预期标费赔付率',
+  `CREATEID` varchar(20) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) DEFAULT NULL COMMENT '创建人姓名',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATEID` varchar(20) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) DEFAULT NULL COMMENT '更新人姓名',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `FACTORENUMFLAG` char(1) DEFAULT NULL COMMENT '因子枚举标志',
+  `FACTORGROUPTY` char(2) NOT NULL COMMENT '因子分组类型',
+  `SELECTEDFLAGFACTOR` char(2) DEFAULT NULL COMMENT '是否选中因子',
+  `SGLCARINTELRECOMMENDID` char(18) DEFAULT NULL COMMENT '智能推荐编号',
+  `PREMIUMINCOME` decimal(10,6) DEFAULT NULL COMMENT '因子分组保费收入',
+  `AGRAGENTID` varchar(36) NOT NULL COMMENT '代理协议编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `AGRAGENTID` (`AGRAGENTID`,`FACTORGROUPID`,`FACTORGROUPTY`),
+  KEY `index_factorgroupid` (`FACTORGROUPID`),
+  KEY `index_factorcd` (`FACTORCD`)
+) ENGINE=InnoDB AUTO_INCREMENT=3570 DEFAULT CHARSET=utf8 COMMENT='代理协议因子分组表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_agent_agr_factor_group_his`
+--
+
+DROP TABLE IF EXISTS `ps_agent_agr_factor_group_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_agr_factor_group_his` (
+  `ID` int(16) NOT NULL,
+  `FACTORGROUPID` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '因子分组编号',
+  `CARTYCD` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '车种代码',
+  `FACTORCD` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '因子代码',
+  `FACTORGROUPNM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '因子分组名称',
+  `FACTORGROUPCONTENT` longtext COLLATE utf8_bin COMMENT '因子分组内容',
+  `PREMIUMPCT` decimal(10,6) DEFAULT NULL COMMENT '因子分组保费占比',
+  `FULLLOSSRATE` decimal(10,6) DEFAULT NULL COMMENT '因子分组历史满期标费赔付率',
+  `EXPLOSSRATE` decimal(10,6) DEFAULT NULL COMMENT '因子分组预期标费赔付率',
+  `CREATEID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '创建人姓名',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATEID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '更新人姓名',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `FACTORENUMFLAG` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '因子枚举标志',
+  `FACTORGROUPTY` char(2) COLLATE utf8_bin NOT NULL COMMENT '因子分组类型',
+  `SELECTEDFLAGFACTOR` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '是否选中因子',
+  `SGLCARINTELRECOMMENDID` char(18) COLLATE utf8_bin DEFAULT NULL COMMENT '智能推荐编号',
+  `PREMIUMINCOME` decimal(10,6) DEFAULT NULL COMMENT '因子分组保费收入',
+  `AGRAGENTID` varchar(36) COLLATE utf8_bin NOT NULL COMMENT '代理协议编号',
+  `AGENTVERSION` varchar(32) COLLATE utf8_bin NOT NULL COMMENT '代理协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ORGCD2` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `FACTORGROUPID` (`FACTORGROUPID`,`FACTORGROUPTY`,`AGRAGENTID`,`AGENTVERSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='代理协议因子分组历史表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_agent_bizunit`
+--
+
+DROP TABLE IF EXISTS `ps_agent_bizunit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_bizunit` (
+  `ID` int(16) NOT NULL,
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `VALIDSTATUS` char(2) DEFAULT NULL COMMENT '有效状态',
+  `CREATEID` varchar(20) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) DEFAULT NULL COMMENT '创建人姓名',
+  `UPDATEID` varchar(20) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) DEFAULT NULL COMMENT '更新人姓名',
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `BIZUNITNM` char(18) DEFAULT NULL COMMENT '业务单元名称',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `BIZUNITTY` char(18) DEFAULT NULL COMMENT '业务单元类型',
+  `COMMBIZUNITID` char(18) DEFAULT NULL COMMENT '通用业务单元编号',
+  `AGRAGENTID` varchar(36) DEFAULT NULL COMMENT '代理协议编号',
+  `COREBIZUNITNO` varchar(20) DEFAULT NULL COMMENT '对接核心业务单元编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `BIZUNITID` (`BIZUNITID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=766 DEFAULT CHARSET=utf8 COMMENT='代理协议业务单元表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_agent_bizunit_factor_group`
+--
+
+DROP TABLE IF EXISTS `ps_agent_bizunit_factor_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_bizunit_factor_group` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `FACTORGROUPID` varchar(20) DEFAULT NULL COMMENT '因子分组编号',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `DEFAULTFLAG` char(2) DEFAULT NULL COMMENT '缺省标志',
+  `AGRAGENTID` varchar(36) DEFAULT NULL COMMENT '代理协议编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `index_factorgroupid` (`FACTORGROUPID`),
+  KEY `index_BIZUNITID` (`BIZUNITID`,`FACTORGROUPID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2662 DEFAULT CHARSET=utf8 COMMENT='代理协议业务单元-因子分组关系表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_agent_bizunit_factor_group_his`
+--
+
+DROP TABLE IF EXISTS `ps_agent_bizunit_factor_group_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_bizunit_factor_group_his` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '业务单元编号',
+  `FACTORGROUPID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '因子分组编号',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `DEFAULTFLAG` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '缺省标志',
+  `AGRAGENTID` varchar(36) COLLATE utf8_bin DEFAULT NULL COMMENT '代理协议编号',
+  `AGENTVERSION` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '代理协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ORGCD2` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `BIZUNITID` (`BIZUNITID`,`FACTORGROUPID`,`AGENTVERSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=496 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='代理协议业务单元-因子分组关系历史表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_agent_bizunit_his`
+--
+
+DROP TABLE IF EXISTS `ps_agent_bizunit_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_bizunit_his` (
+  `ID` int(16) NOT NULL,
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `VALIDSTATUS` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '有效状态',
+  `CREATEID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '创建人姓名',
+  `UPDATEID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '更新人姓名',
+  `BIZUNITID` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '业务单元编号',
+  `BIZUNITNM` char(18) COLLATE utf8_bin DEFAULT NULL COMMENT '业务单元名称',
+  `CARTYCD` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '车种代码',
+  `BIZUNITTY` char(18) COLLATE utf8_bin DEFAULT NULL COMMENT '业务单元类型',
+  `COMMBIZUNITID` char(18) COLLATE utf8_bin DEFAULT NULL COMMENT '通用业务单元编号',
+  `AGRAGENTID` varchar(36) COLLATE utf8_bin DEFAULT NULL COMMENT '代理协议编号',
+  `COREBIZUNITNO` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '对接核心业务单元编号',
+  `AGENTVERSION` varchar(32) COLLATE utf8_bin NOT NULL COMMENT '代理协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ORGCD2` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `BIZUNITID` (`BIZUNITID`,`AGENTVERSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='代理协议业务单元历史表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_agent_bizunit_track`
+--
+
+DROP TABLE IF EXISTS `ps_agent_bizunit_track`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_bizunit_track` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `DETAILBIZUNITID` varchar(20) DEFAULT NULL COMMENT '明细业务单元编号',
+  `AGRAGENTID` varchar(36) DEFAULT NULL COMMENT '车队协议编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`)
+) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8 COMMENT='代理协议业务单元轨迹表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_agent_conf_fee`
+--
+
+DROP TABLE IF EXISTS `ps_agent_conf_fee`;
+CREATE TABLE `ps_agent_conf_fee` (
+  `ID` int(16) NOT NULL,
+  `AGENTCONFID` varchar(36) NOT NULL COMMENT '代理协议配费编号',
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `AGRAGENTID` varchar(36) NOT NULL COMMENT '代理协议编号',
+  `COMMBIZUNITID` varchar(20) DEFAULT NULL COMMENT '通用业务单元编号',
+  `COREBIZUNITNO` varchar(32) DEFAULT NULL COMMENT '对接核心业务单元编号',
+  `PSMODELCD` char(2) DEFAULT NULL COMMENT '定价方案模式代码',
+  `EXPBINCDLOSS` decimal(22,8) DEFAULT '0.00000000' COMMENT '商业险预期标费赔付率（含NCD）',
+  `AGENTHISBIFULLLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '代理历史商业险满期标费赔付率',
+  `AGENTHISBIPREMIUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '代理历史商业险保费收入',
+  `AGENTHISBIPOLICYNUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '代理历史商业险保单件数',
+  `SGLCARHISBIFULLLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车历史商业险满期标费赔付率',
+  `SGLCARBIAVGPREMIUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车商业险件均标准保费',
+  `SGLCARBIAVGLOSS` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车商业险综合案均赔款',
+  `SGLCARBIFULLRISKRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车商业险满期出险率',
+  `BIFCSTLOSSRATE` decimal(22,8) DEFAULT NULL COMMENT '商业险核保人预估标费赔付率',
+  `HISBIDISCOUNT` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史商业险自主折扣率',
+  `BIDISCOUNT` decimal(22,8) DEFAULT '0.00000000' COMMENT '商业险自主折扣系数',
+  `HISBIHANDLINGFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史商业险手续费率',
+  `BIHANDLINGFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '商业险手续费率',
+  `HISTCIPREMIUMPCT` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史车险保费占比',
+  `TCIPREMIUMPCT` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标车险保费占比',
+  `HISCIPREMIUMPCT` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史交强险保费占比',
+  `CIPREMIUMPCT` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标交强险保费占比',
+  `HISCIEXPLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史交强险预期赔付率',
+  `AGENTHISCIFULLLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '代理历史交强险满期赔付率',
+  `AGENTHISCIPREMIUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '代理历史交强险保费收入',
+  `AGENTHISCIPOLICYNUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '代理历史交强险保单件数',
+  `SGLCARHISCIFULLLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车历史交强险满期赔付率',
+  `CIAVGPREMIUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '交强险件均保费',
+  `CIAVGLOSS` decimal(22,8) DEFAULT '0.00000000' COMMENT '交强险综合案均赔款',
+  `CIFULLRISKRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '交强险满期出险率',
+  `CIFCSTLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '交强险核保人预估赔付率',
+  `HISCIHANDLINGRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史交强险手续费率',
+  `CIHANDLINGRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标交强险手续费率',
+  `MARKETPROMOTIONRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '营销推动费用率',
+  `SALESALARYRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '销售人力薪酬率',
+  `TCICLAIMEXPENSERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险理赔费用率',
+  `FIXEDFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '固定费用率',
+  `OTHERFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '其他费用率',
+  `TCIEXPLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险预估赔付率',
+  `TCIPLOLICYFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险保单费用率',
+  `TCIMARGINALCOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险边际成本率',
+  `TCICHANGECOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险变动成本率',
+  `TCIPLOLICYCOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标车险保单成本率',
+  `TCIPLOLICYLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险保单赔付率',
+  `INSSERVERRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险手续费率',
+  `FUTCIPLOLICYCOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '预测车险保单成本率',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ADJUSTMENTCOEFFICIENT` decimal(24,8) DEFAULT '1.00000000' COMMENT '调整系数，默认值为1',
+  `BIDISCOUNTUP` decimal(24,8) DEFAULT NULL COMMENT '目标商业险自主折扣率上限',
+  `BIDISCOUNTDOWN` decimal(24,8) DEFAULT NULL COMMENT '目标商业险自主折扣率下限',
+  `BIHANDLINGFEERATEUP` decimal(24,8) DEFAULT NULL COMMENT '目标商业险手续费率上限',
+  `BIHANDLINGFEERATEDOWN` decimal(24,8) DEFAULT NULL COMMENT '目标商业险手续费率下限',
+  `HISBIFULLDISCOUNT` double(24,8) DEFAULT NULL COMMENT '历史商业险自主折扣率',
+  `HISBIFULLFEERATE` double(24,8) DEFAULT NULL COMMENT '历史商业险手续费率',
+  `HISCIPOLICYPREMIUM` double(24,8) DEFAULT NULL COMMENT '历史交强险保费收入',
+  `CICLAIMEXPENSERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险理赔费用率',
+  `CISALESALARYRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险销售人力薪酬率(%)',
+  `CIMARKETPROMOTIONRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险营销推动费用率(%)',
+  `CIFIXEDFEERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险固定费用率(%)',
+  `CIOTHERFEERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险其他费用率(%)',
+  `CIPLOLICYCOSTRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险保单成本率(%)',
+  `CIPLOLICYLOSSRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险保单赔付率(%)',
+  `CIFUBIESTLOSSRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险预估赔付率(%)',
+  `CIBIEXPLOSSRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险预期赔付率(%)',
+  `CITCICLAIMEXPENSERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险理赔费用率(%)',
+  `CITCIPLOLICYFEERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险保单费用率(%)',
+  `CIAPROCEDURESRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险手续费率平均值(%)',
+  `CITCISALESALARYRATE` double(24,8) DEFAULT NULL COMMENT '目标交强险销售人力薪酬率(%)',
+  `CIMDRIVEEXPENSERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险营销推动费用率(%)',
+  `CITCIFIXEDFEERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险固定费用率(%)',
+  `CITCIOTHERFEERATE` double(24,8) DEFAULT NULL COMMENT '目标交强险其他费用率(%)',
+  `SIMULATIONCALCULATIONFLAG` varchar(2) DEFAULT '0' COMMENT '模拟测算标志（0 未计算，1已完成计算）',
+  `CALCULATEHISTORICALFLAG` varchar(2) DEFAULT '0' COMMENT '计算历史数据标志（0 未计算，1已完成计算）',
+  `HISCISPEXRNTIRATE` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 标准保费-不含税*NCD*交通违法系数*自主定价系数',
+  `HISCISPEXTNTVRATE` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 标准保费-不含税*NCD*交通违法系数*满期比例',
+  `HISCISPEXRNTRATE` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 标准保费-不含税*NCD*交通违法系数',
+  `HISCISPETPDRATE` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 标准保费-不含税*满期比例',
+  `HISCISPETRATE` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 标准保费-不含税',
+  `HISCICOMMISSIONCHARGES` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 手续费',
+  `HISCIREPARATIONS` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 赔款',
+  `HISCIREPARATIONSAMOUNT` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 赔款数量',
+  `HISCIPURERISKPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '历史商业险 纯风险保费',
+  `HISCOICOMMISSIONCHARGES` decimal(24,8) DEFAULT NULL COMMENT '历史交强险 手续费',
+  `HISCOIPOM` decimal(24,8) DEFAULT NULL COMMENT '历史交强险 保费收入*满期比例',
+  `HISCOIREPARATIONS` decimal(24,8) DEFAULT NULL COMMENT '历史交强险 赔款',
+  `HISCOIREPARATIONSAMOUNT` decimal(24,8) DEFAULT NULL COMMENT '历史交强险 赔款数量',
+  `HISCOIPURERISKPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '历史交强险 纯风险保费',
+  `CISIMULATIONOFTHEPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '商业险 模拟保费',
+  `CARISIMULATIONOFTHEPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '车险 模拟保费',
+  `PROCESSSTATUS` int(2) DEFAULT '0' COMMENT '流程状态：初始状态0 业务单元模拟测算1 车种结构测算2（执行过可跳过） 车种结果预测3',
+  `MAXPROCESSSTATUS` int(2) DEFAULT '0' COMMENT '最大流程状态：初始状态0 业务单元模拟测算1 车种结构测算2（执行过可跳过） 车种结果预测3',
+  `EXECUTIONOPTIONS` varchar(2) DEFAULT '0' COMMENT '业务单元模拟测算执行逻辑：0 全逻辑 商业险、交强险、车险预测全计算 ; 1交强车险 交强险、车险预测计算（用计算过的指标进行计算，不再次查询宽表数据）',
+  `PREMIUM` decimal(24,8) DEFAULT NULL COMMENT '保费，按车种',
+  `BIZUNITTY` char(8) DEFAULT NULL COMMENT '业务单元类型',
+  `biplolicycostrate` double(24,8) DEFAULT NULL COMMENT '目标商业险成本率(%)',
+  `claimexpenserate` double(24,8) DEFAULT NULL COMMENT '商业险理赔费用率(%)',
+  `fubiplolicycostrate` double(24,8) DEFAULT NULL COMMENT '保单成本率(%)',
+  `fubichangecostrate` double(24,8) DEFAULT NULL COMMENT '变动成本率(%)',
+  `fubimarginalcostrate` double(24,8) DEFAULT NULL COMMENT '边际成本率(%)',
+  `fubiplolicylossrate` double(24,8) DEFAULT NULL COMMENT '保单赔付率(%)',
+  `fubiestlossrate` double(24,8) DEFAULT NULL COMMENT '预估赔付率(%)',
+  `fubiexplossrate` double(24,8) DEFAULT NULL COMMENT '预期赔付率(%)',
+  `fubiclaimexpenserate` double(24,8) DEFAULT NULL COMMENT '理赔费用率(%)',
+  `fubiplolicyfeerate` double(24,8) DEFAULT NULL COMMENT '保单费用率(%)',
+  `fubihandlingfeerate` double(24,8) DEFAULT NULL COMMENT '手续费率平均值(%)',
+  `fubisalesalaryrate` double(24,8) DEFAULT NULL COMMENT '销售人力薪酬率(%)',
+  `fubimarketpromotionrate` double(24,8) DEFAULT NULL COMMENT '营销推动费用率(%)',
+  `fubifixedfeerate` double(24,8) DEFAULT NULL COMMENT ' 固定费用率(%)',
+  `fubiotherfeerate` double(24,8) DEFAULT NULL COMMENT '其他费用率(%)',
+  `cichangecostrate` double(24,8) DEFAULT NULL COMMENT '变动成本率(%)',
+  `cimarginalcostrate` double(24,8) DEFAULT NULL COMMENT '边际成本率(%)',
+  `futcichangecostrate` double(24,8) DEFAULT NULL COMMENT '变动成本率(%)',
+  `futcimarginalcostrate` double(24,8) DEFAULT NULL COMMENT '边际成本率(%)',
+  `futciplolicylossrate` double(24,8) DEFAULT NULL COMMENT '保单赔付率(%)',
+  `futciestlossrate` double(24,8) DEFAULT NULL COMMENT '预估赔付率(%)',
+  `futciexplossrate` double(24,8) DEFAULT NULL COMMENT '预期赔付率(%)',
+  `futciclaimexpenserate` double(24,8) DEFAULT NULL COMMENT '理赔费用率(%)',
+  `futciplolicyfeerate` double(24,8) DEFAULT NULL COMMENT '保单费用率(%)',
+  `futcihandlingfeerate` double(24,8) DEFAULT NULL COMMENT '手续费率平均值(%)',
+  `futcisalesalaryrate` double(24,8) DEFAULT NULL COMMENT '销售人力薪酬率(%)',
+  `futcimarketpromotionrate` double(24,8) DEFAULT NULL COMMENT '营销推动费用率(%)',
+  `futcifixedfeerate` double(24,8) DEFAULT NULL COMMENT '固定费用率(%)',
+  `futciotherfeerate` double(24,8) DEFAULT NULL COMMENT '其他费用率(%)',
+  `histcipremium` double(24,8) DEFAULT NULL COMMENT '历史车险保费收入（元）',
+  `hiscipolicynum` double(24,8) DEFAULT NULL COMMENT '历史交强险保单件数',
+  `hisbipolicynum` double(24,8) DEFAULT NULL COMMENT '历史商业险保单件数',
+  `hisbipremium` double(24,8) DEFAULT NULL COMMENT '历史商业险保费收入(元)',
+  `hisbifulllossrate` double(24,8) DEFAULT NULL COMMENT '历史商业险满期标费赔付率(%)',
+  `biavgpremium` double(24,8) DEFAULT NULL COMMENT '历史商业险满期件均标准保费(元)',
+  `bifullriskrate` double(24,8) DEFAULT NULL COMMENT '历史商业险满期出险率(%)',
+  `biavgloss` double(24,8) DEFAULT NULL COMMENT '历史商业险满期综合案均赔款(元)',
+  `hiscifulllossrate` double(24,8) DEFAULT NULL COMMENT '历史交强险满期赔付率(%)',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `FILEID` (`AGENTCONFID`,`AGRAGENTID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=697 DEFAULT CHARSET=utf8 COMMENT='代理协议配费表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+
+
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_agent_conf_fee_his`
+--
+
+DROP TABLE IF EXISTS `ps_agent_conf_fee_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_conf_fee_his` (
+  `ID` int(16) NOT NULL,
+  `AGENTCONFID` varchar(36) COLLATE utf8_bin NOT NULL COMMENT '代理协议配费编号',
+  `BIZUNITID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '业务单元编号',
+  `CARTYCD` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '车种代码',
+  `AGRAGENTID` varchar(36) COLLATE utf8_bin NOT NULL COMMENT '代理协议编号',
+  `COMMBIZUNITID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '通用业务单元编号',
+  `COREBIZUNITNO` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '对接核心业务单元编号',
+  `PSMODELCD` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '定价方案模式代码',
+  `EXPBINCDLOSS` decimal(10,6) DEFAULT '0.000000' COMMENT '商业险预期标费赔付率（含NCD）',
+  `AGENTHISBIFULLLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '代理历史商业险满期标费赔付率',
+  `AGENTHISBIPREMIUM` decimal(18,4) DEFAULT '0.0000' COMMENT '代理历史商业险保费收入',
+  `AGENTHISBIPOLICYNUM` decimal(18,6) DEFAULT '0.000000' COMMENT '代理历史商业险保单件数',
+  `SGLCARHISBIFULLLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '个车历史商业险满期标费赔付率',
+  `SGLCARBIAVGPREMIUM` decimal(18,4) DEFAULT '0.0000' COMMENT '个车商业险件均标准保费',
+  `SGLCARBIAVGLOSS` decimal(18,4) DEFAULT '0.0000' COMMENT '个车商业险综合案均赔款',
+  `SGLCARBIFULLRISKRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '个车商业险满期出险率',
+  `BIFCSTLOSSRATE` decimal(10,6) DEFAULT NULL COMMENT '商业险核保人预估标费赔付率',
+  `HISBIDISCOUNT` decimal(10,6) DEFAULT '0.000000' COMMENT '历史商业险自主折扣率',
+  `BIDISCOUNT` decimal(10,6) DEFAULT '0.000000' COMMENT '商业险自主折扣系数',
+  `HISBIHANDLINGFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '历史商业险手续费率',
+  `BIHANDLINGFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '商业险手续费率',
+  `HISTCIPREMIUMPCT` decimal(18,4) DEFAULT '0.0000' COMMENT '历史车险保费占比',
+  `TCIPREMIUMPCT` decimal(10,6) DEFAULT '0.000000' COMMENT '目标车险保费占比',
+  `HISCIPREMIUMPCT` decimal(10,6) DEFAULT '0.000000' COMMENT '历史交强险保费占比',
+  `CIPREMIUMPCT` decimal(10,6) DEFAULT '0.000000' COMMENT '目标交强险保费占比',
+  `HISCIEXPLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '历史交强险预期赔付率',
+  `AGENTHISCIFULLLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '代理历史交强险满期赔付率',
+  `AGENTHISCIPREMIUM` decimal(18,4) DEFAULT '0.0000' COMMENT '代理历史交强险保费收入',
+  `AGENTHISCIPOLICYNUM` decimal(18,6) DEFAULT '0.000000' COMMENT '代理历史交强险保单件数',
+  `SGLCARHISCIFULLLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '个车历史交强险满期赔付率',
+  `CIAVGPREMIUM` decimal(18,4) DEFAULT '0.0000' COMMENT '交强险件均保费',
+  `CIAVGLOSS` decimal(18,4) DEFAULT '0.0000' COMMENT '交强险综合案均赔款',
+  `CIFULLRISKRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '交强险满期出险率',
+  `CIFCSTLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '交强险核保人预估赔付率',
+  `HISCIHANDLINGRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '历史交强险手续费率',
+  `CIHANDLINGRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '目标交强险手续费率',
+  `MARKETPROMOTIONRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '营销推动费用率',
+  `SALESALARYRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '销售人力薪酬率',
+  `TCICLAIMEXPENSERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '车险理赔费用率',
+  `FIXEDFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '固定费用率',
+  `OTHERFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '其他费用率',
+  `TCIEXPLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '车险预估赔付率',
+  `TCIPLOLICYFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '车险保单费用率',
+  `TCIMARGINALCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '车险边际成本率',
+  `TCICHANGECOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '车险变动成本率',
+  `TCIPLOLICYCOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标车险保单成本率',
+  `TCIPLOLICYLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险保单赔付率',
+  `INSSERVERRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险手续费率',
+  `FUTCIPLOLICYCOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '预测车险保单成本率',
+  `AGENTVERSION` varchar(32) COLLATE utf8_bin NOT NULL COMMENT '代理协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ORGCD2` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `AGENTCONFID` (`AGENTCONFID`,`AGRAGENTID`,`AGENTVERSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='代理协议配费历史表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_agent_fcst`
+--
+
+DROP TABLE IF EXISTS `ps_agent_fcst`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_fcst` (
+  `ID` int(16) NOT NULL,
+  `AGENTFCSTID` varchar(20) NOT NULL COMMENT '代理协议预测结果编号',
+  `AGRAGENTID` varchar(36) NOT NULL COMMENT '代理协议编号',
+  `FUBIPLOLICYCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险保单成本率',
+  `FUBICHANGECOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险变动成本率',
+  `FUBIMARGINALCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险边际成本率',
+  `FUBIPLOLICYLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险保单赔付率',
+  `FUBIDISCOUNT` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险自主折扣率',
+  `FUBIESTLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险预估赔付率',
+  `FUBIEXPLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险预期赔付率',
+  `FUBICLAIMEXPENSERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险理赔费用率',
+  `FUBIPLOLICYFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险保单费用率',
+  `FUBIHANDLINGFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险手续费率',
+  `FUBIMARKETPROMOTIONRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险营销推动费用率',
+  `FUBISALESALARYRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险销售人力薪酬率',
+  `FUBIFIXEDFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险固定费用率',
+  `FUBIOTHERFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险其他费用率',
+  `FUTCIPREMIUM` decimal(18,4) DEFAULT '0.0000' COMMENT '预测车险保费收入',
+  `FUTCIPLOLICYCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险保单成本率',
+  `FUTCICHANGECOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险变动成本率',
+  `FUTCIMARGINALCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险边际成本率',
+  `FUTCIPLOLICYLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险保单赔付率',
+  `FUTCIESTLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险预估赔付率',
+  `FUTCIEXPLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险预期赔付率',
+  `FUTCICLAIMEXPENSERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险理赔费用率',
+  `FUTCIPLOLICYFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险保单费用率',
+  `FUTCIHANDLINGFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险手续费率',
+  `FUTCIMARKETPROMOTIONRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险营销推动费用率',
+  `FUTCISALESALARYRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险销售人力薪酬率',
+  `FUTCIFIXEDFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险固定费用率',
+  `FUTCIOTHERFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险其他费用率',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `AGENTFCSTID` (`AGENTFCSTID`,`AGRAGENTID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COMMENT='代理协议经营结果预测表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_agent_fcst_his`
+--
+
+DROP TABLE IF EXISTS `ps_agent_fcst_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_fcst_his` (
+  `ID` int(16) NOT NULL,
+  `AGENTFCSTID` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '代理协议预测结果编号',
+  `AGRAGENTID` varchar(36) COLLATE utf8_bin NOT NULL COMMENT '代理协议编号',
+  `FUBIPLOLICYCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险保单成本率',
+  `FUBICHANGECOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险变动成本率',
+  `FUBIMARGINALCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险边际成本率',
+  `FUBIPLOLICYLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险保单赔付率',
+  `FUBIDISCOUNT` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险自主折扣率',
+  `FUBIESTLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险预估赔付率',
+  `FUBIEXPLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险预期赔付率',
+  `FUBICLAIMEXPENSERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险理赔费用率',
+  `FUBIPLOLICYFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险保单费用率',
+  `FUBIHANDLINGFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险手续费率',
+  `FUBIMARKETPROMOTIONRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险营销推动费用率',
+  `FUBISALESALARYRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险销售人力薪酬率',
+  `FUBIFIXEDFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险固定费用率',
+  `FUBIOTHERFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险其他费用率',
+  `FUTCIPREMIUM` decimal(18,4) DEFAULT '0.0000' COMMENT '预测车险保费收入',
+  `FUTCIPLOLICYCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险保单成本率',
+  `FUTCICHANGECOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险变动成本率',
+  `FUTCIMARGINALCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险边际成本率',
+  `FUTCIPLOLICYLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险保单赔付率',
+  `FUTCIESTLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险预估赔付率',
+  `FUTCIEXPLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险预期赔付率',
+  `FUTCICLAIMEXPENSERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险理赔费用率',
+  `FUTCIPLOLICYFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险保单费用率',
+  `FUTCIHANDLINGFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险手续费率',
+  `FUTCIMARKETPROMOTIONRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险营销推动费用率',
+  `FUTCISALESALARYRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险销售人力薪酬率',
+  `FUTCIFIXEDFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险固定费用率',
+  `FUTCIOTHERFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险其他费用率',
+  `AGENTVERSION` varchar(32) COLLATE utf8_bin NOT NULL COMMENT '代理协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ORGCD2` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `AGENTFCSTID` (`AGENTFCSTID`,`AGRAGENTID`,`AGENTVERSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='代理协议经营结果预测历史表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_agent_step_data`
+--
+
+DROP TABLE IF EXISTS `ps_agent_step_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_step_data` (
+  `ID` int(16) NOT NULL,
+  `STEP` varchar(50) NOT NULL COMMENT '步骤号',
+  `CARTYCD` varchar(32) NOT NULL COMMENT '车种代码',
+  `DATASTATUS` int(11) NOT NULL COMMENT '数据状态',
+  `AGRAGENTID` varchar(36) NOT NULL COMMENT '代理协议编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `STEP` (`STEP`,`CARTYCD`,`DATASTATUS`,`AGRAGENTID`)
+) ENGINE=InnoDB AUTO_INCREMENT=492 DEFAULT CHARSET=utf8 COMMENT='代理协议定价步骤数据表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_agent_step_data_his`
+--
+
+DROP TABLE IF EXISTS `ps_agent_step_data_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_step_data_his` (
+  `ID` int(16) NOT NULL,
+  `STEP` varchar(50) COLLATE utf8_bin NOT NULL COMMENT '步骤号',
+  `CARTYCD` varchar(32) COLLATE utf8_bin NOT NULL COMMENT '车种代码',
+  `DATASTATUS` int(11) NOT NULL COMMENT '数据状态',
+  `AGRAGENTID` varchar(36) COLLATE utf8_bin NOT NULL COMMENT '代理协议编号',
+  `AGENTVERSION` varchar(32) COLLATE utf8_bin NOT NULL COMMENT '代理协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ORGCD2` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `STEP` (`STEP`,`CARTYCD`,`DATASTATUS`,`AGRAGENTID`,`AGENTVERSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='代理协议定价步骤数据历史表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_bizunit_track`
+--
+
+DROP TABLE IF EXISTS `ps_bizunit_track`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_bizunit_track` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(20) NOT NULL COMMENT '业务单元编号',
+  `DETAILBIZUNITID` varchar(20) NOT NULL COMMENT '明细业务单元编号',
+  `SGLCARMAINID` varchar(36) NOT NULL COMMENT '个车定价方案编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `IDX_SGLCARMAINID` (`SGLCARMAINID`) USING BTREE,
+  KEY `IDX_DETAILBIZUNITID` (`DETAILBIZUNITID`) USING BTREE,
+  KEY `IDX_BIZUNITID` (`BIZUNITID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COMMENT='个车定价方案业务单元轨迹表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_fleet_bizunit_factor_group_his`
+--
+
+DROP TABLE IF EXISTS `ps_fleet_bizunit_factor_group_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_fleet_bizunit_factor_group_his` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(20) NOT NULL COMMENT '业务单元编号',
+  `FACTORGROUPID` varchar(20) NOT NULL COMMENT '因子分组编号',
+  `AGRMOTORCADEID` varchar(36) DEFAULT NULL COMMENT '车队协议编号',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `DEFAULTFLAG` char(2) DEFAULT NULL COMMENT '缺省标志',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `FLEETVERSION` varchar(32) NOT NULL COMMENT '车队协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `bizunitid` (`BIZUNITID`) USING BTREE,
+  KEY `factorgroupid` (`FACTORGROUPID`) USING BTREE,
+  KEY `FLEETVERSION` (`FLEETVERSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=2394 DEFAULT CHARSET=utf8 COMMENT='车队协议业务单元-因子分组关系表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_fleet_bizunit_his`
+--
+
+DROP TABLE IF EXISTS `ps_fleet_bizunit_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_fleet_bizunit_his` (
+  `ID` int(16) NOT NULL,
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `VALIDSTATUS` char(2) DEFAULT NULL COMMENT '有效状态',
+  `CREATEID` varchar(20) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) DEFAULT NULL COMMENT '创建人姓名',
+  `UPDATEID` varchar(20) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) DEFAULT NULL COMMENT '更新人姓名',
+  `BIZUNITID` varchar(20) NOT NULL COMMENT '业务单元编号',
+  `BIZUNITNM` char(18) DEFAULT NULL COMMENT '业务单元名称',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `BIZUNITTY` char(18) DEFAULT NULL COMMENT '业务单元类型',
+  `COMMBIZUNITID` char(18) DEFAULT NULL COMMENT '通用业务单元编号',
+  `AGRMOTORCADEID` varchar(36) DEFAULT NULL COMMENT '车队协议编号',
+  `COREBIZUNITNO` varchar(20) DEFAULT NULL COMMENT '对接核心业务单元编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `FLEETVERSION` varchar(32) NOT NULL COMMENT '车队协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `CARTYCD` (`CARTYCD`,`BIZUNITTY`,`AGRMOTORCADEID`),
+  KEY `BIZUNITID` (`BIZUNITID`,`FLEETVERSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=830 DEFAULT CHARSET=utf8 COMMENT='车队协议业务单元表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_fleet_bizunit_track_his`
+--
+
+DROP TABLE IF EXISTS `ps_fleet_bizunit_track_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_fleet_bizunit_track_his` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `DETAILBIZUNITID` varchar(20) DEFAULT NULL COMMENT '明细业务单元编号',
+  `AGRMOTORCADEID` varchar(36) DEFAULT NULL COMMENT '车队协议编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `FLEETVERSION` varchar(32) DEFAULT NULL COMMENT '车队协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `bizunitid` (`BIZUNITID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8 COMMENT='车队协议业务单元轨迹表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_fleet_factor_group_his`
+--
+
+DROP TABLE IF EXISTS `ps_fleet_factor_group_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_fleet_factor_group_his` (
+  `ID` int(16) NOT NULL,
+  `FACTORGROUPID` varchar(20) DEFAULT NULL COMMENT '因子分组编号',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `FACTORCD` varchar(32) DEFAULT NULL COMMENT '因子代码',
+  `FACTORGROUPNM` varchar(100) DEFAULT NULL COMMENT '因子分组名称',
+  `FACTORGROUPCONTENT` longtext COMMENT '因子分组内容',
+  `PREMIUMPCT` decimal(10,6) DEFAULT NULL COMMENT '因子分组保费占比',
+  `FULLLOSSRATE` decimal(10,6) DEFAULT NULL COMMENT '因子分组历史满期标费赔付率',
+  `EXPLOSSRATE` decimal(10,6) DEFAULT NULL COMMENT '因子分组预期标费赔付率',
+  `CREATEID` varchar(20) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) DEFAULT NULL COMMENT '创建人姓名',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATEID` varchar(20) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) DEFAULT NULL COMMENT '更新人姓名',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `FACTORENUMFLAG` char(1) DEFAULT NULL COMMENT '因子枚举标志',
+  `FACTORGROUPTY` char(2) DEFAULT NULL COMMENT '因子分组类型',
+  `SELECTEDFLAGFACTOR` char(2) DEFAULT NULL COMMENT '是否选中因子',
+  `SGLCARINTELRECOMMENDID` char(18) DEFAULT NULL COMMENT '智能推荐编号',
+  `PREMIUMINCOME` decimal(10,6) DEFAULT NULL COMMENT '因子分组保费收入',
+  `AGRMOTORCADEID` varchar(36) DEFAULT NULL COMMENT '车队协议编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `FLEETVERSION` varchar(32) DEFAULT NULL COMMENT '车队协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `factorgroupid` (`FACTORGROUPID`) USING BTREE,
+  KEY `AGRMOTORCADEID` (`AGRMOTORCADEID`) USING BTREE,
+  KEY `FACTORCD` (`FACTORCD`) USING BTREE,
+  KEY `CARTYCD` (`CARTYCD`) USING BTREE,
+  KEY `FACTORGROUPTY` (`FACTORGROUPTY`,`FLEETVERSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=4072 DEFAULT CHARSET=utf8 COMMENT='车队协议因子分组表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_motorcade_core_his`
+--
+
+DROP TABLE IF EXISTS `ps_motorcade_core_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_motorcade_core_his` (
+  `ID` int(16) NOT NULL,
+  `FLEETAGREEMENTNO` varchar(100) DEFAULT NULL COMMENT '车队协议号',
+  `FLEETAGRACCNO` varchar(100) DEFAULT NULL COMMENT '车队协议申请号',
+  `PRODCD` varchar(50) DEFAULT NULL COMMENT '产品代码',
+  `CARFLAG` varchar(50) DEFAULT NULL COMMENT '新旧车标识',
+  `CARTYDETSENCD` varchar(50) DEFAULT NULL COMMENT '二级细分市场代码',
+  `AUTODISCOUNT` decimal(18,4) DEFAULT NULL COMMENT '自主折扣率',
+  `HANDLINGFEERATE` decimal(18,4) DEFAULT NULL COMMENT '手续费率',
+  `BIZUNITID` varchar(50) DEFAULT NULL COMMENT '业务单元编号',
+  `OUTID` varchar(50) NOT NULL COMMENT '输出编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `FLEETVERSION` varchar(32) NOT NULL COMMENT '车队协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `fleetagraccno` (`FLEETAGRACCNO`),
+  KEY `OUTID` (`OUTID`,`FLEETVERSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=450 DEFAULT CHARSET=utf8 COMMENT='车队协议核心系统输出' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_motorcade_core_mid_his`
+--
+
+DROP TABLE IF EXISTS `ps_motorcade_core_mid_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_motorcade_core_mid_his` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(50) DEFAULT NULL COMMENT '业务单元编号',
+  `CARFLAG` varchar(50) DEFAULT NULL COMMENT '新旧车标识',
+  `CARTYDETSENCD` varchar(50) DEFAULT NULL COMMENT '二级细分市场代码',
+  `TCIPREMIUMPCT` decimal(10,6) DEFAULT '0.000000' COMMENT '目标车险保费占比',
+  `CIPREMIUMPCT` decimal(10,6) DEFAULT '0.000000' COMMENT '目标交强险保费占比',
+  `HISBIDISCOUNT` decimal(10,6) DEFAULT '0.000000' COMMENT '历史商业险自主折扣率',
+  `BIHANDLINGFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '商业险手续费率',
+  `BCIPREMIUMPCT` decimal(10,6) DEFAULT NULL COMMENT '目标商业险保费占比',
+  `CIHANDLINGRATE` decimal(10,6) DEFAULT NULL COMMENT '目标交强险手续费率',
+  `FLEETAGREEMENTNO` varchar(100) DEFAULT NULL,
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `FLEETVERSION` varchar(32) DEFAULT NULL COMMENT '车队协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `FLEETAGREEMENTNO` (`FLEETAGREEMENTNO`)
+) ENGINE=InnoDB AUTO_INCREMENT=590 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_motorcade_step_data_his`
+--
+
+DROP TABLE IF EXISTS `ps_motorcade_step_data_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_motorcade_step_data_his` (
+  `ID` int(16) NOT NULL,
+  `STEP` varchar(50) NOT NULL COMMENT '步骤号',
+  `CARTYCD` varchar(32) NOT NULL COMMENT '车种代码',
+  `DATASTATUS` int(11) NOT NULL COMMENT '数据状态',
+  `AGRMOTORCADEID` varchar(36) NOT NULL COMMENT '车队协议编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `FLEETVERSION` varchar(32) DEFAULT NULL COMMENT '车队协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `AGRMOTORCADEID` (`AGRMOTORCADEID`),
+  KEY `cartycd` (`CARTYCD`)
+) ENGINE=InnoDB AUTO_INCREMENT=495 DEFAULT CHARSET=utf8 COMMENT='车队协议定价步骤数据表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_motorcare_conf_fee_his`
+--
+
+DROP TABLE IF EXISTS `ps_motorcare_conf_fee_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_motorcare_conf_fee_his` (
+  `ID` int(16) NOT NULL,
+  `MOTORCARECONFID` varchar(36) NOT NULL COMMENT '车队协议配费编号',
+  `BIZUNITID` varchar(20) DEFAULT NULL COMMENT '业务单元编号',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `AGRMOTORCADEID` varchar(36) NOT NULL COMMENT '车队协议编号',
+  `COMMBIZUNITID` varchar(20) DEFAULT NULL COMMENT '通用业务单元编号',
+  `COREBIZUNITNO` varchar(32) DEFAULT NULL COMMENT '对接核心业务单元编号',
+  `PSMODELCD` char(2) DEFAULT NULL COMMENT '定价方案模式代码',
+  `EXPBINCDLOSS` decimal(22,8) unsigned zerofill DEFAULT '00000000000000.00000000' COMMENT '商业险预期标费赔付率（含NCD）',
+  `FLEETHISBIFULLLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车队历史商业险满期标费赔付率',
+  `FLEETHISBIPREMIUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '车队历史商业险保费收入',
+  `FLEETHISBIPOLICYNUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '车队历史商业险保单件数',
+  `SGLCARHISBIFULLLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车历史商业险满期标费赔付率',
+  `SGLCARBIAVGPREMIUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车商业险件均标准保费',
+  `SGLCARBIAVGLOSS` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车商业险综合案均赔款',
+  `SGLCARBIFULLRISKRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车商业险满期出险率',
+  `BIFCSTLOSSRATE` decimal(22,8) DEFAULT NULL COMMENT '商业险核保人预估标费赔付率',
+  `HISBIDISCOUNT` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史商业险自主折扣率',
+  `BIDISCOUNT` decimal(22,8) DEFAULT '0.00000000' COMMENT '商业险自主折扣系数',
+  `HISBIHANDLINGFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史商业险手续费率',
+  `BIHANDLINGFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '商业险手续费率',
+  `TCIPREMIUMPCT` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标车险保费占比',
+  `HISTCIPREMIUMPCT` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史车险保费占比',
+  `HISCIPREMIUMPCT` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史交强险保费占比',
+  `CIPREMIUMPCT` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标交强险保费占比',
+  `HISCIEXPLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史交强险预期赔付率',
+  `FLEETHISCIFULLLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车队历史交强险满期赔付率',
+  `FLEETHISCIPREMIUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '车队历史交强险保费收入',
+  `HISCIPOLICYNUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '车队历史交强险保单件数',
+  `SGLCARHISCIFULLLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '个车历史交强险满期赔付率',
+  `CIAVGPREMIUM` decimal(22,8) DEFAULT '0.00000000' COMMENT '交强险件均保费',
+  `CIAVGLOSS` decimal(22,8) DEFAULT '0.00000000' COMMENT '交强险综合案均赔款',
+  `CIFULLRISKRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '交强险满期出险率',
+  `CIFCSTLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '交强险核保人预估赔付率',
+  `HISCIHANDLINGRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '历史交强险手续费率',
+  `CIHANDLINGRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标交强险手续费率',
+  `MARKETPROMOTIONRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '营销推动费用率',
+  `SALESALARYRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '销售人力薪酬率',
+  `TCICLAIMEXPENSERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险理赔费用率',
+  `FIXEDFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '固定费用率',
+  `OTHERFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '其他费用率',
+  `TCIEXPLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险预估赔付率',
+  `TCIPLOLICYFEERATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险保单费用率',
+  `TCIMARGINALCOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险边际成本率',
+  `TCICHANGECOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险变动成本率',
+  `TCIPLOLICYCOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '目标车险保单成本率',
+  `TCIPLOLICYLOSSRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险保单赔付率',
+  `INSSERVERRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '车险手续费率',
+  `FUTCIPLOLICYCOSTRATE` decimal(22,8) DEFAULT '0.00000000' COMMENT '预测车险保单成本率',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `FLEETVERSION` varchar(32) NOT NULL COMMENT '车队协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `agrmotorcadeid` (`AGRMOTORCADEID`),
+  KEY `cartycd` (`CARTYCD`),
+  KEY `motorcareconfid` (`MOTORCARECONFID`),
+  KEY `FLEETVERSION` (`FLEETVERSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=582 DEFAULT CHARSET=utf8 COMMENT='车队协议配费表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_motorcare_fcst_his`
+--
+
+DROP TABLE IF EXISTS `ps_motorcare_fcst_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_motorcare_fcst_his` (
+  `ID` int(16) NOT NULL,
+  `MOTORCADEFCSTID` varchar(20) NOT NULL COMMENT '车队协议预测结果编号',
+  `AGRMOTORCADEID` varchar(36) NOT NULL COMMENT '车队协议编号',
+  `FUBIPLOLICYCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险保单成本率',
+  `FUBICHANGECOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险变动成本率',
+  `FUBIMARGINALCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险边际成本率',
+  `FUBIPLOLICYLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险保单赔付率',
+  `FUBIDISCOUNT` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险自主折扣率',
+  `FUBIESTLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险预估赔付率',
+  `FUBIEXPLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险预期赔付率',
+  `FUBICLAIMEXPENSERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险理赔费用率',
+  `FUBIPLOLICYFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险保单费用率',
+  `FUBIHANDLINGFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险手续费率',
+  `FUBIMARKETPROMOTIONRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险营销推动费用率',
+  `FUBISALESALARYRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险销售人力薪酬率',
+  `FUBIFIXEDFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险固定费用率',
+  `FUBIOTHERFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测商业险其他费用率',
+  `FUTCIPREMIUM` decimal(18,4) DEFAULT '0.0000' COMMENT '预测车险保费收入',
+  `FUTCIPLOLICYCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险保单成本率',
+  `FUTCICHANGECOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险变动成本率',
+  `FUTCIMARGINALCOSTRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险边际成本率',
+  `FUTCIPLOLICYLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险保单赔付率',
+  `FUTCIESTLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险预估赔付率',
+  `FUTCIEXPLOSSRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险预期赔付率',
+  `FUTCICLAIMEXPENSERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险理赔费用率',
+  `FUTCIPLOLICYFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险保单费用率',
+  `FUTCIHANDLINGFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险手续费率',
+  `FUTCIMARKETPROMOTIONRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险营销推动费用率',
+  `FUTCISALESALARYRATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险销售人力薪酬率',
+  `FUTCIFIXEDFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险固定费用率',
+  `FUTCIOTHERFEERATE` decimal(10,6) DEFAULT '0.000000' COMMENT '预测车险其他费用率',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `FLEETVERSION` varchar(32) NOT NULL COMMENT '车队协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `agrmotorcadeid` (`AGRMOTORCADEID`),
+  KEY `motorcadefcstid` (`MOTORCADEFCSTID`),
+  KEY `FLEETVERSION` (`FLEETVERSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8 COMMENT='车队协议经营结果预测表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_sglcar_carty_selected_status`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_carty_selected_status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_carty_selected_status` (
+  `ID` int(16) NOT NULL,
+  `SELECTEDALL` varchar(2) NOT NULL COMMENT '全不选0，全选1',
+  `CARTYCD` varchar(10) NOT NULL COMMENT '车种代码',
+  `SGLCARMAINID` varchar(32) NOT NULL COMMENT '方案ID',
+  `ORGCD2` varchar(32) NOT NULL COMMENT '二级机构代码',
+  `CREATEID` varchar(32) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(32) DEFAULT NULL COMMENT '创建人名称',
+  `UPDATEID` varchar(32) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(32) DEFAULT NULL COMMENT '更新人名称',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  UNIQUE KEY `SGLCARMAINID_CARTYCD` (`CARTYCD`,`SGLCARMAINID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=844 DEFAULT CHARSET=utf8 COMMENT='个车第四步车种是否全选状态表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_sglcar_carty_set`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_carty_set`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_carty_set` (
+  `ID` int(16) NOT NULL,
+  `SGLCARMAINID` varchar(36) DEFAULT NULL COMMENT '个车定价方案编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `CARTYCD` varchar(2) DEFAULT NULL COMMENT '家庭自用',
+  `PREMIUMPCT` decimal(32,8) DEFAULT NULL COMMENT '其他',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `IDX_SGLCARMAINID` (`SGLCARMAINID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车种结构设定表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_sglcar_carty_target`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_carty_target`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_carty_target` (
+  `ID` int(16) NOT NULL,
+  `TARGETID` varchar(36) DEFAULT NULL COMMENT '测算目标编号',
+  `SGLCARMAINID` varchar(36) DEFAULT NULL COMMENT '个车定价方案编号',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `TCIPREMIUMPCT` decimal(22,8) DEFAULT NULL COMMENT '目标车险保费占比',
+  `TCIPLOLICYCOSTRATE` decimal(22,8) DEFAULT NULL COMMENT '目标车险保单成本率',
+  `TCIEXPLOSSRATE` decimal(22,8) DEFAULT NULL COMMENT '目标车险预估赔付率',
+  `TCICLAIMEXPENSERATE` decimal(22,8) DEFAULT NULL COMMENT '目标车险理赔费用率',
+  `TCIPLOLICYFEERATE` decimal(22,8) DEFAULT NULL COMMENT '目标车险保单费用率',
+  `TCIHANDLINGFEERATE` decimal(22,8) DEFAULT NULL COMMENT '目标车险手续费率',
+  `TCISALESALARYRATE` decimal(22,8) DEFAULT NULL COMMENT '目标车险销售人力薪酬率',
+  `TCIMARKETPROMOTIONRATE` decimal(22,8) DEFAULT NULL COMMENT '目标车险营销推动费用率',
+  `TCIFIXEDFEERATE` decimal(22,8) DEFAULT NULL COMMENT '目标车险固定费用率',
+  `TCIOTHERFEERATE` decimal(22,8) DEFAULT NULL COMMENT '目标车险其他费用率',
+  `BIPREMIUMPCT` decimal(22,8) DEFAULT NULL COMMENT '目标商业险保费占比',
+  `BIPLOLICYCOSTRATE` decimal(22,8) DEFAULT NULL COMMENT '目标商业险保单成本率',
+  `BIPLOLICYLOSSRATE` decimal(22,8) DEFAULT NULL COMMENT '目标商业险保单赔付率',
+  `BIEXPLOSSRATE` decimal(22,8) DEFAULT NULL COMMENT '目标商业险预估赔付率',
+  `BICLAIMEXPENSERATE` decimal(22,8) DEFAULT NULL COMMENT '目标商业险理赔费用率',
+  `BIPLOLICYFEERATE` decimal(22,8) DEFAULT NULL COMMENT '目标商业险保单费用率',
+  `BIHANDLINGFEERATE` decimal(22,8) DEFAULT NULL COMMENT '目标商业险手续费率',
+  `BISALESALARYRATE` decimal(22,8) DEFAULT NULL COMMENT '目标商业险销售人力薪酬率',
+  `BIMARKETPROMOTIONRATE` decimal(22,8) DEFAULT NULL COMMENT '目标商业险营销推动费用率',
+  `BIFIXEDFEERATE` decimal(22,8) DEFAULT NULL COMMENT '目标商业险固定费用率',
+  `BIOTHERFEERATE` decimal(22,8) DEFAULT NULL COMMENT '目标商业险其他费用率',
+  `TCIPLOLICYLOSSRATE` decimal(22,8) DEFAULT NULL COMMENT '目标车险保单赔付率',
+  `BIPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '商业险保费',
+  `TCIPREMIUM` decimal(24,8) DEFAULT NULL COMMENT '车险保费',
+  `BIDISCOUNT` decimal(24,8) DEFAULT NULL COMMENT '目标商业险自主折扣率',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `IDX_SGLCARMAINID` (`SGLCARMAINID`) USING BTREE,
+  KEY `IDX_CARTYCD` (`CARTYCD`) USING BTREE,
+  KEY `TARGETID` (`TARGETID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3124 DEFAULT CHARSET=utf8 COMMENT='个车定价方案车种目标测算表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_sglcar_carty_total`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_carty_total`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_carty_total` (
+  `ID` int(16) NOT NULL,
+  `CARTYTOTALID` varchar(36) NOT NULL COMMENT '车种汇总编号',
+  `SGLCARMAINID` varchar(36) DEFAULT NULL COMMENT '个车定价方案编号',
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `FUBIPLOLICYCOSTRATE` decimal(22,8) DEFAULT NULL COMMENT '预测商业险保单成本率',
+  `FUBIESTLOSSRATE` decimal(22,8) DEFAULT NULL COMMENT '预测商业险预估赔付率',
+  `FUBIEXPLOSSRATE` decimal(22,8) DEFAULT NULL COMMENT '预测商业险预期赔付率',
+  `FUBICLAIMEXPENSERATE` decimal(22,8) DEFAULT NULL COMMENT '预测商业险理赔费用率',
+  `FUBIPLOLICYFEERATE` decimal(22,8) DEFAULT NULL COMMENT '预测商业险保单费用率',
+  `FUBIHANDLINGFEERATE` decimal(22,8) DEFAULT NULL COMMENT '预测商业险手续费率',
+  `FUBISALESALARYRATE` decimal(22,8) DEFAULT NULL COMMENT '预测商业险销售人力薪酬率',
+  `FUBIMARKETPROMOTIONRATE` decimal(22,8) DEFAULT NULL COMMENT '预测商业险营销推动费用率',
+  `FUBIFIXEDFEERATE` decimal(22,8) DEFAULT NULL COMMENT '预测商业险固定费用率',
+  `FUBIOTHERFEERATE` decimal(22,8) DEFAULT NULL COMMENT '预测商业险其他费用率',
+  `FUTCIPLOLICYCOSTRATE` decimal(22,8) DEFAULT NULL COMMENT '预测车险保单成本率',
+  `FUTCIESTLOSSRATE` decimal(22,8) DEFAULT NULL COMMENT '预测车险预估赔付率',
+  `FUTCIEXPLOSSRATE` decimal(22,8) DEFAULT NULL COMMENT '预测车险预期赔付率',
+  `FUTCICLAIMEXPENSERATE` decimal(22,8) DEFAULT NULL COMMENT '预测车险理赔费用率',
+  `FUTCIPLOLICYFEERATE` decimal(22,8) DEFAULT NULL COMMENT '预测车险保单费用率',
+  `FUTCIHANDLINGFEERATE` decimal(22,8) DEFAULT NULL COMMENT '预测车险手续费率',
+  `FUTCISALESALARYRATE` decimal(22,8) DEFAULT NULL COMMENT '预测车险销售人力薪酬率',
+  `FUTCIMARKETPROMOTIONRATE` decimal(22,8) DEFAULT NULL COMMENT '预测车险营销推动费用率',
+  `FUTCIFIXEDFEERATE` decimal(22,8) DEFAULT NULL COMMENT '预测车险固定费用率',
+  `FUTCIOTHERFEERATE` decimal(22,8) DEFAULT NULL COMMENT '预测车险其他费用率',
+  `FUBIDISCOUNT` decimal(22,8) DEFAULT NULL COMMENT '预测商业险自主折扣率',
+  `FUBIPLOLICYLOSSRATE` decimal(22,8) DEFAULT NULL COMMENT '预测商业险保单赔付率',
+  `FUTCIPLOLICYLOSSRATE` char(18) DEFAULT NULL COMMENT '预测车险保单赔付率',
+  `TCITCIPREMIUMPCT` decimal(22,8) DEFAULT NULL COMMENT '车险保费占比（车险模式）',
+  `BIBIPREMIUMPCT` decimal(22,8) DEFAULT NULL COMMENT '商业险保费占比（商业险模式）',
+  `TCIBIPREMIUMPCT` decimal(22,8) DEFAULT NULL COMMENT '商业险保费占比（车险模式）',
+  `TCIBISTANDPREMIUMPCT` decimal(22,8) DEFAULT NULL COMMENT '商业险标准保费占比（车险模式）',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `CIPLOLICYCOSTRATE` decimal(24,8) DEFAULT NULL COMMENT '目标交强险保单成本率(%)',
+  `CIFUBIESTLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '目标交强险预估赔付率(%)',
+  `CIBIEXPLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '目标交强险预期赔付率(%)',
+  `CITCICLAIMEXPENSERATE` decimal(24,8) DEFAULT NULL COMMENT '目标交强险理赔费用率(%)',
+  `CITCIPLOLICYFEERATE` decimal(24,8) DEFAULT NULL COMMENT '目标交强险保单费用率(%)',
+  `CIHANDLINGFEERATE` decimal(24,8) DEFAULT NULL COMMENT '目标交强险手续费率',
+  `CITCISALESALARYRATE` decimal(24,8) DEFAULT NULL COMMENT '目标交强险销售人力薪酬率',
+  `CIMDRIVEEXPENSERATE` decimal(24,8) DEFAULT NULL COMMENT '目标交强险营销推动费用率',
+  `CITCIFIXEDFEERATE` decimal(24,8) DEFAULT NULL COMMENT '目标交强险固定费用率(%)',
+  `CITCIOTHERFEERATE` decimal(24,8) DEFAULT NULL COMMENT '目标交强险其他费用率',
+  `CIPLOLICYLOSSRATE` decimal(24,8) DEFAULT NULL COMMENT '目标交强险保单赔付率(%)',
+  `PROCESSSTATUS` int(2) DEFAULT '0' COMMENT '流程状态：初始状态0 车种结果预测3 整体结构测算4（全车种结果预测执行完成，执行过可跳过） 整体结果预测5',
+  `MAXPROCESSSTATUS` int(2) DEFAULT '0' COMMENT '最大流程状态：初始状态0 车种结果预测3 整体结构测算4（全车种结果预测执行完成，执行过可跳过） 整体结果预测5',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `IDX_SGLCARMAINID` (`SGLCARMAINID`) USING BTREE,
+  KEY `IDX_CARTYCD` (`CARTYCD`) USING BTREE,
+  KEY `CARTYTOTALID` (`CARTYTOTALID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1082 DEFAULT CHARSET=utf8 COMMENT='个车定价方案车种汇总表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_sglcar_param_config`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_param_config`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_param_config` (
+  `ID` int(16) NOT NULL,
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `ORGRANGE` char(2) DEFAULT NULL COMMENT '机构范围',
+  `STARTMONTH` date DEFAULT NULL COMMENT '保单范围起始月',
+  `ENDMONTH` date DEFAULT NULL COMMENT '保单范围终止月',
+  `NCARHANDLINGMIN` decimal(18,6) DEFAULT NULL COMMENT '新车手续费率下限',
+  `NCARHANDLINGMAX` decimal(18,6) DEFAULT NULL COMMENT '新车手续费率上限',
+  `OCARHANDLINGMIN` decimal(18,6) DEFAULT NULL COMMENT '旧车手续费率下限',
+  `OCARHANDLINGMAX` decimal(18,6) DEFAULT NULL COMMENT '旧车手续费率上限',
+  `DISCOUNTMIN` decimal(18,6) DEFAULT NULL COMMENT '自主折扣系数下限',
+  `DISCOUNTMAX` decimal(18,6) DEFAULT NULL COMMENT '自主折扣系数上限',
+  `MARGINALMIN` decimal(18,6) DEFAULT NULL COMMENT '边际成本率下限',
+  `MARGINALMAX` decimal(18,6) DEFAULT NULL COMMENT '边际成本率上限',
+  `CREATEID` varchar(20) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) DEFAULT NULL COMMENT '创建人姓名',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATEID` varchar(20) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) DEFAULT NULL COMMENT '更新人姓名',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `PARAMID` varchar(20) DEFAULT NULL COMMENT '参数编号',
+  `SGLCARMAINID` varchar(36) DEFAULT NULL COMMENT '个车定价方案编号',
+  `BACKDATE` varchar(4) DEFAULT NULL COMMENT '回滚日期',
+  `RECOMMENDMODECD` varchar(20) DEFAULT NULL COMMENT 'RECOMMENDMODECD',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `IDX_SGLCARMAINID` (`SGLCARMAINID`) USING BTREE,
+  KEY `PARAMID` (`PARAMID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=5154 DEFAULT CHARSET=utf8 COMMENT='个车定价方案参数配置表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ps_sglcar_selected_status`
+--
+
+DROP TABLE IF EXISTS `ps_sglcar_selected_status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_sglcar_selected_status` (
+  `ID` int(16) NOT NULL,
+  `PRSTRESULTID` varchar(32) NOT NULL COMMENT '结果表ID',
+  `SELECTEDSTATUS` varchar(2) DEFAULT NULL COMMENT '选中状态(0未选中、1选中)',
+  `SGLCARMAINID` varchar(32) NOT NULL COMMENT '方案ID',
+  `ORGCD2` varchar(32) NOT NULL COMMENT '二级机构代码',
+  `CARTYCD` varchar(10) NOT NULL COMMENT '车种代码',
+  `CREATEID` varchar(32) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(32) DEFAULT NULL COMMENT '创建人名称',
+  `UPDATEID` varchar(32) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(32) DEFAULT NULL COMMENT '更新人名称',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  UNIQUE KEY `PRSTRESULTID_SGLCARMAINID` (`PRSTRESULTID`,`SGLCARMAINID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=14774 DEFAULT CHARSET=utf8 COMMENT='个车第四步选中状态表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `attributionanalysis`
+--
+
+DROP TABLE IF EXISTS `attributionanalysis`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `attributionanalysis` (
+  `ID` int(16) NOT NULL,
+  `STATISTICALDATE` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '统计日期',
+  `ORGCD` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '机构代码',
+  `SOURCEBIZCD` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '业务来源代码',
+  `CARTOTALTYCD` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '一级细分市场代码',
+  `SALESALARYRATEVAL` decimal(22,8) DEFAULT NULL COMMENT '销售人力薪酬率',
+  `MARKETPROMOTIONRATEVAL` decimal(22,8) DEFAULT NULL COMMENT '营销推动费用率',
+  `FIXEDFEERATEVAL` decimal(22,8) DEFAULT NULL COMMENT '固定费用率',
+  `CLAIMEXPENSERATEVAL` decimal(22,8) DEFAULT NULL COMMENT '理赔费用率',
+  `OTHERFEERATEVAL` decimal(22,8) DEFAULT NULL COMMENT '其他费用率',
+  `ORGCD2` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`)
+) ENGINE=InnoDB AUTO_INCREMENT=6477410 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='归因维度分析表-基础财务数据' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `comm_brand_group_flow`
+--
+
+DROP TABLE IF EXISTS `comm_brand_group_flow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comm_brand_group_flow` (
+  `ID` int(16) NOT NULL,
+  `ORGCD2` varchar(32) NOT NULL COMMENT '机构代码',
+  `BRANDCD` varchar(32) DEFAULT NULL COMMENT '品牌代码',
+  `BRANDGROUPCD` varchar(50) NOT NULL COMMENT '品牌分组代码',
+  `CREATEID` varchar(20) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) DEFAULT NULL COMMENT '创建人姓名',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATEID` varchar(20) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) DEFAULT NULL COMMENT '更新人姓名',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `VALIDSTATUS` char(2) DEFAULT NULL COMMENT '有效状态',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `BRANDCD_INDEX` (`ORGCD2`,`BRANDCD`)
+) ENGINE=InnoDB AUTO_INCREMENT=2720 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `finance_channel_data_flow`
+--
+
+DROP TABLE IF EXISTS `finance_channel_data_flow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `finance_channel_data_flow` (
+  `ID` int(16) NOT NULL,
+  `sysdate` datetime DEFAULT NULL,
+  `VERSIONNO` varchar(20) NOT NULL COMMENT '版本号',
+  `ORGCD` varchar(20) NOT NULL COMMENT '机构代码',
+  `IMPORTTERM` varchar(20) DEFAULT NULL COMMENT '导入期次',
+  `CHANNM` varchar(100) DEFAULT NULL COMMENT '渠道名称',
+  `CHANCD` varchar(16) NOT NULL COMMENT '渠道代码',
+  `IMPORTTIME` datetime DEFAULT NULL COMMENT '导入时间',
+  `IMPORTUSER` varchar(50) DEFAULT NULL COMMENT '导入用户',
+  `ORGNM` varchar(100) DEFAULT NULL COMMENT '机构名称',
+  `DIRECTCLAIMEXPENSERATE` decimal(18,4) DEFAULT NULL COMMENT '直接理赔费用率',
+  `INDIRECTCLAIMEXPENSERATE` decimal(18,4) DEFAULT NULL COMMENT '间接理赔费用率',
+  `SALESALARYRATE` decimal(18,4) DEFAULT NULL COMMENT '销售人力薪酬率',
+  `MARKETPROMOTIONRATE` decimal(18,4) DEFAULT NULL COMMENT '营销推动费用率',
+  `FIXEDFEERATE` decimal(18,4) DEFAULT NULL COMMENT '固定费用率',
+  `NEWCARFLAG` varchar(20) DEFAULT NULL COMMENT '新车标识',
+  `OTHERFEERATE` decimal(18,4) DEFAULT NULL COMMENT '其他费用率',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `ORGLEVEL` varchar(2) DEFAULT NULL COMMENT '机构等级',
+  `ORGCD2` varchar(20) DEFAULT NULL,
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `SOURCEBIZCD_CARTYCD_1` (`ORGCD`,`IMPORTTERM`,`CHANCD`),
+  KEY `ORGLEVEL` (`ORGLEVEL`)
+) ENGINE=InnoDB AUTO_INCREMENT=478 DEFAULT CHARSET=utf8 COMMENT='财务数据业务来源表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `itf_many_dimensions_analyze`
+--
+
+DROP TABLE IF EXISTS `itf_many_dimensions_analyze`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `itf_many_dimensions_analyze` (
+  `ID` int(16) NOT NULL,
+  `ORGCD2` varchar(32) DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `CARTYDETSENCD` varchar(32) DEFAULT NULL COMMENT '细分市场代码',
+  `OTHCD` varchar(4) DEFAULT NULL COMMENT '新续转代码',
+  `RISKCD` varchar(50) DEFAULT NULL COMMENT '险种代码',
+  `RISKTYPE` varchar(50) DEFAULT NULL COMMENT '险种大类',
+  `PREMIUMINCOME` decimal(20,4) DEFAULT NULL COMMENT '保费收入',
+  `POLCOUNT` decimal(20,0) DEFAULT NULL COMMENT '保单件数',
+  `SIGPREMIUM` decimal(20,4) DEFAULT NULL COMMENT '签单保费',
+  `ORIPREMIUMTAX` decimal(20,4) DEFAULT NULL COMMENT '原始保费收入（含税）',
+  `ORIPREMIUMNOTAX` decimal(20,4) DEFAULT NULL COMMENT '原始保费收入（不含税）',
+  `STANDARDPREMIUM` decimal(20,4) DEFAULT NULL COMMENT '标准保费',
+  `HAPPENPAY` decimal(20,4) DEFAULT NULL COMMENT '已决赔款',
+  `NOHAPPENPAY` decimal(20,4) DEFAULT NULL COMMENT '未决赔款',
+  `HAPPENNUMBER` decimal(20,0) DEFAULT NULL COMMENT '已决数量',
+  `NOHAPPENNUMBER` decimal(20,0) DEFAULT NULL COMMENT '未决数量',
+  `INCOMEPREMIUM` decimal(20,4) DEFAULT NULL COMMENT '已赚保费',
+  `NOHAPPENPAYDIFF` decimal(20,4) DEFAULT NULL COMMENT '未决赔款提转差',
+  `CHARGEFEE` decimal(20,4) DEFAULT NULL COMMENT '手续费',
+  `CLAIMCOUNT` varchar(20) DEFAULT NULL COMMENT '出险次数',
+  `STATISTICALMON` date DEFAULT NULL COMMENT '统计年度',
+  `INSYEAR` varchar(20) DEFAULT NULL COMMENT '承保年度',
+  `LOADDATE` date DEFAULT NULL COMMENT '加载日期',
+  `SOURCELOADDATE` date DEFAULT NULL COMMENT '源加载时间',
+  `CHANCD` varchar(255) DEFAULT '' COMMENT '渠道代码',
+  `SEATCOUNTCD` varchar(255) DEFAULT NULL COMMENT '座位数分段代码',
+  `TONCOUNTCD` varchar(255) DEFAULT NULL COMMENT '吨位数分段代码',
+  `POLICYSALE` decimal(20,4) DEFAULT NULL COMMENT '保单折扣',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `ORGCD3` (`ORGCD3`),
+  KEY `CARTYDETSENCD` (`CARTYDETSENCD`),
+  KEY `OTHCD` (`OTHCD`),
+  KEY `RISKCD` (`RISKCD`),
+  KEY `STATISTICALMON` (`STATISTICALMON`),
+  KEY `INSYEAR` (`INSYEAR`),
+  KEY `CHANCD` (`CHANCD`)
+) ENGINE=InnoDB AUTO_INCREMENT=2103198 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `recom_carty_factor`
+--
+
+DROP TABLE IF EXISTS `recom_carty_factor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `recom_carty_factor` (
+  `ID` int(16) NOT NULL,
+  `CARTYCD` varchar(32) DEFAULT NULL COMMENT '车种代码',
+  `CREATEID` varchar(20) DEFAULT NULL COMMENT '创建人ID',
+  `CREATENM` varchar(100) DEFAULT NULL COMMENT '创建人姓名',
+  `CREATETIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `UPDATEID` varchar(20) DEFAULT NULL COMMENT '更新人ID',
+  `UPDATENM` varchar(100) DEFAULT NULL COMMENT '更新人姓名',
+  `UPDATETIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `FACTORCD` varchar(255) DEFAULT NULL COMMENT '因子代码',
+  `FACTORIMP` decimal(10,6) DEFAULT NULL COMMENT '因子重要度',
+  `PRESETFLAG` char(1) DEFAULT NULL COMMENT '预置标志',
+  `SGLCARINTELRECOMMENDID` varchar(36) DEFAULT '' COMMENT '智能推荐编号',
+  `SGLCARMAINID` varchar(36) DEFAULT NULL COMMENT '个车定价方案编号',
+  `ORGCD2` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `CARTYCD` (`ORGCD2`,`CARTYCD`,`FACTORCD`,`SGLCARINTELRECOMMENDID`,`SGLCARMAINID`),
+  KEY `index_FACTORCD` (`FACTORCD`)
+) ENGINE=InnoDB AUTO_INCREMENT=34298 DEFAULT CHARSET=utf8 COMMENT='推荐车种因子表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `si_simulation_adjust_autodiscountresult`
+--
+
+DROP TABLE IF EXISTS `si_simulation_adjust_autodiscountresult`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_adjust_autodiscountresult` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '方案id',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `CARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种',
+  `CHANNEL` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '渠道',
+  `OUTCARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种-对外报送',
+  `OUTCHANNEL` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '渠道-对外报送',
+  `ISNEWCAR` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新旧车',
+  `DISCOUNTCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '折扣区间',
+  `BMPREMNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新标准保费',
+  `BMPREMNCDNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新NCD后标准保费',
+  `PREMIUMJS` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（不卡合规限制）',
+  `PREMIUMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（卡合规限制）',
+  `BMPREMNDSHAREVSHARE` decimal(38,6) DEFAULT NULL COMMENT '新标准保费-分摊基础',
+  `BMPREMNCDNDSHAREVSHARE` decimal(38,6) DEFAULT NULL COMMENT '新NCD后标准保费-分摊基础',
+  `PREMIUMJSSHARE` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（不加合规限制）-分摊基础',
+  `PREMIUMJSCAPSHARE` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（加合规限制）-分摊基础',
+  `ACTUALEXPOYEARS` decimal(38,6) DEFAULT NULL COMMENT '保单件数',
+  `PREMIUMTAXSHARE` decimal(38,6) DEFAULT NULL COMMENT '保费-分摊基础',
+  `PREMIUMTAX` decimal(38,6) DEFAULT NULL COMMENT '保费',
+  `BMPREMNCDNDSHARE` decimal(38,6) DEFAULT NULL COMMENT '含NCD标准保费-分摊基础',
+  `BMPREMNDSHARE` decimal(38,6) DEFAULT NULL COMMENT '标准保费-分摊基础',
+  `BMPREMNCDND` decimal(38,6) DEFAULT NULL COMMENT '含NCD标准保费',
+  `BMPREMND` decimal(38,6) DEFAULT NULL COMMENT '标准保费',
+  `AUTODISCOUNTAVG` decimal(38,6) DEFAULT NULL COMMENT '平均自主折扣率',
+  `ACTUALEXPOYEARSEXPECT` decimal(38,6) DEFAULT NULL COMMENT '保单件数预期',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `SIPLANID` (`SIPLANID`),
+  KEY `orgcd2` (`ORGCD2`),
+  KEY `CARTY` (`CARTY`),
+  KEY `CHANNEL` (`CHANNEL`),
+  KEY `OUTCARTY` (`OUTCARTY`),
+  KEY `OUTCHANNEL` (`OUTCHANNEL`),
+  KEY `ISNEWCAR` (`ISNEWCAR`),
+  KEY `DISCOUNTCD` (`DISCOUNTCD`)
+) ENGINE=InnoDB AUTO_INCREMENT=162792 DEFAULT CHARSET=utf8 COMMENT='经营结果模拟-调整规则-自主折扣' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `si_simulation_adjust_input`
+--
+
+DROP TABLE IF EXISTS `si_simulation_adjust_input`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_adjust_input` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '方案id',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `CARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种',
+  `CHANNEL` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '渠道',
+  `TCIEXPLOSSRATE` decimal(38,6) DEFAULT NULL COMMENT '标费赔付率(系统值',
+  `PCTPREMIUM` decimal(38,6) DEFAULT NULL COMMENT '保费占比(系统值)',
+  `PREMIUMINCOME` decimal(38,6) DEFAULT NULL COMMENT '保费收入(系统值)',
+  `AUTODISCOUNT` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率(系统值',
+  `PREMIUMINCOMEIN` decimal(38,6) DEFAULT NULL COMMENT '保费收入(输入值)',
+  `AUTODISCOUNTIN` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率(输入值',
+  `AUTODISCOUNTCAL` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率(计算值',
+  `PCTPREMIUMCAL` decimal(38,6) DEFAULT NULL COMMENT '保费占比(计算值)',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `CARTY` (`CARTY`),
+  KEY `CHANNEL` (`CHANNEL`),
+  KEY `SIPLANID` (`SIPLANID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2520 DEFAULT CHARSET=utf8 COMMENT='经营结果模拟-调整规则-参数配置表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `si_simulation_adjust_lrateassist`
+--
+
+DROP TABLE IF EXISTS `si_simulation_adjust_lrateassist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_adjust_lrateassist` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '方案id',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `CARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种',
+  `PREMIUMAVGBGRATE` decimal(38,6) DEFAULT NULL COMMENT '标费赔付率',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `CARTY` (`CARTY`),
+  KEY `SIPLANID` (`SIPLANID`)
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COMMENT='经营结果模拟-调整规则-标费赔付率辅助表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `si_simulation_adjust_newoldassist`
+--
+
+DROP TABLE IF EXISTS `si_simulation_adjust_newoldassist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_adjust_newoldassist` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '方案id',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `CARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种',
+  `ISNEWCAR` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新旧车',
+  `PURCHASECD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新车购置价区间',
+  `NCDDISCOUNTRATE1` decimal(38,6) DEFAULT NULL COMMENT 'NCD折扣率',
+  `NCDDISCOUNTRATE2` decimal(38,6) DEFAULT NULL COMMENT 'NCD折扣率',
+  `PREMIUMRATE1` decimal(38,6) DEFAULT NULL COMMENT '保费比率（旧标费/新标费）',
+  `PREMIUMRATE2` decimal(38,6) DEFAULT NULL COMMENT '保费比率（旧标费/新标费）',
+  `NEWOLDCARPROPRATE` decimal(38,6) DEFAULT NULL COMMENT '新车/旧车占比',
+  `NEWOLDCARDISCOUNTRATE` decimal(38,6) DEFAULT NULL COMMENT '新旧车自主折扣',
+  `PREMIUMAVGBGRATE1` decimal(38,6) DEFAULT NULL COMMENT '单均标费预期',
+  `PREMIUMAVGBGRATE2` decimal(38,6) DEFAULT NULL COMMENT '单均标费预期',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `CARTY` (`CARTY`),
+  KEY `ISNEWCAR` (`ISNEWCAR`),
+  KEY `PURCHASECD` (`PURCHASECD`),
+  KEY `SIPLANID` (`SIPLANID`)
+) ENGINE=InnoDB AUTO_INCREMENT=432 DEFAULT CHARSET=utf8 COMMENT='经营结果模拟-调整规则-新旧车辅助表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `si_simulation_adjust_newoldcarass`
+--
+
+DROP TABLE IF EXISTS `si_simulation_adjust_newoldcarass`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_adjust_newoldcarass` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '方案id',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `ISNEWCAR` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新旧车',
+  `PURCHASECD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新车购置价区间',
+  `CARSERIESCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车系',
+  `BMPREMNDACTUALRATE` decimal(38,6) DEFAULT NULL COMMENT '模拟新标准保费比例',
+  `BMPREMNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '模拟新标准保费',
+  `BMPREMNDACTUALSUM` decimal(38,6) DEFAULT NULL COMMENT '模拟新标准分摊基础',
+  `BMPREMNCDNDACTUALRATE` decimal(38,6) DEFAULT NULL COMMENT '模拟含NCD新标准保费比例',
+  `BMPREMNCDNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '模拟含NCD新标准保费',
+  `BMPREMNCDNDACTUALSUM` decimal(38,6) DEFAULT NULL COMMENT '模拟含NCD新标准保费分摊基础',
+  `PREMIUMJSCAPRATE` decimal(38,6) DEFAULT NULL COMMENT '模拟保费比例',
+  `PREMIUMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '模拟保费',
+  `PREMIUMJSCAPSUM` decimal(38,6) DEFAULT NULL COMMENT '模拟保费分摊基础',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `ISNEWCAR` (`ISNEWCAR`),
+  KEY `CARSERIESCD` (`CARSERIESCD`),
+  KEY `PURCHASECD` (`PURCHASECD`),
+  KEY `SIPLANID` (`SIPLANID`)
+) ENGINE=InnoDB AUTO_INCREMENT=924 DEFAULT CHARSET=utf8 COMMENT='经营结果模拟-调整规则-车系辅助表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `si_simulation_adjust_premassist`
+--
+
+DROP TABLE IF EXISTS `si_simulation_adjust_premassist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_adjust_premassist` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '方案id',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `CARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种',
+  `ISNEWCAR` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新旧车',
+  `DISCOUNTCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '折扣区间',
+  `PREMIUMAVGBGRATE1` decimal(38,6) DEFAULT NULL COMMENT '单均标费预期',
+  `PREMIUMAVGBGRATE2` decimal(38,6) DEFAULT NULL COMMENT '单均标费预期',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `CARTY` (`CARTY`),
+  KEY `ISNEWCAR` (`ISNEWCAR`),
+  KEY `DISCOUNTCD` (`DISCOUNTCD`),
+  KEY `SIPLANID` (`SIPLANID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4788 DEFAULT CHARSET=utf8 COMMENT='经营结果模拟-调整规则-单均标费辅助表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `si_simulation_adjust_yearresult`
+--
+
+DROP TABLE IF EXISTS `si_simulation_adjust_yearresult`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_adjust_yearresult` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '方案id',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `CARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种',
+  `CHANNEL` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '渠道',
+  `OUTCARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种-对外报送',
+  `OUTCHANNEL` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '渠道-对外报送',
+  `ISNEWCAR` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新旧车',
+  `PURCHASECD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新车购置价区间',
+  `BCFINAL` decimal(38,6) DEFAULT NULL COMMENT '预期终极赔款',
+  `PREMACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际保费',
+  `BMPREMNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际标准保费',
+  `BMPREMNCDNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际NCD后标准保费',
+  `BMPREMNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新标准保费',
+  `BMPREMNCDNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新NCD后标准保费',
+  `PREMIUMJS` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（不卡合规限制）',
+  `PREMIUMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（卡合规限制）',
+  `CHARGEALAEOLD` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-旧',
+  `CHARGEULAEOLD` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-旧',
+  `CHARGECOMMOLD` decimal(38,6) DEFAULT NULL COMMENT '手续费-旧',
+  `CHARGEFIXOLD` decimal(38,6) DEFAULT NULL COMMENT '固定费用-旧',
+  `CHARGEOTHEROLD` decimal(38,6) DEFAULT NULL COMMENT '其他费用-旧',
+  `CHARGEALAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（卡合规限制）',
+  `CHARGEULAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（卡合规限制）',
+  `CHARGECOMMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（卡合规限制）',
+  `CHARGEFIXJSCAP` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（卡合规限制）',
+  `CHARGEOTHERJSCAP` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（卡合规限制）',
+  `ACTUALEXPOYEARS` decimal(38,6) DEFAULT NULL COMMENT '保单件数',
+  `ACTUALCOST` decimal(38,6) DEFAULT NULL COMMENT '风险成本实际（含理赔）',
+  `ADJUSTNEWCARPREMIUM` decimal(38,6) DEFAULT NULL COMMENT '保费（调整新车后）',
+  `CHANNELCARTYPREMIUM` decimal(38,6) DEFAULT NULL COMMENT '模拟渠道车种保费',
+  `REPORTPREMIUM` decimal(38,6) DEFAULT NULL COMMENT '上报保费',
+  `REPORTDISCOUNTRATE` decimal(38,6) DEFAULT NULL COMMENT '上报折扣率',
+  `NEWCARSTANDARDNCDPREMIUM` decimal(38,6) DEFAULT NULL COMMENT '新车含NCD标费-新版本',
+  `STANDARDNCDPREMIUM` decimal(38,6) DEFAULT NULL COMMENT '含NCD标准保费-新版本',
+  `STANDARDPREMIUMNEW` decimal(38,6) DEFAULT NULL COMMENT '标准保费-新版本',
+  `STANDARDPREMIUMOLD` decimal(38,6) DEFAULT NULL COMMENT '标准保费-旧版本',
+  `DIRECTCLAIMEXPENSERATE` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用率',
+  `INDIRECTCLAIMEXPENSERATE` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用率',
+  `HANDLINGFEERATE` decimal(38,6) DEFAULT NULL COMMENT '手续费率',
+  `FIXEDFEERATE` decimal(38,6) DEFAULT NULL COMMENT '固定费用率',
+  `OTHERFEERATE` decimal(38,6) DEFAULT NULL COMMENT '其他费用率',
+  `RISKCOST` decimal(38,6) DEFAULT NULL COMMENT '风险成本',
+  `DIRECTCLAIMEXPENSE` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用预期',
+  `INDIRECTCLAIMEXPENSE` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用预期',
+  `HANDLINGFEE` decimal(38,6) DEFAULT NULL COMMENT '手续费预期',
+  `FIXEDEXPFEE` decimal(38,6) DEFAULT NULL COMMENT '固定费用预期',
+  `OTHEREXPFEE` decimal(38,6) DEFAULT NULL COMMENT '其他费用预期',
+  `RISKCOSTEXPDIRECTCLAIM` decimal(38,6) DEFAULT NULL COMMENT '风险成本预期（含直接理赔）',
+  `PLOLICYEXPFEEALL` decimal(38,6) DEFAULT NULL COMMENT '保单费用合计值预期',
+  `POLICYEXPNUM` decimal(38,6) DEFAULT NULL COMMENT '保单件数预期',
+  `STANDARDNCDPREMIUMNEW` decimal(38,6) DEFAULT NULL COMMENT '含NCD标准保费-新版',
+  `OLDCARSTANDARDNCDPREMIUM` decimal(38,6) DEFAULT NULL COMMENT '旧车含NCD标费-新版本(家自车无历史业务,不分车价)',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `SIPLANID` (`SIPLANID`),
+  KEY `orgcd2` (`ORGCD2`),
+  KEY `CHANNEL` (`CHANNEL`),
+  KEY `OUTCARTY` (`OUTCARTY`),
+  KEY `OUTCHANNEL` (`OUTCHANNEL`),
+  KEY `CARTY` (`CARTY`),
+  KEY `ISNEWCAR` (`ISNEWCAR`),
+  KEY `PURCHASECD` (`PURCHASECD`)
+) ENGINE=InnoDB AUTO_INCREMENT=11424 DEFAULT CHARSET=utf8 COMMENT='经营结果模拟-调整规则-未来年预期' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `si_simulation_adjust_discount`
+--
+
+DROP TABLE IF EXISTS `si_simulation_adjust_discount`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_adjust_discount` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '方案id',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `CARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种',
+  `CHANNEL` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '渠道',
+  `ISNEWCAR` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新旧车',
+  `PURCHASECD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新车购置价区间',
+  `DISCOUNTCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '折扣区间',
+  `BCFINAL` decimal(38,6) DEFAULT NULL COMMENT '预期终极赔款',
+  `PREMACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际保费',
+  `BMPREMNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际标准保费',
+  `BMPREMNCDNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际NCD后标准保费',
+  `BMPREMNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新标准保费',
+  `BMPREMNCDNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新NCD后标准保费',
+  `PREMIUMJS` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（不卡合规限制）',
+  `PREMIUMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（卡合规限制）',
+  `CHARGEALAEOLD` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-旧',
+  `CHARGEULAEOLD` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-旧',
+  `CHARGECOMMOLD` decimal(38,6) DEFAULT NULL COMMENT '手续费-旧',
+  `CHARGEFIXOLD` decimal(38,6) DEFAULT NULL COMMENT '固定费用-旧',
+  `CHARGEOTHEROLD` decimal(38,6) DEFAULT NULL COMMENT '其他费用-旧',
+  `CHARGEALAEJS` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（不卡合规限制）',
+  `CHARGEULAEJS` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（不卡合规限制）',
+  `CHARGECOMMJS` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（不卡合规限制）',
+  `CHARGEFIXJS` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（不卡合规限制）',
+  `CHARGEOTHERJS` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（不卡合规限制）',
+  `CHARGEALAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（卡合规限制）',
+  `CHARGEULAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（卡合规限制）',
+  `CHARGECOMMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（卡合规限制）',
+  `CHARGEFIXJSCAP` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（卡合规限制）',
+  `CHARGEOTHERJSCAP` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（卡合规限制）',
+  `ACTUALEXPOYEARS` decimal(38,6) DEFAULT NULL COMMENT '保单件数',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `CARTY` (`CARTY`),
+  KEY `CHANNEL` (`CHANNEL`),
+  KEY `ISNEWCAR` (`ISNEWCAR`),
+  KEY `PURCHASECD` (`PURCHASECD`),
+  KEY `DISCOUNTCD` (`DISCOUNTCD`),
+  KEY `SIPLANID` (`SIPLANID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1288 DEFAULT CHARSET=utf8 COMMENT='经营结果模拟-调整规则-折扣数据' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `si_simulation_adjust_forecast`
+--
+
+DROP TABLE IF EXISTS `si_simulation_adjust_forecast`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_adjust_forecast` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '方案id',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `CARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种',
+  `CHANNEL` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '渠道',
+  `OUTCARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种-对外报送',
+  `OUTCHANNEL` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '渠道-对外报送',
+  `ISNEWCAR` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新旧车',
+  `PURCHASECD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新车购置价区间',
+  `BCFINAL` decimal(38,6) DEFAULT NULL COMMENT '预期终极赔款',
+  `PREMACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际保费',
+  `BMPREMNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际标准保费',
+  `BMPREMNCDNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际NCD后标准保费',
+  `BMPREMNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新标准保费',
+  `BMPREMNCDNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新NCD后标准保费',
+  `PREMIUMJS` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（不卡合规限制）',
+  `PREMIUMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（卡合规限制）',
+  `CHARGEALAEOLD` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-旧',
+  `CHARGEULAEOLD` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-旧',
+  `CHARGECOMMOLD` decimal(38,6) DEFAULT NULL COMMENT '手续费-旧',
+  `CHARGEFIXOLD` decimal(38,6) DEFAULT NULL COMMENT '固定费用-旧',
+  `CHARGEOTHEROLD` decimal(38,6) DEFAULT NULL COMMENT '其他费用-旧',
+  `CHARGEALAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（卡合规限制）',
+  `CHARGEULAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（卡合规限制）',
+  `CHARGECOMMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（卡合规限制）',
+  `CHARGEFIXJSCAP` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（卡合规限制）',
+  `CHARGEOTHERJSCAP` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（卡合规限制）',
+  `ACTUALEXPOYEARS` decimal(38,6) DEFAULT NULL COMMENT '保单件数',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `CARTY` (`CARTY`),
+  KEY `CHANNEL` (`CHANNEL`),
+  KEY `ISNEWCAR` (`ISNEWCAR`),
+  KEY `PURCHASECD` (`PURCHASECD`),
+  KEY `OUTCARTY` (`OUTCARTY`),
+  KEY `OUTCHANNEL` (`OUTCHANNEL`),
+  KEY `SIPLANID` (`SIPLANID`)
+) ENGINE=InnoDB AUTO_INCREMENT=914 DEFAULT CHARSET=utf8 COMMENT='经营结果模拟-调整规则-预测数据' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `si_simulation_adjust_vehicle`
+--
+
+DROP TABLE IF EXISTS `si_simulation_adjust_vehicle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_adjust_vehicle` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '方案id',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `CHANNEL` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '渠道',
+  `ISNEWCAR` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新旧车',
+  `PURCHASECD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新车购置价区间',
+  `CARSERIESCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车系',
+  `OUTCARSERIESCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车系-对外报送',
+  `BCFINAL` decimal(38,6) DEFAULT NULL COMMENT '预期终极赔款',
+  `PREMACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际保费',
+  `BMPREMNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际标准保费',
+  `BMPREMNCDNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际NCD后标准保费',
+  `BMPREMNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新标准保费',
+  `BMPREMNCDNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新NCD后标准保费',
+  `PREMIUMJS` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（不卡合规限制）',
+  `PREMIUMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（卡合规限制）',
+  `CHARGEALAEOLD` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-旧',
+  `CHARGEULAEOLD` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-旧',
+  `CHARGECOMMOLD` decimal(38,6) DEFAULT NULL COMMENT '手续费-旧',
+  `CHARGEFIXOLD` decimal(38,6) DEFAULT NULL COMMENT '固定费用-旧',
+  `CHARGEOTHEROLD` decimal(38,6) DEFAULT NULL COMMENT '其他费用-旧',
+  `CHARGEALAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（卡合规限制）',
+  `CHARGEULAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（卡合规限制）',
+  `CHARGECOMMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（卡合规限制）',
+  `CHARGEFIXJSCAP` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（卡合规限制）',
+  `CHARGEOTHERJSCAP` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（卡合规限制）',
+  `ACTUALEXPOYEARS` decimal(38,6) DEFAULT NULL COMMENT '保单件数',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `CARSERIESCD` (`CARSERIESCD`),
+  KEY `CHANNEL` (`CHANNEL`),
+  KEY `ISNEWCAR` (`ISNEWCAR`),
+  KEY `PURCHASECD` (`PURCHASECD`),
+  KEY `OUTCARSERIESCD` (`OUTCARSERIESCD`),
+  KEY `SIPLANID` (`SIPLANID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3890 DEFAULT CHARSET=utf8 COMMENT='经营结果模拟-调整规则-车系数据' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `si_simulation_curdis`
+--
+
+DROP TABLE IF EXISTS `si_simulation_curdis`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_curdis` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '模拟方案编号',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `ORGCD3` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '支公司机构代码',
+  `CARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种',
+  `SOURCEBIZCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '业务来源代码',
+  `OTHCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新续转代码',
+  `CARTYDETSENCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级细分市场代码',
+  `DISCOUNTCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '折扣区间',
+  `BCFINAL` decimal(38,6) DEFAULT NULL COMMENT '预期终极赔款',
+  `PREMACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际保费',
+  `BMPREMNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际标准保费',
+  `BMPREMNCDNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际NCD后标准保费',
+  `BMPREMNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新标准保费',
+  `BMPREMNCDNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新NCD后标准保费',
+  `PREMIUMJS` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（不卡合规限制）',
+  `PREMIUMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（卡合规限制）',
+  `CHARGEALAEOLD` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-旧',
+  `CHARGEULAEOLD` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-旧',
+  `CHARGECOMMOLD` decimal(38,6) DEFAULT NULL COMMENT '手续费-旧',
+  `CHARGEFIXOLD` decimal(38,6) DEFAULT NULL COMMENT '固定费用-旧',
+  `CHARGEOTHEROLD` decimal(38,6) DEFAULT NULL COMMENT '其他费用-旧',
+  `CHARGEALAEJS` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（不卡合规限制）',
+  `CHARGEULAEJS` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（不卡合规限制）',
+  `CHARGECOMMJS` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（不卡合规限制）',
+  `CHARGEFIXJS` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（不卡合规限制）',
+  `CHARGEOTHERJS` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（不卡合规限制）',
+  `CHARGEALAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（卡合规限制）',
+  `CHARGEULAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（卡合规限制）',
+  `CHARGECOMMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（卡合规限制）',
+  `CHARGEFIXJSCAP` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（卡合规限制）',
+  `CHARGEOTHERJSCAP` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（卡合规限制）',
+  `ACTUALEXPOYEARS` decimal(38,6) DEFAULT NULL COMMENT '保单件数',
+  `AUTODISCOUNTMAXACT` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最高值实际值',
+  `AUTODISCOUNTMAXSIM` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最高值模拟值',
+  `AUTODISCOUNTMINACT` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最低值实际值',
+  `AUTODISCOUNTMINSIM` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最低值模拟值',
+  `INCREASEPOLICYNUM` decimal(38,6) DEFAULT NULL COMMENT '降价保单数',
+  `REDUCEPOLICYNUM` decimal(38,6) DEFAULT NULL COMMENT '涨价保单数',
+  `HANDLINGFEERATEMAXACT` decimal(38,6) DEFAULT NULL COMMENT '手续费率最高值实际值',
+  `HANDLINGFEERATEMAXSIM` decimal(38,6) DEFAULT NULL COMMENT '手续费率最高值模拟值',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `SIPLANID` (`SIPLANID`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `ORGCD3` (`ORGCD3`),
+  KEY `CARTY` (`CARTY`),
+  KEY `SOURCEBIZCD` (`SOURCEBIZCD`),
+  KEY `OTHCD` (`OTHCD`),
+  KEY `CARTYDETSENCD` (`CARTYDETSENCD`),
+  KEY `DISCOUNTCD` (`DISCOUNTCD`)
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COMMENT='经营模拟非家用车折扣分布' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `si_simulation_curpre`
+--
+
+DROP TABLE IF EXISTS `si_simulation_curpre`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_curpre` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '模拟方案编号',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `ORGCD3` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '支公司机构代码',
+  `CARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车种',
+  `SOURCEBIZCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '业务来源代码',
+  `OTHCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新续转代码',
+  `CARTYDETSENCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级细分市场代码',
+  `PREMIUMRATECD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新旧保费比率区间',
+  `BCFINAL` decimal(38,6) DEFAULT NULL COMMENT '预期终极赔款',
+  `PREMACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际保费',
+  `BMPREMNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际标准保费',
+  `BMPREMNCDNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际NCD后标准保费',
+  `BMPREMNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新标准保费',
+  `BMPREMNCDNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新NCD后标准保费',
+  `PREMIUMJS` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（不卡合规限制）',
+  `PREMIUMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（卡合规限制）',
+  `CHARGEALAEOLD` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-旧',
+  `CHARGEULAEOLD` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-旧',
+  `CHARGECOMMOLD` decimal(38,6) DEFAULT NULL COMMENT '手续费-旧',
+  `CHARGEFIXOLD` decimal(38,6) DEFAULT NULL COMMENT '固定费用-旧',
+  `CHARGEOTHEROLD` decimal(38,6) DEFAULT NULL COMMENT '其他费用-旧',
+  `CHARGEALAEJS` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（不卡合规限制）',
+  `CHARGEULAEJS` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（不卡合规限制）',
+  `CHARGECOMMJS` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（不卡合规限制）',
+  `CHARGEFIXJS` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（不卡合规限制）',
+  `CHARGEOTHERJS` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（不卡合规限制）',
+  `CHARGEALAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（卡合规限制）',
+  `CHARGEULAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（卡合规限制）',
+  `CHARGECOMMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（卡合规限制）',
+  `CHARGEFIXJSCAP` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（卡合规限制）',
+  `CHARGEOTHERJSCAP` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（卡合规限制）',
+  `ACTUALEXPOYEARS` decimal(38,6) DEFAULT NULL COMMENT '保单件数',
+  `AUTODISCOUNTMAXACT` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最高值实际值',
+  `AUTODISCOUNTMAXSIM` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最高值模拟值',
+  `AUTODISCOUNTMINACT` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最低值实际值',
+  `AUTODISCOUNTMINSIM` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最低值模拟值',
+  `INCREASEPOLICYNUM` decimal(38,6) DEFAULT NULL COMMENT '降价保单数',
+  `REDUCEPOLICYNUM` decimal(38,6) DEFAULT NULL COMMENT '涨价保单数',
+  `HANDLINGFEERATEMAXACT` decimal(38,6) DEFAULT NULL COMMENT '手续费率最高值实际值',
+  `HANDLINGFEERATEMAXSIM` decimal(38,6) DEFAULT NULL COMMENT '手续费率最高值模拟值',
+  `RESERVE1` decimal(38,6) DEFAULT NULL COMMENT '准备金1',
+  `RESERVE2` decimal(38,6) DEFAULT NULL COMMENT '准备金2',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `SIPLANID` (`SIPLANID`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `ORGCD3` (`ORGCD3`),
+  KEY `CARTY` (`CARTY`),
+  KEY `SOURCEBIZCD` (`SOURCEBIZCD`),
+  KEY `OTHCD` (`OTHCD`),
+  KEY `CARTYDETSENCD` (`CARTYDETSENCD`),
+  KEY `PREMIUMRATECD` (`PREMIUMRATECD`)
+) ENGINE=InnoDB AUTO_INCREMENT=2668 DEFAULT CHARSET=utf8 COMMENT='经营模拟新旧保费分布' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `si_simulation_direct`
+--
+
+DROP TABLE IF EXISTS `si_simulation_direct`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_direct` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '模拟方案编号',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `FACTOR` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '风险因子',
+  `FACTORGROUP` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '风险因子分组',
+  `BCFINAL` decimal(38,6) DEFAULT NULL COMMENT '预期终极赔款',
+  `PREMACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际保费',
+  `BMPREMNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际标准保费',
+  `BMPREMNCDNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际NCD后标准保费',
+  `BMPREMNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新标准保费',
+  `BMPREMNCDNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新NCD后标准保费',
+  `PREMIUMJS` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（不卡合规限制）',
+  `PREMIUMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（卡合规限制）',
+  `CHARGEALAEOLD` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-旧',
+  `CHARGEULAEOLD` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-旧',
+  `CHARGECOMMOLD` decimal(38,6) DEFAULT NULL COMMENT '手续费-旧',
+  `CHARGEFIXOLD` decimal(38,6) DEFAULT NULL COMMENT '固定费用-旧',
+  `CHARGEOTHEROLD` decimal(38,6) DEFAULT NULL COMMENT '其他费用-旧',
+  `CHARGEALAEJS` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（不卡合规限制）',
+  `CHARGEULAEJS` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（不卡合规限制）',
+  `CHARGECOMMJS` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（不卡合规限制）',
+  `CHARGEFIXJS` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（不卡合规限制）',
+  `CHARGEOTHERJS` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（不卡合规限制）',
+  `CHARGEALAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（卡合规限制）',
+  `CHARGEULAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（卡合规限制）',
+  `CHARGECOMMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（卡合规限制）',
+  `CHARGEFIXJSCAP` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（卡合规限制）',
+  `CHARGEOTHERJSCAP` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（卡合规限制）',
+  `ACTUALEXPOYEARS` decimal(38,6) DEFAULT NULL COMMENT '保单件数',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `SIPLANID` (`SIPLANID`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `FACTOR` (`FACTOR`),
+  KEY `FACTORGROUP` (`FACTORGROUP`)
+) ENGINE=InnoDB AUTO_INCREMENT=310 DEFAULT CHARSET=utf8 COMMENT='经营模拟家用车过程表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `si_simulation_mid`
+--
+
+DROP TABLE IF EXISTS `si_simulation_mid`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_mid` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '模拟方案编号',
+  `POLNO` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '保单编号',
+  `RISKCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '险种代码',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `CARTY` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车辆种类',
+  `CARTYDETSENCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '二级细分市场代码',
+  `SOURCEBIZCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '业务来源代码',
+  `OTHCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新续转代码',
+  `CARSERIESCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车系代码',
+  `BRANDCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车辆品牌代码',
+  `AGE` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '年龄',
+  `SEX` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '性别',
+  `DISCOUNTCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '折扣区间',
+  `PREMIUMRATECD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新旧保费比率区间',
+  `PURCHASECD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新车购置价',
+  `BCFINAL` decimal(38,6) DEFAULT NULL COMMENT '预期终极赔款',
+  `PREMACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际保费',
+  `BMPREMNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际标准保费',
+  `BMPREMNCDNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际NCD后标准保费',
+  `BMPREMNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新标准保费',
+  `BMPREMNCDNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新NCD后标准保费',
+  `PREMIUMJS` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（不卡合规限制）',
+  `PREMIUMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（加合规限制）',
+  `CHARGEALAEOLD` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-旧',
+  `CHARGEULAEOLD` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-旧',
+  `CHARGECOMMOLD` decimal(38,6) DEFAULT NULL COMMENT '手续费-旧',
+  `CHARGEFIXOLD` decimal(38,6) DEFAULT NULL COMMENT '固定费用-旧',
+  `CHARGEOTHEROLD` decimal(38,6) DEFAULT NULL COMMENT '其他费用-旧',
+  `CHARGEALAEJS` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（不卡合规限制）',
+  `CHARGEULAEJS` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（不卡合规限制）',
+  `CHARGECOMMJS` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（不卡合规限制）',
+  `CHARGEFIXJS` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（不卡合规限制）',
+  `CHARGEOTHERJS` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（不卡合规限制）',
+  `CHARGEALAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（卡合规限制）',
+  `CHARGEULAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（卡合规限制）',
+  `CHARGECOMMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（卡合规限制）',
+  `CHARGEFIXJSCAP` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（卡合规限制）',
+  `CHARGEOTHERJSCAP` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（卡合规限制）',
+  `ACTUALEXPOYEARS` decimal(38,6) DEFAULT NULL COMMENT '保单件数',
+  `AUTODISCOUNTACT` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率实际值',
+  `AUTODISCOUNTSIM` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率模拟值',
+  `HANDLINGFEERATEACT` decimal(38,6) DEFAULT NULL COMMENT '手续费率实际值',
+  `HANDLINGFEERATESIM` decimal(38,6) DEFAULT NULL COMMENT '手续费率模拟值',
+  `UPDOWN` decimal(38,6) DEFAULT NULL COMMENT '涨价/降价',
+  `RESERVE1` decimal(38,6) DEFAULT NULL COMMENT '准备金1',
+  `RESERVE2` decimal(38,6) DEFAULT NULL COMMENT '准备金2',
+  `STARTDATE` date DEFAULT NULL COMMENT '起保日期',
+  `DUEENDDATE` date DEFAULT NULL COMMENT '终保日期',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `POLNO` (`POLNO`),
+  KEY `ORGCD3` (`ORGCD3`),
+  KEY `si_index_group` (`SIPLANID`,`ORGCD2`,`CARTY`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=126096 DEFAULT CHARSET=utf8 COMMENT='经营模拟结果中间表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `si_simulation_spedis`
+--
+
+DROP TABLE IF EXISTS `si_simulation_spedis`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_spedis` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '模拟方案编号',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `ORGCD3` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '支公司机构代码',
+  `SOURCEBIZCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '业务来源代码',
+  `OTHCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新续转代码',
+  `CARSERIESCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车系',
+  `PURCHASECD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新车购置价区间',
+  `DISCOUNTCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '折扣区间',
+  `BCFINAL` decimal(38,6) DEFAULT NULL COMMENT '预期终极赔款',
+  `PREMACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际保费',
+  `BMPREMNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际标准保费',
+  `BMPREMNCDNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际NCD后标准保费',
+  `BMPREMNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新标准保费',
+  `BMPREMNCDNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新NCD后标准保费',
+  `PREMIUMJS` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（不卡合规限制）',
+  `PREMIUMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（卡合规限制）',
+  `CHARGEALAEOLD` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-旧',
+  `CHARGEULAEOLD` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-旧',
+  `CHARGECOMMOLD` decimal(38,6) DEFAULT NULL COMMENT '手续费-旧',
+  `CHARGEFIXOLD` decimal(38,6) DEFAULT NULL COMMENT '固定费用-旧',
+  `CHARGEOTHEROLD` decimal(38,6) DEFAULT NULL COMMENT '其他费用-旧',
+  `CHARGEALAEJS` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（不卡合规限制）',
+  `CHARGEULAEJS` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（不卡合规限制）',
+  `CHARGECOMMJS` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（不卡合规限制）',
+  `CHARGEFIXJS` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（不卡合规限制）',
+  `CHARGEOTHERJS` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（不卡合规限制）',
+  `CHARGEALAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（卡合规限制）',
+  `CHARGEULAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（卡合规限制）',
+  `CHARGECOMMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（卡合规限制）',
+  `CHARGEFIXJSCAP` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（卡合规限制）',
+  `CHARGEOTHERJSCAP` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（卡合规限制）',
+  `ACTUALEXPOYEARS` decimal(38,6) DEFAULT NULL COMMENT '保单件数',
+  `AUTODISCOUNTMAXACT` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最高值实际值',
+  `AUTODISCOUNTMAXSIM` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最高值模拟值',
+  `AUTODISCOUNTMINACT` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最低值实际值',
+  `AUTODISCOUNTMINSIM` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最低值模拟值',
+  `INCREASEPOLICYNUM` decimal(38,6) DEFAULT NULL COMMENT '降价保单数',
+  `REDUCEPOLICYNUM` decimal(38,6) DEFAULT NULL COMMENT '涨价保单数',
+  `HANDLINGFEERATEMAXACT` decimal(38,6) DEFAULT NULL COMMENT '手续费率最高值实际值',
+  `HANDLINGFEERATEMAXSIM` decimal(38,6) DEFAULT NULL COMMENT '手续费率最高值模拟值',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `SIPLANID` (`SIPLANID`),
+  KEY `ORGCD2` (`ORGCD2`),
+  KEY `ORGCD3` (`ORGCD3`),
+  KEY `DISCOUNTCD` (`DISCOUNTCD`)
+) ENGINE=InnoDB AUTO_INCREMENT=5544 DEFAULT CHARSET=utf8 COMMENT='经营模拟家用折扣分布' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `ps_agent_bizunit_track_his`
+--
+
+DROP TABLE IF EXISTS `ps_agent_bizunit_track_his`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_agent_bizunit_track_his` (
+  `ID` int(16) NOT NULL,
+  `BIZUNITID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '业务单元编号',
+  `DETAILBIZUNITID` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '明细业务单元编号',
+  `AGRAGENTID` varchar(36) COLLATE utf8_bin DEFAULT NULL COMMENT '代理协议编号',
+  `AGENTVERSION` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '代理协议版本号',
+  `VERCREATEDATE` datetime DEFAULT NULL COMMENT '版本创建时间',
+  `ORGCD2` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '二级机构代码',
+  `ORGCD3` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '三级机构代码',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='代理协议业务单元轨迹历史表' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `fp_feeplan_carty_flow`
+--
+
+DROP TABLE IF EXISTS `fp_feeplan_carty_flow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fp_feeplan_carty_flow` (
+  `ID` int(16) NOT NULL,
+  `ORGCD` varchar(20) NOT NULL COMMENT '机构代码',
+  `ORGNM` varchar(100) DEFAULT NULL COMMENT '机构名称',
+  `FEEPLANVERSION` varchar(50) DEFAULT NULL COMMENT '费率方案版本号',
+  `CARTYCD` varchar(20) NOT NULL COMMENT '车种代码',
+  `CARTYNM` varchar(100) DEFAULT NULL COMMENT '车种名称',
+  `STANDARDPREMIUM` decimal(20,4) DEFAULT NULL COMMENT '标准保费',
+  `NCDPREMIUM` decimal(20,4) DEFAULT NULL COMMENT '含NCD的保费',
+  `NCDAUTOPREMIUM` decimal(20,4) DEFAULT NULL COMMENT '含NCD、自主核保系数、自主渠道系数的保费',
+  `AVGNCD` decimal(18,4) DEFAULT NULL COMMENT 'NCD平均值',
+  `AVGUWAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '自主核保系数平均值',
+  `MINUWAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '自主核保系数最低值',
+  `MAXUWAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '自主核保系数最高值',
+  `AVGCHAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '自主渠道系数平均值',
+  `MINCHAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '自主渠道系数最低值',
+  `MAXCHAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '自主渠道系数最高值',
+  `AVGDISCOUNT` decimal(18,4) DEFAULT NULL COMMENT '自主折扣系数平均值',
+  `MINDISCOUNT` decimal(18,4) DEFAULT NULL COMMENT '自主折扣系数最低值',
+  `MAXDISCOUNT` decimal(18,4) DEFAULT NULL COMMENT '自主折扣系数最高值',
+  `OLDUWAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '假设仍沿用行业旧基准费率的平均自主核保系数',
+  `OLDCHAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '假设仍沿用行业旧基准费率的平均自主渠道系数',
+  `OLDDISCOUNT` decimal(18,4) DEFAULT NULL COMMENT '假设仍沿用行业旧基准费率的平均自主折扣系数',
+  `STANDARDYEARLOSSRATE` decimal(18,4) DEFAULT NULL COMMENT '标准保费的保单年赔付率',
+  `NCDYEARLOSSRATE` decimal(18,4) DEFAULT NULL COMMENT '含NCD的保单年赔付率',
+  `NCDAUTOHBYEARLOSSRATE` decimal(18,4) DEFAULT NULL COMMENT '含NCD、自主核保系数的保单年赔付率',
+  `NCDAUTOYEARLOSSRATE` decimal(18,4) DEFAULT NULL COMMENT '含NCD、自主核保系数、自主渠道系数的保单年赔付率',
+  `YEARFEERATE` decimal(18,4) DEFAULT NULL COMMENT '保单年费用率',
+  `AGENCYSERVICEMAX` decimal(18,4) DEFAULT NULL COMMENT '保单年单笔业务中介机构手续费率最高值',
+  `AGENCYSERVICEAVG` decimal(18,4) DEFAULT NULL COMMENT '保单年中介机构手续费率平均值',
+  `AGENTSERVICEMAX` decimal(18,4) DEFAULT NULL COMMENT '保单年单笔业务个人代理人费用率最高值',
+  `AGENTSERVICEAVG` decimal(18,4) DEFAULT NULL COMMENT '保单年个人代理人费用率平均值',
+  `YEARCOSTYEAR` decimal(18,4) DEFAULT NULL COMMENT '保单年成本率',
+  `NEWCARFLAG` varchar(2) DEFAULT NULL COMMENT '新车标识',
+  `FEEPLANID` varchar(20) NOT NULL COMMENT '费率方案编号',
+  `UPDATETIME` datetime DEFAULT NULL,
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `fp_feeplan_chan_flow`
+--
+
+DROP TABLE IF EXISTS `fp_feeplan_chan_flow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fp_feeplan_chan_flow` (
+  `ID` int(16) NOT NULL,
+  `ORGCD` varchar(20) DEFAULT NULL COMMENT '机构代码',
+  `ORGNM` varchar(100) DEFAULT NULL COMMENT '机构名称',
+  `FEEPLANVERSION` varchar(50) DEFAULT NULL COMMENT '费率方案版本号',
+  `CHANCD` varchar(20) DEFAULT NULL COMMENT '渠道代码',
+  `CHANNM` varchar(100) DEFAULT NULL COMMENT '渠道名称',
+  `STANDARDPREMIUM` decimal(20,4) DEFAULT NULL COMMENT '标准保费',
+  `NCDPREMIUM` decimal(20,4) DEFAULT NULL COMMENT '含NCD的保费',
+  `NCDAUTOPREMIUM` decimal(20,4) DEFAULT NULL COMMENT '含NCD、自主核保系数、自主渠道系数的保费',
+  `AVGNCD` decimal(18,4) DEFAULT NULL COMMENT 'NCD平均值',
+  `AVGUWAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '自主核保系数平均值',
+  `MINUWAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '自主核保系数最低值',
+  `MAXUWAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '自主核保系数最高值',
+  `AVGCHAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '自主渠道系数平均值',
+  `MINCHAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '自主渠道系数最低值',
+  `MAXCHAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '自主渠道系数最高值',
+  `AVGDISCOUNT` decimal(18,4) DEFAULT NULL COMMENT '自主折扣系数平均值',
+  `MINDISCOUNT` decimal(18,4) DEFAULT NULL COMMENT '自主折扣系数最低值',
+  `MAXDISCOUNT` decimal(18,4) DEFAULT NULL COMMENT '自主折扣系数最高值',
+  `OLDUWAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '假设仍沿用行业旧基准费率的平均自主核保系数',
+  `OLDCHAOCCOEFFICIENT` decimal(18,4) DEFAULT NULL COMMENT '假设仍沿用行业旧基准费率的平均自主渠道系数',
+  `OLDDISCOUNT` decimal(18,4) DEFAULT NULL COMMENT '假设仍沿用行业旧基准费率的平均自主折扣系数',
+  `STANDARDYEARLOSSRATE` decimal(18,4) DEFAULT NULL COMMENT '标准保费的保单年赔付率',
+  `NCDYEARLOSSRATE` decimal(18,4) DEFAULT NULL COMMENT '含NCD的保单年赔付率',
+  `NCDAUTOHBYEARLOSSRATE` decimal(18,4) DEFAULT NULL COMMENT '含NCD、自主核保系数的保单年赔付率',
+  `NCDAUTOYEARLOSSRATE` decimal(18,4) DEFAULT NULL COMMENT '含NCD、自主核保系数、自主渠道系数的保单年赔付率',
+  `YEARFEERATE` decimal(18,4) DEFAULT NULL COMMENT '保单年费用率',
+  `AGENCYSERVICEMAX` decimal(18,4) DEFAULT NULL COMMENT '保单年单笔业务中介机构手续费率或个人代理人费用率最高值',
+  `AGENCYSERVICEAVG` decimal(18,4) DEFAULT NULL COMMENT '保单年中介机构手续费率或个人代理人费用率平均值',
+  `YEARCOSTYEAR` decimal(18,4) DEFAULT NULL COMMENT '保单年成本率',
+  `NEWCARFLAG` varchar(2) DEFAULT NULL COMMENT '新车标识',
+  `FEEPLANID` varchar(20) DEFAULT NULL COMMENT '费率方案编号',
+  `UPDATETIME` datetime DEFAULT NULL,
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+-- MySQL dump 10.13  Distrib 5.7.30, for linux-glibc2.12 (x86_64)
+--
+-- Host: 9.1.192.66    Database: TESTDB
+-- ------------------------------------------------------
+-- Server version	5.6.29-mycat-1.6.5-release-20180122220033
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+
+
+--
+-- Table structure for table `si_simulation_spedis_mid`
+--
+
+DROP TABLE IF EXISTS `si_simulation_spedis_mid`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `si_simulation_spedis_mid` (
+  `ID` int(16) NOT NULL,
+  `SIPLANID` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '模拟方案编号',
+  `ORGCD2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '分公司机构代码',
+  `ORGCD3` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '支公司机构代码',
+  `SOURCEBIZCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '业务来源代码',
+  `OTHCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新续转代码',
+  `CARSERIESCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '车系',
+  `PURCHASECD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '新车购置价区间',
+  `DISCOUNTCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '折扣区间',
+  `BCFINAL` decimal(38,6) DEFAULT NULL COMMENT '预期终极赔款',
+  `PREMACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际保费',
+  `BMPREMNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际标准保费',
+  `BMPREMNCDNDACTUAL` decimal(38,6) DEFAULT NULL COMMENT '实际NCD后标准保费',
+  `BMPREMNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新标准保费',
+  `BMPREMNCDNDNEWNEW` decimal(38,6) DEFAULT NULL COMMENT '新NCD后标准保费',
+  `PREMIUMJS` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（不卡合规限制）',
+  `PREMIUMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '模拟保费（卡合规限制）',
+  `CHARGEALAEOLD` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-旧',
+  `CHARGEULAEOLD` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-旧',
+  `CHARGECOMMOLD` decimal(38,6) DEFAULT NULL COMMENT '手续费-旧',
+  `CHARGEFIXOLD` decimal(38,6) DEFAULT NULL COMMENT '固定费用-旧',
+  `CHARGEOTHEROLD` decimal(38,6) DEFAULT NULL COMMENT '其他费用-旧',
+  `CHARGEALAEJS` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（不卡合规限制）',
+  `CHARGEULAEJS` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（不卡合规限制）',
+  `CHARGECOMMJS` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（不卡合规限制）',
+  `CHARGEFIXJS` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（不卡合规限制）',
+  `CHARGEOTHERJS` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（不卡合规限制）',
+  `CHARGEALAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '直接理赔费用-模拟（卡合规限制）',
+  `CHARGEULAEJSCAP` decimal(38,6) DEFAULT NULL COMMENT '间接理赔费用-模拟（卡合规限制）',
+  `CHARGECOMMJSCAP` decimal(38,6) DEFAULT NULL COMMENT '手续费-模拟（卡合规限制）',
+  `CHARGEFIXJSCAP` decimal(38,6) DEFAULT NULL COMMENT '固定费用-模拟（卡合规限制）',
+  `CHARGEOTHERJSCAP` decimal(38,6) DEFAULT NULL COMMENT '其他费用-模拟（卡合规限制）',
+  `ACTUALEXPOYEARS` decimal(38,6) DEFAULT NULL COMMENT '保单件数',
+  `AUTODISCOUNTMAXACT` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最高值实际值',
+  `AUTODISCOUNTMAXSIM` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最高值模拟值',
+  `AUTODISCOUNTMINACT` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最低值实际值',
+  `AUTODISCOUNTMINSIM` decimal(38,6) DEFAULT NULL COMMENT '自主折扣率最低值模拟值',
+  `INCREASEPOLICYNUM` decimal(38,6) DEFAULT NULL COMMENT '降价保单数',
+  `REDUCEPOLICYNUM` decimal(38,6) DEFAULT NULL COMMENT '涨价保单数',
+  `HANDLINGFEERATEMAXACT` decimal(38,6) DEFAULT NULL COMMENT '手续费率最高值实际值',
+  `HANDLINGFEERATEMAXSIM` decimal(38,6) DEFAULT NULL COMMENT '手续费率最高值模拟值',
+  `ID_TiDB`  BIGINT NOT NULL AUTO_INCREMENT,
+UNIQUE KEY (`ID_TiDB`),
+  KEY `SIPLANID` (`SIPLANID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='经营模拟家用折扣分布' SHARD_ROW_ID_BITS=4 PRE_SPLIT_REGIONS=4;
+/*!40101 SET character_set_client = @saved_cs_client */;

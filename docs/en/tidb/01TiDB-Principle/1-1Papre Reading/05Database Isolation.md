@@ -1,0 +1,461 @@
+# Database Isolation
+
+时间：2021-01-14
+
+## 隔离级别理论简介
+
+|事务隔离级别 | 脏读 | 不可重复读 | 幻读 | 备注 |
+| --- | --- | --- | --- | --- |
+|读未提交（read-uncommitted） | 是 | 是 | 是 | read-uncommitted 即会出现脏读，也会出现不可重复读、幻读; |
+|不可重复读（read-committed） | 否 | 是 | 是 | read-committed 会出现幻读和不可重复读; |
+|可重复读（repeatable-read） | 否 | 否 | 是 | repeatable-read 不会出现不可重复读，会出现幻读; |
+|串行化（serializable） | 否 | 否 | 否 | serializable 以上三者均不会出现; |
+
+Read Uncommitted（读取未提交内容）
+在该隔离级别，所有事务都可以看到其他未提交事务的执行结果。本隔离级别很少用于实际应用，因为它的性能也不比其他级别好多少。读取未提交的数据，也被称之为脏读（Dirty Read）。
+
+Read Committed（读取提交内容）
+这是大多数数据库系统的默认隔离级别（但不是MySQL默认的）。它满足了隔离的简单定义：一个事务只能看见已经提交事务所做的改变。这种隔离级别 也支持所谓的不可重复读（Nonrepeatable Read），因为同一事务的其他实例在该实例处理其间可能会有新的commit，所以同一select可能返回不同结果。
+
+Repeatable Read（可重读）
+这是MySQL的默认事务隔离级别，它确保同一事务的多个实例在并发读取数据时，会看到同样的数据行。不过理论上，这会导致另一个棘手的问题：幻读 （Phantom Read）。简单的说，幻读指当用户读取某一范围的数据行时，另一个事务又在该范围内插入了新行，当用户再读取该范围的数据行时，会发现有新的“幻影” 行。InnoDB和Falcon存储引擎通过多版本并发控制（MVCC，Multiversion Concurrency Control）机制解决了该问题。
+
+Serializable（序列化）
+这是最高的隔离级别，它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之，它是在每个读的数据行上加上共享锁。在这个级别，可能导致大量的超时现象和锁竞争。
+
+由MVCC实现的可重复读
+
+- 快照读：  
+
+- 当前读：  
+
+## PostgreSQL事务隔离级别实验
+
+本次实验采用postgreSQL
+
+- 构造实验数据集
+
+```shell
+# session 1
+postgres=# create table jan_isolation_test(id int primary key,name varchar(20),age int);
+
+# session 1
+postgres=# insert into jan_isolation_test values (1,'jan_1',21),(2,'jan_2',22);
+```
+
+#### READ-UNCOMMITTED读已经提交CASE实验
+
+#### READ-COMMITTED读已经提交CASE实验
+
+更改两个session的隔离级别
+
+- 读已提交出现幻读  
+ session 1 在同一个事务期间的两次查询，因为 session 2 在另一个已提交事务中进行的 insert 和 delete 操作，而前后三次查出不同的结果，因此产生幻读。
+
+```
+# session 1
+postgres=# set default_transaction_isolation='READ COMMITTED';
+
+# session 1
+postgres=# show transaction_isolation;
+ transaction_isolation 
+-----------------------
+ read committed
+(1 row)
+
+# session 2
+postgres=# set default_transaction_isolation='READ COMMITTED';
+
+# session 2
+postgres=# show transaction_isolation;
+ transaction_isolation 
+-----------------------
+ read committed
+(1 row)
+
+
+# session 1
+postgres=# begin;
+BEGIN
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  22
+  2 | jan_2 |  23
+(2 rows)
+
+# session 2
+postgres=#  begin;
+BEGIN
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  22
+  2 | jan_2 |  23
+(2 rows)
+
+# session 1
+postgres=# update jan_isolation_test set age=55;
+UPDATE 2
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  55
+  2 | jan_2 |  55
+(2 rows)
+
+# session 2
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  22
+  2 | jan_2 |  23
+(2 rows)
+
+# session 2
+postgres=# insert into jan_isolation_test values(3,'jan_3',23);
+INSERT 0 1
+
+# session 2
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  55
+  2 | jan_2 |  55
+  3 | jan_3 |  23
+(3 rows)
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  55
+  2 | jan_2 |  55
+(2 rows)
+
+# session 2
+postgres=# commit;
+COMMIT
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  55
+  2 | jan_2 |  55
+  3 | jan_3 |  23
+(3 rows)
+
+# session 2
+postgres=# begin;
+BEGIN
+
+# session 2
+postgres=# delete from jan_isolation_test where id=3;
+DELETE 1
+
+
+# session 2
+postgres=# commit;
+COMMIT
+
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  55
+  2 | jan_2 |  55
+(2 rows)
+
+# session 1
+postgres=# rollback;
+ROLLBACK
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  21
+  2 | jan_2 |  22
+(2 rows)
+```
+
+- 读已提交出现不可重复读  
+ session 1 在同一个事务中的两次查询，因为 session 2 在另一个提交事务的修改得到了不同的结果，产生了不可重复读。
+
+```
+# session 1
+postgres=# set default_transaction_isolation='READ COMMITTED';
+SET
+
+# session 1
+postgres=# show transaction_isolation;
+ transaction_isolation 
+-----------------------
+ read committed
+(1 row)
+
+
+# session 2
+postgres=# set default_transaction_isolation='READ COMMITTED';
+SET
+
+# session 2
+postgres=# show transaction_isolation;
+ transaction_isolation 
+-----------------------
+ read committed
+(1 row)
+
+# session 1
+postgres=# begin;
+BEGIN
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  21
+  2 | jan_2 |  22
+
+# session 2
+postgres=# begin;
+
+# session 2
+postgres=# update jan_isolation_test set age=66;
+
+# session 2
+commit;
+
+# session 1
+# postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  66
+  2 | jan_2 |  66
+
+# session 1
+postgres=# commit;
+```
+
+#### REPEATABLE-READ可重复读CASE实验
+
+改变两个session的隔离级别
+
+- REPEATABLE—READ不会出现幻读
+
+```
+# session 1
+postgres=# set default_transaction_isolation='repeatable read';
+SET
+
+# session 1
+postgres=#  show transaction_isolation;
+ transaction_isolation 
+-----------------------
+ repeatable read
+(1 row)
+
+# session 2
+postgres=# set default_transaction_isolation='repeatable read';
+SET
+
+# session 2
+postgres=#  show transaction_isolation;
+ transaction_isolation 
+-----------------------
+ repeatable read
+
+# session 1
+postgres=# begin;
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  21
+  2 | jan_2 |  22
+
+# session 2
+postgres=# begin;
+
+# session 2
+postgres=# insert into jan_isolation_test values (3,'jan_3',23);
+
+# session 2
+postgres=# commit;
+
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  21
+  2 | jan_2 |  22
+
+# session 2
+postgres=# delete from jan_isolation_test where id=3;
+
+# session 2
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  21
+  2 | jan_2 |  22
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  21
+  2 | jan_2 |  22
+
+# session 1
+postgres=# commit;
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  1 | jan_1 |  21
+  2 | jan_2 |  22
+```
+
+```
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  2 | jan_2 |  22
+  1 | jan_1 |  21
+
+# session 1
+postgres=# begin;
+
+# session 1
+postgres=# commit;
+
+# session 2
+postgres=# begin;
+
+# session 2
+postgres=# insert into jan_isolation_test values(3,'jan_3',23);
+
+# session 2
+postgres=# commit;
+
+# session 1
+# postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  2 | jan_2 |  22
+  1 | jan_1 |  21
+
+# session 1
+postgres=# update jan_isolation_test set age = 66;
+
+# session 1
+postgres=# commit;
+
+# session 1
+postgres=# select * from jan_isolation_test;
+ id | name  | age 
+----+-------+-----
+  3 | jan_3 |  23
+  2 | jan_2 |  66
+  1 | jan_1 |  66
+```
+
+- 出现不可重复读
+
+```
+# session 1
+postgres=# set default_transaction_isolation='READ COMMITTED';
+
+# session 1
+postgres=# show transaction_isolation;
+ transaction_isolation 
+-----------------------
+ read committed
+(1 row)
+
+# session 2
+postgres=# set default_transaction_isolation='READ COMMITTED';
+
+# session 2
+postgres=# show transaction_isolation;
+ transaction_isolation 
+-----------------------
+ read committed
+(1 row)
+```
+
+#### SERIALIZABLE序列化CASE实验
+
+## MySQL验证REPEATABLE-READ
+
+![image.png](http://cdn.lifemini.cn/dbblog/20210114/2ea5088487414a6fa0af0a73c4973d5f.png)
+
+版本信息与构造实验数据
+
+```
+mysql> select @@tx_isolation;
++-----------------+
+| @@tx_isolation  |
++-----------------+
+| REPEATABLE-READ |
++-----------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select version();
++------------+
+| version()  |
++------------+
+| 5.7.32-log |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select * from jan_isolation_test;
++----+-------+------+
+| id | name  | age  |
++----+-------+------+
+|  1 | jan_1 |   21 |
+|  2 | jan_2 |   22 |
++----+-------+------+
+2 rows in set (0.00 sec)
+```
+
+```
+# session 1
+mysql> begin;
+
+# session 1
+mysql> select * from jan_isolation_test;
+
+# session 2
+mysql> begin;
+
+# session 2
+mysql> insert into jan_isolation_test values(3,'jan_3',23);
+
+# session 2
+mysql> commit;
+
+# session 1
+mysql> select * from jan_isolation_test;
+
+# session 1
+mysql> update jan_isolation_test set age=55;
+
+# session 1
+mysql> commit;
+
+# session 1
+mysql> select * from jan_isolation_test;
+```

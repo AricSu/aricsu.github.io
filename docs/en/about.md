@@ -55,8 +55,5 @@
 
 ---
 
-About life
 
-About website
-
-网站备案号[（ 辽ICP备19006373号-3）](https://beian.miit.gov.cn)
+网站备案号[（ ）](https://beian.miit.gov.cn)

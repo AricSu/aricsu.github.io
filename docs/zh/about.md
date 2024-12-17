@@ -4,7 +4,7 @@
 
 - Bilibili：[AskAric](https://space.bilibili.com/318184941?spm_id_from=333.1007.0.0)
 - 技术博客：[TiDB Point_Get 点查的一生](./tidb/07TiDB-源码阅读/7-1TiDB/02TiDB%20Point_Get%20点查的一生.md)
-- Github：<https://github.com/jansu-dev>
+- Github：<https://github.com/aricSu>
 - Email：jan-su-dev@outlook.com
 - Wechat：xh9836(```请说明你的来意及获取位置```)
 

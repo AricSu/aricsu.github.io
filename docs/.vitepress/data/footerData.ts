@@ -2,8 +2,8 @@
 import type { FooterData } from '@theojs/lumen'
 
 export const Footer_Data: FooterData = {
-  beian: { icp: '备案号', police: '公网安备号', showIcon: true },
-  author: { name: 'Theo', link: 'https://' },
+  beian: { icp: '备案号 : 辽ICP备19006373号-3', police: '公网安备号', showIcon: true },
+  author: { name: 'Aric', link: 'https://github.com/aricSu' },
   group: [
     {
       title: '外部链接',

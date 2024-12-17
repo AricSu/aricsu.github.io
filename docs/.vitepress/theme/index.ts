@@ -13,6 +13,9 @@ import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import { useData, useRoute } from 'vitepress';
 import { toRefs } from "vue";
 
+// For googleAnalytics
+import { baiduAnalytics, trackPageview } from '@theojs/lumen'
+
 export default {
   extends: DefaultTheme,
   Layout() {
@@ -20,14 +23,21 @@ export default {
       'layout-bottom': () => h(HomeFooter, { Footer_Data }) 
     }) 
   },
+  enhanceApp: ({ app }) => {
+    baiduAnalytics({ baiduId: 'de9c366ed5b027175807f577a5213b69' }) 
+    if (typeof window !== 'undefined') { 
+      trackPageview('de9c366ed5b027175807f577a5213b69', window.location.href) 
+    }
+  },
   setup() {
     const { frontmatter } = toRefs(useData());
     const route = useRoute();
 
+    // https://giscus.app/zh-CN
     giscusTalk(
       {
-        repo: 'https://github.com/AricSu/askAricComments',
-        repoId: 'askAricComments',
+        repo: 'AricSu/askAricComments',
+        repoId: 'R_kgDONeqM7A',
         category: 'General', // 默认: `General`
         categoryId: 'DIC_kwDONeqM7M4ClSWa',
         mapping: 'pathname', // 默认: `pathname`

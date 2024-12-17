@@ -1,9 +1,22 @@
-<template>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" />
-    <script src="/redirect.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VitePress Docs</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const path = window.location.pathname;
+        const base = '/';
+        const supportedLanguages = ['zh', 'en'];
+        
+        if (!supportedLanguages.some(lang => path.startsWith(base + lang + '/'))) {
+          const lang = window.navigator.language.includes('zh') ? 'zh' : 'en';
+          window.location.href = base + lang + path.slice(base.length);
+        }
+      });
+    </script>
   </head>
   <body>
-    <slot />
   </body>
-</template>
+</html>

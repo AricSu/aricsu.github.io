@@ -16,6 +16,9 @@ import { toRefs } from "vue";
 // For googleAnalytics
 import { baiduAnalytics, trackPageview } from '@theojs/lumen'
 
+// For home QA（unfinished）
+import QandAList from './QandAList.vue'
+
 export default {
   extends: DefaultTheme,
   Layout() {
@@ -28,6 +31,7 @@ export default {
     if (typeof window !== 'undefined') { 
       trackPageview('de9c366ed5b027175807f577a5213b69', window.location.href) 
     }
+    app.component('QandAList', QandAList);
   },
   setup() {
     const { frontmatter } = toRefs(useData());
@@ -59,5 +63,3 @@ export default {
     );
   },
 }
-
-

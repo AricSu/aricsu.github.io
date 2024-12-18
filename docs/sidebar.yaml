@@ -1,0 +1,23 @@
+tidb:
+  - category:
+      name-zh: "TiDB-原理总结"
+      name-en: "TiDB-Principle"
+    subcategories:
+      - name-zh: "论文阅读"
+        name-en: "Paper Reading"
+        subsubcategories:
+          - name-zh: "Percolator 分布式事务"
+            name-en: "Percolator Transaction"
+            file: "Percolator Transaction.md"
+          - name-zh: "PaperPaxos 论文简读"
+            name-en: "PaperPaxos Note"
+            file: "PaperPaxos Note.md"
+      - name-zh: "TiDB 优化器"
+        name-en: "TiDB Optimizer"
+        subsubcategories:
+          - name-zh: "Logical Optimizing in TiDB"
+            name-en: "Logical Optimizing in TiDB"
+            file: "Logical Optimizing in TiDB.md"
+          - name-zh: "Physical Optimizing in TiDB"
+            name-en: "Physical Optimizing in TiDB"
+            file: "Physical Optimizing in TiDB.md"

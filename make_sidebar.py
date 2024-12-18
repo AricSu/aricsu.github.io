@@ -65,8 +65,8 @@ def get_store_struct():
 
 
 def gen_sub_sidebar(sidebar_list):
-    print('export default tidbDocZhSideBar = [')
-    append_export_file('export default tidbDocZhSideBar = [')
+    print('export const tidbDocZhSideBar = [')
+    append_export_file('export const tidbDocZhSideBar = [')
     last_sidebar = ''
     last_sub_sidebar = ''
     for index, sidebar in enumerate(sidebar_list):
@@ -156,8 +156,8 @@ def get_store_struct():
 
 
 def gen_sub_sidebar(sidebar_list):
-    print('export default tidbDocZhSideBar = [')
-    append_export_file('export default tidbDocZhSideBar = [')
+    print('export const tidbDocEnSideBar = [')
+    append_export_file('export const tidbDocEnSideBar = [')
     last_sidebar = ''
     last_sub_sidebar = ''
     for index, sidebar in enumerate(sidebar_list):
@@ -222,8 +222,8 @@ def get_store_struct():
                         sidebar_list.append((path,file_path.split(split_path)[1]+"/"+path+"/"+file))
 
 def gen_sub_sidebar(sidebar_list):
-    print('export default englishDocEnSideBar = [')
-    append_export_file('export default englishDocEnSideBar = [')
+    print('export const englishDocEnSideBar = [')
+    append_export_file('export const englishDocEnSideBar = [')
     last_sidebar = ''
     last_sub_sidebar = ''
     for index, sidebar in enumerate(sidebar_list):
@@ -279,8 +279,8 @@ def get_store_struct():
                         sidebar_list.append((path,file_path.split(split_path)[1]+"/"+path+"/"+file))
 
 def gen_sub_sidebar(sidebar_list):
-    print('export default englishDocEnSideBar = [')
-    append_export_file('export default englishDocEnSideBar = [')
+    print('export const englishDocZhSideBar = [')
+    append_export_file('export const englishDocZhSideBar = [')
     last_sidebar = ''
     last_sub_sidebar = ''
     for index, sidebar in enumerate(sidebar_list):

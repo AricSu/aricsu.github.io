@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 import { figure } from '@mdit/plugin-figure'
 
-import  { tidbDocZhSideBar }  from './sidebar_tidb_zh';
-import { tidbDocEnSideBar } from './sidebar_tidb_en';
+import  { tidbDocSideBarZh }  from './sidebar_tidb_zh';
+import { tidbDocSideBarEn } from './sidebar_tidb_en';
 import { englishDocEnSideBar } from './sidebar_english_en';
 import { englishDocZhSideBar } from './sidebar_english_zh';
 import {lifeEnDropDown, lifeZhDropDown, DocEnDropDown, DocZhDropDown} from './dropDownBar';
@@ -28,7 +28,7 @@ export default defineConfig({
                 // languageEnDropDown
                 ],
             sidebar: {
-                  '/en/tidb/': tidbDocEnSideBar,
+                  '/en/tidb/': tidbDocSideBarEn,
                   '/en/english/': englishDocEnSideBar
               },
         }
@@ -45,7 +45,7 @@ export default defineConfig({
                 { text: '关于 Aric', link: '/zh/about'},
             ],
             sidebar: {
-                '/zh/tidb/': tidbDocZhSideBar,
+                '/zh/tidb/': tidbDocSideBarZh,
                 // '/zh/oracle/': oracleZHDocSidebar,
                 // '/zh/sqlserver/': sqlServerZHDocSideBar,
                 '/zh/english/': englishDocZhSideBar

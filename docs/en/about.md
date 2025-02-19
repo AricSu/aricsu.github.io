@@ -1,4 +1,4 @@
-# 数巢DBNEST
+# About Aric
 
 ![header](../images/header.jpg)
 

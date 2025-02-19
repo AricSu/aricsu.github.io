@@ -1,18 +1,20 @@
 export const lifeZhDropDown = {
     text: "生活爱好",
     items: [
-      { text: "网球", link: "/en/about" },
-      { text: "摩托", link: "/en/about" },
-      { text: "咖啡", link: "/en/about" },
+      { text: "滑雪", link: "/zh/skiing/20250212 learn about skiing" },
+      { text: "网球", link: "/zh/tennis/20250213 my tennis" },
+      { text: "摩托", link: "/zh/motor/20250213 my motor" },
+      { text: "咖啡", link: "/zh/coffee/20250214 my coffee" },
     ]
   }
   
 export const lifeEnDropDown = {
     text: "Life&Hobby",
     items: [
-      { text: "Tennis", link: "/en/about" },
-      { text: "Motor", link: "/en/about" },
-      { text: "Coffee", link: "/en/about" },
+      { text: "Skiing", link: "/en/skiing/20250212 learn about skiing" },
+      { text: "Tennis", link: "/en/tennis/20250213 my tennis" },
+      { text: "Motor", link: "/en/motor/20250213 my motor" },
+      { text: "Coffee", link: "/en/coffee/20250214 my coffee" },
     ]
   }
 

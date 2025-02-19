@@ -21,3 +21,24 @@ tidb:
           - name-zh: "Physical Optimizing in TiDB"
             name-en: "Physical Optimizing in TiDB"
             file: "Physical Optimizing in TiDB.md"
+  - category:
+      name-zh: "TIDB-部署实践"
+      name-en: "TiDB-Deployment"
+  - category:
+      name-zh: "TiDB-运维管理"
+      name-en: "TiDB-Maintaining"
+  - category:
+      name-zh: "TiDB-调优实践"
+      name-en: "TiDB-Deploying"
+  - category:
+      name-zh: "TiDB-生态工具"
+      name-en: "TiDB-EcosystematicTools"
+  - category:
+      name-zh: "TiDB-源码阅读"
+      name-en: "TiDB-Sourcecode"
+  - category:
+      name-zh: "TiDB-Cloud-K8S"
+      name-en: "TiDB-Cloud-K8S"
+  - category:
+      name-zh: "TiDB-解决方案"
+      name-en: "TiDB-Solution"

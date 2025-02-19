@@ -1,18 +1,29 @@
 ---
 layout: home
+title: AskAric
+giscusCategory: QA
+comments: true
 
 hero:
-  name: VitePress
-  text: Vite & Vue powered static site generator.
-  tagline: Lorem ipsum...
+  name: Aric's Attitude
+  text: Seek truth from facts, be independent, and face life with a smile.
+  tagline: Record daily life moments, share learning insights, and distinguish right from wrong together.
   image:
     src: /logo.png
-    alt: VitePress
-  actions:
-    - theme: brand
-      text: Get Started
-      link: /guide/what-is-vitepress
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/vuejs/vitepress
+    alt: Aric
+
+features:
+  - icon: 🛠️
+    title: Hobbies
+    link: /en/tihc/
+  - icon: 🛠️
+    title: TiHC Tools
+    link: /en/tihc/
+  - icon: 🛠️
+    title: Self-introduction
+    link: /en/about/
 ---
+<panda-hr/>
+<vendors/>
+<panda-hr/>
+<media/>

@@ -14,13 +14,21 @@ import { useData, useRoute } from 'vitepress';
 import { toRefs } from "vue";
 
 // For googleAnalytics
+import { googleAnalytics } from '@theojs/lumen'
 import { baiduAnalytics, trackPageview } from '@theojs/lumen'
 
 // For home QA（unfinished）
 import QandAList from './QandAList.vue'
 
+// For homepage
+import Vendors from './components/Vendors.vue'
+import PandaHR from './components/PandaHR.vue'
+import Media from './components/Media.vue'
+
+
 export default {
   extends: DefaultTheme,
+  // Layout: DoubanBookPlusLayout,
   Layout() {
     return h(DefaultTheme.Layout, null, {
       'layout-bottom': () => h(HomeFooter, { Footer_Data }) 
@@ -28,10 +36,14 @@ export default {
   },
   enhanceApp: ({ app }) => {
     baiduAnalytics({ baiduId: 'de9c366ed5b027175807f577a5213b69' }) 
+    googleAnalytics({ id: 'G-564B92NP04' }) 
     if (typeof window !== 'undefined') { 
       trackPageview('de9c366ed5b027175807f577a5213b69', window.location.href) 
     }
     app.component('QandAList', QandAList);
+    app.component('vendors', Vendors)
+    app.component('panda-hr', PandaHR)
+    app.component('media', Media)
   },
   setup() {
     const { frontmatter } = toRefs(useData());

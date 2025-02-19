@@ -5,42 +5,42 @@ giscusCategory: QA
 comments: true
 
 hero:
-  name: Ask Aric
-  text: 这是一个测试.
-  tagline: 测试...
+  name: Aric 的态度
+  text: 实事求是、独立自主、笑对人生
+  tagline: 记录生活点滴，分享学习心得，一同辨别是非
   image:
     src: /logo.png
-    alt: VitePress
-  actions:
-    - theme: brand
-      text: 开始
-      link: /guide/what-is-vitepress
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/vuejs/vitepress
+    alt: Aric
 
 features:
   - icon: 🛠️
-    title: 数据库
-    details: 有关数据库的内容...
+    title: 生活爱好
+    link: /zh/tihc/
   - icon: 🛠️
       # src: /light-feature-icon.svg
-    title: 生活 & 爱好
-    details: 有关生活及爱好的内容...
+    title: TiHC 工具
+    link: /zh/tihc/
   - icon: 🛠️
       # dark: /light-feature-icon.svg
       # light: /light-feature-icon.svg
-    title: 关于 Aric
-    details: 有关数据库的内容......
+    title: 自我简介
+    link: /zh/about/
 ---
 
-## Ask Channel
+<vendors/>
+<panda-hr/>
+<media/>
+
+
+<!-- ## Ask Channel
 
 You can ask everything you want!
 
 ```sh
 npm init
 npx vitepress init
-```
+``` -->
 
-<QandAList />
+<!-- ## Ask Aric
+
+<QandAList /> -->

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TiDB-TiUP工具集群离线部署方案 | AskAric</title>
+    <meta name="description" content="A VitePress site">
+    <meta name="generator" content="VitePress v1.5.0">
+    <link rel="preload stylesheet" href="/assets/style.-TTmNVtC.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    
+    <script type="module" src="/assets/app.1ujkKzYb.js"></script>
+    <link rel="preload" href="/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="modulepreload" href="/assets/chunks/theme.Clwvbp_F.js">
+    <link rel="modulepreload" href="/assets/chunks/framework.C3yiUNUH.js">
+    <link rel="modulepreload" href="/assets/zh_work_tidb_02TIDB-部署实践_2-2TiUP 部署实践_01TiUP 离线部署 TiDB.md.DbQ7MlXl.lean.js">
+    <link rel="icon" href="/logo.png">
+    <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div class="Layout" data-v-5d98c3a5><!--[--><!--]--><!--[--><span tabindex="-1" data-v-0f60ec36></span><a href="#VPContent" class="VPSkipLink visually-hidden" data-v-0f60ec36> Skip to content </a><!--]--><!----><header class="VPNav" data-v-5d98c3a5 data-v-ae24b3ad><div class="VPNavBar" data-v-ae24b3ad data-v-6aa21345><div class="wrapper" data-v-6aa21345><div class="container" data-v-6aa21345><div class="title" data-v-6aa21345><div class="VPNavBarTitle has-sidebar" data-v-6aa21345 data-v-1168a8e4><a class="title" href="/zh/" data-v-1168a8e4><!--[--><!--]--><!--[--><img class="VPImage logo" src="/logo.png" alt data-v-8426fc1a><!--]--><span data-v-1168a8e4>AskAric</span><!--[--><!--]--></a></div></div><div class="content" data-v-6aa21345><div class="content-body" data-v-6aa21345><!--[--><!--]--><div class="VPNavBarSearch search" data-v-6aa21345><!--[--><!----><div id="local-search"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><span class="DocSearch-Button-Container"><span class="vp-icon DocSearch-Search-Icon"></span><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"><kbd class="DocSearch-Button-Key"></kbd><kbd class="DocSearch-Button-Key">K</kbd></span></button></div><!--]--></div><nav aria-labelledby="main-nav-aria-label" class="VPNavBarMenu menu" data-v-6aa21345 data-v-dc692963><span id="main-nav-aria-label" class="visually-hidden" data-v-dc692963> Main Navigation </span><!--[--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/zh/index.html" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>首页</span><!--]--></a><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-dc692963 data-v-cf11d7a2><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-cf11d7a2><span class="text" data-v-cf11d7a2><!----><span data-v-cf11d7a2>文档笔记</span><span class="vpi-chevron-down text-icon" data-v-cf11d7a2></span></span></button><div class="menu" data-v-cf11d7a2><div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113><div class="items" data-v-b98bc113><!--[--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/zh/work/tidb/index.html" data-v-35975db6><!--[--><span data-v-35975db6>TiDB 系列</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/zh/work/oracle/index.html" data-v-35975db6><!--[--><span data-v-35975db6>Oracle 系列</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/zh/work/sqlserver/index.html" data-v-35975db6><!--[--><span data-v-35975db6>SQL Server 系列</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/zh/work/english/index.html" data-v-35975db6><!--[--><span data-v-35975db6>英语学习系列</span><!--]--></a></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/zh/tihc/index.html" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>TiHC 文档</span><!--]--></a><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-dc692963 data-v-cf11d7a2><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-cf11d7a2><span class="text" data-v-cf11d7a2><!----><span data-v-cf11d7a2>生活爱好</span><span class="vpi-chevron-down text-icon" data-v-cf11d7a2></span></span></button><div class="menu" data-v-cf11d7a2><div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113><div class="items" data-v-b98bc113><!--[--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/zh/skiing/20250212%20learn%20about%20skiing.html" data-v-35975db6><!--[--><span data-v-35975db6>滑雪</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/zh/tennis/20250213%20my%20tennis.html" data-v-35975db6><!--[--><span data-v-35975db6>网球</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/zh/motor/20250213%20my%20motor.html" data-v-35975db6><!--[--><span data-v-35975db6>摩托</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/zh/coffee/20250214%20my%20coffee.html" data-v-35975db6><!--[--><span data-v-35975db6>咖啡</span><!--]--></a></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/zh/about.html" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>关于 Aric</span><!--]--></a><!--]--><!--]--></nav><div class="VPFlyout VPNavBarTranslations translations" data-v-6aa21345 data-v-88af2de4 data-v-cf11d7a2><button type="button" class="button" aria-haspopup="true" aria-expanded="false" aria-label="Change language" data-v-cf11d7a2><span class="text" data-v-cf11d7a2><span class="vpi-languages option-icon" data-v-cf11d7a2></span><!----><span class="vpi-chevron-down text-icon" data-v-cf11d7a2></span></span></button><div class="menu" data-v-cf11d7a2><div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113><!----><!--[--><!--[--><div class="items" data-v-88af2de4><p class="title" data-v-88af2de4>简体中文</p><!--[--><div class="VPMenuLink" data-v-88af2de4 data-v-35975db6><a class="VPLink link" href="/en/work/tidb/02TIDB-部署实践/2-2TiUP 部署实践/01TiUP 离线部署 TiDB.html" data-v-35975db6><!--[--><span data-v-35975db6>English</span><!--]--></a></div><!--]--></div><!--]--><!--]--></div></div></div><div class="VPNavBarAppearance appearance" data-v-6aa21345 data-v-6c893767><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-6c893767 data-v-5337faa4 data-v-1d5665e3><span class="check" data-v-1d5665e3><span class="icon" data-v-1d5665e3><!--[--><span class="vpi-sun sun" data-v-5337faa4></span><span class="vpi-moon moon" data-v-5337faa4></span><!--]--></span></span></button></div><div class="VPSocialLinks VPNavBarSocialLinks social-links" data-v-6aa21345 data-v-0394ad82 data-v-7bc22406><!--[--><a class="VPSocialLink no-icon" href="https://askaric.com/feed.rss" aria-label="RSS" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 448 512"><title>RSS</title><path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM112 416c-26.51 0-48-21.49-48-48s21.49-48 48-48s48 21.49 48 48s-21.49 48-48 48zm157.533 0h-34.335c-6.011 0-11.051-4.636-11.442-10.634c-5.214-80.05-69.243-143.92-149.123-149.123c-5.997-.39-10.633-5.431-10.633-11.441v-34.335c0-6.535 5.468-11.777 11.994-11.425c110.546 5.974 198.997 94.536 204.964 204.964c.352 6.526-4.89 11.994-11.425 11.994zm103.027 0h-34.334c-6.161 0-11.175-4.882-11.427-11.038c-5.598-136.535-115.204-246.161-251.76-251.76C68.882 152.949 64 147.935 64 141.774V107.44c0-6.454 5.338-11.664 11.787-11.432c167.83 6.025 302.21 141.191 308.205 308.205c.232 6.449-4.978 11.787-11.432 11.787z" fill="currentColor"></path></svg></a><a class="VPSocialLink no-icon" href="https://github.com/jansu-dev/Jan-Blog" aria-label="github" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><span class="vpi-social-github"></span></a><a class="VPSocialLink no-icon" href="https://www.linkedin.com/in/zhipeng-su-2282b3217/" aria-label="linkedin" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><span class="vpi-social-linkedin"></span></a><a class="VPSocialLink no-icon" href="https://www.youtube.com/@askaric" aria-label="youtube" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><span class="vpi-social-youtube"></span></a><a class="VPSocialLink no-icon" href="https://space.bilibili.com/318184941" aria-label="bilibili" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><span class="vpi-social-bilibili"></span></a><!--]--></div><div class="VPFlyout VPNavBarExtra extra" data-v-6aa21345 data-v-bb2aa2f0 data-v-cf11d7a2><button type="button" class="button" aria-haspopup="true" aria-expanded="false" aria-label="extra navigation" data-v-cf11d7a2><span class="vpi-more-horizontal icon" data-v-cf11d7a2></span></button><div class="menu" data-v-cf11d7a2><div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113><!----><!--[--><!--[--><div class="group translations" data-v-bb2aa2f0><p class="trans-title" data-v-bb2aa2f0>简体中文</p><!--[--><div class="VPMenuLink" data-v-bb2aa2f0 data-v-35975db6><a class="VPLink link" href="/en/work/tidb/02TIDB-部署实践/2-2TiUP 部署实践/01TiUP 离线部署 TiDB.html" data-v-35975db6><!--[--><span data-v-35975db6>English</span><!--]--></a></div><!--]--></div><div class="group" data-v-bb2aa2f0><div class="item appearance" data-v-bb2aa2f0><p class="label" data-v-bb2aa2f0>Appearance</p><div class="appearance-action" data-v-bb2aa2f0><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-bb2aa2f0 data-v-5337faa4 data-v-1d5665e3><span class="check" data-v-1d5665e3><span class="icon" data-v-1d5665e3><!--[--><span class="vpi-sun sun" data-v-5337faa4></span><span class="vpi-moon moon" data-v-5337faa4></span><!--]--></span></span></button></div></div></div><div class="group" data-v-bb2aa2f0><div class="item social-links" data-v-bb2aa2f0><div class="VPSocialLinks social-links-list" data-v-bb2aa2f0 data-v-7bc22406><!--[--><a class="VPSocialLink no-icon" href="https://askaric.com/feed.rss" aria-label="RSS" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 448 512"><title>RSS</title><path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM112 416c-26.51 0-48-21.49-48-48s21.49-48 48-48s48 21.49 48 48s-21.49 48-48 48zm157.533 0h-34.335c-6.011 0-11.051-4.636-11.442-10.634c-5.214-80.05-69.243-143.92-149.123-149.123c-5.997-.39-10.633-5.431-10.633-11.441v-34.335c0-6.535 5.468-11.777 11.994-11.425c110.546 5.974 198.997 94.536 204.964 204.964c.352 6.526-4.89 11.994-11.425 11.994zm103.027 0h-34.334c-6.161 0-11.175-4.882-11.427-11.038c-5.598-136.535-115.204-246.161-251.76-251.76C68.882 152.949 64 147.935 64 141.774V107.44c0-6.454 5.338-11.664 11.787-11.432c167.83 6.025 302.21 141.191 308.205 308.205c.232 6.449-4.978 11.787-11.432 11.787z" fill="currentColor"></path></svg></a><a class="VPSocialLink no-icon" href="https://github.com/jansu-dev/Jan-Blog" aria-label="github" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><span class="vpi-social-github"></span></a><a class="VPSocialLink no-icon" href="https://www.linkedin.com/in/zhipeng-su-2282b3217/" aria-label="linkedin" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><span class="vpi-social-linkedin"></span></a><a class="VPSocialLink no-icon" href="https://www.youtube.com/@askaric" aria-label="youtube" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><span class="vpi-social-youtube"></span></a><a class="VPSocialLink no-icon" href="https://space.bilibili.com/318184941" aria-label="bilibili" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><span class="vpi-social-bilibili"></span></a><!--]--></div></div></div><!--]--><!--]--></div></div></div><!--[--><!--]--><button type="button" class="VPNavBarHamburger hamburger" aria-label="mobile navigation" aria-expanded="false" aria-controls="VPNavScreen" data-v-6aa21345 data-v-e5dd9c1c><span class="container" data-v-e5dd9c1c><span class="top" data-v-e5dd9c1c></span><span class="middle" data-v-e5dd9c1c></span><span class="bottom" data-v-e5dd9c1c></span></span></button></div></div></div></div><div class="divider" data-v-6aa21345><div class="divider-line" data-v-6aa21345></div></div></div><!----></header><div class="VPLocalNav has-sidebar empty" data-v-5d98c3a5 data-v-a6f0e41e><div class="container" data-v-a6f0e41e><button class="menu" aria-expanded="false" aria-controls="VPSidebarNav" data-v-a6f0e41e><span class="vpi-align-left menu-icon" data-v-a6f0e41e></span><span class="menu-text" data-v-a6f0e41e>Menu</span></button><div class="VPLocalNavOutlineDropdown" style="--vp-vh:0px;" data-v-a6f0e41e data-v-17a5e62e><button data-v-17a5e62e>Return to top</button><!----></div></div></div><aside class="VPSidebar" data-v-5d98c3a5 data-v-319d5ca6><div class="curtain" data-v-319d5ca6></div><nav class="nav" id="VPSidebarNav" aria-labelledby="sidebar-aria-label" tabindex="-1" data-v-319d5ca6><span class="visually-hidden" id="sidebar-aria-label" data-v-319d5ca6> Sidebar Navigation </span><!--[--><!--]--><!--[--><div class="no-transition group" data-v-c40bc020><section class="VPSidebarItem level-0" data-v-c40bc020 data-v-b7550ba0><div class="item" role="button" tabindex="0" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><h2 class="text" data-v-b7550ba0>TiDB-原理总结</h2><!----></div><div class="items" data-v-b7550ba0><!--[--><section class="VPSidebarItem level-1" data-v-b7550ba0 data-v-b7550ba0><div class="item" role="button" tabindex="0" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><h3 class="text" data-v-b7550ba0>论文阅读</h3><!----></div><div class="items" data-v-b7550ba0><!--[--><div class="VPSidebarItem level-2 is-link" data-v-b7550ba0 data-v-b7550ba0><div class="item" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><a class="VPLink link link" href="/zh/work/tidb/TiDB-Principle/Paper%20Reading/Percolator%20Transaction.html" data-v-b7550ba0><!--[--><p class="text" data-v-b7550ba0>Percolator 分布式事务</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b7550ba0 data-v-b7550ba0><div class="item" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><a class="VPLink link link" href="/zh/work/tidb/TiDB-Principle/Paper%20Reading/PaperPaxos%20Note.html" data-v-b7550ba0><!--[--><p class="text" data-v-b7550ba0>PaperPaxos 论文简读</p><!--]--></a><!----></div><!----></div><!--]--></div></section><section class="VPSidebarItem level-1" data-v-b7550ba0 data-v-b7550ba0><div class="item" role="button" tabindex="0" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><h3 class="text" data-v-b7550ba0>TiDB 优化器</h3><!----></div><div class="items" data-v-b7550ba0><!--[--><div class="VPSidebarItem level-2 is-link" data-v-b7550ba0 data-v-b7550ba0><div class="item" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><a class="VPLink link link" href="/zh/work/tidb/TiDB-Principle/TiDB%20Optimizer/Logical%20Optimizing%20in%20TiDB.html" data-v-b7550ba0><!--[--><p class="text" data-v-b7550ba0>Logical Optimizing in TiDB</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b7550ba0 data-v-b7550ba0><div class="item" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><a class="VPLink link link" href="/zh/work/tidb/TiDB-Principle/TiDB%20Optimizer/Physical%20Optimizing%20in%20TiDB.html" data-v-b7550ba0><!--[--><p class="text" data-v-b7550ba0>Physical Optimizing in TiDB</p><!--]--></a><!----></div><!----></div><!--]--></div></section><!--]--></div></section></div><div class="no-transition group" data-v-c40bc020><div class="VPSidebarItem level-0" data-v-c40bc020 data-v-b7550ba0><div class="item" role="button" tabindex="0" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><p class="text" data-v-b7550ba0>TIDB-部署实践</p><!----></div><!----></div></div><div class="no-transition group" data-v-c40bc020><div class="VPSidebarItem level-0" data-v-c40bc020 data-v-b7550ba0><div class="item" role="button" tabindex="0" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><p class="text" data-v-b7550ba0>TiDB-运维管理</p><!----></div><!----></div></div><div class="no-transition group" data-v-c40bc020><div class="VPSidebarItem level-0" data-v-c40bc020 data-v-b7550ba0><div class="item" role="button" tabindex="0" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><p class="text" data-v-b7550ba0>TiDB-调优实践</p><!----></div><!----></div></div><div class="no-transition group" data-v-c40bc020><div class="VPSidebarItem level-0" data-v-c40bc020 data-v-b7550ba0><div class="item" role="button" tabindex="0" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><p class="text" data-v-b7550ba0>TiDB-生态工具</p><!----></div><!----></div></div><div class="no-transition group" data-v-c40bc020><div class="VPSidebarItem level-0" data-v-c40bc020 data-v-b7550ba0><div class="item" role="button" tabindex="0" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><p class="text" data-v-b7550ba0>TiDB-源码阅读</p><!----></div><!----></div></div><div class="no-transition group" data-v-c40bc020><div class="VPSidebarItem level-0" data-v-c40bc020 data-v-b7550ba0><div class="item" role="button" tabindex="0" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><p class="text" data-v-b7550ba0>TiDB-Cloud-K8S</p><!----></div><!----></div></div><div class="no-transition group" data-v-c40bc020><div class="VPSidebarItem level-0" data-v-c40bc020 data-v-b7550ba0><div class="item" role="button" tabindex="0" data-v-b7550ba0><div class="indicator" data-v-b7550ba0></div><p class="text" data-v-b7550ba0>TiDB-解决方案</p><!----></div><!----></div></div><!--]--><!--[--><!--]--></nav></aside><div class="VPContent has-sidebar" id="VPContent" data-v-5d98c3a5 data-v-1428d186><div class="VPDoc has-sidebar has-aside" data-v-1428d186 data-v-39a288b8><!--[--><!--]--><div class="container" data-v-39a288b8><div class="aside" data-v-39a288b8><div class="aside-curtain" data-v-39a288b8></div><div class="aside-container" data-v-39a288b8><div class="aside-content" data-v-39a288b8><div class="VPDocAside" data-v-39a288b8 data-v-3f215769><!--[--><!--]--><!--[--><!--]--><nav aria-labelledby="doc-outline-aria-label" class="VPDocAsideOutline" data-v-3f215769 data-v-a5bbad30><div class="content" data-v-a5bbad30><div class="outline-marker" data-v-a5bbad30></div><div aria-level="2" class="outline-title" id="doc-outline-aria-label" role="heading" data-v-a5bbad30>On this page</div><ul class="VPDocOutlineItem root" data-v-a5bbad30 data-v-b933a997><!--[--><!--]--></ul></div></nav><!--[--><!--]--><div class="spacer" data-v-3f215769></div><!--[--><!--]--><!----><!--[--><!--]--><!--[--><!--]--></div></div></div></div><div class="content" data-v-39a288b8><div class="content-container" data-v-39a288b8><!--[--><!--]--><main class="main" data-v-39a288b8><div style="position:relative;" class="vp-doc _zh_work_tidb_02TIDB-%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5_2-2TiUP%20%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5_01TiUP%20%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%20TiDB" data-v-39a288b8><div><h1 id="tidb-tiup工具集群离线部署方案" tabindex="-1">TiDB-TiUP工具集群离线部署方案 <a class="header-anchor" href="#tidb-tiup工具集群离线部署方案" aria-label="Permalink to &quot;TiDB-TiUP工具集群离线部署方案&quot;">​</a></h1><p>时间：2020-12-25</p><blockquote><ul><li><a href="#下载TiUP离线组件">下载TiUP离线组件</a></li><li><a href="#下载TiUP离线组件">TiKV数据盘挂载</a></li><li><a href="#配置topology配置文件">配置topology配置文件</a></li><li><a href="#部署TiDB集群">部署TiDB集群</a></li><li><a href="#检查集群状态">检查集群状态</a></li><li><a href="#TiUP卸载集群">TiUP卸载集群</a></li><li><a href="#常见错误解决">常见错误解决</a></li></ul></blockquote><blockquote><p><strong>IP规划</strong></p></blockquote><table tabindex="0"><thead><tr><th>IP地址</th><th>Role信息</th><th>备注</th></tr></thead><tbody><tr><td>192.168.169.41</td><td>pd+tikv+tidb+cdc</td><td>部署TiUP主机</td></tr><tr><td>192.168.169.42</td><td>pd+tikv+tidb+cdc+prometheus+grafana+alertmanager</td><td></td></tr><tr><td>192.168.169.43</td><td>pd+tikv+tidb+cdc</td><td></td></tr><tr><td>192.168.169.44</td><td>tiflash</td><td></td></tr></tbody></table><h2 id="下载tiup离线组件" tabindex="-1">下载TiUP离线组件 <a class="header-anchor" href="#下载tiup离线组件" aria-label="Permalink to &quot;下载TiUP离线组件&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>[root@tiup-tidb41 ~]# useradd tidb</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[root@tiup-tidb41 ~]# passwd tidb</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[root@tidb-tidb41 ~]# visudo</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[root@tidb-tidb41 ~]# tail -1 /etc/sudoers</span></span>
+<span class="line"><span>tidb ALL=(ALL) NOPASSWD: ALL</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[root@tiup-tidb41 ~]# su - tidb</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[tidb@tiup-tidb44 ~]$ curl --proto &#39;=https&#39; --tlsv1.2 -sSf https://tiup-mirrors.pingcap.com/install.sh | sh</span></span>
+<span class="line"><span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span></span>
+<span class="line"><span>                                 Dload  Upload   Total   Spent    Left  Speed</span></span>
+<span class="line"><span> 23 8697k   23 2015k    0     0   303k      0  0:00:28  0:00:06  0:00:22  417k</span></span></code></pre></div><div class="language-shell vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">shell</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># ${version} 替换为需要下载的版本名称，如：v4.0.2、v5.0.0-rc等</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[tidb@tiup-tidb44 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">~</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]$ tiup mirror clone tidb-community-server-${version}-linux-amd64 ${version} --os</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">linux</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> --arch</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">amd64</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Start</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> to</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> clone</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> mirror,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> targetDir</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> is</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> tidb-community-server-v4.0.2-linux-amd64,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> selectedVersions</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> are</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> []</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">If</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> this</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> does</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> not</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> meet</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> expectations,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> please</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> abort</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> this</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> process,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> read</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">tiup</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> mirror clone </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">--help</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> and</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> again</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Arch</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> [amd64]</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">OS</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> [linux]</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">......</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">......</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">download</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> https://tiup-mirrors.pingcap.com/tiup-linux-amd64.tar.gz</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 8.49</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> MiB</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> /</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 8.49</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> MiB</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 100.00%</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 806.71</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> KiB</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> p/s</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[tidb@tiup-tidb44 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">~</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]$ ll</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">total</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">drwxr-xr-x.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 3</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> tidb</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> tidb</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 172</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Jan</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">  9</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 11:40</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> tidb-community-server-v4.0.2-linux-amd64</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[tidb@tiup-tidb44 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">~</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]$ cd tidb-community-server-v4.0.2-linux-amd64/</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[tidb@tiup-tidb44 tidb-community-server-v4.0.2-linux-amd64]$ ll</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[tidb@tiup-tidb44 tidb-community-server-v4.0.2-linux-amd64]$ ./local_install.sh </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[tidb@tiup-tidb44 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">~</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]$ tar -cvf tidb-community-server-v4.0.2-linux-amd64.tar.gz tidb-community-server-v4.0.2-linux-amd64</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[tidb@tiup-tidb44 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">~</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]$ ll -lrth</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">total</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 1.5G</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">drwxr-xr-x.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 3</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> tidb</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> tidb</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 4.0K</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Jan</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">  9</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 00:26</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> tidb-community-server-v4.0.2-linux-amd64</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">-rw-rw-r--.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 1</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> tidb</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> tidb</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 1.5G</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Jan</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">  9</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 00:28</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> tidb-community-server-v4.0.2-linux-amd64.tar.gz</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[tidb@tiup-tidb44 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">~</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]$ scp tidb-community-server-v4.0.2-linux-amd64.tar.gz 192.168.169.41:/home/tidb/</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Warning:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Permanently</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> added</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &#39;192.168.169.41&#39;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (ECDSA) to the list of known hosts.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">tidb@192.168.169.41</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">&#39;s password: </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">tidb-community-server-v4.0.2-linux-amd64.tar.gz                                                                                                                                  56%  869MB 129.1MB/s   00:05 ETA</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">[tidb@tiup-tidb41 ~]$ tar -xvf tidb-community-server-v4.0.2-linux-amd64.tar.gz </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">tidb-community-server-v4.0.2-linux-amd64/</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">......</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">......</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">tidb-community-server-v4.0.2-linux-amd64/local_install.sh</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">[tidb@tiup-tidb41 ~]$ ll -lrth</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">total 1.5G</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">drwxr-xr-x. 3 tidb tidb 4.0K Jan  9 00:26 tidb-community-server-v4.0.2-linux-amd64</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">-rw-rw-r--. 1 tidb tidb 1.5G Jan  9 00:30 tidb-community-server-v4.0.2-linux-amd64.tar.gz</span></span></code></pre></div><p>安装组件</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>[tidb@tiup-tidb41 ~]$ cd tidb-community-server-v4.0.2-linux-amd64</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ ll |grep install</span></span>
+<span class="line"><span>-rwxr-xr-x. 1 tidb tidb      2086 Jan  9 00:26 local_install.sh</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ sh local_install.sh </span></span>
+<span class="line"><span>Set mirror to /home/tidb/tidb-community-server-v4.0.2-linux-amd64 success</span></span>
+<span class="line"><span>Detected shell: bash</span></span>
+<span class="line"><span>Shell profile:  /home/tidb/.bash_profile</span></span>
+<span class="line"><span>/home/tidb/.bash_profile has been modified to to add tiup to PATH</span></span>
+<span class="line"><span>open a new terminal or source /home/tidb/.bash_profile to use it</span></span>
+<span class="line"><span>Installed path: /home/tidb/.tiup/bin/tiup</span></span>
+<span class="line"><span>===============================================</span></span>
+<span class="line"><span>1. source /home/tidb/.bash_profile</span></span>
+<span class="line"><span>2. Have a try:   tiup playground</span></span>
+<span class="line"><span>===============================================</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ source /home/tidb/.bash_profile</span></span></code></pre></div><h2 id="tikv数据盘挂载" tabindex="-1">TiKV数据盘挂载 <a class="header-anchor" href="#tikv数据盘挂载" aria-label="Permalink to &quot;TiKV数据盘挂载&quot;">​</a></h2><p>修改HHD的磁盘</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>[root@tiup-tidb41 ~]# fdisk -l</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Disk /dev/sda: 107.4 GB, 107374182400 bytes, 209715200 sectors</span></span>
+<span class="line"><span>Units = sectors of 1 * 512 = 512 bytes</span></span>
+<span class="line"><span>Sector size (logical/physical): 512 bytes / 512 bytes</span></span>
+<span class="line"><span>I/O size (minimum/optimal): 512 bytes / 512 bytes</span></span>
+<span class="line"><span>Disk label type: dos</span></span>
+<span class="line"><span>Disk identifier: 0x000a1f1f</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>   Device Boot      Start         End      Blocks   Id  System</span></span>
+<span class="line"><span>/dev/sda1   *        2048      391167      194560   83  Linux</span></span>
+<span class="line"><span>/dev/sda2          391168   199628799    99618816   8e  Linux LVM</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Disk /dev/sdb: 107.4 GB, 107374182400 bytes, 209715200 sectors</span></span>
+<span class="line"><span>Units = sectors of 1 * 512 = 512 bytes</span></span>
+<span class="line"><span>Sector size (logical/physical): 512 bytes / 512 bytes</span></span>
+<span class="line"><span>I/O size (minimum/optimal): 512 bytes / 512 bytes</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Disk /dev/mapper/centos-root: 102.0 GB, 102001278976 bytes, 199221248 sectors</span></span>
+<span class="line"><span>Units = sectors of 1 * 512 = 512 bytes</span></span>
+<span class="line"><span>Sector size (logical/physical): 512 bytes / 512 bytes</span></span>
+<span class="line"><span>I/O size (minimum/optimal): 512 bytes / 512 bytes</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[root@tiup-tidb41 ~]# parted -s -a optimal /dev/sdb mklabel gpt -- mkpart primary ext4 1 -1</span></span>
+<span class="line"><span>[root@tiup-tidb41 ~]# ll /dev/sd*</span></span>
+<span class="line"><span>brw-rw----. 1 root disk 8,  0 Jan  8 23:29 /dev/sda</span></span>
+<span class="line"><span>brw-rw----. 1 root disk 8,  1 Jan  8 23:29 /dev/sda1</span></span>
+<span class="line"><span>brw-rw----. 1 root disk 8,  2 Jan  8 23:29 /dev/sda2</span></span>
+<span class="line"><span>brw-rw----. 1 root disk 8, 16 Jan  8 23:46 /dev/sdb</span></span>
+<span class="line"><span>brw-rw----. 1 root disk 8, 17 Jan  8 23:46 /dev/sdb1</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[root@tiup-tidb41 ~]# mkfs.ext4 /dev/sdb1 </span></span>
+<span class="line"><span>mke2fs 1.42.9 (28-Dec-2013)</span></span>
+<span class="line"><span>Filesystem label=</span></span>
+<span class="line"><span>OS type: Linux</span></span>
+<span class="line"><span>Block size=4096 (log=2)</span></span>
+<span class="line"><span>Fragment size=4096 (log=2)</span></span>
+<span class="line"><span>Stride=0 blocks, Stripe width=0 blocks</span></span>
+<span class="line"><span>6553600 inodes, 26213888 blocks</span></span>
+<span class="line"><span>1310694 blocks (5.00%) reserved for the super user</span></span>
+<span class="line"><span>First data block=0</span></span>
+<span class="line"><span>Maximum filesystem blocks=2174746624</span></span>
+<span class="line"><span>800 block groups</span></span>
+<span class="line"><span>32768 blocks per group, 32768 fragments per group</span></span>
+<span class="line"><span>8192 inodes per group</span></span>
+<span class="line"><span>Superblock backups stored on blocks: </span></span>
+<span class="line"><span>	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, </span></span>
+<span class="line"><span>	4096000, 7962624, 11239424, 20480000, 23887872</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Allocating group tables: done                            </span></span>
+<span class="line"><span>Writing inode tables: done                            </span></span>
+<span class="line"><span>Creating journal (32768 blocks): done</span></span>
+<span class="line"><span>Writing superblocks and filesystem accounting information: done   </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[root@tiup-tidb41 ~]# lsblk -f</span></span>
+<span class="line"><span>NAME            FSTYPE      LABEL UUID                                   MOUNTPOINT</span></span>
+<span class="line"><span>sda                                                                      </span></span>
+<span class="line"><span>├─sda1          xfs               f5186353-9452-4395-9549-0e0f05401910   /boot</span></span>
+<span class="line"><span>└─sda2          LVM2_member       QjWT3C-PmGV-bIBK-kjxs-zGGE-xnLB-Kqyewx </span></span>
+<span class="line"><span>  └─centos-root xfs               1c8f5bee-8e88-44d7-99c0-c5d8b1d621bb   /</span></span>
+<span class="line"><span>sdb                                                                      </span></span>
+<span class="line"><span>└─sdb1          ext4              003d05ff-6e97-49ec-abf4-b86be07754b8   </span></span>
+<span class="line"><span>sr0                                                                      </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[root@tiup-tidb41 ~]# vi /etc/fstab </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[root@tiup-tidb41 ~]# tail -1 /etc/fstab </span></span>
+<span class="line"><span>UUID=003d05ff-6e97-49ec-abf4-b86be07754b8 /data ext4    defaults,nodelalloc,noatime       0 2</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[root@tiup-tidb41 ~]# mkdir /data</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[root@tiup-tidb41 ~]# mount -a</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[root@tiup-tidb41 ~]# mount -t ext4</span></span>
+<span class="line"><span>/dev/sdb1 on /data type ext4 (rw,noatime,seclabel,nodelalloc,data=ordered)</span></span></code></pre></div><h2 id="配置topology配置文件" tabindex="-1">配置topology配置文件 <a class="header-anchor" href="#配置topology配置文件" aria-label="Permalink to &quot;配置topology配置文件&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ vi topology.yaml</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ cat topology.yaml</span></span>
+<span class="line"><span># # Global variables are applied to all deployments and used as the default value of</span></span>
+<span class="line"><span># # the deployments if a specific deployment value is missing.</span></span>
+<span class="line"><span>global:</span></span>
+<span class="line"><span>  user: &quot;tidb&quot;</span></span>
+<span class="line"><span>  ssh_port: 22</span></span>
+<span class="line"><span>  deploy_dir: &quot;/data/tidb-deploy&quot;</span></span>
+<span class="line"><span>  data_dir: &quot;/data/tidb-data&quot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>server_configs:</span></span>
+<span class="line"><span>  pd:</span></span>
+<span class="line"><span>    replication.enable-placement-rules: true</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>pd_servers:</span></span>
+<span class="line"><span>  - host: 192.168.169.41</span></span>
+<span class="line"><span>  - host: 192.168.169.42</span></span>
+<span class="line"><span>  - host: 192.168.169.43</span></span>
+<span class="line"><span>tidb_servers:</span></span>
+<span class="line"><span>  - host: 192.168.169.41</span></span>
+<span class="line"><span>  - host: 192.168.169.42</span></span>
+<span class="line"><span>  - host: 192.168.169.43</span></span>
+<span class="line"><span>tikv_servers:</span></span>
+<span class="line"><span>  - host: 192.168.169.41</span></span>
+<span class="line"><span>  - host: 192.168.169.42</span></span>
+<span class="line"><span>  - host: 192.168.169.43</span></span>
+<span class="line"><span>tiflash_servers:</span></span>
+<span class="line"><span>  - host: 192.168.169.43</span></span>
+<span class="line"><span>    data_dir: /data/tiflash1/data,/data/tiflash2/data</span></span>
+<span class="line"><span>cdc_servers:</span></span>
+<span class="line"><span>  - host: 192.168.169.41</span></span>
+<span class="line"><span>  - host: 192.168.169.42</span></span>
+<span class="line"><span>  - host: 192.168.169.43</span></span>
+<span class="line"><span>monitoring_servers:</span></span>
+<span class="line"><span>  - host: 192.168.169.42</span></span>
+<span class="line"><span>grafana_servers:</span></span>
+<span class="line"><span>  - host: 192.168.169.42</span></span>
+<span class="line"><span>alertmanager_servers:</span></span>
+<span class="line"><span>  - host: 192.168.169.42</span></span></code></pre></div><h2 id="部署tidb集群" tabindex="-1">部署TiDB集群 <a class="header-anchor" href="#部署tidb集群" aria-label="Permalink to &quot;部署TiDB集群&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ pwd</span></span>
+<span class="line"><span>/home/tidb/tidb-community-server-v4.0.2-linux-amd64</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ export TIUP_MIRRORS=/home/tidb/tidb-community-server-v4.0.2-linux-amd64</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ tiup cluster deploy tidb-test v4.0.2 topology.yaml --user root -p </span></span>
+<span class="line"><span>Starting component `cluster`: /home/tidb/.tiup/components/cluster/v1.3.1/tiup-cluster deploy tidb-test v4.0.2 topology.yaml --user root -p</span></span>
+<span class="line"><span>Please confirm your topology:</span></span>
+<span class="line"><span>Cluster type:    tidb</span></span>
+<span class="line"><span>Cluster name:    tidb-test</span></span>
+<span class="line"><span>Cluster version: v4.0.2</span></span>
+<span class="line"><span>Type          Host            Ports                            OS/Arch       Directories</span></span>
+<span class="line"><span>----          ----            -----                            -------       -----------</span></span>
+<span class="line"><span>pd            192.168.169.41  2379/2380                        linux/x86_64  /data/tidb-deploy/pd-2379,/data/tidb-data/pd-2379</span></span>
+<span class="line"><span>pd            192.168.169.42  2379/2380                        linux/x86_64  /data/tidb-deploy/pd-2379,/data/tidb-data/pd-2379</span></span>
+<span class="line"><span>pd            192.168.169.43  2379/2380                        linux/x86_64  /data/tidb-deploy/pd-2379,/data/tidb-data/pd-2379</span></span>
+<span class="line"><span>tikv          192.168.169.41  20160/20180                      linux/x86_64  /data/tidb-deploy/tikv-20160,/data/tidb-data/tikv-20160</span></span>
+<span class="line"><span>tikv          192.168.169.42  20160/20180                      linux/x86_64  /data/tidb-deploy/tikv-20160,/data/tidb-data/tikv-20160</span></span>
+<span class="line"><span>tikv          192.168.169.43  20160/20180                      linux/x86_64  /data/tidb-deploy/tikv-20160,/data/tidb-data/tikv-20160</span></span>
+<span class="line"><span>tidb          192.168.169.41  4000/10080                       linux/x86_64  /data/tidb-deploy/tidb-4000</span></span>
+<span class="line"><span>tidb          192.168.169.42  4000/10080                       linux/x86_64  /data/tidb-deploy/tidb-4000</span></span>
+<span class="line"><span>tidb          192.168.169.43  4000/10080                       linux/x86_64  /data/tidb-deploy/tidb-4000</span></span>
+<span class="line"><span>tiflash       192.168.169.43  9000/8123/3930/20170/20292/8234  linux/x86_64  /data/tidb-deploy/tiflash-9000,/data/tiflash1/data,/data/tiflash2/data</span></span>
+<span class="line"><span>cdc           192.168.169.41  8300                             linux/x86_64  /data/tidb-deploy/cdc-8300</span></span>
+<span class="line"><span>cdc           192.168.169.42  8300                             linux/x86_64  /data/tidb-deploy/cdc-8300</span></span>
+<span class="line"><span>cdc           192.168.169.43  8300                             linux/x86_64  /data/tidb-deploy/cdc-8300</span></span>
+<span class="line"><span>prometheus    192.168.169.42  9090                             linux/x86_64  /data/tidb-deploy/prometheus-9090,/data/tidb-data/prometheus-9090</span></span>
+<span class="line"><span>grafana       192.168.169.42  3000                             linux/x86_64  /data/tidb-deploy/grafana-3000</span></span>
+<span class="line"><span>alertmanager  192.168.169.42  9093/9094                        linux/x86_64  /data/tidb-deploy/alertmanager-9093,/data/tidb-data/alertmanager-9093</span></span>
+<span class="line"><span>Attention:</span></span>
+<span class="line"><span>    1. If the topology is not what you expected, check your yaml file.</span></span>
+<span class="line"><span>    2. Please confirm there is no port/directory conflicts in same host.</span></span>
+<span class="line"><span>Do you want to continue? [y/N]:  y</span></span>
+<span class="line"><span>Input SSH password: </span></span>
+<span class="line"><span>+ Generate SSH keys ... Done</span></span>
+<span class="line"><span>+ Download TiDB components</span></span>
+<span class="line"><span>  - Download pd:v4.0.2 (linux/amd64) ... Done</span></span>
+<span class="line"><span>  - Download tikv:v4.0.2 (linux/amd64) ... Done</span></span>
+<span class="line"><span>  - Download tidb:v4.0.2 (linux/amd64) ... Done</span></span>
+<span class="line"><span>  - Download tiflash:v4.0.2 (linux/amd64) ... Done</span></span>
+<span class="line"><span>  - Download cdc:v4.0.2 (linux/amd64) ... Done</span></span>
+<span class="line"><span>  - Download prometheus:v4.0.2 (linux/amd64) ... Done</span></span>
+<span class="line"><span>  - Download grafana:v4.0.2 (linux/amd64) ... Done</span></span>
+<span class="line"><span>  - Download alertmanager:v0.17.0 (linux/amd64) ... Done</span></span>
+<span class="line"><span>  - Download node_exporter:v0.17.0 (linux/amd64) ... Done</span></span>
+<span class="line"><span>  - Download blackbox_exporter:v0.12.0 (linux/amd64) ... Done</span></span>
+<span class="line"><span>+ Initialize target host environments</span></span>
+<span class="line"><span>  - Prepare 192.168.169.41:22 ... Done</span></span>
+<span class="line"><span>  - Prepare 192.168.169.42:22 ... Done</span></span>
+<span class="line"><span>  - Prepare 192.168.169.43:22 ... Done</span></span>
+<span class="line"><span>+ Copy files</span></span>
+<span class="line"><span>  - Copy pd -&gt; 192.168.169.41 ... Done</span></span>
+<span class="line"><span>  - Copy pd -&gt; 192.168.169.42 ... Done</span></span>
+<span class="line"><span>  - Copy pd -&gt; 192.168.169.43 ... Done</span></span>
+<span class="line"><span>  - Copy tikv -&gt; 192.168.169.41 ... Done</span></span>
+<span class="line"><span>  - Copy tikv -&gt; 192.168.169.42 ... Done</span></span>
+<span class="line"><span>  - Copy tikv -&gt; 192.168.169.43 ... Done</span></span>
+<span class="line"><span>  - Copy tidb -&gt; 192.168.169.41 ... Done</span></span>
+<span class="line"><span>  - Copy tidb -&gt; 192.168.169.42 ... Done</span></span>
+<span class="line"><span>  - Copy tidb -&gt; 192.168.169.43 ... Done</span></span>
+<span class="line"><span>  - Copy tiflash -&gt; 192.168.169.43 ... Done</span></span>
+<span class="line"><span>  - Copy cdc -&gt; 192.168.169.41 ... Done</span></span>
+<span class="line"><span>  - Copy cdc -&gt; 192.168.169.42 ... Done</span></span>
+<span class="line"><span>  - Copy cdc -&gt; 192.168.169.43 ... Done</span></span>
+<span class="line"><span>  - Copy prometheus -&gt; 192.168.169.42 ... Done</span></span>
+<span class="line"><span>  - Copy grafana -&gt; 192.168.169.42 ... Done</span></span>
+<span class="line"><span>  - Copy alertmanager -&gt; 192.168.169.42 ... Done</span></span>
+<span class="line"><span>  - Copy node_exporter -&gt; 192.168.169.41 ... Done</span></span>
+<span class="line"><span>  - Copy node_exporter -&gt; 192.168.169.42 ... Done</span></span>
+<span class="line"><span>  - Copy node_exporter -&gt; 192.168.169.43 ... Done</span></span>
+<span class="line"><span>  - Copy blackbox_exporter -&gt; 192.168.169.42 ... Done</span></span>
+<span class="line"><span>  - Copy blackbox_exporter -&gt; 192.168.169.43 ... Done</span></span>
+<span class="line"><span>  - Copy blackbox_exporter -&gt; 192.168.169.41 ... Done</span></span>
+<span class="line"><span>+ Check status</span></span>
+<span class="line"><span>Enabling component pd</span></span>
+<span class="line"><span>	Enabling instance pd 192.168.169.43:2379</span></span>
+<span class="line"><span>	Enabling instance pd 192.168.169.41:2379</span></span>
+<span class="line"><span>	Enabling instance pd 192.168.169.42:2379</span></span>
+<span class="line"><span>	Enable pd 192.168.169.42:2379 success</span></span>
+<span class="line"><span>	Enable pd 192.168.169.43:2379 success</span></span>
+<span class="line"><span>	Enable pd 192.168.169.41:2379 success</span></span>
+<span class="line"><span>Enabling component node_exporter</span></span>
+<span class="line"><span>Enabling component blackbox_exporter</span></span>
+<span class="line"><span>Enabling component node_exporter</span></span>
+<span class="line"><span>Enabling component blackbox_exporter</span></span>
+<span class="line"><span>Enabling component node_exporter</span></span>
+<span class="line"><span>Enabling component blackbox_exporter</span></span>
+<span class="line"><span>Enabling component tikv</span></span>
+<span class="line"><span>	Enabling instance tikv 192.168.169.43:20160</span></span>
+<span class="line"><span>	Enabling instance tikv 192.168.169.41:20160</span></span>
+<span class="line"><span>	Enabling instance tikv 192.168.169.42:20160</span></span>
+<span class="line"><span>	Enable tikv 192.168.169.42:20160 success</span></span>
+<span class="line"><span>	Enable tikv 192.168.169.43:20160 success</span></span>
+<span class="line"><span>	Enable tikv 192.168.169.41:20160 success</span></span>
+<span class="line"><span>Enabling component tidb</span></span>
+<span class="line"><span>	Enabling instance tidb 192.168.169.43:4000</span></span>
+<span class="line"><span>	Enabling instance tidb 192.168.169.41:4000</span></span>
+<span class="line"><span>	Enabling instance tidb 192.168.169.42:4000</span></span>
+<span class="line"><span>	Enable tidb 192.168.169.43:4000 success</span></span>
+<span class="line"><span>	Enable tidb 192.168.169.42:4000 success</span></span>
+<span class="line"><span>	Enable tidb 192.168.169.41:4000 success</span></span>
+<span class="line"><span>Enabling component tiflash</span></span>
+<span class="line"><span>	Enabling instance tiflash 192.168.169.43:9000</span></span>
+<span class="line"><span>	Enable tiflash 192.168.169.43:9000 success</span></span>
+<span class="line"><span>Enabling component cdc</span></span>
+<span class="line"><span>	Enabling instance cdc 192.168.169.43:8300</span></span>
+<span class="line"><span>	Enabling instance cdc 192.168.169.41:8300</span></span>
+<span class="line"><span>	Enabling instance cdc 192.168.169.42:8300</span></span>
+<span class="line"><span>	Enable cdc 192.168.169.43:8300 success</span></span>
+<span class="line"><span>	Enable cdc 192.168.169.42:8300 success</span></span>
+<span class="line"><span>	Enable cdc 192.168.169.41:8300 success</span></span>
+<span class="line"><span>Enabling component prometheus</span></span>
+<span class="line"><span>	Enabling instance prometheus 192.168.169.42:9090</span></span>
+<span class="line"><span>	Enable prometheus 192.168.169.42:9090 success</span></span>
+<span class="line"><span>Enabling component grafana</span></span>
+<span class="line"><span>	Enabling instance grafana 192.168.169.42:3000</span></span>
+<span class="line"><span>	Enable grafana 192.168.169.42:3000 success</span></span>
+<span class="line"><span>Enabling component alertmanager</span></span>
+<span class="line"><span>	Enabling instance alertmanager 192.168.169.42:9093</span></span>
+<span class="line"><span>	Enable alertmanager 192.168.169.42:9093 success</span></span>
+<span class="line"><span>Cluster `tidb-test` deployed successfully, you can start it with command: `tiup cluster start tidb-test`</span></span></code></pre></div><h2 id="启动tidb集群" tabindex="-1">启动TiDB集群 <a class="header-anchor" href="#启动tidb集群" aria-label="Permalink to &quot;启动TiDB集群&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ tiup cluster start tidb-test</span></span>
+<span class="line"><span>Starting component `cluster`: /home/tidb/.tiup/components/cluster/v1.3.1/tiup-cluster start tidb-test</span></span>
+<span class="line"><span>Starting cluster tidb-test...</span></span>
+<span class="line"><span>+ [ Serial ] - SSHKeySet: privateKey=/home/tidb/.tiup/storage/cluster/clusters/tidb-test/ssh/id_rsa, publicKey=/home/tidb/.tiup/storage/cluster/clusters/tidb-test/ssh/id_rsa.pub</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.41</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.43</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.41</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.43</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.41</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.41</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.43</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.43</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.43</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [ Serial ] - StartCluster</span></span>
+<span class="line"><span>Starting component pd</span></span>
+<span class="line"><span>	Starting instance pd 192.168.169.43:2379</span></span>
+<span class="line"><span>	Starting instance pd 192.168.169.42:2379</span></span>
+<span class="line"><span>	Starting instance pd 192.168.169.41:2379</span></span>
+<span class="line"><span>	Start pd 192.168.169.43:2379 success</span></span>
+<span class="line"><span>	Start pd 192.168.169.42:2379 success</span></span>
+<span class="line"><span>	Start pd 192.168.169.41:2379 success</span></span>
+<span class="line"><span>Starting component node_exporter</span></span>
+<span class="line"><span>	Starting instance 192.168.169.41</span></span>
+<span class="line"><span>	Start 192.168.169.41 success</span></span>
+<span class="line"><span>Starting component blackbox_exporter</span></span>
+<span class="line"><span>	Starting instance 192.168.169.41</span></span>
+<span class="line"><span>	Start 192.168.169.41 success</span></span>
+<span class="line"><span>Starting component node_exporter</span></span>
+<span class="line"><span>	Starting instance 192.168.169.42</span></span>
+<span class="line"><span>	Start 192.168.169.42 success</span></span>
+<span class="line"><span>Starting component blackbox_exporter</span></span>
+<span class="line"><span>	Starting instance 192.168.169.42</span></span>
+<span class="line"><span>	Start 192.168.169.42 success</span></span>
+<span class="line"><span>Starting component node_exporter</span></span>
+<span class="line"><span>	Starting instance 192.168.169.43</span></span>
+<span class="line"><span>	Start 192.168.169.43 success</span></span>
+<span class="line"><span>Starting component blackbox_exporter</span></span>
+<span class="line"><span>	Starting instance 192.168.169.43</span></span>
+<span class="line"><span>	Start 192.168.169.43 success</span></span>
+<span class="line"><span>Starting component tikv</span></span>
+<span class="line"><span>	Starting instance tikv 192.168.169.43:20160</span></span>
+<span class="line"><span>	Starting instance tikv 192.168.169.41:20160</span></span>
+<span class="line"><span>	Starting instance tikv 192.168.169.42:20160</span></span>
+<span class="line"><span>	Start tikv 192.168.169.41:20160 success</span></span>
+<span class="line"><span>	Start tikv 192.168.169.43:20160 success</span></span>
+<span class="line"><span>	Start tikv 192.168.169.42:20160 success</span></span>
+<span class="line"><span>Starting component tidb</span></span>
+<span class="line"><span>	Starting instance tidb 192.168.169.43:4000</span></span>
+<span class="line"><span>	Starting instance tidb 192.168.169.42:4000</span></span>
+<span class="line"><span>	Starting instance tidb 192.168.169.41:4000</span></span>
+<span class="line"><span>	Start tidb 192.168.169.41:4000 success</span></span>
+<span class="line"><span>	Start tidb 192.168.169.42:4000 success</span></span>
+<span class="line"><span>	Start tidb 192.168.169.43:4000 success</span></span>
+<span class="line"><span>Starting component tiflash</span></span>
+<span class="line"><span>	Starting instance tiflash 192.168.169.43:9000</span></span>
+<span class="line"><span>	Start tiflash 192.168.169.43:9000 success</span></span>
+<span class="line"><span>Starting component cdc</span></span>
+<span class="line"><span>	Starting instance cdc 192.168.169.43:8300</span></span>
+<span class="line"><span>	Starting instance cdc 192.168.169.41:8300</span></span>
+<span class="line"><span>	Starting instance cdc 192.168.169.42:8300</span></span>
+<span class="line"><span>	Start cdc 192.168.169.42:8300 success</span></span>
+<span class="line"><span>	Start cdc 192.168.169.41:8300 success</span></span>
+<span class="line"><span>	Start cdc 192.168.169.43:8300 success</span></span>
+<span class="line"><span>Starting component prometheus</span></span>
+<span class="line"><span>	Starting instance prometheus 192.168.169.42:9090</span></span>
+<span class="line"><span>	Start prometheus 192.168.169.42:9090 success</span></span>
+<span class="line"><span>Starting component grafana</span></span>
+<span class="line"><span>	Starting instance grafana 192.168.169.42:3000</span></span>
+<span class="line"><span>	Start grafana 192.168.169.42:3000 success</span></span>
+<span class="line"><span>Starting component alertmanager</span></span>
+<span class="line"><span>	Starting instance alertmanager 192.168.169.42:9093</span></span>
+<span class="line"><span>	Start alertmanager 192.168.169.42:9093 success</span></span>
+<span class="line"><span>+ [ Serial ] - UpdateTopology: cluster=tidb-test</span></span>
+<span class="line"><span>Started cluster `tidb-test` successfully</span></span></code></pre></div><h2 id="检查集群状态" tabindex="-1">检查集群状态 <a class="header-anchor" href="#检查集群状态" aria-label="Permalink to &quot;检查集群状态&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>[tidb@tiup-tidb41 ~]$ tiup cluster display tidb-test</span></span>
+<span class="line"><span>Starting component `cluster`: /home/tidb/.tiup/components/cluster/v1.3.1/tiup-cluster display tidb-test</span></span>
+<span class="line"><span>Cluster type:       tidb</span></span>
+<span class="line"><span>Cluster name:       tidb-test</span></span>
+<span class="line"><span>Cluster version:    v4.0.2</span></span>
+<span class="line"><span>SSH type:           builtin</span></span>
+<span class="line"><span>Dashboard URL:      http://192.168.169.42:2379/dashboard</span></span>
+<span class="line"><span>ID                    Role          Host            Ports                            OS/Arch       Status   Data Dir                                 Deploy Dir</span></span>
+<span class="line"><span>--                    ----          ----            -----                            -------       ------   --------                                 ----------</span></span>
+<span class="line"><span>192.168.169.42:9093   alertmanager  192.168.169.42  9093/9094                        linux/x86_64  Up       /data/tidb-data/alertmanager-9093        /data/tidb-deploy/alertmanager-9093</span></span>
+<span class="line"><span>192.168.169.41:8300   cdc           192.168.169.41  8300                             linux/x86_64  Up       -                                        /data/tidb-deploy/cdc-8300</span></span>
+<span class="line"><span>192.168.169.42:8300   cdc           192.168.169.42  8300                             linux/x86_64  Up       -                                        /data/tidb-deploy/cdc-8300</span></span>
+<span class="line"><span>192.168.169.43:8300   cdc           192.168.169.43  8300                             linux/x86_64  Up       -                                        /data/tidb-deploy/cdc-8300</span></span>
+<span class="line"><span>192.168.169.42:3000   grafana       192.168.169.42  3000                             linux/x86_64  Up       -                                        /data/tidb-deploy/grafana-3000</span></span>
+<span class="line"><span>192.168.169.41:2379   pd            192.168.169.41  2379/2380                        linux/x86_64  Up       /data/tidb-data/pd-2379                  /data/tidb-deploy/pd-2379</span></span>
+<span class="line"><span>192.168.169.42:2379   pd            192.168.169.42  2379/2380                        linux/x86_64  Up|L|UI  /data/tidb-data/pd-2379                  /data/tidb-deploy/pd-2379</span></span>
+<span class="line"><span>192.168.169.43:2379   pd            192.168.169.43  2379/2380                        linux/x86_64  Up       /data/tidb-data/pd-2379                  /data/tidb-deploy/pd-2379</span></span>
+<span class="line"><span>192.168.169.42:9090   prometheus    192.168.169.42  9090                             linux/x86_64  Up       /data/tidb-data/prometheus-9090          /data/tidb-deploy/prometheus-9090</span></span>
+<span class="line"><span>192.168.169.41:4000   tidb          192.168.169.41  4000/10080                       linux/x86_64  Up       -                                        /data/tidb-deploy/tidb-4000</span></span>
+<span class="line"><span>192.168.169.42:4000   tidb          192.168.169.42  4000/10080                       linux/x86_64  Up       -                                        /data/tidb-deploy/tidb-4000</span></span>
+<span class="line"><span>192.168.169.43:4000   tidb          192.168.169.43  4000/10080                       linux/x86_64  Up       -                                        /data/tidb-deploy/tidb-4000</span></span>
+<span class="line"><span>192.168.169.44:9000   tiflash       192.168.169.44  9000/8123/3930/20170/20292/8234  linux/x86_64  Up       /data/tiflash1/data,/data/tiflash2/data  /data/tidb-deploy/tiflash-9000</span></span>
+<span class="line"><span>192.168.169.41:20160  tikv          192.168.169.41  20160/20180                      linux/x86_64  Up       /data/tidb-data/tikv-20160               /data/tidb-deploy/tikv-20160</span></span>
+<span class="line"><span>192.168.169.42:20160  tikv          192.168.169.42  20160/20180                      linux/x86_64  Up       /data/tidb-data/tikv-20160               /data/tidb-deploy/tikv-20160</span></span>
+<span class="line"><span>192.168.169.43:20160  tikv          192.168.169.43  20160/20180                      linux/x86_64  Up       /data/tidb-data/tikv-20160               /data/tidb-deploy/tikv-20160</span></span>
+<span class="line"><span>Total nodes: 16</span></span></code></pre></div><h2 id="tiup卸载集群" tabindex="-1">TiUP卸载集群 <a class="header-anchor" href="#tiup卸载集群" aria-label="Permalink to &quot;TiUP卸载集群&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ tiup cluster clean tidb-test --all</span></span>
+<span class="line"><span>Starting component `cluster`: /home/tidb/.tiup/components/cluster/v1.3.1/tiup-cluster clean tidb-test --all</span></span>
+<span class="line"><span>This operation will stop tidb v4.0.2 cluster tidb-test and clean its&#39; data and log.</span></span>
+<span class="line"><span>Nodes will be ignored: []</span></span>
+<span class="line"><span>Roles will be ignored: []</span></span>
+<span class="line"><span>Files to be deleted are: </span></span>
+<span class="line"><span>192.168.169.42:</span></span>
+<span class="line"><span> /tidb-deploy/cdc-8300/log/*.log</span></span>
+<span class="line"><span> /tidb-deploy/tidb-4000/log/*.log</span></span>
+<span class="line"><span> /tidb-deploy/tikv-20160/log/*.log</span></span>
+<span class="line"><span> /tidb-deploy/alertmanager-9093/log/*.log</span></span>
+<span class="line"><span> /tidb-data/alertmanager-9093/*</span></span>
+<span class="line"><span> /tidb-data/prometheus-9090/*</span></span>
+<span class="line"><span> /tidb-deploy/pd-2379/log/*.log</span></span>
+<span class="line"><span> /tidb-data/pd-2379/*</span></span>
+<span class="line"><span> /tidb-deploy/grafana-3000/log/*.log</span></span>
+<span class="line"><span> /tidb-deploy/prometheus-9090/log/*.log</span></span>
+<span class="line"><span> /tidb-data/tikv-20160/*</span></span>
+<span class="line"><span>192.168.169.41:</span></span>
+<span class="line"><span> /tidb-deploy/pd-2379/log/*.log</span></span>
+<span class="line"><span> /tidb-data/pd-2379/*</span></span>
+<span class="line"><span> /tidb-deploy/cdc-8300/log/*.log</span></span>
+<span class="line"><span> /tidb-deploy/tidb-4000/log/*.log</span></span>
+<span class="line"><span> /tidb-deploy/tikv-20160/log/*.log</span></span>
+<span class="line"><span> /tidb-data/tikv-20160/*</span></span>
+<span class="line"><span>192.168.169.43:</span></span>
+<span class="line"><span> /tidb-deploy/tiflash-9000/log/*.log</span></span>
+<span class="line"><span> /data/tiflash/data/*</span></span>
+<span class="line"><span> /tidb-deploy/tidb-4000/log/*.log</span></span>
+<span class="line"><span> /tidb-deploy/tikv-20160/log/*.log</span></span>
+<span class="line"><span> /tidb-data/tikv-20160/*</span></span>
+<span class="line"><span> /tidb-deploy/pd-2379/log/*.log</span></span>
+<span class="line"><span> /tidb-data/pd-2379/*</span></span>
+<span class="line"><span> /tidb-deploy/cdc-8300/log/*.log</span></span>
+<span class="line"><span>Do you want to continue? [y/N]: y</span></span>
+<span class="line"><span>Cleanup cluster...</span></span>
+<span class="line"><span>+ [ Serial ] - SSHKeySet: privateKey=/home/tidb/.tiup/storage/cluster/clusters/tidb-test/ssh/id_rsa, publicKey=/home/tidb/.tiup/storage/cluster/clusters/tidb-test/ssh/id_rsa.pub</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.41</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.43</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.41</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.43</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.41</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.43</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.43</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.41</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.43</span></span>
+<span class="line"><span>+ [Parallel] - UserSSH: user=tidb, host=192.168.169.42</span></span>
+<span class="line"><span>+ [ Serial ] - StopCluster</span></span>
+<span class="line"><span>Stopping component alertmanager</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.42</span></span>
+<span class="line"><span>	Stop alertmanager 192.168.169.42:9093 success</span></span>
+<span class="line"><span>Stopping component grafana</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.42</span></span>
+<span class="line"><span>	Stop grafana 192.168.169.42:3000 success</span></span>
+<span class="line"><span>Stopping component prometheus</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.42</span></span>
+<span class="line"><span>	Stop prometheus 192.168.169.42:9090 success</span></span>
+<span class="line"><span>Stopping component cdc</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.43</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.42</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.41</span></span>
+<span class="line"><span>	Stop cdc 192.168.169.42:8300 success</span></span>
+<span class="line"><span>	Stop cdc 192.168.169.41:8300 success</span></span>
+<span class="line"><span>	Stop cdc 192.168.169.43:8300 success</span></span>
+<span class="line"><span>Stopping component tiflash</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.43</span></span>
+<span class="line"><span>	Stop tiflash 192.168.169.43:9000 success</span></span>
+<span class="line"><span>Stopping component tidb</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.43</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.42</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.41</span></span>
+<span class="line"><span>	Stop tidb 192.168.169.42:4000 success</span></span>
+<span class="line"><span>	Stop tidb 192.168.169.41:4000 success</span></span>
+<span class="line"><span>	Stop tidb 192.168.169.43:4000 success</span></span>
+<span class="line"><span>Stopping component tikv</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.43</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.41</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.42</span></span>
+<span class="line"><span>	Stop tikv 192.168.169.42:20160 success</span></span>
+<span class="line"><span>	Stop tikv 192.168.169.43:20160 success</span></span>
+<span class="line"><span>	Stop tikv 192.168.169.41:20160 success</span></span>
+<span class="line"><span>Stopping component pd</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.43</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.41</span></span>
+<span class="line"><span>	Stopping instance 192.168.169.42</span></span>
+<span class="line"><span>	Stop pd 192.168.169.41:2379 success</span></span>
+<span class="line"><span>	Stop pd 192.168.169.43:2379 success</span></span>
+<span class="line"><span>	Stop pd 192.168.169.42:2379 success</span></span>
+<span class="line"><span>Stopping component node_exporter</span></span>
+<span class="line"><span>Stopping component blackbox_exporter</span></span>
+<span class="line"><span>Stopping component node_exporter</span></span>
+<span class="line"><span>Stopping component blackbox_exporter</span></span>
+<span class="line"><span>Stopping component node_exporter</span></span>
+<span class="line"><span>Stopping component blackbox_exporter</span></span>
+<span class="line"><span>+ [ Serial ] - CleanupCluster</span></span>
+<span class="line"><span>Cleanup instance 192.168.169.43</span></span>
+<span class="line"><span>Cleanup 192.168.169.43 success</span></span>
+<span class="line"><span>Cleanup instance 192.168.169.42</span></span>
+<span class="line"><span>Cleanup 192.168.169.42 success</span></span>
+<span class="line"><span>Cleanup instance 192.168.169.41</span></span>
+<span class="line"><span>Cleanup 192.168.169.41 success</span></span>
+<span class="line"><span>Cleanup cluster `tidb-test` successfully</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ tiup install tiflash:v4.0.2</span></span>
+<span class="line"><span>component tiflash version v4.0.2 is already installed</span></span>
+<span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ tiup clean tiflash:v4.0.2</span></span>
+<span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ tiup uninstall tiflash:v4.0.2</span></span>
+<span class="line"><span>Uninstalled component `tiflash:v4.0.2` successfully!</span></span>
+<span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ tiup clean tiflash:v4.0.2</span></span>
+<span class="line"><span>[tidb@tiup-tidb41 tidb-community-server-v4.0.2-linux-amd64]$ tiup install tiflash:v4.0.2</span></span></code></pre></div><h2 id="常见错误解决" tabindex="-1">常见错误解决 <a class="header-anchor" href="#常见错误解决" aria-label="Permalink to &quot;常见错误解决&quot;">​</a></h2><p>最开始安装过一次，以为tiflash必须要配置两个才能来起来，所以想尝试重新部署一次</p><p>但是正常 tiup clean --all 删除所有组件之后，修改topology.yaml的tiflash配置重新部署，出现如下报错</p><p>解决方案为，进入/home/tidb/.tiup/storage/cluster/clusters目录下删除tidb-test的文件</p><p>本人猜测可能是clean的时候没有将这部分文件一起删除导致的</p><div class="language-shell vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">shell</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[tidb@tiup-tidb41 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">~</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]$ </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">export</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> TIUP_MIRRORS</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">/home/tidb/tidb-community-server-v4.0.2-linux-amd64</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[tidb@tiup-tidb41 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">~</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]$ tiup cluster deploy tidb-test v4.0.2 topology.yaml --user root -p </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Starting</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> component</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">cluster</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> /home/tidb/.tiup/components/cluster/v1.3.1/tiup-cluster</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> deploy</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> tidb-test</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> v4.0.2</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> topology.yaml</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --user</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> root</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> -p</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Error:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Cluster</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> name</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &#39;tidb-test&#39;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> is</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> duplicated</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (deploy.name_dup)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Please</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> specify</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> another</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> cluster</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> name</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Error:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">/home/tidb/.tiup/components/cluster/v1.3.1/tiup-cluster</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">wd:/home/tidb/.tiup/data/SLZjdQu</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">failed:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> exit</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> status</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 1</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># 解决方式</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[tidb@tiup-tidb41 clusters]$ pwd</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">/home/tidb/.tiup/storage/cluster/clusters</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[tidb@tiup-tidb41 clusters]$ rm -rf tidb-test/</span></span></code></pre></div></div></div></main><footer class="VPDocFooter" data-v-39a288b8 data-v-e257564d><!--[--><!--]--><!----><nav class="prev-next" aria-labelledby="doc-footer-aria-label" data-v-e257564d><span class="visually-hidden" id="doc-footer-aria-label" data-v-e257564d>Pager</span><div class="pager" data-v-e257564d><!----></div><div class="pager" data-v-e257564d><a class="VPLink link pager-link next" href="/zh/work/tidb/TiDB-Principle/Paper%20Reading/Percolator%20Transaction.html" data-v-e257564d><!--[--><span class="desc" data-v-e257564d>Next page</span><span class="title" data-v-e257564d>Percolator 分布式事务</span><!--]--></a></div></nav></footer><!--[--><!--]--></div></div></div><!--[--><!--]--></div></div><!----><!--[--><footer class="footer" data-v-178a1931><!----><div class="footer-info" data-v-178a1931><div class="info-item" data-v-178a1931><span data-v-178a1931><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="info-icon" style="" width="1em" height="1em" viewBox="0 0 16 16" data-v-178a1931></svg>  <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/" title="ICP备案" data-v-178a1931>备案号 : 辽ICP备19006373号-3</a></span><span class="info-spacing" data-v-178a1931></span><span data-v-178a1931><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="info-icon" style="" width="1em" height="1em" viewBox="0 0 16 16" data-v-178a1931></svg>  <a target="_blank" rel="noopener" href="https://beian.mps.gov.cn/" title="公安备案" data-v-178a1931>公网安备号</a></span></div><span class="info-spacing-copyright" data-v-178a1931></span><div class="info-item" data-v-178a1931><span data-v-178a1931><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="info-icon" style="font-size:1em;" width="1em" height="1em" viewBox="0 0 16 16" data-v-178a1931></svg> 2025 <a target="_blank" rel="noopener" title="GitHub" href="https://github.com/aricSu" data-v-178a1931>Aric</a>. All Rights Reserved. </span></div></div></footer><!--]--></div></div>
+    <script>window.__VP_HASH_MAP__=JSON.parse("{\"en_about.md\":\"G9VhwDWN\",\"en_index.md\":\"CQePTk7x\",\"en_life_coffee_20250214 my coffee.md\":\"DB_rmpw6\",\"en_life_index.md\":\"fZFMNcNv\",\"en_life_motor_20250213 my motor.md\":\"DLAnp132\",\"en_life_skiing_20250212 learn about skiing.md\":\"CnptTuto\",\"en_life_tennis_20250213 my tennis.md\":\"GemmLVXA\",\"en_tihc_collect_pprof.md\":\"D50vWAeF\",\"en_tihc_index.md\":\"B0jANY6s\",\"en_work_english_01waystage_english_1-1scernario_thewayweare.md\":\"rgi8sQKP\",\"en_work_english_01waystage_english_1-2scenario_experiences.md\":\"DtinxnA8\",\"en_work_english_01waystage_english_1-3scenario_managinglife.md\":\"Qn2ypkRb\",\"en_work_english_01waystage_english_1-4scenario_techsavvy.md\":\"BWVt976W\",\"en_work_english_01waystage_english_1-5scenario_impressions.md\":\"DV_tFYaM\",\"en_work_english_02threshold_english_2-10scenario_lawandorder.md\":\"BSOE8bKd\",\"en_work_english_02threshold_english_2-11scenario_strangeevents.md\":\"BwUk051O\",\"en_work_english_02threshold_english_2-12scenario_fame.md\":\"B-ArCEVV\",\"en_work_english_02threshold_english_2-1scenario_lives.md\":\"BTGgTb7l\",\"en_work_english_02threshold_english_2-2scenario_socializing.md\":\"DC9TayFL\",\"en_work_english_02threshold_english_2-3scenario_materialworld.md\":\"DFR0X0uZ\",\"en_work_english_02threshold_english_2-4scenario_trends.md\":\"Du6sdB8F\",\"en_work_english_02threshold_english_2-5scenario_problemsolving.md\":\"DZ5coKO1\",\"en_work_english_02threshold_english_2-6scenario_behavior.md\":\"Vz0APyBT\",\"en_work_english_02threshold_english_2-7scenario_careers.md\":\"Csld9vw3\",\"en_work_english_02threshold_english_2-8scenario_personaltastes.md\":\"CKMjxr8k\",\"en_work_english_02threshold_english_2-9scenario_worldclutures.md\":\"UXya4PGZ\",\"en_work_english_02threshold_english_index.md\":\"0myOcfg-\",\"en_work_english_03vantage_english_3-10scenario_success_happiness.md\":\"H7H63Fdj\",\"en_work_english_03vantage_english_3-11scenario_goingplaces.md\":\"4bof2muX\",\"en_work_english_03vantage_english_3-12scenario_culture.md\":\"MaNXaw1I\",\"en_work_english_03vantage_english_3-13scenario_ability.md\":\"CJs9SxSc\",\"en_work_english_03vantage_english_3-1scenario_speedfriending.md\":\"D2PvMOKJ\",\"en_work_english_03vantage_english_3-2scenario_celebrity.md\":\"BYQsaJRp\",\"en_work_english_03vantage_english_3-3scenario_comment.md\":\"CpzwYFN5\",\"en_work_english_03vantage_english_3-4scenario_stories.md\":\"DsYKrxIM\",\"en_work_english_03vantage_english_3-5scenario_workinglives.md\":\"ebLwKkEC\",\"en_work_english_03vantage_english_3-6scenario_challenges.md\":\"Cv3P3oKR\",\"en_work_english_03vantage_english_3-7scenario_intothefuture.md\":\"fFClVyOH\",\"en_work_english_03vantage_english_3-8scenario_getalong.md\":\"CDbisoXd\",\"en_work_english_03vantage_english_3-9scenario_agreatread.md\":\"B_2g1_Lz\",\"en_work_english_04ielts_exam_4-1week1_rules.md\":\"fHOkw-pj\",\"en_work_english_04ielts_exam_4-2week2_review4b.md\":\"zyd7AT88\",\"en_work_english_04ielts_exam_4-3week3_stragegy.md\":\"BQjZFY-Q\",\"en_work_english_04ielts_exam_4-4week4_ielts_part2.md\":\"BZojTI7d\",\"en_work_english_index.md\":\"BWrokjNJ\",\"en_work_optimizer_01optimizer implementation.md\":\"BcqKmM2u\",\"en_work_oracle_index.md\":\"CWJdXd0F\",\"en_work_sqlserver_index.md\":\"DGc6FYQW\",\"en_work_tidb_03tidb-maintaining_tidb metrics_tidb panel - disconnection count.md\":\"CMzdSBhK\",\"en_work_tidb_03tidb-maintaining_tidb metrics_tidb panel - kv backoff ops.md\":\"DdmFsMDG\",\"en_work_tidb_03tidb-maintaining_tidb metrics_tidb-prometheus.md\":\"Iaz3dyyH\",\"en_work_tidb_05tidb-ecosystematictools_5-1ticdc_01ticdc overview.md\":\"D8xemwRj\",\"en_work_tidb_05tidb-ecosystematictools_5-1ticdc_02ticdc streaming.md\":\"DY6_c6VN\",\"en_work_tidb_05tidb-ecosystematictools_5-1ticdc_03tikv cdc component.md\":\"BuxEWsAb\",\"en_work_tidb_05tidb-ecosystematictools_5-1ticdc_04all metrics in ticdc.md\":\"BueUptay\",\"en_work_tidb_05tidb-ecosystematictools_5-2br_01br overview.md\":\"jBauAVIP\",\"en_work_tidb_05tidb-ecosystematictools_5-2br_02br tuning.md\":\"CbpSX0w2\",\"en_work_tidb_05tidb-ecosystematictools_5-3dumpling_01dumpling quickstart.md\":\"DBYVxXY4\",\"en_work_tidb_05tidb-ecosystematictools_5-3dumpling_02dumpling architecture.md\":\"NpSmZth1\",\"en_work_tidb_05tidb-ecosystematictools_5-4dm_01tidb-dm overview.md\":\"Cf_SI5Yh\",\"en_work_tidb_05tidb-ecosystematictools_5-4dm_02tidb-dm quickstart.md\":\"C3GOrWrI\",\"en_work_tidb_05tidb-ecosystematictools_5-4dm_03tidb-dm master.md\":\"DRZCROh0\",\"en_work_tidb_05tidb-ecosystematictools_5-4dm_04tidb-dm worker.md\":\"BqFCdbwz\",\"en_work_tidb_05tidb-ecosystematictools_5-4dm_05tidb-dm syncer.md\":\"BNT26NN0\",\"en_work_tidb_05tidb-ecosystematictools_5-4dm_06tidb-dm metrics.md\":\"C5Rvn3iC\",\"en_work_tidb_05tidb-ecosystematictools_5-7tidb-lightning_01quick start.md\":\"CiOv1cV5\",\"en_work_tidb_05tidb-ecosystematictools_5-7tidb-lightning_02lighting architecture.md\":\"Bb6ydpUk\",\"en_work_tidb_08tidb-cloud-k8s_8-1tidb-deployment_01tidb-operator deploys tidb.md\":\"CpX5ze2c\",\"en_work_tidb_08tidb-cloud-k8s_8-1tidb-deployment_02tidb-operator deploys dm.md\":\"D0E3qpo5\",\"en_work_tidb_08tidb-cloud-k8s_8-1tidb-deployment_03tidb-operator deploys lightning.md\":\"DV-2p5lR\",\"en_work_tidb_08tidb-cloud-k8s_8-1tidb-deployment_04tidb-operator deploys ticdc.md\":\"QoVplpNI\",\"en_work_tidb_index.md\":\"DLFXdr6e\",\"en_work_tidb_tidb-principle_paper reading_02spanner transaction.md\":\"BIH6t6BS\",\"en_work_tidb_tidb-principle_paper reading_04lsmtree storage.md\":\"BUi-w92M\",\"en_work_tidb_tidb-principle_paper reading_05database isolation.md\":\"Dj-wdiIZ\",\"en_work_tidb_tidb-principle_paper reading_06what is tidb.md\":\"CbYVI2D5\",\"en_work_tidb_tidb-principle_paper reading_paperpaxos note.md\":\"DPPXX9aw\",\"en_work_tidb_tidb-principle_paper reading_percolator transaction.md\":\"Dl3_-GUL\",\"en_work_tidb_tidb-principle_tidb optimizer_03how to build logical plan.md\":\"Deyplp41\",\"en_work_tidb_tidb-principle_tidb optimizer_logical optimizing in tidb.md\":\"CBbvlBi1\",\"en_work_tidb_tidb-principle_tidb optimizer_physical optimizing in tidb.md\":\"QipyyYud\",\"zh_about.md\":\"Bw_55w46\",\"zh_index.md\":\"CnbhJOLo\",\"zh_life_coffee_20250214 my coffee.md\":\"CTFH8V9I\",\"zh_life_coffee_basic.md\":\"DC_6oX-g\",\"zh_life_index.md\":\"CJ9_fcIo\",\"zh_life_motor_20250213 my motor.md\":\"b_YtN__7\",\"zh_life_skiing_20250212 learn about skiing.md\":\"DJTXdHyF\",\"zh_life_tennis_20250213 my tennis.md\":\"DYUw-G99\",\"zh_tihc_collect_pprof.md\":\"BwS-yhwf\",\"zh_tihc_index.md\":\"QiOgBEN1\",\"zh_work_english_01基础英语_1-1场景_生活方式.md\":\"BEecZXaI\",\"zh_work_english_01基础英语_1-2场景_历史经验.md\":\"BOv9V666\",\"zh_work_english_01基础英语_1-3场景_管理生活.md\":\"Bse-4iSk\",\"zh_work_english_01基础英语_1-4场景_技术专家.md\":\"C_Yx5j5u\",\"zh_work_english_01基础英语_1-5场景_印象深刻.md\":\"CASdX0M9\",\"zh_work_english_02英语口语_2-10场景_法律与秩序.md\":\"DlgBo2it\",\"zh_work_english_02英语口语_2-11场景_奇怪事件.md\":\"CygYdlnm\",\"zh_work_english_02英语口语_2-12场景_名气.md\":\"CXKvUNDX\",\"zh_work_english_02英语口语_2-1场景_生活.md\":\"DBtKeJOc\",\"zh_work_english_02英语口语_2-2场景_名人.md\":\"DfyaXer9\",\"zh_work_english_02英语口语_2-3场景_备注.md\":\"CjwGIA0C\",\"zh_work_english_02英语口语_2-4场景_趋势.md\":\"C-fWrQYC\",\"zh_work_english_02英语口语_2-5场景_解决问题.md\":\"DR7Tw_Ca\",\"zh_work_english_02英语口语_2-6场景_行为.md\":\"C75pvkch\",\"zh_work_english_02英语口语_2-7场景_工作.md\":\"BaAJ3kOW\",\"zh_work_english_02英语口语_2-8场景_个人趣向.md\":\"BD5KYR7i\",\"zh_work_english_02英语口语_2-9场景_世界文化.md\":\"xC_0uluT\",\"zh_work_english_03高级口语_3-10场景_成功与快乐.md\":\"BeO6O2hT\",\"zh_work_english_03高级口语_3-11场景_出游.md\":\"PHFom53b\",\"zh_work_english_03高级口语_3-12场景_文化.md\":\"D6QTO54q\",\"zh_work_english_03高级口语_3-13场景_能力.md\":\"5YLD8Az5\",\"zh_work_english_03高级口语_3-1场景_快速交友.md\":\"CFSVF0Iv\",\"zh_work_english_03高级口语_3-2场景_名人.md\":\"z4QWlS_r\",\"zh_work_english_03高级口语_3-3场景_评论.md\":\"nNC8jHeL\",\"zh_work_english_03高级口语_3-4场景_故事.md\":\"CL9u2E2P\",\"zh_work_english_03高级口语_3-5场景_工作寿命.md\":\"BmuMg3lo\",\"zh_work_english_03高级口语_3-6场景_挑战.md\":\"DkUn7P-l\",\"zh_work_english_03高级口语_3-7场景_在未来.md\":\"UcDQVCdk\",\"zh_work_english_03高级口语_3-8场景_和睦相处.md\":\"DjMkFhwS\",\"zh_work_english_03高级口语_3-9场景_优质读物.md\":\"BRac0Avy\",\"zh_work_english_04雅思考试_4-1week1_雅思考试.md\":\"BZaNv7-5\",\"zh_work_english_04雅思考试_4-2week2_复习剑桥4b.md\":\"BE3fMm1K\",\"zh_work_english_04雅思考试_4-3week3_加分策略.md\":\"CrZrrJUf\",\"zh_work_english_index.md\":\"CXX0DLO2\",\"zh_work_oracle_index.md\":\"BB71Rghm\",\"zh_work_oracle_start-dg.md\":\"1SfR3VeY\",\"zh_work_oracle_start-oraclerac.md\":\"C09bUxlU\",\"zh_work_oracle_start-oracle单实例asm部署.md\":\"D_ed87yl\",\"zh_work_oracle_summary-oracle.md\":\"BHD9m4kW\",\"zh_work_oracle_summary-历史镜像梳理.md\":\"D-llbCsv\",\"zh_work_oracle_theory-oracle dg.md\":\"p07_5B_N\",\"zh_work_sqlserver_alwayson集群部署.md\":\"REpYpRcn\",\"zh_work_sqlserver_index.md\":\"DlFG_5_x\",\"zh_work_tidb_02tidb-部署实践_2-1ansible 部署实践_01ansible 部署与扩缩容.md\":\"CZxVR4e4\",\"zh_work_tidb_02tidb-部署实践_2-1ansible 部署实践_02ansible 修改集群配置.md\":\"BubSUFc0\",\"zh_work_tidb_02tidb-部署实践_2-2tiup 部署实践_01tiup 离线部署 tidb.md\":\"DbQ7MlXl\",\"zh_work_tidb_02tidb-部署实践_2-2tiup 部署实践_02tiup 扩缩容主要组件.md\":\"Co_r5alj\",\"zh_work_tidb_02tidb-部署实践_2-2tiup 部署实践_03tiup 滚动升级 tidb.md\":\"CMGM7ikC\",\"zh_work_tidb_02tidb-部署实践_2-2tiup 部署实践_04tiup 单机混部多实例.md\":\"DpQsE78n\",\"zh_work_tidb_02tidb-部署实践_2-2tiup 部署实践_05tiup 部署 tispark.md\":\"Cmw-7XlP\",\"zh_work_tidb_03tidb-运维管理_3-1tidb 监控详解_01tls 原理与应用.md\":\"4m3gzNV3\",\"zh_work_tidb_03tidb-运维管理_3-1tidb 监控详解_03tikv details 详解.md\":\"ClkQvKS6\",\"zh_work_tidb_03tidb-运维管理_3-1tidb 监控详解_04指标简介_kv backoff ops.md\":\"CVGLW2no\",\"zh_work_tidb_03tidb-运维管理_3-1tidb 监控详解_tidb panel - disconnection count.md\":\"DD0uYsXj\",\"zh_work_tidb_03tidb-运维管理_3-1tidb 监控详解_tidb panel - kv backoff ops.md\":\"mOvDt0fv\",\"zh_work_tidb_03tidb-运维管理_3-1tidb 监控详解_tidb-prometheus.md\":\"G3uspmn4\",\"zh_work_tidb_03tidb-运维管理_3-2tikv 监控详解_tikv 监控面板 - allocator stats.md\":\"C_lhQFDC\",\"zh_work_tidb_03tidb-运维管理_3-4非常规恢复_01重建pd.md\":\"CtUVAXeD\",\"zh_work_tidb_04tidb-调优实践_4-1生产案例总结_01磁盘抖动导致 duration 抖动.md\":\"C5XvQ1Ph\",\"zh_work_tidb_04tidb-调优实践_4-1生产案例总结_02网卡打满导致 duration 升高.md\":\"CuEAmI9X\",\"zh_work_tidb_05tidb-生态工具_5-1ticdc_01简述使用背景.md\":\"D1DSjjJj\",\"zh_work_tidb_05tidb-生态工具_5-1ticdc_02剖析架构模型.md\":\"BIocRK41\",\"zh_work_tidb_05tidb-生态工具_5-1ticdc_03cdc组件解析.md\":\"DDG8TyM-\",\"zh_work_tidb_05tidb-生态工具_5-1ticdc_04监控原理解析.md\":\"DBpKU_HS\",\"zh_work_tidb_05tidb-生态工具_5-3dumpling_01dumpling 快速使用.md\":\"CV8WxZQR\",\"zh_work_tidb_05tidb-生态工具_5-3dumpling_02dumpling 架构原理.md\":\"BSswDK59\",\"zh_work_tidb_05tidb-生态工具_5-4dm_01tidb-dm 架构总览.md\":\"ClnC22D-\",\"zh_work_tidb_05tidb-生态工具_5-4dm_02tidb-dm 快速使用.md\":\"F06Ka8pj\",\"zh_work_tidb_05tidb-生态工具_5-4dm_03tidb-dm master.md\":\"CRu2Lzdc\",\"zh_work_tidb_05tidb-生态工具_5-4dm_04tidb-dm worker.md\":\"BYJ3pCXM\",\"zh_work_tidb_05tidb-生态工具_5-4dm_05tidb-dm syncer.md\":\"DgAdiVHB\",\"zh_work_tidb_05tidb-生态工具_5-4dm_06tidb-dm metrics.md\":\"CLb6yoPH\",\"zh_work_tidb_05tidb-生态工具_5-6binlog_01binlog及reparo原理与使用.md\":\"C13fneBH\",\"zh_work_tidb_06tidb-解决方案_6-1迁移mycat至tidb方案_01tichange脚本转换csv文件适配tidb-lightning.md\":\"CA01yMB5\",\"zh_work_tidb_06tidb-解决方案_6-2迁移oracle至tidb方案_01oracle到tidb的ogg部署方案.md\":\"CD6zqsb6\",\"zh_work_tidb_07tidb-源码阅读_7-1tidb_01tidb run and debug on m1.md\":\"3ynkSZnT\",\"zh_work_tidb_07tidb-源码阅读_7-1tidb_02tidb point_get 点查的一生.md\":\"CADxNEL1\",\"zh_work_tidb_07tidb-源码阅读_7-1tidb_03tidb how to get init time.md\":\"By8eKyEe\",\"zh_work_tidb_08tidb-cloud-k8s_8-1tidb-应用实践_01tidb-operator 部署 tidb.md\":\"DcU7qYwR\",\"zh_work_tidb_08tidb-cloud-k8s_8-1tidb-应用实践_02tidb-operator 部署 dm.md\":\"gen4HCE6\",\"zh_work_tidb_08tidb-cloud-k8s_8-1tidb-应用实践_03tidb-operator 部署 lightning.md\":\"tuCWaeCn\",\"zh_work_tidb_08tidb-cloud-k8s_8-1tidb-应用实践_04tidb-operator 部署 ticdc.md\":\"B8SbB7Cs\",\"zh_work_tidb_index.md\":\"BCC1isoT\",\"zh_work_tidb_tidb-principle_paper reading_03spanner 分布式事务.md\":\"CynRIyqz\",\"zh_work_tidb_tidb-principle_paper reading_04lsmtree 存储笔记.md\":\"BwPCjLvo\",\"zh_work_tidb_tidb-principle_paper reading_05数据库的隔离级别.md\":\"Dxh_vXXr\",\"zh_work_tidb_tidb-principle_paper reading_paperpaxos note.md\":\"t8FP4-7k\",\"zh_work_tidb_tidb-principle_paper reading_percolator transaction.md\":\"CGlYN6TC\",\"zh_work_tidb_tidb-principle_tidb 优化器_logical optimizing in tidb.md\":\"DYu7AusO\",\"zh_work_tidb_tidb-principle_tidb 优化器_physical optimizing in tidb.md\":\"DPVaJsxD\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"VitePress\",\"description\":\"A VitePress site\",\"base\":\"/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{\"logo\":\"/logo.png\",\"search\":{\"provider\":\"local\"},\"socialLinks\":[{\"icon\":{\"svg\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" xmlns:xlink=\\\"http://www.w3.org/1999/xlink\\\" viewBox=\\\"0 0 448 512\\\"><title>RSS</title><path d=\\\"M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM112 416c-26.51 0-48-21.49-48-48s21.49-48 48-48s48 21.49 48 48s-21.49 48-48 48zm157.533 0h-34.335c-6.011 0-11.051-4.636-11.442-10.634c-5.214-80.05-69.243-143.92-149.123-149.123c-5.997-.39-10.633-5.431-10.633-11.441v-34.335c0-6.535 5.468-11.777 11.994-11.425c110.546 5.974 198.997 94.536 204.964 204.964c.352 6.526-4.89 11.994-11.425 11.994zm103.027 0h-34.334c-6.161 0-11.175-4.882-11.427-11.038c-5.598-136.535-115.204-246.161-251.76-251.76C68.882 152.949 64 147.935 64 141.774V107.44c0-6.454 5.338-11.664 11.787-11.432c167.83 6.025 302.21 141.191 308.205 308.205c.232 6.449-4.978 11.787-11.432 11.787z\\\" fill=\\\"currentColor\\\"></path></svg>\"},\"link\":\"https://askaric.com/feed.rss\",\"ariaLabel\":\"RSS\"},{\"icon\":\"github\",\"link\":\"https://github.com/jansu-dev/Jan-Blog\"},{\"icon\":\"linkedin\",\"link\":\"https://www.linkedin.com/in/zhipeng-su-2282b3217/\"},{\"icon\":\"youtube\",\"link\":\"https://www.youtube.com/@askaric\"},{\"icon\":\"bilibili\",\"link\":\"https://space.bilibili.com/318184941\"}]},\"locales\":{\"en\":{\"lang\":\"en\",\"label\":\"English\",\"title\":\"AskAric\",\"themeConfig\":{\"nav\":[{\"text\":\"Home\",\"link\":\"/en/index\"},{\"text\":\"Docs\",\"items\":[{\"text\":\"TiDB Series\",\"link\":\"/en/work/tidb/index\"},{\"text\":\"Oracle Series\",\"link\":\"/en/work/oracle/index\"},{\"text\":\"SQL Server Series\",\"link\":\"/en/work/sqlserver/index\"},{\"text\":\"English Learning Series\",\"link\":\"/en/work/english/index\"}]},{\"text\":\"TiHC Doc\",\"link\":\"/en/tihc/index\"},{\"text\":\"Life&Hobby\",\"items\":[{\"text\":\"Skiing\",\"link\":\"/en/skiing/20250212 learn about skiing\"},{\"text\":\"Tennis\",\"link\":\"/en/tennis/20250213 my tennis\"},{\"text\":\"Motor\",\"link\":\"/en/motor/20250213 my motor\"},{\"text\":\"Coffee\",\"link\":\"/en/coffee/20250214 my coffee\"}]},{\"text\":\"About\",\"link\":\"/en/about\"}],\"sidebar\":{\"/en/work/tidb/\":[{\"text\":\"TiDB-Principle\",\"items\":[{\"text\":\"Paper Reading\",\"items\":[{\"text\":\"Percolator Transaction\",\"link\":\"/en/work/tidb/TiDB-Principle/Paper Reading/Percolator Transaction\"},{\"text\":\"PaperPaxos Note\",\"link\":\"/en/work/tidb/TiDB-Principle/Paper Reading/PaperPaxos Note\"}]},{\"text\":\"TiDB Optimizer\",\"items\":[{\"text\":\"Logical Optimizing in TiDB\",\"link\":\"/en/work/tidb/TiDB-Principle/TiDB Optimizer/Logical Optimizing in TiDB\"},{\"text\":\"Physical Optimizing in TiDB\",\"link\":\"/en/work/tidb/TiDB-Principle/TiDB Optimizer/Physical Optimizing in TiDB\"}]}]},{\"text\":\"TiDB-Deployment\",\"items\":[]},{\"text\":\"TiDB-Maintaining\",\"items\":[]},{\"text\":\"TiDB-Deploying\",\"items\":[]},{\"text\":\"TiDB-EcosystematicTools\",\"items\":[]},{\"text\":\"TiDB-Sourcecode\",\"items\":[]},{\"text\":\"TiDB-Cloud-K8S\",\"items\":[]},{\"text\":\"TiDB-Solution\",\"items\":[]}],\"/en/work/english/\":[{\"text\":\"waystage_english\",\"items\":[{\"text\":\"scenario_thewayweare\",\"link\":\"/en/english/01waystage_english/1-1scernario_thewayweare.md\"},{\"text\":\"scenario_experiences\",\"link\":\"/en/english/01waystage_english/1-2scenario_experiences.md\"},{\"text\":\"scenario_managinglife\",\"link\":\"/en/english/01waystage_english/1-3scenario_managinglife.md\"},{\"text\":\"scenario_techsavvy\",\"link\":\"/en/english/01waystage_english/1-4scenario_techsavvy.md\"},{\"text\":\"scenario_impressions\",\"link\":\"/en/english/01waystage_english/1-5scenario_impressions.md\"}]},{\"text\":\"threshold_english\",\"items\":[{\"text\":\"scenario_lawandorder\",\"link\":\"/en/english/02threshold_english/2-10scenario_lawandorder.md\"},{\"text\":\"scenario_strangeevents\",\"link\":\"/en/english/02threshold_english/2-11scenario_strangeevents.md\"},{\"text\":\"scenario_fame\",\"link\":\"/en/english/02threshold_english/2-12scenario_fame.md\"},{\"text\":\"scenario_lives\",\"link\":\"/en/english/02threshold_english/2-1scenario_lives.md\"},{\"text\":\"scenario_socializing\",\"link\":\"/en/english/02threshold_english/2-2scenario_socializing.md\"},{\"text\":\"scenario_materialworld\",\"link\":\"/en/english/02threshold_english/2-3scenario_materialworld.md\"},{\"text\":\"scenario_trends\",\"link\":\"/en/english/02threshold_english/2-4scenario_trends.md\"},{\"text\":\"scenario_problemsolving\",\"link\":\"/en/english/02threshold_english/2-5scenario_problemsolving.md\"},{\"text\":\"scenario_behavior\",\"link\":\"/en/english/02threshold_english/2-6scenario_behavior.md\"},{\"text\":\"scenario_careers\",\"link\":\"/en/english/02threshold_english/2-7scenario_careers.md\"},{\"text\":\"scenario_personaltastes\",\"link\":\"/en/english/02threshold_english/2-8scenario_personaltastes.md\"},{\"text\":\"scenario_worldclutures\",\"link\":\"/en/english/02threshold_english/2-9scenario_worldclutures.md\"}]},{\"text\":\"vantage_english\",\"items\":[{\"text\":\"scenario_success+happiness\",\"link\":\"/en/english/03vantage_english/3-10scenario_success+happiness.md\"},{\"text\":\"scenario_goingplaces\",\"link\":\"/en/english/03vantage_english/3-11scenario_goingplaces.md\"},{\"text\":\"scenario_culture\",\"link\":\"/en/english/03vantage_english/3-12scenario_culture.md\"},{\"text\":\"scenario_ability\",\"link\":\"/en/english/03vantage_english/3-13scenario_ability.md\"},{\"text\":\"scenario_speedfriending\",\"link\":\"/en/english/03vantage_english/3-1scenario_speedfriending.md\"},{\"text\":\"scenario_celebrity\",\"link\":\"/en/english/03vantage_english/3-2scenario_celebrity.md\"},{\"text\":\"scenario_comment\",\"link\":\"/en/english/03vantage_english/3-3scenario_comment.md\"},{\"text\":\"scenario_stories\",\"link\":\"/en/english/03vantage_english/3-4scenario_stories.md\"},{\"text\":\"scenario_workinglives\",\"link\":\"/en/english/03vantage_english/3-5scenario_workinglives.md\"},{\"text\":\"scenario_challenges\",\"link\":\"/en/english/03vantage_english/3-6scenario_challenges.md\"},{\"text\":\"scenario_intothefuture\",\"link\":\"/en/english/03vantage_english/3-7scenario_intothefuture.md\"},{\"text\":\"scenario_getalong\",\"link\":\"/en/english/03vantage_english/3-8scenario_getalong.md\"},{\"text\":\"scenario_agreatread\",\"link\":\"/en/english/03vantage_english/3-9scenario_agreatread.md\"}]},{\"text\":\"IELTS_exam\",\"items\":[{\"text\":\"scenario_rules\",\"link\":\"/en/english/04IELTS_exam/4-1week1_rules.md\"},{\"text\":\"scenario_review4B\",\"link\":\"/en/english/04IELTS_exam/4-2week2_review4B.md\"},{\"text\":\"scenario_stragegy\",\"link\":\"/en/english/04IELTS_exam/4-3week3_stragegy.md\"},{\"text\":\"scenario_IELTS\",\"link\":\"/en/english/04IELTS_exam/4-4week4_IELTS_part2.md\"}]}]}}},\"zh\":{\"lang\":\"zh\",\"title\":\"AskAric\",\"label\":\"简体中文\",\"themeConfig\":{\"nav\":[{\"text\":\"首页\",\"link\":\"/zh/index\"},{\"text\":\"文档笔记\",\"items\":[{\"text\":\"TiDB 系列\",\"link\":\"/zh/work/tidb/index\"},{\"text\":\"Oracle 系列\",\"link\":\"/zh/work/oracle/index\"},{\"text\":\"SQL Server 系列\",\"link\":\"/zh/work/sqlserver/index\"},{\"text\":\"英语学习系列\",\"link\":\"/zh/work/english/index\"}]},{\"text\":\"TiHC 文档\",\"link\":\"/zh/tihc/index\"},{\"text\":\"生活爱好\",\"items\":[{\"text\":\"滑雪\",\"link\":\"/zh/skiing/20250212 learn about skiing\"},{\"text\":\"网球\",\"link\":\"/zh/tennis/20250213 my tennis\"},{\"text\":\"摩托\",\"link\":\"/zh/motor/20250213 my motor\"},{\"text\":\"咖啡\",\"link\":\"/zh/coffee/20250214 my coffee\"}]},{\"text\":\"关于 Aric\",\"link\":\"/zh/about\"}],\"sidebar\":{\"/zh/work/tidb/\":[{\"text\":\"TiDB-原理总结\",\"items\":[{\"text\":\"论文阅读\",\"items\":[{\"text\":\"Percolator 分布式事务\",\"link\":\"/zh/work/tidb/TiDB-Principle/Paper Reading/Percolator Transaction\"},{\"text\":\"PaperPaxos 论文简读\",\"link\":\"/zh/work/tidb/TiDB-Principle/Paper Reading/PaperPaxos Note\"}]},{\"text\":\"TiDB 优化器\",\"items\":[{\"text\":\"Logical Optimizing in TiDB\",\"link\":\"/zh/work/tidb/TiDB-Principle/TiDB Optimizer/Logical Optimizing in TiDB\"},{\"text\":\"Physical Optimizing in TiDB\",\"link\":\"/zh/work/tidb/TiDB-Principle/TiDB Optimizer/Physical Optimizing in TiDB\"}]}]},{\"text\":\"TIDB-部署实践\",\"items\":[]},{\"text\":\"TiDB-运维管理\",\"items\":[]},{\"text\":\"TiDB-调优实践\",\"items\":[]},{\"text\":\"TiDB-生态工具\",\"items\":[]},{\"text\":\"TiDB-源码阅读\",\"items\":[]},{\"text\":\"TiDB-Cloud-K8S\",\"items\":[]},{\"text\":\"TiDB-解决方案\",\"items\":[]}],\"/zh/work/english/\":[{\"text\":\"基础英语\",\"items\":[{\"text\":\"场景_生活方式\",\"link\":\"/zh/english/01基础英语/1-1场景_生活方式.md\"},{\"text\":\"场景_历史经验\",\"link\":\"/zh/english/01基础英语/1-2场景_历史经验.md\"},{\"text\":\"场景_管理生活\",\"link\":\"/zh/english/01基础英语/1-3场景_管理生活.md\"},{\"text\":\"场景_技术专家\",\"link\":\"/zh/english/01基础英语/1-4场景_技术专家.md\"},{\"text\":\"场景_印象深刻\",\"link\":\"/zh/english/01基础英语/1-5场景_印象深刻.md\"}]},{\"text\":\"英语口语\",\"items\":[{\"text\":\"场景_法律与秩序\",\"link\":\"/zh/english/02英语口语/2-10场景_法律与秩序.md\"},{\"text\":\"场景_奇怪事件\",\"link\":\"/zh/english/02英语口语/2-11场景_奇怪事件.md\"},{\"text\":\"场景_名气\",\"link\":\"/zh/english/02英语口语/2-12场景_名气.md\"},{\"text\":\"场景_生活\",\"link\":\"/zh/english/02英语口语/2-1场景_生活.md\"},{\"text\":\"场景_名人\",\"link\":\"/zh/english/02英语口语/2-2场景_名人.md\"},{\"text\":\"场景_备注\",\"link\":\"/zh/english/02英语口语/2-3场景_备注.md\"},{\"text\":\"场景_趋势\",\"link\":\"/zh/english/02英语口语/2-4场景_趋势.md\"},{\"text\":\"场景_解决问题\",\"link\":\"/zh/english/02英语口语/2-5场景_解决问题.md\"},{\"text\":\"场景_行为\",\"link\":\"/zh/english/02英语口语/2-6场景_行为.md\"},{\"text\":\"场景_工作\",\"link\":\"/zh/english/02英语口语/2-7场景_工作.md\"},{\"text\":\"场景_个人趣向\",\"link\":\"/zh/english/02英语口语/2-8场景_个人趣向.md\"},{\"text\":\"场景_世界文化\",\"link\":\"/zh/english/02英语口语/2-9场景_世界文化.md\"}]},{\"text\":\"高级口语\",\"items\":[{\"text\":\"场景_成功与快乐\",\"link\":\"/zh/english/03高级口语/3-10场景_成功与快乐.md\"},{\"text\":\"场景_出游\",\"link\":\"/zh/english/03高级口语/3-11场景_出游.md\"},{\"text\":\"场景_文化\",\"link\":\"/zh/english/03高级口语/3-12场景_文化.md\"},{\"text\":\"场景_能力\",\"link\":\"/zh/english/03高级口语/3-13场景_能力.md\"},{\"text\":\"场景_快速交友\",\"link\":\"/zh/english/03高级口语/3-1场景_快速交友.md\"},{\"text\":\"场景_名人\",\"link\":\"/zh/english/03高级口语/3-2场景_名人.md\"},{\"text\":\"场景_评论\",\"link\":\"/zh/english/03高级口语/3-3场景_评论.md\"},{\"text\":\"场景_故事\",\"link\":\"/zh/english/03高级口语/3-4场景_故事.md\"},{\"text\":\"场景_工作寿命\",\"link\":\"/zh/english/03高级口语/3-5场景_工作寿命.md\"},{\"text\":\"场景_挑战\",\"link\":\"/zh/english/03高级口语/3-6场景_挑战.md\"},{\"text\":\"场景_在未来\",\"link\":\"/zh/english/03高级口语/3-7场景_在未来.md\"},{\"text\":\"场景_和睦相处\",\"link\":\"/zh/english/03高级口语/3-8场景_和睦相处.md\"},{\"text\":\"场景_优质读物\",\"link\":\"/zh/english/03高级口语/3-9场景_优质读物.md\"}]},{\"text\":\"雅思考试\",\"items\":[{\"text\":\"场景_雅思考试\",\"link\":\"/zh/english/04雅思考试/4-1week1_雅思考试.md\"},{\"text\":\"场景_复习剑桥4B\",\"link\":\"/zh/english/04雅思考试/4-2week2_复习剑桥4B.md\"},{\"text\":\"场景_加分策略\",\"link\":\"/zh/english/04雅思考试/4-3week3_加分策略.md\"}]}]}}}},\"scrollOffset\":134,\"cleanUrls\":false}");</script>
+    
+  </body>
+</html>

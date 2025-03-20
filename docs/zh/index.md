@@ -13,14 +13,14 @@ hero:
     alt: Aric
 
 features:
-  - icon: 🛠️
+  - icon: 🎾
     title: 生活爱好
     link: /zh/life/
-  - icon: 🛠️
+  - icon: ⛏
       # src: /light-feature-icon.svg
     title: TiHC 工具
     link: /zh/tihc/
-  - icon: 🛠️
+  - icon: 🧑
       # dark: /light-feature-icon.svg
       # light: /light-feature-icon.svg
     title: 自我简介

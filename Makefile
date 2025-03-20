@@ -2,7 +2,7 @@ all: serve
 
 # Define paths for convenience
 PUBLIC_DIR = ../aricsu.github.io
-SOURCE_DIR = ../aric/docs/.vitepress/dist
+SOURCE_DIR = ../askaric/docs/.vitepress/dist
 CNAME_FILE = CNAME
 CNAME_CONTENT = www.askaric.com
 

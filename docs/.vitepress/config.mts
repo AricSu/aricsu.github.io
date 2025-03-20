@@ -5,7 +5,7 @@ import  { tidbDocSideBarZh }  from './sidebar_tidb_zh';
 import { tidbDocSideBarEn } from './sidebar_tidb_en';
 import { englishDocEnSideBar } from './sidebar_english_en';
 import { englishDocZhSideBar } from './sidebar_english_zh';
-import {lifeEnDropDown, lifeZhDropDown, DocEnDropDown, DocZhDropDown} from './dropDownBar';
+import {lifeEnDropDown, lifeZhDropDown, DocEnDropDown, DocZhDropDown, tihcDocSideBarZh, tihcDocSideBarEn} from './dropDownBar';
 
 // For RSS
 import { RssPlugin, RSSOptions } from 'vitepress-plugin-rss'
@@ -48,6 +48,7 @@ export default defineConfig({
                 ],
             sidebar: {
                   '/en/work/tidb/': tidbDocSideBarEn,
+                  '/en/tihc/': tihcDocSideBarEn,
                   '/en/work/english/': englishDocEnSideBar
               },
         }
@@ -66,6 +67,7 @@ export default defineConfig({
             ],
             sidebar: {
                 '/zh/work/tidb/': tidbDocSideBarZh,
+                '/zh/tihc/': tihcDocSideBarZh,
                 // '/zh/oracle/': oracleZHDocSidebar,
                 // '/zh/sqlserver/': sqlServerZHDocSideBar,
                 '/zh/work/english/': englishDocZhSideBar

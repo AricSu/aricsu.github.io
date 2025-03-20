@@ -13,13 +13,13 @@ hero:
     alt: Aric
 
 features:
-  - icon: 🛠️
+  - icon: 🎾
     title: Hobbies
     link: /en/life/
-  - icon: 🛠️
+  - icon: ⛏
     title: TiHC Tools
     link: /en/tihc/
-  - icon: 🛠️
+  - icon: 🧑
     title: Self-introduction
     link: /en/about/
 ---

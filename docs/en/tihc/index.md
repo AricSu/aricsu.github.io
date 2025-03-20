@@ -1,40 +1,110 @@
-# TiHC
+# TiHC (TiDB Health Checker)
 
-TiHC (TiDB Healthy Check) 是基于 Rust 构建的 TiDB 巡检、收集、诊断工具，旨在缩短问题解决时间，提高交付效率。
 
-## TiHC 的作用
-1. 对于 TiDB DBA 角色，节约 TiDB 巡检过程中大量可模版化工作。
-2. 对于 Others DBA 角色，提供一套针对 TIDB 健康检查的简单方法。
+TiHC is a command-line toolkit designed by [Aric](../about.md) specifically for TiDB distributed database, aiming to simplify daily operations, problem diagnosis, and performance analysis of TiDB. As a professional database health check tool, TiHC helps DBAs and developers quickly identify and resolve potential issues in TiDB clusters.
 
-**Tips**：TiHC 不期望探究所有性能细节，仅关注 TiDB 读写请求流中较为常见、重要的组件监控进行采集与分析。详细的根因分析还是需 Grafana 各组件配合分析、定论。
+## 🚀 Key Features
 
-## Features
-- **采集 Grafana 监控面板**：调用 grafana-image-render 插件，获取指定时间段内的监控信息。
-- **生成 Docx 巡检文档**：TiHC 将收集的统计数据排版、生成 Office Word 文档模版，仅需少量修改便可直接交付客户。
-- **轻量化巡检采集操作**：TiHC 只需初次巡检时，配置 Grafana-image-render。此后，仅需要可执行文件便可完成全部巡检。
+- **Lightweight**: The software itself is lightweight, non-intrusive to the database, and can run safely in any environment
+- **Ease of Use**: Quickly locate and solve common problems through the command-line interface without complex configuration
+- **Comprehensive Checks**: Covers comprehensive health checks for TiDB, TiKV, PD, and other components
+- **Intelligent Analysis**: Automatically analyzes potential problems based on best practices and provides optimization suggestions
 
-## Quick start
+## 💡 Use Cases
 
-### 1. TiHC 使用简介
-TiHC 遵循 terminal cli 使用风格，可使用 `--help` 或 `-h` 查看使用方法。
-```shell
-aric@AricdeMacBook-Pro-2 tihc % ./bin/tihc 
-tihc 1.0
+### Data Collection
+Comprehensively collect metrics and status information from TiDB clusters to provide data support for subsequent analysis:
+- Automatically collect operational status of various components
+- Gather system resource usage information
+- Export key configuration information
+- Support scheduled collection and historical data comparison
+
+### Inspection Reports[Preparing]
+Generate regular inspection reports to ensure the stability and performance of TiDB clusters. TiHC can help you:
+- Monitor key performance indicators
+- Detect configuration deviations
+- Provide early warnings for potential risks
+
+### Troubleshooting[Preparing]
+Quickly locate and resolve issues in TiDB clusters. When the cluster experiences anomalies, TiHC can:
+- Collect critical diagnostic information
+- Analyze error logs
+- Provide targeted solutions
+
+### Performance Analysis[Preparing]
+Analyze performance bottlenecks in TiDB clusters and optimize system performance. TiHC provides:
+- SQL execution plan analysis
+- Resource usage monitoring
+- Performance tuning recommendations
+
+## 📦 Installation and Usage
+
+### Building from Source
+
+```bash
+# Clone the repository
+git clone https://github.com/AricSu/tihc.git
+
+# Compile
+cd tihc
+make
+
+# Run
+./tihc --help
+```
+
+### Binary Download
+
+Download pre-compiled binary files from the GitHub release page:
+
+1. Visit the [TiHC Releases](https://github.com/aricsu/tihc/releases) page
+2. Download the binary file for your operating system:
+   - Linux: `tihc-linux-amd64.tar.gz`
+   - macOS: `tihc-darwin-amd64.tar.gz`
+   - Windows: `tihc-windows-amd64.zip`
+
+3. Extract the downloaded file:
+```bash
+tar -xvf tihc-linux-amd64.tar.gz
+chmod +x tihc
+./tihc --help
+```
+
+## 🔍 User Guide
+
+### Basic Usage
+
+```bash
+# View help information
+./tihc --help
+
+# Output
+tihc 1.0.0
 Author: Aric
 TiHC CLI Tool
 Email: askaric@gmail.com
-Doc: https://www.askaric.com/zh/
+Doc: https://www.askaric.com/en/tihc
 
 USAGE:
-    tihc <SUBCOMMAND>
+    tihc [OPTIONS] <SUBCOMMAND>
 
 OPTIONS:
-    -h, --help       Print help information
-    -V, --version    Print version information
+    -h, --help                     Print help information
+    -l, --log-file <LOG_FILE>      Log file path [default: tihc_started_at_20250320_142358.log]
+    -L, --log-level <LOG_LEVEL>    Log level (trace, debug, info, warn, error) [default: info]
+    -V, --version                  Print version information
 
 SUBCOMMANDS:
-    collect    
+    collect    Collect info from TiDB components (tidb, tikv, pd, br)
     help       Print this message or the help of the given subcommand(s)
-    report     
-    tools      
 ```
+
+## 🤝 Contribution and Support
+
+- Issue Feedback: [GitHub Issues](https://github.com/aricsu/tihc/issues)
+- Documentation: [Complete Documentation](https://www.askaric.com/en/tihc)
+- Contact the Author: ask.aric.su@gmail.com
+
+## 📜 License
+
+TiHC is open-sourced under the [Apache 2.0 License](https://github.com/aricsu/tihc/blob/main/LICENSE).

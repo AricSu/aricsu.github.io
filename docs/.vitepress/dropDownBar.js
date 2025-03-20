@@ -37,3 +37,45 @@ export const DocZhDropDown = {
       { text: "英语学习系列", link: "/zh/work/english/index" },
     ]
   }
+
+export const tihcDocSideBarZh = [
+  {
+    "text": "关于 TiHC",
+    "items": [
+      {
+        "text": "TiHC 简介",
+        "link": "/zh/tihc/index"
+      },
+    ]
+  },
+  {
+    "text": "快速上手",
+    "items": [
+      {
+        "text": "Pprof 选项",
+        "link": "/zh/tihc/collect/pprof"
+      },
+    ]
+  },
+]
+
+export const tihcDocSideBarEn = [
+  {
+    "text": "About TiHC",
+    "items": [
+      {
+        "text": "TiHC Introduction",
+        "link": "/en/tihc/index"
+      },
+    ]
+  },
+  {
+    "text": "Quick Start",
+    "items": [
+      {
+        "text": "Pprof Options",
+        "link": "/en/tihc/collect/pprof"
+      },
+    ]
+  },
+]

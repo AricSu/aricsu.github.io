@@ -7,7 +7,7 @@ comments: true
 hero:
   name: Aric's Attitude
   text: Seek truth from facts, be independent, and face life with a smile.
-  tagline: Record daily life moments, share learning insights, and distinguish right from wrong together.
+  tagline: Record daily life moments, share learning insights.
   image:
     src: /logo.png
     alt: Aric
@@ -15,7 +15,7 @@ hero:
 features:
   - icon: 🛠️
     title: Hobbies
-    link: /en/tihc/
+    link: /en/life/
   - icon: 🛠️
     title: TiHC Tools
     link: /en/tihc/
@@ -24,6 +24,6 @@ features:
     link: /en/about/
 ---
 <panda-hr/>
-<vendors/>
+<vendors-en/>
 <panda-hr/>
 <media/>

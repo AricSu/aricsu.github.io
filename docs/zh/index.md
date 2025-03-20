@@ -7,7 +7,7 @@ comments: true
 hero:
   name: Aric 的态度
   text: 实事求是、独立自主、笑对人生
-  tagline: 记录生活点滴，分享学习心得，一同辨别是非
+  tagline: 记录生活点滴，分享学习心得
   image:
     src: /logo.png
     alt: Aric
@@ -15,7 +15,7 @@ hero:
 features:
   - icon: 🛠️
     title: 生活爱好
-    link: /zh/tihc/
+    link: /zh/life/
   - icon: 🛠️
       # src: /light-feature-icon.svg
     title: TiHC 工具
@@ -27,7 +27,7 @@ features:
     link: /zh/about/
 ---
 
-<vendors/>
+<vendors-zh/>
 <panda-hr/>
 <media/>
 

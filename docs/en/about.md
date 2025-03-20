@@ -3,7 +3,6 @@
 ![header](../images/header.jpg)
 
 - Bilibili: [askAric](https://space.bilibili.com/318184941?spm_id_from=333.1007.0.0)
-- technology blog: [The lifetime of TiDB Point_Get](../zh/tidb/07TiDB-源码阅读/7-1TiDB/02TiDB%20Point_Get%20点查的一生.md)
 - Github: <https://github.com/aricSu>
 - Email: jan-su-dev@outlook.com
 - Wechat: xh9836 `(Please state your purpose and where get my info)`

@@ -21,7 +21,8 @@ import { baiduAnalytics, trackPageview } from '@theojs/lumen'
 import QandAList from './QandAList.vue'
 
 // For homepage
-import Vendors from './components/Vendors.vue'
+import VendorsZH from './components/VendorsZH.vue'
+import VendorsEN from './components/VendorsEN.vue'
 import PandaHR from './components/PandaHR.vue'
 import Media from './components/Media.vue'
 
@@ -41,7 +42,8 @@ export default {
       trackPageview('de9c366ed5b027175807f577a5213b69', window.location.href) 
     }
     app.component('QandAList', QandAList);
-    app.component('vendors', Vendors)
+    app.component('vendors-zh', VendorsZH)
+    app.component('vendors-en', VendorsEN)
     app.component('panda-hr', PandaHR)
     app.component('media', Media)
   },

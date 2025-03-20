@@ -21,19 +21,19 @@ export const lifeEnDropDown = {
 export const DocEnDropDown = {
   text: "Docs",
   items: [
-    { text: "TiDB Series", link: "/en/tidb/index" },
-    { text: "Oracle Series", link: "/en/oracle/index" },
-    { text: "SQL Server Series", link: "/en/sqlserver/index" },
-    { text: "English Learning Series", link: "/en/english/index" },
+    { text: "TiDB Series", link: "/en/work/tidb/index" },
+    { text: "Oracle Series", link: "/en/work/oracle/index" },
+    { text: "SQL Server Series", link: "/en/work/sqlserver/index" },
+    { text: "English Learning Series", link: "/en/work/english/index" },
   ]
 }
 
 export const DocZhDropDown = {
     text: "文档笔记",
     items: [
-      { text: "TiDB 系列", link: "/zh/tidb/index" },
-      { text: "Oracle 系列", link: "/zh/oracle/index" },
-      { text: "SQL Server 系列", link: "/zh/sqlserver/index" },
-      { text: "英语学习系列", link: "/zh/english/index" },
+      { text: "TiDB 系列", link: "/zh/work/tidb/index" },
+      { text: "Oracle 系列", link: "/zh/work/oracle/index" },
+      { text: "SQL Server 系列", link: "/zh/work/sqlserver/index" },
+      { text: "英语学习系列", link: "/zh/work/english/index" },
     ]
   }

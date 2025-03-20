@@ -47,8 +47,8 @@ export default defineConfig({
                 // languageEnDropDown
                 ],
             sidebar: {
-                  '/en/tidb/': tidbDocSideBarEn,
-                  '/en/english/': englishDocEnSideBar
+                  '/en/work/tidb/': tidbDocSideBarEn,
+                  '/en/work/english/': englishDocEnSideBar
               },
         }
     },
@@ -65,10 +65,10 @@ export default defineConfig({
                 { text: '关于 Aric', link: '/zh/about'},
             ],
             sidebar: {
-                '/zh/tidb/': tidbDocSideBarZh,
+                '/zh/work/tidb/': tidbDocSideBarZh,
                 // '/zh/oracle/': oracleZHDocSidebar,
                 // '/zh/sqlserver/': sqlServerZHDocSideBar,
-                '/zh/english/': englishDocZhSideBar
+                '/zh/work/english/': englishDocZhSideBar
             },
         }
       }

@@ -1,0 +1,46 @@
+name: Build and Deploy VitePress Blog
+
+on:
+  push:
+    branches:
+      - main  # 或您的默认分支
+  pull_request:
+    branches:
+      - main  # 或您的默认分支
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # 可根据需要调整 Node.js 版本
+
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies using Yarn
+        run: |
+          yarn install
+
+      - name: Build VitePress
+        run: |
+          yarn build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}  # 自动获取的 GitHub Token
+          publish_dir: ./dist  # VitePress 构建输出目录
+          cname: 'your-custom-domain.com'  # 如果使用自定义域名，填入这里

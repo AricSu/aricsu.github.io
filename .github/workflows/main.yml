@@ -20,7 +20,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'  # 更新 Node.js 版本为 18 或更高
+          node-version: '18'  # 设置 Node.js 版本
 
       - name: Install dependencies using Yarn
         run: |
@@ -28,7 +28,7 @@ jobs:
 
       - name: Build VitePress
         run: |
-          yarn build
+          yarn build  # 执行构建命令，确保在 package.json 中有该命令
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

@@ -20,8 +20,4 @@ pre:
 	brew install node
 	brew install yarn
 	yarn add -D vitepress
-
-pub:
-	cd $(PUBLIC_DIR) && git checkout public && rm -rf * && cp -rf $(SOURCE_DIR)/* $(PUBLIC_DIR)/ && echo "www.askaric.com">CNAME
-	cd $(PUBLIC_DIR) && git add .
 	

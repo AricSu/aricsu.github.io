@@ -7,35 +7,8 @@ TiHC 是 [Aric](../about.md) 专为 TiDB 分布式数据库设计的命令行工
 
 - **轻量化**: 软件本身轻量，对数据库无侵入，可在任何环境中安全运行
 - **易用性**: 仅通过命令行界面快速定位和解决常见问题，无需复杂配置
-- **全面检查**: 覆盖 TiDB、TiKV、PD 等组件的全面健康检查
-- **智能分析**: 基于最佳实践自动分析潜在问题并提供优化建议
 
 ## 💡 使用场景
-
-### 数据收集
-全面收集 TiDB 集群的各项指标和状态信息，为后续分析提供数据支持：
-- 自动采集各组件运行状态
-- 收集系统资源使用情况
-- 导出关键配置信息
-
-### 巡检报告[准备中]
-定期生成巡检报告，确保 TiDB 集群的稳定性和性能。TiHC 可以帮助您：
-- 监控关键性能指标
-- 检测配置偏差
-- 预警潜在风险
-
-### 故障诊断[准备中]
-快速定位和解决 TiDB 集群中的问题。当集群出现异常时，TiHC 能够：
-- 收集关键诊断信息
-- 分析错误日志
-- 提供针对性解决方案
-
-### 性能分析[准备中]
-分析 TiDB 集群的性能瓶颈，优化系统性能。TiHC 提供：
-- SQL 执行计划分析
-- 资源使用情况监控
-- 性能调优建议
-
 
 
 ## 📦 安装和使用
@@ -60,21 +33,19 @@ make
 
 1. 访问 [TiHC Releases](https://github.com/aricsu/tihc/releases) 页面
 2. 下载对应操作系统的二进制文件：
-   - Linux: `tihc-linux-amd64.tar.gz`
    - macOS: `tihc-darwin-amd64.tar.gz`
-   - Windows: `tihc-windows-amd64.zip`
 
 3. 解压下载的文件：
 ```bash
-tar -xvf tihc-linux-amd64.tar.gz
+tar -xvf tihc-darwin-amd64.tar.gz
 chmod +x tihc
 ./tihc --help
 ```
 
-### 一键安装（Linux/macOS）
+### 一键安装（macOS）
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/aricsu/tihc/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/AricSu/tihc/master/scripts/install.sh | bash
 ```
 
 ## 🔍 使用指南
@@ -111,7 +82,3 @@ SUBCOMMANDS:
 - 问题反馈：[GitHub Issues](https://github.com/aricsu/tihc/issues)
 - 文档：[完整文档](https://www.askaric.com/zh/tihc)
 - 联系作者：ask.aric.su@gmail.com
-
-## 📜 许可证
-
-TiHC 基于 [Apache 2.0 许可证](https://github.com/aricsu/tihc/blob/main/LICENSE) 开源。

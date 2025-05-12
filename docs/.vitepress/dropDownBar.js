@@ -49,11 +49,24 @@ export const tihcDocSideBarZh = [
     ]
   },
   {
-    "text": "快速上手",
+    "text": "Collect 子命令",
     "items": [
       {
         "text": "Pprof 选项",
         "link": "/zh/tihc/collect/pprof"
+      },
+        {
+          "text": "Docdb 选项",
+          "link": "/zh/tihc/collect/docdb"
+        },
+    ]
+  },
+  {
+    "text": "Tools 子命令",
+    "items": [
+      {
+        "text": "Slowlog 选项",
+        "link": "/zh/tihc/tools/slowlog"
       },
     ]
   },
@@ -64,17 +77,30 @@ export const tihcDocSideBarEn = [
     "text": "About TiHC",
     "items": [
       {
-        "text": "TiHC Introduction",
+        "text": "Introduction",
         "link": "/en/tihc/index"
       },
     ]
   },
   {
-    "text": "Quick Start",
+    "text": "Collect Subcommand",
     "items": [
       {
-        "text": "Pprof Options",
+        "text": "Pprof Option",
         "link": "/en/tihc/collect/pprof"
+      },
+        {
+          "text": "Docdb Option",
+          "link": "/en/tihc/collect/docdb"
+        },
+    ]
+  },
+  {
+    "text": "Tools Subcommand",
+    "items": [
+      {
+        "text": "Slowlog Option",
+        "link": "/en/tihc/tools/slowlog"
       },
     ]
   },

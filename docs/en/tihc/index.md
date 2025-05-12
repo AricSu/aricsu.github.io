@@ -7,35 +7,8 @@ TiHC is a command-line toolkit designed by [Aric](../about.md) specifically for 
 
 - **Lightweight**: The software itself is lightweight, non-intrusive to the database, and can run safely in any environment
 - **Ease of Use**: Quickly locate and solve common problems through the command-line interface without complex configuration
-- **Comprehensive Checks**: Covers comprehensive health checks for TiDB, TiKV, PD, and other components
-- **Intelligent Analysis**: Automatically analyzes potential problems based on best practices and provides optimization suggestions
 
 ## 💡 Use Cases
-
-### Data Collection
-Comprehensively collect metrics and status information from TiDB clusters to provide data support for subsequent analysis:
-- Automatically collect operational status of various components
-- Gather system resource usage information
-- Export key configuration information
-- Support scheduled collection and historical data comparison
-
-### Inspection Reports[Preparing]
-Generate regular inspection reports to ensure the stability and performance of TiDB clusters. TiHC can help you:
-- Monitor key performance indicators
-- Detect configuration deviations
-- Provide early warnings for potential risks
-
-### Troubleshooting[Preparing]
-Quickly locate and resolve issues in TiDB clusters. When the cluster experiences anomalies, TiHC can:
-- Collect critical diagnostic information
-- Analyze error logs
-- Provide targeted solutions
-
-### Performance Analysis[Preparing]
-Analyze performance bottlenecks in TiDB clusters and optimize system performance. TiHC provides:
-- SQL execution plan analysis
-- Resource usage monitoring
-- Performance tuning recommendations
 
 ## 📦 Installation and Usage
 
@@ -59,16 +32,22 @@ Download pre-compiled binary files from the GitHub release page:
 
 1. Visit the [TiHC Releases](https://github.com/aricsu/tihc/releases) page
 2. Download the binary file for your operating system:
-   - Linux: `tihc-linux-amd64.tar.gz`
    - macOS: `tihc-darwin-amd64.tar.gz`
-   - Windows: `tihc-windows-amd64.zip`
 
 3. Extract the downloaded file:
 ```bash
-tar -xvf tihc-linux-amd64.tar.gz
+tar -xvf tihc-darwin-amd64.tar.gz
 chmod +x tihc
 ./tihc --help
 ```
+
+
+### Quick Install (macOS)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/AricSu/tihc/master/scripts/install.sh | bash
+```
+
 
 ## 🔍 User Guide
 
@@ -104,7 +83,3 @@ SUBCOMMANDS:
 - Issue Feedback: [GitHub Issues](https://github.com/aricsu/tihc/issues)
 - Documentation: [Complete Documentation](https://www.askaric.com/en/tihc)
 - Contact the Author: ask.aric.su@gmail.com
-
-## 📜 License
-
-TiHC is open-sourced under the [Apache 2.0 License](https://github.com/aricsu/tihc/blob/main/LICENSE).

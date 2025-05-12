@@ -23,7 +23,7 @@ jobs:
           node-version: '16'  # 可根据需要调整 Node.js 版本
 
       - name: Cache Yarn dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3  # 使用 v3 版本
         with:
           path: ~/.yarn/cache
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -41,6 +41,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}  # 自动获取的 GitHub Token
           publish_dir: ./dist  # VitePress 构建输出目录
-          cname: 'your-custom-domain.com'  # 如果使用自定义域名，填入这里
+          cname: 'www.askaric.com'  # 如果使用自定义域名，填入这里

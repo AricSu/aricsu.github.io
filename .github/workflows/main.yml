@@ -20,15 +20,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # 可根据需要调整 Node.js 版本
-
-      - name: Cache Yarn dependencies
-        uses: actions/cache@v3  # 使用 v3 版本
-        with:
-          path: ~/.yarn/cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          node-version: '18'  # 更新 Node.js 版本为 18 或更高
 
       - name: Install dependencies using Yarn
         run: |
@@ -42,4 +34,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           publish_dir: ./dist  # VitePress 构建输出目录
-          cname: 'www.askaric.com'  # 如果使用自定义域名，填入这里
+          cname: 'your-custom-domain.com'  # 如果使用自定义域名，填入这里

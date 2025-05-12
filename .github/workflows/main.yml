@@ -28,10 +28,10 @@ jobs:
 
       - name: Build VitePress
         run: |
-          yarn build  # 执行构建命令，确保在 package.json 中有该命令
+          yarn docs:build  # 使用正确的构建命令 docs:build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          publish_dir: ./dist  # VitePress 构建输出目录
-          cname: 'your-custom-domain.com'  # 如果使用自定义域名，填入这里
+          publish_dir: ./docs/.vitepress/dist  # VitePress 构建输出目录
+          cname: 'www.askaric.com'  # 如果使用自定义域名，填入这里

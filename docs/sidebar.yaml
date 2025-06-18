@@ -33,6 +33,16 @@ tidb:
   - category:
       name-zh: "TiDB-生态工具"
       name-en: "TiDB-EcosystematicTools"
+    subcategories:
+      - name-zh: "TiCDC"
+        name-en: "TiCDC"
+        subsubcategories:
+          - name-zh: "TiCDC 概述"
+            name-en: "TiCDC Overview"
+            file: "TiCDC Overview.md"
+          - name-zh: "TiCDC 架构"
+            name-en: "TiCDC Streaming"
+            file: "TiCDC Streaming.md"
   - category:
       name-zh: "TiDB-源码阅读"
       name-en: "TiDB-Sourcecode"

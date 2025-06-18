@@ -3,8 +3,8 @@
 generate_tidb_sidebar_zh() {
     # 生成中文侧边栏
     local lang="zh"
-    local yaml_file="/Users/aric/Database/aric/docs/sidebar.yaml"
-    local output_file="/Users/aric/Database/aric/docs/.vitepress/sidebar_tidb_${lang}.js"
+    local yaml_file="/Users/aric/Database/askaric/docs/sidebar.yaml"
+    local output_file="/Users/aric/Database/askaric/docs/.vitepress/sidebar_tidb_${lang}.js"
     
     tmp_file=$(mktemp)
     
@@ -38,8 +38,8 @@ export const tidbDocSideBarZh = $(cat $tmp_file)" > $output_file
 generate_tidb_sidebar_en() {
     # 生成英文侧边栏
     local lang="en"
-    local yaml_file="/Users/aric/Database/aric/docs/sidebar.yaml"
-    local output_file="/Users/aric/Database/aric/docs/.vitepress/sidebar_tidb_${lang}.js"
+    local yaml_file="/Users/aric/Database/askaric/docs/sidebar.yaml"
+    local output_file="/Users/aric/Database/askaric/docs/.vitepress/sidebar_tidb_${lang}.js"
     
     tmp_file=$(mktemp)
     

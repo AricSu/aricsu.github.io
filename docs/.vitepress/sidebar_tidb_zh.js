@@ -45,7 +45,21 @@ export const tidbDocSideBarZh = [
   },
   {
     "text": "TiDB-生态工具",
-    "items": []
+    "items": [
+      {
+        "text": "TiCDC",
+        "items": [
+          {
+            "text": "TiCDC 概述",
+            "link": "/zh/work/tidb/TiDB-EcosystematicTools/TiCDC/TiCDC Overview"
+          },
+          {
+            "text": "TiCDC 架构",
+            "link": "/zh/work/tidb/TiDB-EcosystematicTools/TiCDC/TiCDC Streaming"
+          }
+        ]
+      }
+    ]
   },
   {
     "text": "TiDB-源码阅读",

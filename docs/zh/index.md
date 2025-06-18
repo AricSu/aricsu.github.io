@@ -27,20 +27,18 @@ features:
     link: /zh/about/
 ---
 
-<vendors-zh/>
-<panda-hr/>
-<media/>
-
-
 <!-- ## Ask Channel
 
 You can ask everything you want!
 
-```sh
-npm init
-npx vitepress init
-``` -->
-
-<!-- ## Ask Aric
-
 <QandAList /> -->
+
+
+<vendors-zh/>
+
+
+
+<panda-hr/>
+<media/>
+
+

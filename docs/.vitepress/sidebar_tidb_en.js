@@ -45,7 +45,21 @@ export const tidbDocSideBarEn = [
   },
   {
     "text": "TiDB-EcosystematicTools",
-    "items": []
+    "items": [
+      {
+        "text": "TiCDC",
+        "items": [
+          {
+            "text": "TiCDC Overview",
+            "link": "/en/work/tidb/TiDB-EcosystematicTools/TiCDC/TiCDC Overview"
+          },
+          {
+            "text": "TiCDC Streaming",
+            "link": "/en/work/tidb/TiDB-EcosystematicTools/TiCDC/TiCDC Streaming"
+          }
+        ]
+      }
+    ]
   },
   {
     "text": "TiDB-Sourcecode",

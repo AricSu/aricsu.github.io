@@ -4,7 +4,7 @@
   "license": "MIT",
   "devDependencies": {
     "@mdit/plugin-figure": "^0.14.0",
-    "vitepress": "^1.5.0",
+    "vitepress": "^1.6.3",
     "vue": "^3.5.13"
   },
   "scripts": {

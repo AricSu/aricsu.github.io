@@ -19,6 +19,7 @@ const RSS: RSSOptions = {
 
 
 export default defineConfig({
+  base: '/',
   head: [['link', {rel: 'icon', href: '/logo.png'}]],
   themeConfig: {
     logo: '/logo.png',

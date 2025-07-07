@@ -1,55 +1,98 @@
-title: "[General123] "
-labels: ["General Introduction test"]
+title: "[TiDB Issue] Please briefly describe the issue / 请简要描述问题"
+labels: ["TiDB", "needs-triage"]
 body:
-  - type: markdown
-    attributes:
-      value: |
-        This is text that will show up in the template!
-  - type: textarea
-    id: improvements
-    attributes:
-      label: Top 3 improvements
-      description: "What are the top 3 improvements we could make to this project?"
-      value: |
-        1.
-        2.
-        3.
-        ...
-      render: bash
-    validations:
-      required: true
-  - type: markdown
-    attributes:
-      value: |
-        ## Markdown header
-        And some more markdown
-  - type: input
-    id: has-id
-    attributes:
-      label: Suggestions
-      description: A description about suggestions to help you
-    validations:
-      required: true
   - type: dropdown
-    id: download
+    id: env
     attributes:
-      label: Which area of this project could be most improved?
+      label: TiDB Environment / TiDB 使用环境（Required / 必填）
+      description: What kind of environment is this issue occurring in? / 当前问题发生在哪种环境？
       options:
-        - Documentation
-        - Pull request review time
-        - Bug fix time
-        - Release cadence
+        - Production / 生产环境
+        - Testing / 测试环境
+        - PoC / Evaluation / PoC 测试环境
     validations:
       required: true
-  - type: checkboxes
+
+  - type: input
+    id: tidb-version
     attributes:
-      label: Check that box!
-      options:
-        - label: This one!
-          required: true
-        - label: I won't stop you if you check this one, too
-  - type: markdown
+      label: TiDB Version / TiDB 版本
+      description: Paste the full output of `SELECT tidb_version();` / 请粘贴 `SELECT tidb_version();` 的完整输出
+    validations:
+      required: true
+
+  - type: input
+    id: os
     attributes:
-      value: |
-        ### The thrilling conclusion
-        _to our template_
+      label: Operating System / 操作系统
+      description: e.g., CentOS 7.6, Ubuntu 20.04 / 例如：CentOS 7.6、Ubuntu 20.04
+    validations:
+      required: true
+
+  - type: textarea
+    id: deploy-method
+    attributes:
+      label: Deployment Method / 部署方式
+      description: Cloud provider and instance specs, or physical machine info / 云厂商与实例规格，或物理机配置
+      placeholder: |
+        Examples / 示例：
+        - Cloud: AWS c5.xlarge, gp3 SSD
+        - Bare metal: 8C16G, SATA disk
+    validations:
+      required: true
+
+  - type: input
+    id: data-size
+    attributes:
+      label: Data Volume / 集群数据量
+      description: Approximate total data size, e.g., 500 GB, 2 TB / 大致数据量，例如 500 GB, 2 TB
+    validations:
+      required: true
+
+  - type: input
+    id: node-count
+    attributes:
+      label: Cluster Node Count / 集群节点数
+      description: Number of TiDB / TiKV / PD nodes / 各组件节点数量，例如：3 TiDB / 3 TiKV / 3 PD
+      placeholder: e.g., 3 TiDB / 3 TiKV / 3 PD
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce-steps
+    attributes:
+      label: Steps to Reproduce / 问题复现路径
+      description: Describe what actions led to this issue / 简要说明操作流程，如何触发该问题
+      placeholder: |
+        For example / 例如：
+        1. Executed a DDL / 执行 DDL
+        2. Ran SQL / 执行 SQL
+        3. Observed error / 出现异常
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Problem Description / 问题现象与影响
+      description: Describe what went wrong and the impact / 描述遇到的问题及其影响
+      placeholder: |
+        For example / 例如：
+        - Query is stuck / 查询卡住
+        - Import failed / 导入失败
+        - Node restarted unexpectedly / 节点异常重启
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachment
+    attributes:
+      label: Attachments (logs, screenshots, monitoring) / 附件信息（日志 / 截图 / 监控等）
+      description: Optional. Add logs, screenshots, Grafana links, etc. / 可选项：附上有助分析的日志、截图或监控图
+      placeholder: |
+        - TiDB logs / TiDB 日志
+        - Slow query log / 慢查询日志
+        - Grafana screenshot / Grafana 图表截图
+        - EXPLAIN ANALYZE result / 执行计划输出
+    validations:
+      required: false

@@ -13,7 +13,7 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: textarea
     id: tidb-version
     attributes:
       label: TiDB Version / TiDB 版本

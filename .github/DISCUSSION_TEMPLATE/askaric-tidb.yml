@@ -4,7 +4,7 @@ body:
   - type: dropdown
     id: env
     attributes:
-      label: TiDB Environment / TiDB 使用环境（Required / 必填）
+      label: TiDB Environment / TiDB 使用环境
       description: What kind of environment is this issue occurring in? / 当前问题发生在哪种环境？
       options:
         - Production / 生产环境
@@ -25,7 +25,7 @@ body:
     id: os
     attributes:
       label: Operating System / 操作系统
-      description: e.g., CentOS 7.6, Ubuntu 20.04 / 例如：CentOS 7.6、Ubuntu 20.04
+      description: Paste the full output of `uname -a`. e.g., CentOS 7.6, Ubuntu 20.04 / 请粘贴 `uname -a` 的完整输出。例如：CentOS 7.6、Ubuntu 20.04 
     validations:
       required: true
 

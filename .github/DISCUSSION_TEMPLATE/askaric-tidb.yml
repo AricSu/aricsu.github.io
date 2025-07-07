@@ -21,43 +21,6 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: os
-    attributes:
-      label: Operating System / 操作系统
-      description: Paste the full output of `uname -a`. e.g., CentOS 7.6, Ubuntu 20.04 / 请粘贴 `uname -a` 的完整输出。例如：CentOS 7.6、Ubuntu 20.04 
-    validations:
-      required: true
-
-  - type: textarea
-    id: deploy-method
-    attributes:
-      label: Deployment Method / 部署方式
-      description: Cloud provider and instance specs, or physical machine info / 云厂商与实例规格，或物理机配置
-      placeholder: |
-        Examples / 示例：
-        - Cloud: AWS c5.xlarge, gp3 SSD
-        - Bare metal: 8C16G, SATA disk
-    validations:
-      required: true
-
-  - type: input
-    id: data-size
-    attributes:
-      label: Data Volume / 集群数据量
-      description: Approximate total data size, e.g., 500 GB, 2 TB / 大致数据量，例如 500 GB, 2 TB
-    validations:
-      required: true
-
-  - type: input
-    id: node-count
-    attributes:
-      label: Cluster Node Count / 集群节点数
-      description: Number of TiDB / TiKV / PD nodes / 各组件节点数量，例如：3 TiDB / 3 TiKV / 3 PD
-      placeholder: e.g., 3 TiDB / 3 TiKV / 3 PD
-    validations:
-      required: true
-
   - type: textarea
     id: reproduce-steps
     attributes:

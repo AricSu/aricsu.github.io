@@ -1,0 +1,52 @@
+title: "[TiHC Issue] Please briefly describe the issue / 请简要描述问题"
+label: ["TiHC", "needs-triage"]
+body:
+  - type: dropdown
+    id: env
+    attributes:
+      label: TiHC Environment / TiHC 使用环境
+      description: What kind of environment is this issue occurring in? / 当前问题发生在哪种环境？
+      options:
+        - Production / 生产环境
+        - Testing / 测试环境
+    validations:
+      required: true
+
+  - type: textarea
+    id: TiHC-version
+    attributes:
+      label: TiHC Version / TiHC 版本
+      description: Paste the full output of `tihc --version;` / 请粘贴 `tihc --version;` 的完整输出
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce-steps
+    attributes:
+      label: Steps to Reproduce / 问题复现路径
+      description: Describe what actions led to this issue / 简要说明操作流程，如何触发该问题
+      placeholder: |
+        For example / 例如：
+        1. tihc tools slowlog --host 127.0.0.1:4000 --log-dir ./ --pattern "tidb_slow_query.log"
+        2. tihc server ... etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Problem Description / 问题现象与影响
+      description: Describe what went wrong and the impact / 描述遇到的问题及其影响
+      placeholder: |
+        For example / 例如：
+        - TiHC failed to retrieve slow logs / TiHC 无法获取慢查询日志
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachment
+    attributes:
+      label: Attachments (logs, screenshots, monitoring) / 附件信息（日志 / 截图 / 监控等）
+      description: Optional. Add logs, screenshots, Grafana links, etc. / 可选项：附上有助分析的日志、截图或监控图
+    validations:
+      required: false

@@ -1,5 +1,5 @@
 title: "[TiHC Issue] Please briefly describe the issue / 请简要描述问题"
-label: ["TiHC", "needs-triage"]
+labels: ["TiHC", "needs-triage"]
 body:
   - type: dropdown
     id: env

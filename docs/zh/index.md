@@ -27,11 +27,11 @@ features:
     link: /zh/about/
 ---
 
-<!-- ## Ask Channel
+## Ask Channel
 
 You can ask everything you want!
 
-<QandAList /> -->
+<QandAList />
 
 
 <vendors-zh/>

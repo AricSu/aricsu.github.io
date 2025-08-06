@@ -11,7 +11,7 @@ import '@theojs/lumen/theme'
 // For giscusTalk
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import { useData, useRoute } from 'vitepress';
-import { toRefs } from "vue";
+import { toRefs, reactive } from "vue";
 
 // For googleAnalytics
 import { googleAnalytics } from '@theojs/lumen'
@@ -48,7 +48,8 @@ export default {
     app.component('media', Media)
   },
   setup() {
-    const { frontmatter } = toRefs(useData());
+    const data = reactive(useData());
+    const { frontmatter } = toRefs(data);
     const route = useRoute();
 
     // https://giscus.app/zh-CN

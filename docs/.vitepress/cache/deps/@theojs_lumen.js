@@ -8,7 +8,7 @@ import {
 } from "./chunk-DDXJJ377.js";
 import {
   __publicField
-} from "./chunk-JVWSFFO4.js";
+} from "./chunk-L6OFPWCY.js";
 
 // node_modules/@theojs/lumen/types/index.ts
 import { default as default2 } from "/Users/aric/Database/askaric/node_modules/@theojs/lumen/components/DocBox.vue";
@@ -1946,7 +1946,7 @@ var usePrelink = () => {
 var isExternalLink = (link) => /^https?:\/\//.test(link);
 var initTwikoo = async (envId) => {
   try {
-    const twikoo = await import("./twikoo.all.min-4OZT34CE.js");
+    const twikoo = await import("./twikoo.all.min-2SPI3GRX.js");
     console.log("Twikoo 加载成功");
     if (typeof window !== "undefined") {
       await nextTick();

@@ -1,0 +1,19 @@
+title: "[问题] "
+labels: ["question"]
+
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: 问题简述
+      placeholder: 请简单描述你的问题
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: 问题详情
+      description: 可附上截图、代码等
+    validations:
+      required: true

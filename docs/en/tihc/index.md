@@ -45,7 +45,7 @@ chmod +x tihc
 ### Quick Install (macOS)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/AricSu/tihc/master/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/AricSu/tihc/main/scripts/install.sh | bash
 ```
 
 

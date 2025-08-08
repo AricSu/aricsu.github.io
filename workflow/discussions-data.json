@@ -1,9 +1,9 @@
 {
   "meta": {
-    "last_updated": "2025-08-08T15:27:31.830Z",
+    "last_updated": "2025-08-08T15:33:29.142Z",
     "repository": {
       "name": "aricsu.github.io",
-      "total_discussions": 3,
+      "total_discussions": 4,
       "categories": [
         {
           "name": "Announcements",
@@ -12,6 +12,10 @@
         {
           "name": "AskAric[TiDB]",
           "count": 2
+        },
+        {
+          "name": "AskAric[TiHC]",
+          "count": 1
         }
       ]
     }
@@ -70,6 +74,24 @@
       "updated_at": "2025-08-08T14:10:34Z",
       "html_url": "https://github.com/AricSu/aricsu.github.io/discussions/14",
       "body": "### TiDB Environment / TiDB 使用环境\n\nProduction / 生产环境\n\n### TiDB Version / TiDB 版本\n\nv7.5.6\n\n### Steps to Reproduce / 问题复现路径\n\nexecute select on large table.\n\n### Problem Description / 问题现象与影响\n\nexecute SQL..."
+    },
+    {
+      "id": 8702333,
+      "title": "TiHC (TiDB Health Checker) | AskAric",
+      "category": {
+        "name": "AskAric[TiHC]",
+        "description": "Share ideas for new features",
+        "id": 45001895
+      },
+      "user": {
+        "login": "giscus[bot]",
+        "avatar_url": "https://avatars.githubusercontent.com/in/106117?v=4"
+      },
+      "comments": 1,
+      "created_at": "2025-08-08T15:28:14Z",
+      "updated_at": "2025-08-08T15:28:15Z",
+      "html_url": "https://github.com/AricSu/aricsu.github.io/discussions/15",
+      "body": "# TiHC (TiDB Health Checker) | AskAric\n\nTiHC (TiDB Health Checker)\n\nhttps://www.askaric.com/en/tihc/\n\n<!-- sha1: 6f39233785c41bfd48bc6111c54bc7274cb1a336 -->"
     }
   ]
 }

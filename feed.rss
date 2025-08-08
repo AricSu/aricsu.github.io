@@ -4,7 +4,7 @@
         <title>Ask Aric</title>
         <link>https://askaric.com</link>
         <description>undefined</description>
-        <lastBuildDate>Fri, 08 Aug 2025 15:34:09 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 08 Aug 2025 15:37:50 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>Copyright (c) 2016-present, Ask Aric</copyright>
@@ -12,7 +12,7 @@
             <title><![CDATA[About Aric]]></title>
             <link>https://askaric.com/en/about.html</link>
             <guid>https://askaric.com/en/about.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[About Aric]]></description>
             <content:encoded><![CDATA[<h1 id="about-aric" tabindex="-1">About Aric <a class="header-anchor" href="#about-aric" aria-label="Permalink to &quot;About Aric&quot;"></a></h1>
 <figure><img src="./../images/header.jpg" alt="header" tabindex="0"><figcaption>header</figcaption></figure>
@@ -85,7 +85,7 @@
         <item>
             <link>https://askaric.com/en/life/coffee/20250214 my coffee.html</link>
             <guid>https://askaric.com/en/life/coffee/20250214 my coffee.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[123123123]]></description>
             <content:encoded><![CDATA[<p>123123123</p>
 <figure><img src="./../../../images/coffee-machine.jpg" alt="coffee-machine" tabindex="0"><figcaption>coffee-machine</figcaption></figure>
@@ -97,7 +97,7 @@
             <title><![CDATA[This's life.]]></title>
             <link>https://askaric.com/en/life/</link>
             <guid>https://askaric.com/en/life/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[This's life.]]></description>
             <content:encoded><![CDATA[<h1 id="this-s-life" tabindex="-1">This's life. <a class="header-anchor" href="#this-s-life" aria-label="Permalink to &quot;This's life.&quot;"></a></h1>
 ]]></content:encoded>
@@ -105,7 +105,7 @@
         <item>
             <link>https://askaric.com/en/life/motor/20250213 my motor.html</link>
             <guid>https://askaric.com/en/life/motor/20250213 my motor.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[123123123]]></description>
             <content:encoded><![CDATA[<p>123123123</p>
 ]]></content:encoded>
@@ -114,7 +114,7 @@
             <title><![CDATA[Learn about skiing]]></title>
             <link>https://askaric.com/en/life/skiing/20250212 learn about skiing.html</link>
             <guid>https://askaric.com/en/life/skiing/20250212 learn about skiing.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Learn about skiing]]></description>
             <content:encoded><![CDATA[<h1 id="learn-about-skiing" tabindex="-1">Learn about skiing <a class="header-anchor" href="#learn-about-skiing" aria-label="Permalink to &quot;Learn about skiing&quot;"></a></h1>
 <h2 id="_2025" tabindex="-1">2025 <a class="header-anchor" href="#_2025" aria-label="Permalink to &quot;2025&quot;"></a></h2>
@@ -123,7 +123,7 @@
         <item>
             <link>https://askaric.com/en/life/tennis/20250213 my tennis.html</link>
             <guid>https://askaric.com/en/life/tennis/20250213 my tennis.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[123123123]]></description>
             <content:encoded><![CDATA[<p>123123123</p>
 ]]></content:encoded>
@@ -132,7 +132,7 @@
             <title><![CDATA[docdb]]></title>
             <link>https://askaric.com/en/tihc/collect/docdb.html</link>
             <guid>https://askaric.com/en/tihc/collect/docdb.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[docdb]]></description>
             <content:encoded><![CDATA[<h1 id="docdb" tabindex="-1">docdb <a class="header-anchor" href="#docdb" aria-label="Permalink to &quot;docdb&quot;"></a></h1>
 <p>Use the <code>tihc collect docdb</code> command to collect TOPSQL storaged in DocDB of TiDB cluster.</p>
@@ -199,7 +199,7 @@
             <title><![CDATA[Collect Pprof]]></title>
             <link>https://askaric.com/en/tihc/collect/pprof.html</link>
             <guid>https://askaric.com/en/tihc/collect/pprof.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Collect Pprof]]></description>
             <content:encoded><![CDATA[<h1 id="collect-pprof" tabindex="-1">Collect Pprof <a class="header-anchor" href="#collect-pprof" aria-label="Permalink to &quot;Collect Pprof&quot;"></a></h1>
 <p>Use the <code>tihc collect pprof</code> command to collect pprof information from various components in a TiDB cluster.</p>
@@ -266,7 +266,7 @@
             <title><![CDATA[TiHC (TiDB Health Checker)]]></title>
             <link>https://askaric.com/en/tihc/</link>
             <guid>https://askaric.com/en/tihc/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiHC (TiDB Health Checker)]]></description>
             <content:encoded><![CDATA[<h1 id="tihc-tidb-health-checker" tabindex="-1">TiHC (TiDB Health Checker) <a class="header-anchor" href="#tihc-tidb-health-checker" aria-label="Permalink to &quot;TiHC (TiDB Health Checker)&quot;"></a></h1>
 <p>TiHC is a command-line toolkit designed by <a href="./../about.html">Aric</a> specifically for TiDB distributed database, aiming to simplify daily operations, problem diagnosis, and performance analysis of TiDB. As a professional database health check tool, TiHC helps DBAs and developers quickly identify and resolve potential issues in TiDB clusters.</p>
@@ -344,7 +344,7 @@
             <title><![CDATA[Parse Slow Log]]></title>
             <link>https://askaric.com/en/tihc/tools/slowlog.html</link>
             <guid>https://askaric.com/en/tihc/tools/slowlog.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Parse Slow Log]]></description>
             <content:encoded><![CDATA[<h1 id="parse-slow-log" tabindex="-1">Parse Slow Log <a class="header-anchor" href="#parse-slow-log" aria-label="Permalink to &quot;Parse Slow Log&quot;"></a></h1>
 <p>Use the <code>tihc tools slowlog</code> command to parse TiDB cluster's slow query log files and asynchronously import them into any MySQL-compatible database for analysis.</p>
@@ -540,7 +540,7 @@
             <title><![CDATA[scernario the way we are]]></title>
             <link>https://askaric.com/en/work/english/01waystage_english/1-1scernario_thewayweare.html</link>
             <guid>https://askaric.com/en/work/english/01waystage_english/1-1scernario_thewayweare.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scernario the way we are]]></description>
             <content:encoded><![CDATA[<h1 id="scernario-the-way-we-are" tabindex="-1">scernario the way we are <a class="header-anchor" href="#scernario-the-way-we-are" aria-label="Permalink to &quot;scernario the way we are&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -595,7 +595,7 @@ c. He gets reckless sometimes.</p>
             <title><![CDATA[Scenario of experiences]]></title>
             <link>https://askaric.com/en/work/english/01waystage_english/1-2scenario_experiences.html</link>
             <guid>https://askaric.com/en/work/english/01waystage_english/1-2scenario_experiences.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of experiences]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-experiences" tabindex="-1">Scenario of experiences <a class="header-anchor" href="#scenario-of-experiences" aria-label="Permalink to &quot;Scenario of experiences&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -642,7 +642,7 @@ a. Did you have good time? --&gt; Yes, I did, but I fell off the raft.</p>
             <title><![CDATA[Scenario of managing life]]></title>
             <link>https://askaric.com/en/work/english/01waystage_english/1-3scenario_managinglife.html</link>
             <guid>https://askaric.com/en/work/english/01waystage_english/1-3scenario_managinglife.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of managing life
 
  First of all
@@ -708,7 +708,7 @@ f. nice talking to you</p>
             <title><![CDATA[First of all]]></title>
             <link>https://askaric.com/en/work/english/01waystage_english/1-4scenario_techsavvy.html</link>
             <guid>https://askaric.com/en/work/english/01waystage_english/1-4scenario_techsavvy.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[First of all
 1. Talk about problems with technology using quesitons within sentences.   
 2. Descri]]></description>
@@ -772,7 +772,7 @@ c. Do you know where to plug it in?</p>
             <title><![CDATA[First of all]]></title>
             <link>https://askaric.com/en/work/english/01waystage_english/1-5scenario_impressions.html</link>
             <guid>https://askaric.com/en/work/english/01waystage_english/1-5scenario_impressions.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[First of all
 1. Sepculate using must, may, might, can;t, and could. 
 2. Describe situations and fe]]></description>
@@ -852,7 +852,7 @@ b. That means  I think job is boring.</p>
             <title><![CDATA[Scenario of law and order]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/2-10scenario_lawandorder.html</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/2-10scenario_lawandorder.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of law and order]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-law-and-order" tabindex="-1">Scenario of law and order <a class="header-anchor" href="#scenario-of-law-and-order" aria-label="Permalink to &quot;Scenario of law and order&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -924,7 +924,7 @@ e. Numbers or letters : One, Two, ... or A, B, ...</p>
             <title><![CDATA[Scenario of strange events]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/2-11scenario_strangeevents.html</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/2-11scenario_strangeevents.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of strange events]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-strange-events" tabindex="-1">Scenario of strange events <a class="header-anchor" href="#scenario-of-strange-events" aria-label="Permalink to &quot;Scenario of strange events&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -971,7 +971,7 @@ c. Simple past : I knew that --&gt; So did I</p>
             <title><![CDATA[Scenario of fame]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/2-12scenario_fame.html</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/2-12scenario_fame.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of fame]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-fame" tabindex="-1">Scenario of fame <a class="header-anchor" href="#scenario-of-fame" aria-label="Permalink to &quot;Scenario of fame&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -1034,7 +1034,7 @@ d. His career hasn't taken off, has it?</p>
             <title><![CDATA[Scenario of lives]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/2-1scenario_lives.html</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/2-1scenario_lives.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of lives]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-lives" tabindex="-1">Scenario of lives <a class="header-anchor" href="#scenario-of-lives" aria-label="Permalink to &quot;Scenario of lives&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -1109,7 +1109,7 @@ e. <code>Verb + ing</code> or <code>to verb</code> with a different meaning</p>
             <title><![CDATA[Scenario of socializing]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/2-2scenario_socializing.html</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/2-2scenario_socializing.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of socializing]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-socializing" tabindex="-1">Scenario of socializing <a class="header-anchor" href="#scenario-of-socializing" aria-label="Permalink to &quot;Scenario of socializing&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -1168,7 +1168,7 @@ b. Verb + particle + preposition + object, like : Can I get away with wearing pa
             <title><![CDATA[Scenario of material world]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/2-3scenario_materialworld.html</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/2-3scenario_materialworld.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of material world]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-material-world" tabindex="-1">Scenario of material world <a class="header-anchor" href="#scenario-of-material-world" aria-label="Permalink to &quot;Scenario of material world&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -1216,7 +1216,7 @@ d. report speech : He hadn't found the right shopping center.</li>
             <title><![CDATA[scenario of trends]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/2-4scenario_trends.html</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/2-4scenario_trends.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scenario of trends]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-trends" tabindex="-1">scenario of trends <a class="header-anchor" href="#scenario-of-trends" aria-label="Permalink to &quot;scenario of trends&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -1264,7 +1264,7 @@ d. Alternative : instead of</p>
             <title><![CDATA[Scenario of problem solving]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/2-5scenario_problemsolving.html</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/2-5scenario_problemsolving.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of problem solving]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-problem-solving" tabindex="-1">Scenario of problem solving <a class="header-anchor" href="#scenario-of-problem-solving" aria-label="Permalink to &quot;Scenario of problem solving&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -1311,7 +1311,7 @@ f. Ugh!/Yuck! = &quot;It's disgusting.&quot;</p>
             <title><![CDATA[Scenario of behavior]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/2-6scenario_behavior.html</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/2-6scenario_behavior.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of behavior]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-behavior" tabindex="-1">Scenario of behavior <a class="header-anchor" href="#scenario-of-behavior" aria-label="Permalink to &quot;Scenario of behavior&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -1353,7 +1353,7 @@ c. And, different modal verbs have different precent probability.</li>
             <title><![CDATA[Scenario of career]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/2-7scenario_careers.html</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/2-7scenario_careers.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of career]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-career" tabindex="-1">Scenario of career <a class="header-anchor" href="#scenario-of-career" aria-label="Permalink to &quot;Scenario of career&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -1379,7 +1379,7 @@ b. The main things you need is information.(long noun phrases)</p>
             <title><![CDATA[Scenario of personal tastes]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/2-8scenario_personaltastes.html</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/2-8scenario_personaltastes.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of personal tastes]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-personal-tastes" tabindex="-1">Scenario of personal tastes <a class="header-anchor" href="#scenario-of-personal-tastes" aria-label="Permalink to &quot;Scenario of personal tastes&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -1429,7 +1429,7 @@ c. To show suprise : Isn't it on sale? or Don't you like it?</p>
             <title><![CDATA[Scenario of world culture]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/2-9scenario_worldclutures.html</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/2-9scenario_worldclutures.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Scenario of world culture]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-world-culture" tabindex="-1">Scenario of world culture <a class="header-anchor" href="#scenario-of-world-culture" aria-label="Permalink to &quot;Scenario of world culture&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -1502,7 +1502,7 @@ a. When you are living here, do you miss your home? --&gt; Of course or I really
             <title><![CDATA[What's basic_englihs part? ]]></title>
             <link>https://askaric.com/en/work/english/02threshold_english/</link>
             <guid>https://askaric.com/en/work/english/02threshold_english/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[`basic_englihs` is a part which let me could talk to native speakers, though not very fluent.
 
 
@@ -1517,7 +1517,7 @@ a. When you are living here, do you miss your home? --&gt; Of course or I really
             <title><![CDATA[scenario of success and happiness]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-10scenario_success+happiness.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-10scenario_success+happiness.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scenario of success and happiness]]></description>
             <content:encoded><![CDATA[<h1 id="scenario-of-success-and-happiness" tabindex="-1">scenario of success and happiness <a class="header-anchor" href="#scenario-of-success-and-happiness" aria-label="Permalink to &quot;scenario of success and happiness&quot;"></a></h1>
 <h2 id="about-content" tabindex="-1">About content <a class="header-anchor" href="#about-content" aria-label="Permalink to &quot;About content&quot;"></a></h2>
@@ -1629,7 +1629,7 @@ c. An -ing form can come before or after be. It can be the subject or object of 
             <title><![CDATA[Sceranrio of going places]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-11scenario_goingplaces.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-11scenario_goingplaces.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Sceranrio of going places]]></description>
             <content:encoded><![CDATA[<h1 id="sceranrio-of-going-places" tabindex="-1">Sceranrio of going places <a class="header-anchor" href="#sceranrio-of-going-places" aria-label="Permalink to &quot;Sceranrio of going places&quot;"></a></h1>
 <h2 id="about-content" tabindex="-1">About content <a class="header-anchor" href="#about-content" aria-label="Permalink to &quot;About content&quot;"></a></h2>
@@ -1723,7 +1723,7 @@ c. clams and claim</li>
             <title><![CDATA[Sceranrio of culture]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-12scenario_culture.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-12scenario_culture.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Sceranrio of culture]]></description>
             <content:encoded><![CDATA[<h1 id="sceranrio-of-culture" tabindex="-1">Sceranrio of culture <a class="header-anchor" href="#sceranrio-of-culture" aria-label="Permalink to &quot;Sceranrio of culture&quot;"></a></h1>
 <h2 id="about-content" tabindex="-1">About content <a class="header-anchor" href="#about-content" aria-label="Permalink to &quot;About content&quot;"></a></h2>
@@ -1862,7 +1862,7 @@ a. two special words : 20th and 30th</li>
             <title><![CDATA[Sceranrio of ability]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-13scenario_ability.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-13scenario_ability.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Sceranrio of ability]]></description>
             <content:encoded><![CDATA[<h1 id="sceranrio-of-ability" tabindex="-1">Sceranrio of ability <a class="header-anchor" href="#sceranrio-of-ability" aria-label="Permalink to &quot;Sceranrio of ability&quot;"></a></h1>
 <h2 id="about-content" tabindex="-1">About content <a class="header-anchor" href="#about-content" aria-label="Permalink to &quot;About content&quot;"></a></h2>
@@ -1991,7 +1991,7 @@ d. Focus -- especially, particularly -- People with logical intelligence are esp
             <title><![CDATA[Sceranrio of going places]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-1scenario_speedfriending.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-1scenario_speedfriending.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Sceranrio of going places]]></description>
             <content:encoded><![CDATA[<h1 id="sceranrio-of-going-places" tabindex="-1">Sceranrio of going places <a class="header-anchor" href="#sceranrio-of-going-places" aria-label="Permalink to &quot;Sceranrio of going places&quot;"></a></h1>
 <h2 id="about-content" tabindex="-1">About content <a class="header-anchor" href="#about-content" aria-label="Permalink to &quot;About content&quot;"></a></h2>
@@ -2004,7 +2004,7 @@ d. Focus -- especially, particularly -- People with logical intelligence are esp
             <title><![CDATA[scernario celebrity]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-2scenario_celebrity.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-2scenario_celebrity.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scernario celebrity]]></description>
             <content:encoded><![CDATA[<h1 id="scernario-celebrity" tabindex="-1">scernario celebrity <a class="header-anchor" href="#scernario-celebrity" aria-label="Permalink to &quot;scernario celebrity&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -2084,7 +2084,7 @@ c. importance of problem : important, i have to overcome it ASAP.</p>
             <title><![CDATA[scernario comment]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-3scenario_comment.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-3scenario_comment.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scernario comment]]></description>
             <content:encoded><![CDATA[<h1 id="scernario-comment" tabindex="-1">scernario comment <a class="header-anchor" href="#scernario-comment" aria-label="Permalink to &quot;scernario comment&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -2134,7 +2134,7 @@ e. how to overcome : foucusing on every accurate pronunication.</li>
             <title><![CDATA[scernario stories]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-4scenario_stories.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-4scenario_stories.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scernario stories]]></description>
             <content:encoded><![CDATA[<h1 id="scernario-stories" tabindex="-1">scernario stories <a class="header-anchor" href="#scernario-stories" aria-label="Permalink to &quot;scernario stories&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -2222,7 +2222,7 @@ a. He's been coaching a soccer team.</p>
             <title><![CDATA[scernario working lives]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-5scenario_workinglives.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-5scenario_workinglives.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scernario working lives]]></description>
             <content:encoded><![CDATA[<h1 id="scernario-working-lives" tabindex="-1">scernario working lives <a class="header-anchor" href="#scernario-working-lives" aria-label="Permalink to &quot;scernario working lives&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -2397,7 +2397,7 @@ a. fortunatlly, luckily, stangely, obviously, suprisingly， seriously</li>
             <title><![CDATA[scernario challenge]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-6scenario_challenges.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-6scenario_challenges.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scernario challenge]]></description>
             <content:encoded><![CDATA[<h1 id="scernario-challenge" tabindex="-1">scernario challenge <a class="header-anchor" href="#scernario-challenge" aria-label="Permalink to &quot;scernario challenge&quot;"></a></h1>
 <h2 id="about-grammar" tabindex="-1">About grammar <a class="header-anchor" href="#about-grammar" aria-label="Permalink to &quot;About grammar&quot;"></a></h2>
@@ -2466,7 +2466,7 @@ a. analyze result : I'll append a new sector named necessary sentences which mea
             <title><![CDATA[scernario into the future]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-7scenario_intothefuture.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-7scenario_intothefuture.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scernario into the future]]></description>
             <content:encoded><![CDATA[<h1 id="scernario-into-the-future" tabindex="-1">scernario into the future <a class="header-anchor" href="#scernario-into-the-future" aria-label="Permalink to &quot;scernario into the future&quot;"></a></h1>
 <h2 id="about-grammar" tabindex="-1">About grammar <a class="header-anchor" href="#about-grammar" aria-label="Permalink to &quot;About grammar&quot;"></a></h2>
@@ -2577,7 +2577,7 @@ b. I would say</p>
             <title><![CDATA[scernario of getting along]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-8scenario_getalong.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-8scenario_getalong.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scernario of getting along]]></description>
             <content:encoded><![CDATA[<h1 id="scernario-of-getting-along" tabindex="-1">scernario of getting along <a class="header-anchor" href="#scernario-of-getting-along" aria-label="Permalink to &quot;scernario of getting along&quot;"></a></h1>
 <h2 id="about-grammar" tabindex="-1">About grammar <a class="header-anchor" href="#about-grammar" aria-label="Permalink to &quot;About grammar&quot;"></a></h2>
@@ -2641,7 +2641,7 @@ d. e.g. : I had fun/no problems growing up in my family.</p>
             <title><![CDATA[scernario of a great read]]></title>
             <link>https://askaric.com/en/work/english/03vantage_english/3-9scenario_agreatread.html</link>
             <guid>https://askaric.com/en/work/english/03vantage_english/3-9scenario_agreatread.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scernario of a great read]]></description>
             <content:encoded><![CDATA[<h1 id="scernario-of-a-great-read" tabindex="-1">scernario of a great read <a class="header-anchor" href="#scernario-of-a-great-read" aria-label="Permalink to &quot;scernario of a great read&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -2735,7 +2735,7 @@ c. You can use one or ones to avoid repeating countbale nouns. Don't use them af
             <title><![CDATA[How to prepare a IELTS exam]]></title>
             <link>https://askaric.com/en/work/english/04IELTS_exam/4-1week1_rules.html</link>
             <guid>https://askaric.com/en/work/english/04IELTS_exam/4-1week1_rules.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[How to prepare a IELTS exam]]></description>
             <content:encoded><![CDATA[<h1 id="how-to-prepare-a-ielts-exam" tabindex="-1">How to prepare a IELTS exam <a class="header-anchor" href="#how-to-prepare-a-ielts-exam" aria-label="Permalink to &quot;How to prepare a IELTS exam&quot;"></a></h1>
 <h2 id="rules" tabindex="-1">Rules <a class="header-anchor" href="#rules" aria-label="Permalink to &quot;Rules&quot;"></a></h2>
@@ -2869,7 +2869,7 @@ This difference means that solve and resolve are often used in slightly differen
             <title><![CDATA[Review what I've learned]]></title>
             <link>https://askaric.com/en/work/english/04IELTS_exam/4-2week2_review4B.html</link>
             <guid>https://askaric.com/en/work/english/04IELTS_exam/4-2week2_review4B.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Review what I've learned]]></description>
             <content:encoded><![CDATA[<h1 id="review-what-i-ve-learned" tabindex="-1">Review what I've learned <a class="header-anchor" href="#review-what-i-ve-learned" aria-label="Permalink to &quot;Review what I've learned&quot;"></a></h1>
 <h2 id="progress" tabindex="-1">Progress <a class="header-anchor" href="#progress" aria-label="Permalink to &quot;Progress&quot;"></a></h2>
@@ -2954,7 +2954,7 @@ This difference means that solve and resolve are often used in slightly differen
             <title><![CDATA[How to use grammars to present you are worth rewarding in TELTS]]></title>
             <link>https://askaric.com/en/work/english/04IELTS_exam/4-3week3_stragegy.html</link>
             <guid>https://askaric.com/en/work/english/04IELTS_exam/4-3week3_stragegy.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[How to use grammars to present you are worth rewarding in TELTS]]></description>
             <content:encoded><![CDATA[<h1 id="how-to-use-grammars-to-present-you-are-worth-rewarding-in-telts" tabindex="-1">How to use grammars to present you are worth rewarding in TELTS <a class="header-anchor" href="#how-to-use-grammars-to-present-you-are-worth-rewarding-in-telts" aria-label="Permalink to &quot;How to use grammars to present you are worth rewarding in TELTS&quot;"></a></h1>
 <h2 id="progress" tabindex="-1">Progress <a class="header-anchor" href="#progress" aria-label="Permalink to &quot;Progress&quot;"></a></h2>
@@ -3074,7 +3074,7 @@ This difference means that solve and resolve are often used in slightly differen
             <title><![CDATA[How to prepare part 2 of IELTS]]></title>
             <link>https://askaric.com/en/work/english/04IELTS_exam/4-4week4_IELTS_part2.html</link>
             <guid>https://askaric.com/en/work/english/04IELTS_exam/4-4week4_IELTS_part2.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[How to prepare part 2 of IELTS]]></description>
             <content:encoded><![CDATA[<h1 id="how-to-prepare-part-2-of-ielts" tabindex="-1">How to prepare part 2 of IELTS <a class="header-anchor" href="#how-to-prepare-part-2-of-ielts" aria-label="Permalink to &quot;How to prepare part 2 of IELTS&quot;"></a></h1>
 <h2 id="progress" tabindex="-1">Progress <a class="header-anchor" href="#progress" aria-label="Permalink to &quot;Progress&quot;"></a></h2>
@@ -3115,7 +3115,7 @@ This difference means that solve and resolve are often used in slightly differen
             <title><![CDATA[Record your English learning process]]></title>
             <link>https://askaric.com/en/work/english/</link>
             <guid>https://askaric.com/en/work/english/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Record your English learning process]]></description>
             <content:encoded><![CDATA[<h1 id="record-your-english-learning-process" tabindex="-1">Record your English learning process <a class="header-anchor" href="#record-your-english-learning-process" aria-label="Permalink to &quot;Record your English learning process&quot;"></a></h1>
 <h2 id="previously-on-this-story" tabindex="-1">Previously on this story <a class="header-anchor" href="#previously-on-this-story" aria-label="Permalink to &quot;Previously on this story&quot;"></a></h2>
@@ -3129,7 +3129,7 @@ This difference means that solve and resolve are often used in slightly differen
             <title><![CDATA[Optmizer Implmentations]]></title>
             <link>https://askaric.com/en/work/optimizer/01Optimizer Implementation.html</link>
             <guid>https://askaric.com/en/work/optimizer/01Optimizer Implementation.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Optmizer Implmentations]]></description>
             <content:encoded><![CDATA[<h1 id="optmizer-implmentations" tabindex="-1">Optmizer Implmentations <a class="header-anchor" href="#optmizer-implmentations" aria-label="Permalink to &quot;Optmizer Implmentations&quot;"></a></h1>
 <h2 id="history" tabindex="-1">History <a class="header-anchor" href="#history" aria-label="Permalink to &quot;History&quot;"></a></h2>
@@ -3155,7 +3155,7 @@ This difference means that solve and resolve are often used in slightly differen
             <title><![CDATA[It just has chinese version and I've stop updating doc about Oracle.]]></title>
             <link>https://askaric.com/en/work/oracle/</link>
             <guid>https://askaric.com/en/work/oracle/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[It just has chinese version and I've stop updating doc about Oracle.]]></description>
             <content:encoded><![CDATA[<h1 id="it-just-has-chinese-version-and-i-ve-stop-updating-doc-about-oracle" tabindex="-1">It just has chinese version and I've stop updating doc about Oracle. <a class="header-anchor" href="#it-just-has-chinese-version-and-i-ve-stop-updating-doc-about-oracle" aria-label="Permalink to &quot;It just has chinese version and I've stop updating doc about Oracle.&quot;"></a></h1>
 ]]></content:encoded>
@@ -3164,7 +3164,7 @@ This difference means that solve and resolve are often used in slightly differen
             <title><![CDATA[It just has chinese version and I've stop updating doc about SQL Server.]]></title>
             <link>https://askaric.com/en/work/sqlserver/</link>
             <guid>https://askaric.com/en/work/sqlserver/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[It just has chinese version and I've stop updating doc about SQL Server.]]></description>
             <content:encoded><![CDATA[<h1 id="it-just-has-chinese-version-and-i-ve-stop-updating-doc-about-sql-server" tabindex="-1">It just has chinese version and I've stop updating doc about SQL Server. <a class="header-anchor" href="#it-just-has-chinese-version-and-i-ve-stop-updating-doc-about-sql-server" aria-label="Permalink to &quot;It just has chinese version and I've stop updating doc about SQL Server.&quot;"></a></h1>
 ]]></content:encoded>
@@ -3172,18 +3172,18 @@ This difference means that solve and resolve are often used in slightly differen
         <item>
             <link>https://askaric.com/en/work/tidb/03TiDB-Maintaining/TiDB Metrics/TIDB Panel - KV Backoff OPS.html</link>
             <guid>https://askaric.com/en/work/tidb/03TiDB-Maintaining/TiDB Metrics/TIDB Panel - KV Backoff OPS.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
         </item>
         <item>
             <link>https://askaric.com/en/work/tidb/03TiDB-Maintaining/TiDB Metrics/TiDB Panel - Disconnection Count.html</link>
             <guid>https://askaric.com/en/work/tidb/03TiDB-Maintaining/TiDB Metrics/TiDB Panel - Disconnection Count.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The Prometheus of TiDB]]></title>
             <link>https://askaric.com/en/work/tidb/03TiDB-Maintaining/TiDB Metrics/TiDB-Prometheus.html</link>
             <guid>https://askaric.com/en/work/tidb/03TiDB-Maintaining/TiDB Metrics/TiDB-Prometheus.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[The Prometheus of TiDB]]></description>
             <content:encoded><![CDATA[<h1 id="the-prometheus-of-tidb" tabindex="-1">The Prometheus of TiDB <a class="header-anchor" href="#the-prometheus-of-tidb" aria-label="Permalink to &quot;The Prometheus of TiDB&quot;"></a></h1>
 <p>If you need 100% accuracy, such as billing on request, Prometheus is not a good choice because the data collected may not be detailed and complete enough. In this case, you are better off using other systems to collect and analyze the billing data, and using Prometheus for the rest of the monitoring.</p>
@@ -3396,18 +3396,18 @@ Like : <code>tidb_server_handle_query_duration_seconds_bucket offset 5m</code>, 
         <item>
             <link>https://askaric.com/en/work/tidb/05TiDB-EcosystematicTools/5-1TiCDC/01TiCDC Overview.html</link>
             <guid>https://askaric.com/en/work/tidb/05TiDB-EcosystematicTools/5-1TiCDC/01TiCDC Overview.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
         </item>
         <item>
             <link>https://askaric.com/en/work/tidb/05TiDB-EcosystematicTools/5-1TiCDC/02TiCDC Streaming.html</link>
             <guid>https://askaric.com/en/work/tidb/05TiDB-EcosystematicTools/5-1TiCDC/02TiCDC Streaming.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Deploy TiDB Cluster on the TiDB Operator of Macbook M1]]></title>
             <link>https://askaric.com/en/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-Deployment/01TiDB-Operator deploys TiDB.html</link>
             <guid>https://askaric.com/en/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-Deployment/01TiDB-Operator deploys TiDB.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Deploy TiDB Cluster on the TiDB Operator of Macbook M1]]></description>
             <content:encoded><![CDATA[<h1 id="deploy-tidb-cluster-on-the-tidb-operator-of-macbook-m1" tabindex="-1">Deploy TiDB Cluster on the TiDB Operator of Macbook M1 <a class="header-anchor" href="#deploy-tidb-cluster-on-the-tidb-operator-of-macbook-m1" aria-label="Permalink to &quot;Deploy TiDB Cluster on the TiDB Operator of Macbook M1&quot;"></a></h1>
 <blockquote>
@@ -3562,7 +3562,7 @@ Like : <code>tidb_server_handle_query_duration_seconds_bucket offset 5m</code>, 
             <title><![CDATA[Deploy DM Cluster on the TiDB Operator of Macbook M1]]></title>
             <link>https://askaric.com/en/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-Deployment/02TiDB-Operator deploys DM.html</link>
             <guid>https://askaric.com/en/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-Deployment/02TiDB-Operator deploys DM.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Deploy DM Cluster on the TiDB Operator of Macbook M1]]></description>
             <content:encoded><![CDATA[<h1 id="deploy-dm-cluster-on-the-tidb-operator-of-macbook-m1" tabindex="-1">Deploy DM Cluster on the TiDB Operator of Macbook M1 <a class="header-anchor" href="#deploy-dm-cluster-on-the-tidb-operator-of-macbook-m1" aria-label="Permalink to &quot;Deploy DM Cluster on the TiDB Operator of Macbook M1&quot;"></a></h1>
 <blockquote>
@@ -3976,7 +3976,7 @@ Like : <code>tidb_server_handle_query_duration_seconds_bucket offset 5m</code>, 
             <title><![CDATA[Deploy Lightning on the TiDB Operator of Macbook M1]]></title>
             <link>https://askaric.com/en/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-Deployment/03TiDB-Operator deploys Lightning.html</link>
             <guid>https://askaric.com/en/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-Deployment/03TiDB-Operator deploys Lightning.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Deploy Lightning on the TiDB Operator of Macbook M1]]></description>
             <content:encoded><![CDATA[<h1 id="deploy-lightning-on-the-tidb-operator-of-macbook-m1" tabindex="-1">Deploy Lightning on the TiDB Operator of Macbook M1 <a class="header-anchor" href="#deploy-lightning-on-the-tidb-operator-of-macbook-m1" aria-label="Permalink to &quot;Deploy Lightning on the TiDB Operator of Macbook M1&quot;"></a></h1>
 <blockquote>
@@ -4154,7 +4154,7 @@ Like : <code>tidb_server_handle_query_duration_seconds_bucket offset 5m</code>, 
             <title><![CDATA[Deploy TiCDC Cluster on the TiDB Operator of Macbook M1]]></title>
             <link>https://askaric.com/en/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-Deployment/04TiDB-Operator deploys TiCDC.html</link>
             <guid>https://askaric.com/en/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-Deployment/04TiDB-Operator deploys TiCDC.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Deploy TiCDC Cluster on the TiDB Operator of Macbook M1]]></description>
             <content:encoded><![CDATA[<h1 id="deploy-ticdc-cluster-on-the-tidb-operator-of-macbook-m1" tabindex="-1">Deploy TiCDC Cluster on the TiDB Operator of Macbook M1 <a class="header-anchor" href="#deploy-ticdc-cluster-on-the-tidb-operator-of-macbook-m1" aria-label="Permalink to &quot;Deploy TiCDC Cluster on the TiDB Operator of Macbook M1&quot;"></a></h1>
 <blockquote>
@@ -4305,7 +4305,7 @@ Like : <code>tidb_server_handle_query_duration_seconds_bucket offset 5m</code>, 
             <title><![CDATA[BR Overview]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-2BR/01BR Overview.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-2BR/01BR Overview.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[BR Overview]]></description>
             <content:encoded><![CDATA[<h1 id="br-overview" tabindex="-1">BR Overview <a class="header-anchor" href="#br-overview" aria-label="Permalink to &quot;BR Overview&quot;"></a></h1>
 <h2 id="what-s-br" tabindex="-1">What's BR <a class="header-anchor" href="#what-s-br" aria-label="Permalink to &quot;What's BR&quot;"></a></h2>
@@ -4362,7 +4362,7 @@ init_servers --&gt; unified_read_pool --&gt; build_yatp_read_pool --&gt; build_m
             <title><![CDATA[BR tuning]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-2BR/02BR Tuning.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-2BR/02BR Tuning.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[BR tuning]]></description>
             <content:encoded><![CDATA[<h1 id="br-tuning" tabindex="-1">BR tuning <a class="header-anchor" href="#br-tuning" aria-label="Permalink to &quot;BR tuning&quot;"></a></h1>
 <p>4.1 Parameter ratelimit can't limit the effect on TiKV
@@ -4427,7 +4427,7 @@ init_servers --&gt; unified_read_pool --&gt; build_yatp_read_pool --&gt; build_m
             <title><![CDATA[Dumpling QuickStart]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-3Dumpling/01Dumpling QuickStart.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-3Dumpling/01Dumpling QuickStart.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Dumpling QuickStart]]></description>
             <content:encoded><![CDATA[<h1 id="dumpling-quickstart" tabindex="-1">Dumpling QuickStart <a class="header-anchor" href="#dumpling-quickstart" aria-label="Permalink to &quot;Dumpling QuickStart&quot;"></a></h1>
 <h2 id="tiup-manages-dumpling" tabindex="-1">Tiup manages Dumpling <a class="header-anchor" href="#tiup-manages-dumpling" aria-label="Permalink to &quot;Tiup manages Dumpling&quot;"></a></h2>
@@ -4631,7 +4631,7 @@ init_servers --&gt; unified_read_pool --&gt; build_yatp_read_pool --&gt; build_m
             <title><![CDATA[Dumpling Aachitecture]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-3Dumpling/02Dumpling Architecture.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-3Dumpling/02Dumpling Architecture.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Dumpling Aachitecture]]></description>
             <content:encoded><![CDATA[<h1 id="dumpling-aachitecture" tabindex="-1">Dumpling Aachitecture <a class="header-anchor" href="#dumpling-aachitecture" aria-label="Permalink to &quot;Dumpling Aachitecture&quot;"></a></h1>
 <h2 id="basic-info-about-it" tabindex="-1">Basic info about it <a class="header-anchor" href="#basic-info-about-it" aria-label="Permalink to &quot;Basic info about it&quot;"></a></h2>
@@ -4760,7 +4760,7 @@ f. Then, uses <code>estimatedChunks := count / conf.Rows</code> to split into so
             <title><![CDATA[DM Architecture Overview]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-4DM/01TiDB-DM Overview.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-4DM/01TiDB-DM Overview.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[DM Architecture Overview]]></description>
             <content:encoded><![CDATA[<h1 id="dm-architecture-overview" tabindex="-1">DM Architecture Overview <a class="header-anchor" href="#dm-architecture-overview" aria-label="Permalink to &quot;DM Architecture Overview&quot;"></a></h1>
 <h2 id="what-s-dm" tabindex="-1">What's DM <a class="header-anchor" href="#what-s-dm" aria-label="Permalink to &quot;What's DM&quot;"></a></h2>
@@ -4804,7 +4804,7 @@ f. Then, uses <code>estimatedChunks := count / conf.Rows</code> to split into so
             <title><![CDATA[TiDB-DM Quick Start]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-4DM/02TiDB-DM QuickStart.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-4DM/02TiDB-DM QuickStart.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB-DM Quick Start]]></description>
             <content:encoded><![CDATA[<h1 id="tidb-dm-quick-start" tabindex="-1">TiDB-DM Quick Start <a class="header-anchor" href="#tidb-dm-quick-start" aria-label="Permalink to &quot;TiDB-DM Quick Start&quot;"></a></h1>
 <h2 id="something-you-have-to-know" tabindex="-1">Something you have to know <a class="header-anchor" href="#something-you-have-to-know" aria-label="Permalink to &quot;Something you have to know&quot;"></a></h2>
@@ -5532,7 +5532,7 @@ f. Then, uses <code>estimatedChunks := count / conf.Rows</code> to split into so
             <title><![CDATA[DM Master]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-4DM/03TiDB-DM Master.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-4DM/03TiDB-DM Master.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[DM Master]]></description>
             <content:encoded><![CDATA[<h1 id="dm-master" tabindex="-1">DM Master <a class="header-anchor" href="#dm-master" aria-label="Permalink to &quot;DM Master&quot;"></a></h1>
 <h2 id="what-s-dm-master" tabindex="-1">What's DM Master <a class="header-anchor" href="#what-s-dm-master" aria-label="Permalink to &quot;What's DM Master&quot;"></a></h2>
@@ -5695,7 +5695,7 @@ f. Then, uses <code>estimatedChunks := count / conf.Rows</code> to split into so
             <title><![CDATA[DM Worker]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-4DM/04TiDB-DM Worker.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-4DM/04TiDB-DM Worker.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[DM Worker]]></description>
             <content:encoded><![CDATA[<h1 id="dm-worker" tabindex="-1">DM Worker <a class="header-anchor" href="#dm-worker" aria-label="Permalink to &quot;DM Worker&quot;"></a></h1>
 <h2 id="what-s-dm-worker" tabindex="-1">What's DM Worker <a class="header-anchor" href="#what-s-dm-worker" aria-label="Permalink to &quot;What's DM Worker&quot;"></a></h2>
@@ -5770,7 +5770,7 @@ f. Then, uses <code>estimatedChunks := count / conf.Rows</code> to split into so
             <title><![CDATA[DM syncer]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-4DM/05TiDB-DM syncer.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-4DM/05TiDB-DM syncer.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[DM syncer]]></description>
             <content:encoded><![CDATA[<h1 id="dm-syncer" tabindex="-1">DM syncer <a class="header-anchor" href="#dm-syncer" aria-label="Permalink to &quot;DM syncer&quot;"></a></h1>
 <h2 id="what-s-syncer" tabindex="-1">What's syncer <a class="header-anchor" href="#what-s-syncer" aria-label="Permalink to &quot;What's syncer&quot;"></a></h2>
@@ -5881,7 +5881,7 @@ d. <strong>Heartbeat event received</strong> : At <a href="https://github.com/pi
             <title><![CDATA[Metrics]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-4DM/06TiDB-DM Metrics.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-4DM/06TiDB-DM Metrics.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Metrics]]></description>
             <content:encoded><![CDATA[<h1 id="metrics" tabindex="-1">Metrics <a class="header-anchor" href="#metrics" aria-label="Permalink to &quot;Metrics&quot;"></a></h1>
 <h2 id="overview" tabindex="-1">Overview <a class="header-anchor" href="#overview" aria-label="Permalink to &quot;Overview&quot;"></a></h2>
@@ -6136,7 +6136,7 @@ d. <strong>Heartbeat event received</strong> : At <a href="https://github.com/pi
             <title><![CDATA[TiDB-Lightning Quick Start]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-7TiDB-Lightning/01Quick Start.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-7TiDB-Lightning/01Quick Start.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB-Lightning Quick Start]]></description>
             <content:encoded><![CDATA[<h1 id="tidb-lightning-quick-start" tabindex="-1">TiDB-Lightning Quick Start <a class="header-anchor" href="#tidb-lightning-quick-start" aria-label="Permalink to &quot;TiDB-Lightning Quick Start&quot;"></a></h1>
 <h2 id="_123" tabindex="-1">123 <a class="header-anchor" href="#_123" aria-label="Permalink to &quot;123&quot;"></a></h2>
@@ -6146,7 +6146,7 @@ d. <strong>Heartbeat event received</strong> : At <a href="https://github.com/pi
             <title><![CDATA[TiDB-Lighting Architecture]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-7TiDB-Lightning/02Lighting Architecture.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/5-7TiDB-Lightning/02Lighting Architecture.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB-Lighting Architecture]]></description>
             <content:encoded><![CDATA[<h1 id="tidb-lighting-architecture" tabindex="-1">TiDB-Lighting Architecture <a class="header-anchor" href="#tidb-lighting-architecture" aria-label="Permalink to &quot;TiDB-Lighting Architecture&quot;"></a></h1>
 <h2 id="_1-overview" tabindex="-1">1. Overview <a class="header-anchor" href="#_1-overview" aria-label="Permalink to &quot;1. Overview&quot;"></a></h2>
@@ -6232,7 +6232,7 @@ d. <strong>Heartbeat event received</strong> : At <a href="https://github.com/pi
             <title><![CDATA[CDC Component in TiKV]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/TiCDC/03TiKV CDC Component.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/TiCDC/03TiKV CDC Component.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[CDC Component in TiKV]]></description>
             <content:encoded><![CDATA[<h1 id="cdc-component-in-tikv" tabindex="-1">CDC Component in TiKV <a class="header-anchor" href="#cdc-component-in-tikv" aria-label="Permalink to &quot;CDC Component in TiKV&quot;"></a></h1>
 <h2 id="lazy-worker-of-cdc-component" tabindex="-1">Lazy worker of cdc component <a class="header-anchor" href="#lazy-worker-of-cdc-component" aria-label="Permalink to &quot;Lazy worker of cdc component&quot;"></a></h2>
@@ -6340,7 +6340,7 @@ b. Clone 功能与 Copy 相同，但存在一些限制，主要作用是为了�
             <title><![CDATA[Analysis of monitoring principle]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/TiCDC/04All metrics in TiCDC.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/TiCDC/04All metrics in TiCDC.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Analysis of monitoring principle]]></description>
             <content:encoded><![CDATA[<h1 id="analysis-of-monitoring-principle" tabindex="-1">Analysis of monitoring principle <a class="header-anchor" href="#analysis-of-monitoring-principle" aria-label="Permalink to &quot;Analysis of monitoring principle&quot;"></a></h1>
 <h2 id="meaning-of-the-article" tabindex="-1">Meaning of the article <a class="header-anchor" href="#meaning-of-the-article" aria-label="Permalink to &quot;Meaning of the article&quot;"></a></h2>
@@ -6848,7 +6848,7 @@ Kafka Sink 面板
             <title><![CDATA[Usage Background]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/TiCDC/TiCDC Overview.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/TiCDC/TiCDC Overview.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Usage Background]]></description>
             <content:encoded><![CDATA[<h1 id="usage-background" tabindex="-1">Usage Background <a class="header-anchor" href="#usage-background" aria-label="Permalink to &quot;Usage Background&quot;"></a></h1>
 <h2 id="_1-project-background" tabindex="-1">1. Project Background <a class="header-anchor" href="#_1-project-background" aria-label="Permalink to &quot;1. Project Background&quot;"></a></h2>
@@ -7002,7 +7002,7 @@ Additionally, from <a href="https://github.com/pingcap/tiflow/projects/13" targe
             <title><![CDATA[Analyzing the Architecture Model]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/TiCDC/TiCDC Streaming.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-EcosystematicTools/TiCDC/TiCDC Streaming.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Analyzing the Architecture Model]]></description>
             <content:encoded><![CDATA[<h1 id="analyzing-the-architecture-model" tabindex="-1">Analyzing the Architecture Model <a class="header-anchor" href="#analyzing-the-architecture-model" aria-label="Permalink to &quot;Analyzing the Architecture Model&quot;"></a></h1>
 <h2 id="_1-synchronization-model" tabindex="-1">1. Synchronization Model <a class="header-anchor" href="#_1-synchronization-model" aria-label="Permalink to &quot;1. Synchronization Model&quot;"></a></h2>
@@ -7140,7 +7140,7 @@ The incremental scan targets the data in TiKV RocksDB. As shown in the example, 
             <title><![CDATA[What's Spanner Transaction]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-Principle/Paper Reading/02Spanner Transaction.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-Principle/Paper Reading/02Spanner Transaction.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[What's Spanner Transaction]]></description>
             <content:encoded><![CDATA[<h1 id="what-s-spanner-transaction" tabindex="-1">What's Spanner Transaction <a class="header-anchor" href="#what-s-spanner-transaction" aria-label="Permalink to &quot;What's Spanner Transaction&quot;"></a></h1>
 <h2 id="一、论文摘要" tabindex="-1">一、论文摘要 <a class="header-anchor" href="#一、论文摘要" aria-label="Permalink to &quot;一、论文摘要&quot;"></a></h2>
@@ -7280,7 +7280,7 @@ Coordinator Leader 返回给 client 说事务已经提交成功，并且返回�
             <title><![CDATA[Why does LSM generated]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-Principle/Paper Reading/04LSMTree Storage.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-Principle/Paper Reading/04LSMTree Storage.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Why does LSM generated]]></description>
             <content:encoded><![CDATA[<h1 id="why-does-lsm-generated" tabindex="-1">Why does LSM generated <a class="header-anchor" href="#why-does-lsm-generated" aria-label="Permalink to &quot;Why does LSM generated&quot;"></a></h1>
 <h2 id="一、论文摘要" tabindex="-1">一、论文摘要 <a class="header-anchor" href="#一、论文摘要" aria-label="Permalink to &quot;一、论文摘要&quot;"></a></h2>
@@ -7331,7 +7331,7 @@ Coordinator Leader 返回给 client 说事务已经提交成功，并且返回�
             <title><![CDATA[Database Isolation]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-Principle/Paper Reading/05Database Isolation.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-Principle/Paper Reading/05Database Isolation.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Database Isolation]]></description>
             <content:encoded><![CDATA[<h1 id="database-isolation" tabindex="-1">Database Isolation <a class="header-anchor" href="#database-isolation" aria-label="Permalink to &quot;Database Isolation&quot;"></a></h1>
 <p>时间：2021-01-14</p>
@@ -7802,7 +7802,7 @@ session 1 在同一个事务中的两次查询，因为 session 2 在另一个�
             <title><![CDATA[What's TiDB]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-Principle/Paper Reading/06What is TiDB.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-Principle/Paper Reading/06What is TiDB.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[What's TiDB]]></description>
             <content:encoded><![CDATA[<h1 id="what-s-tidb" tabindex="-1">What's TiDB <a class="header-anchor" href="#what-s-tidb" aria-label="Permalink to &quot;What's TiDB&quot;"></a></h1>
 <h2 id="concepts" tabindex="-1">Concepts <a class="header-anchor" href="#concepts" aria-label="Permalink to &quot;Concepts&quot;"></a></h2>
@@ -7833,7 +7833,7 @@ PD-Server is a status instance, which continously getting data or load info from
             <title><![CDATA[What problem does Paxos reslove]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-Principle/Paper Reading/PaperPaxos Note.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-Principle/Paper Reading/PaperPaxos Note.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[What problem does Paxos reslove]]></description>
             <content:encoded><![CDATA[<h1 id="what-problem-does-paxos-reslove" tabindex="-1">What problem does Paxos reslove <a class="header-anchor" href="#what-problem-does-paxos-reslove" aria-label="Permalink to &quot;What problem does Paxos reslove&quot;"></a></h1>
 <p>Paxos算法常被引用于分布式相关文章，借助针对希腊城邦议会立法的场景，主要探讨在人员不断变化等不确定性因素的前提下如何基于一定的规则达成共识方法。作者借用对场景的探讨隐喻分布式计算机系统的解决办法，以较易于理解的形式阐述、并验证了该算法的正确性。</p>
@@ -7905,7 +7905,7 @@ PD-Server is a status instance, which continously getting data or load info from
             <title><![CDATA[What's Percolator Transaction]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-Principle/Paper Reading/Percolator Transaction.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-Principle/Paper Reading/Percolator Transaction.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[What's Percolator Transaction]]></description>
             <content:encoded><![CDATA[<h1 id="what-s-percolator-transaction" tabindex="-1">What's Percolator Transaction <a class="header-anchor" href="#what-s-percolator-transaction" aria-label="Permalink to &quot;What's Percolator Transaction&quot;"></a></h1>
 <h2 id="一、论文摘要" tabindex="-1">一、论文摘要 <a class="header-anchor" href="#一、论文摘要" aria-label="Permalink to &quot;一、论文摘要&quot;"></a></h2>
@@ -8197,7 +8197,7 @@ Using Distributed Transactions and Notifications</a>
             <title><![CDATA[How to build logical plan]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-Principle/TiDB Optimizer/03How to build logical plan.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-Principle/TiDB Optimizer/03How to build logical plan.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[How to build logical plan]]></description>
             <content:encoded><![CDATA[<h1 id="how-to-build-logical-plan" tabindex="-1">How to build logical plan <a class="header-anchor" href="#how-to-build-logical-plan" aria-label="Permalink to &quot;How to build logical plan&quot;"></a></h1>
 <h2 id="_1-one-sql-ll-be-translated-into-ast" tabindex="-1">1. One SQL'll be translated into AST <a class="header-anchor" href="#_1-one-sql-ll-be-translated-into-ast" aria-label="Permalink to &quot;1. One SQL'll be translated into AST&quot;"></a></h2>
@@ -8213,7 +8213,7 @@ note : pic from PingCAP website</p>
             <title><![CDATA[What's Logical Optimizing in TiDB]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-Principle/TiDB Optimizer/Logical Optimizing in TiDB.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-Principle/TiDB Optimizer/Logical Optimizing in TiDB.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[What's Logical Optimizing in TiDB]]></description>
             <content:encoded><![CDATA[<h1 id="what-s-logical-optimizing-in-tidb" tabindex="-1">What's Logical Optimizing in TiDB <a class="header-anchor" href="#what-s-logical-optimizing-in-tidb" aria-label="Permalink to &quot;What's Logical Optimizing in TiDB&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -8558,7 +8558,7 @@ Interestingly, from <a href="https://blog.jooq.org/join-elimination-an-essential
             <title><![CDATA[What's Psysical Optimizing in TiDB]]></title>
             <link>https://askaric.com/en/work/tidb/TiDB-Principle/TiDB Optimizer/Physical Optimizing in TiDB.html</link>
             <guid>https://askaric.com/en/work/tidb/TiDB-Principle/TiDB Optimizer/Physical Optimizing in TiDB.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[What's Psysical Optimizing in TiDB]]></description>
             <content:encoded><![CDATA[<h1 id="what-s-psysical-optimizing-in-tidb" tabindex="-1">What's Psysical Optimizing in TiDB <a class="header-anchor" href="#what-s-psysical-optimizing-in-tidb" aria-label="Permalink to &quot;What's Psysical Optimizing in TiDB&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -8932,7 +8932,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
             <title><![CDATA[My introduction of TiDB notes]]></title>
             <link>https://askaric.com/en/work/tidb/</link>
             <guid>https://askaric.com/en/work/tidb/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[My introduction of TiDB notes]]></description>
             <content:encoded><![CDATA[<h1 id="my-introduction-of-tidb-notes" tabindex="-1">My introduction of TiDB notes <a class="header-anchor" href="#my-introduction-of-tidb-notes" aria-label="Permalink to &quot;My introduction of TiDB notes&quot;"></a></h1>
 <h2 id="_01tidb-principle" tabindex="-1">01TiDB-Principle <a class="header-anchor" href="#_01tidb-principle" aria-label="Permalink to &quot;01TiDB-Principle&quot;"></a></h2>
@@ -8963,7 +8963,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
             <title><![CDATA[博客及博主简介]]></title>
             <link>https://askaric.com/zh/about.html</link>
             <guid>https://askaric.com/zh/about.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[博客及博主简介]]></description>
             <content:encoded><![CDATA[<h1 id="博客及博主简介" tabindex="-1">博客及博主简介 <a class="header-anchor" href="#博客及博主简介" aria-label="Permalink to &quot;博客及博主简介&quot;"></a></h1>
 <figure><img src="./../images/header.jpg" alt="header" tabindex="0"><figcaption>header</figcaption></figure>
@@ -9030,7 +9030,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
         <item>
             <link>https://askaric.com/zh/life/coffee/20250214 my coffee.html</link>
             <guid>https://askaric.com/zh/life/coffee/20250214 my coffee.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[123123123]]></description>
             <content:encoded><![CDATA[<p>123123123</p>
 <figure><img src="./../../../images/coffee-machine.jpg" alt="coffee-machine" tabindex="0"><figcaption>coffee-machine</figcaption></figure>
@@ -9042,7 +9042,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
             <title><![CDATA[咖啡入门]]></title>
             <link>https://askaric.com/zh/life/coffee/basic.html</link>
             <guid>https://askaric.com/zh/life/coffee/basic.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[咖啡入门]]></description>
             <content:encoded><![CDATA[<h1 id="咖啡入门" tabindex="-1">咖啡入门 <a class="header-anchor" href="#咖啡入门" aria-label="Permalink to &quot;咖啡入门&quot;"></a></h1>
 <hr>
@@ -9146,7 +9146,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
             <title><![CDATA[这是生活]]></title>
             <link>https://askaric.com/zh/life/</link>
             <guid>https://askaric.com/zh/life/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[这是生活]]></description>
             <content:encoded><![CDATA[<h1 id="这是生活" tabindex="-1">这是生活 <a class="header-anchor" href="#这是生活" aria-label="Permalink to &quot;这是生活&quot;"></a></h1>
 ]]></content:encoded>
@@ -9154,7 +9154,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
         <item>
             <link>https://askaric.com/zh/life/motor/20250213 my motor.html</link>
             <guid>https://askaric.com/zh/life/motor/20250213 my motor.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[123123123]]></description>
             <content:encoded><![CDATA[<p>123123123</p>
 ]]></content:encoded>
@@ -9163,7 +9163,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
             <title><![CDATA[聊聊滑雪]]></title>
             <link>https://askaric.com/zh/life/skiing/20250212 learn about skiing.html</link>
             <guid>https://askaric.com/zh/life/skiing/20250212 learn about skiing.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[聊聊滑雪]]></description>
             <content:encoded><![CDATA[<h1 id="聊聊滑雪" tabindex="-1">聊聊滑雪 <a class="header-anchor" href="#聊聊滑雪" aria-label="Permalink to &quot;聊聊滑雪&quot;"></a></h1>
 <h2 id="_2025" tabindex="-1">2025 <a class="header-anchor" href="#_2025" aria-label="Permalink to &quot;2025&quot;"></a></h2>
@@ -9173,7 +9173,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
         <item>
             <link>https://askaric.com/zh/life/tennis/20250213 my tennis.html</link>
             <guid>https://askaric.com/zh/life/tennis/20250213 my tennis.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[123123123]]></description>
             <content:encoded><![CDATA[<p>123123123</p>
 ]]></content:encoded>
@@ -9182,7 +9182,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
             <title><![CDATA[DocDB 数据收集]]></title>
             <link>https://askaric.com/zh/tihc/collect/docdb.html</link>
             <guid>https://askaric.com/zh/tihc/collect/docdb.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[DocDB 数据收集]]></description>
             <content:encoded><![CDATA[<h1 id="docdb-数据收集" tabindex="-1">DocDB 数据收集 <a class="header-anchor" href="#docdb-数据收集" aria-label="Permalink to &quot;DocDB 数据收集&quot;"></a></h1>
 <p>使用 <code>tihc collect docdb</code> 命令收集存储在 TiDB 集群 Docdb 中 TOPSQL 的 DocDB 相关数据。</p>
@@ -9259,7 +9259,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
             <title><![CDATA[Collect Pprof]]></title>
             <link>https://askaric.com/zh/tihc/collect/pprof.html</link>
             <guid>https://askaric.com/zh/tihc/collect/pprof.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Collect Pprof]]></description>
             <content:encoded><![CDATA[<h1 id="collect-pprof" tabindex="-1">Collect Pprof <a class="header-anchor" href="#collect-pprof" aria-label="Permalink to &quot;Collect Pprof&quot;"></a></h1>
 <p>实用 tihc collect pprof 命令，收集 TiDB 集群中各组件的 pprof 信息。</p>
@@ -9326,7 +9326,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
             <title><![CDATA[TiHC (TiDB Health Checker)]]></title>
             <link>https://askaric.com/zh/tihc/</link>
             <guid>https://askaric.com/zh/tihc/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiHC (TiDB Health Checker)]]></description>
             <content:encoded><![CDATA[<h1 id="tihc-tidb-health-checker" tabindex="-1">TiHC (TiDB Health Checker) <a class="header-anchor" href="#tihc-tidb-health-checker" aria-label="Permalink to &quot;TiHC (TiDB Health Checker)&quot;"></a></h1>
 <p>TiHC 是 <a href="./../about.html">Aric</a> 专为 TiDB 分布式数据库设计的命令行工具集，旨在简化 TiDB 的日常运维、问题诊断和性能分析工作。作为一款专业的数据库健康检查工具，TiHC 能够帮助 DBA 和开发人员快速发现并解决 TiDB 集群中的潜在问题。</p>
@@ -9404,7 +9404,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
             <title><![CDATA[解析慢日志]]></title>
             <link>https://askaric.com/zh/tihc/tools/slowlog.html</link>
             <guid>https://askaric.com/zh/tihc/tools/slowlog.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[解析慢日志]]></description>
             <content:encoded><![CDATA[<h1 id="解析慢日志" tabindex="-1">解析慢日志 <a class="header-anchor" href="#解析慢日志" aria-label="Permalink to &quot;解析慢日志&quot;"></a></h1>
 <p>使用 <code>tihc tools slowlog</code> 命令解析 TiDB 集群的慢查询日志文件，并以异步的方式导入任意与 MySQL 兼容的数据库中以便分析。</p>
@@ -9605,7 +9605,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
             <title><![CDATA[生活方式]]></title>
             <link>https://askaric.com/zh/work/english/01基础英语/1-1场景_生活方式.html</link>
             <guid>https://askaric.com/zh/work/english/01基础英语/1-1场景_生活方式.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[生活方式]]></description>
             <content:encoded><![CDATA[<h1 id="生活方式" tabindex="-1">生活方式 <a class="header-anchor" href="#生活方式" aria-label="Permalink to &quot;生活方式&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -9660,7 +9660,7 @@ c. He gets reckless sometimes.</p>
             <title><![CDATA[历史经验]]></title>
             <link>https://askaric.com/zh/work/english/01基础英语/1-2场景_历史经验.html</link>
             <guid>https://askaric.com/zh/work/english/01基础英语/1-2场景_历史经验.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[历史经验]]></description>
             <content:encoded><![CDATA[<h1 id="历史经验" tabindex="-1">历史经验 <a class="header-anchor" href="#历史经验" aria-label="Permalink to &quot;历史经验&quot;"></a></h1>
 <h2 id="课程内容" tabindex="-1">课程内容 <a class="header-anchor" href="#课程内容" aria-label="Permalink to &quot;课程内容&quot;"></a></h2>
@@ -9706,7 +9706,7 @@ a. Did you have good time? --&gt; Yes, I did, but I fell off the raft.</p>
             <title><![CDATA[管理生活]]></title>
             <link>https://askaric.com/zh/work/english/01基础英语/1-3场景_管理生活.html</link>
             <guid>https://askaric.com/zh/work/english/01基础英语/1-3场景_管理生活.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[管理生活]]></description>
             <content:encoded><![CDATA[<h1 id="管理生活" tabindex="-1">管理生活 <a class="header-anchor" href="#管理生活" aria-label="Permalink to &quot;管理生活&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -9767,7 +9767,7 @@ f. nice talking to you</p>
             <title><![CDATA[技术专家]]></title>
             <link>https://askaric.com/zh/work/english/01基础英语/1-4场景_技术专家.html</link>
             <guid>https://askaric.com/zh/work/english/01基础英语/1-4场景_技术专家.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[技术专家]]></description>
             <content:encoded><![CDATA[<h1 id="技术专家" tabindex="-1">技术专家 <a class="header-anchor" href="#技术专家" aria-label="Permalink to &quot;技术专家&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -9829,7 +9829,7 @@ c. Do you know where to plug it in?</p>
             <title><![CDATA[印象深刻]]></title>
             <link>https://askaric.com/zh/work/english/01基础英语/1-5场景_印象深刻.html</link>
             <guid>https://askaric.com/zh/work/english/01基础英语/1-5场景_印象深刻.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[印象深刻]]></description>
             <content:encoded><![CDATA[<h1 id="印象深刻" tabindex="-1">印象深刻 <a class="header-anchor" href="#印象深刻" aria-label="Permalink to &quot;印象深刻&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -9906,7 +9906,7 @@ b. That means  I think job is boring.</p>
             <title><![CDATA[法律与秩序]]></title>
             <link>https://askaric.com/zh/work/english/02英语口语/2-10场景_法律与秩序.html</link>
             <guid>https://askaric.com/zh/work/english/02英语口语/2-10场景_法律与秩序.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[法律与秩序]]></description>
             <content:encoded><![CDATA[<h1 id="法律与秩序" tabindex="-1">法律与秩序 <a class="header-anchor" href="#法律与秩序" aria-label="Permalink to &quot;法律与秩序&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -9977,7 +9977,7 @@ e. Numbers or letters : One, Two, ... or A, B, ...</p>
             <title><![CDATA[奇怪事件]]></title>
             <link>https://askaric.com/zh/work/english/02英语口语/2-11场景_奇怪事件.html</link>
             <guid>https://askaric.com/zh/work/english/02英语口语/2-11场景_奇怪事件.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[奇怪事件]]></description>
             <content:encoded><![CDATA[<h1 id="奇怪事件" tabindex="-1">奇怪事件 <a class="header-anchor" href="#奇怪事件" aria-label="Permalink to &quot;奇怪事件&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -10023,7 +10023,7 @@ c. Simple past : I knew that --&gt; So did I</p>
             <title><![CDATA[名气]]></title>
             <link>https://askaric.com/zh/work/english/02英语口语/2-12场景_名气.html</link>
             <guid>https://askaric.com/zh/work/english/02英语口语/2-12场景_名气.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[名气]]></description>
             <content:encoded><![CDATA[<h1 id="名气" tabindex="-1">名气 <a class="header-anchor" href="#名气" aria-label="Permalink to &quot;名气&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -10085,7 +10085,7 @@ d. His career hasn't taken off, has it?</p>
             <title><![CDATA[生活]]></title>
             <link>https://askaric.com/zh/work/english/02英语口语/2-1场景_生活.html</link>
             <guid>https://askaric.com/zh/work/english/02英语口语/2-1场景_生活.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[生活]]></description>
             <content:encoded><![CDATA[<h1 id="生活" tabindex="-1">生活 <a class="header-anchor" href="#生活" aria-label="Permalink to &quot;生活&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -10157,7 +10157,7 @@ e. <code>Verb + ing</code> or <code>to verb</code> with a different meaning</p>
             <title><![CDATA[名人]]></title>
             <link>https://askaric.com/zh/work/english/02英语口语/2-2场景_名人.html</link>
             <guid>https://askaric.com/zh/work/english/02英语口语/2-2场景_名人.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[名人]]></description>
             <content:encoded><![CDATA[<h1 id="名人" tabindex="-1">名人 <a class="header-anchor" href="#名人" aria-label="Permalink to &quot;名人&quot;"></a></h1>
 <h2 id="整体" tabindex="-1">整体 <a class="header-anchor" href="#整体" aria-label="Permalink to &quot;整体&quot;"></a></h2>
@@ -10246,7 +10246,7 @@ c. 问题的重要性 : 很重要，我必须尽快克服它。</p>
             <title><![CDATA[评论]]></title>
             <link>https://askaric.com/zh/work/english/02英语口语/2-3场景_备注.html</link>
             <guid>https://askaric.com/zh/work/english/02英语口语/2-3场景_备注.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[评论]]></description>
             <content:encoded><![CDATA[<h1 id="评论" tabindex="-1">评论 <a class="header-anchor" href="#评论" aria-label="Permalink to &quot;评论&quot;"></a></h1>
 <h2 id="整体" tabindex="-1">整体 <a class="header-anchor" href="#整体" aria-label="Permalink to &quot;整体&quot;"></a></h2>
@@ -10296,7 +10296,7 @@ e. 如何克服 : 专注于每一个准确的发音。</li>
             <title><![CDATA[趋势]]></title>
             <link>https://askaric.com/zh/work/english/02英语口语/2-4场景_趋势.html</link>
             <guid>https://askaric.com/zh/work/english/02英语口语/2-4场景_趋势.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[趋势]]></description>
             <content:encoded><![CDATA[<h1 id="趋势" tabindex="-1">趋势 <a class="header-anchor" href="#趋势" aria-label="Permalink to &quot;趋势&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -10343,7 +10343,7 @@ d. Alternative : instead of</p>
             <title><![CDATA[解决问题]]></title>
             <link>https://askaric.com/zh/work/english/02英语口语/2-5场景_解决问题.html</link>
             <guid>https://askaric.com/zh/work/english/02英语口语/2-5场景_解决问题.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[解决问题]]></description>
             <content:encoded><![CDATA[<h1 id="解决问题" tabindex="-1">解决问题 <a class="header-anchor" href="#解决问题" aria-label="Permalink to &quot;解决问题&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -10390,7 +10390,7 @@ f. Ugh!/Yuck! = &quot;It's disgusting.&quot;</p>
             <title><![CDATA[行为]]></title>
             <link>https://askaric.com/zh/work/english/02英语口语/2-6场景_行为.html</link>
             <guid>https://askaric.com/zh/work/english/02英语口语/2-6场景_行为.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[行为]]></description>
             <content:encoded><![CDATA[<h1 id="行为" tabindex="-1">行为 <a class="header-anchor" href="#行为" aria-label="Permalink to &quot;行为&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -10431,7 +10431,7 @@ c. And, different modal verbs have different precent probability.</li>
             <title><![CDATA[工作]]></title>
             <link>https://askaric.com/zh/work/english/02英语口语/2-7场景_工作.html</link>
             <guid>https://askaric.com/zh/work/english/02英语口语/2-7场景_工作.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[工作]]></description>
             <content:encoded><![CDATA[<h1 id="工作" tabindex="-1">工作 <a class="header-anchor" href="#工作" aria-label="Permalink to &quot;工作&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -10456,7 +10456,7 @@ b. The main things you need is information.(long noun phrases)</p>
             <title><![CDATA[个人趣向]]></title>
             <link>https://askaric.com/zh/work/english/02英语口语/2-8场景_个人趣向.html</link>
             <guid>https://askaric.com/zh/work/english/02英语口语/2-8场景_个人趣向.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[个人趣向]]></description>
             <content:encoded><![CDATA[<h1 id="个人趣向" tabindex="-1">个人趣向 <a class="header-anchor" href="#个人趣向" aria-label="Permalink to &quot;个人趣向&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -10503,7 +10503,7 @@ c. To show suprise : Isn't it on sale? or Don't you like it?</p>
             <title><![CDATA[世界文化]]></title>
             <link>https://askaric.com/zh/work/english/02英语口语/2-9场景_世界文化.html</link>
             <guid>https://askaric.com/zh/work/english/02英语口语/2-9场景_世界文化.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[世界文化]]></description>
             <content:encoded><![CDATA[<h1 id="世界文化" tabindex="-1">世界文化 <a class="header-anchor" href="#世界文化" aria-label="Permalink to &quot;世界文化&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -10576,7 +10576,7 @@ a. When you are living here, do you miss your home? --&gt; Of course or I really
             <title><![CDATA[成功与快乐]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-10场景_成功与快乐.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-10场景_成功与快乐.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[成功与快乐]]></description>
             <content:encoded><![CDATA[<h1 id="成功与快乐" tabindex="-1">成功与快乐 <a class="header-anchor" href="#成功与快乐" aria-label="Permalink to &quot;成功与快乐&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -10688,7 +10688,7 @@ c. An -ing form can come before or after be. It can be the subject or object of 
             <title><![CDATA[出游]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-11场景_出游.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-11场景_出游.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[出游]]></description>
             <content:encoded><![CDATA[<h1 id="出游" tabindex="-1">出游 <a class="header-anchor" href="#出游" aria-label="Permalink to &quot;出游&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -10782,7 +10782,7 @@ c. clams and claim</li>
             <title><![CDATA[文化]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-12场景_文化.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-12场景_文化.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[文化]]></description>
             <content:encoded><![CDATA[<h1 id="文化" tabindex="-1">文化 <a class="header-anchor" href="#文化" aria-label="Permalink to &quot;文化&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -10921,7 +10921,7 @@ a. two special words : 20th and 30th</li>
             <title><![CDATA[能力]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-13场景_能力.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-13场景_能力.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[能力]]></description>
             <content:encoded><![CDATA[<h1 id="能力" tabindex="-1">能力 <a class="header-anchor" href="#能力" aria-label="Permalink to &quot;能力&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -11050,7 +11050,7 @@ d. Focus -- especially, particularly -- People with logical intelligence are esp
             <title><![CDATA[快速交友]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-1场景_快速交友.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-1场景_快速交友.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[快速交友]]></description>
             <content:encoded><![CDATA[<h1 id="快速交友" tabindex="-1">快速交友 <a class="header-anchor" href="#快速交友" aria-label="Permalink to &quot;快速交友&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -11063,7 +11063,7 @@ d. Focus -- especially, particularly -- People with logical intelligence are esp
             <title><![CDATA[scernario celebrity]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-2场景_名人.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-2场景_名人.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scernario celebrity]]></description>
             <content:encoded><![CDATA[<h1 id="scernario-celebrity" tabindex="-1">scernario celebrity <a class="header-anchor" href="#scernario-celebrity" aria-label="Permalink to &quot;scernario celebrity&quot;"></a></h1>
 <h2 id="内容总览" tabindex="-1">内容总览 <a class="header-anchor" href="#内容总览" aria-label="Permalink to &quot;内容总览&quot;"></a></h2>
@@ -11143,7 +11143,7 @@ c. importance of problem : important, i have to overcome it ASAP.</p>
             <title><![CDATA[评论]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-3场景_评论.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-3场景_评论.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[评论]]></description>
             <content:encoded><![CDATA[<h1 id="评论" tabindex="-1">评论 <a class="header-anchor" href="#评论" aria-label="Permalink to &quot;评论&quot;"></a></h1>
 <h2 id="内容总览" tabindex="-1">内容总览 <a class="header-anchor" href="#内容总览" aria-label="Permalink to &quot;内容总览&quot;"></a></h2>
@@ -11193,7 +11193,7 @@ e. how to overcome : foucusing on every accurate pronunication.</li>
             <title><![CDATA[将故事]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-4场景_故事.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-4场景_故事.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[将故事]]></description>
             <content:encoded><![CDATA[<h1 id="将故事" tabindex="-1">将故事 <a class="header-anchor" href="#将故事" aria-label="Permalink to &quot;将故事&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -11280,7 +11280,7 @@ a. He's been coaching a soccer team.</p>
             <title><![CDATA[scernario working lives]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-5场景_工作寿命.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-5场景_工作寿命.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scernario working lives]]></description>
             <content:encoded><![CDATA[<h1 id="scernario-working-lives" tabindex="-1">scernario working lives <a class="header-anchor" href="#scernario-working-lives" aria-label="Permalink to &quot;scernario working lives&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -11454,7 +11454,7 @@ a. fortunatlly, luckily, stangely, obviously, suprisingly， seriously</li>
             <title><![CDATA[scernario challenge]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-6场景_挑战.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-6场景_挑战.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[scernario challenge]]></description>
             <content:encoded><![CDATA[<h1 id="scernario-challenge" tabindex="-1">scernario challenge <a class="header-anchor" href="#scernario-challenge" aria-label="Permalink to &quot;scernario challenge&quot;"></a></h1>
 <h2 id="关于语法" tabindex="-1">关于语法 <a class="header-anchor" href="#关于语法" aria-label="Permalink to &quot;关于语法&quot;"></a></h2>
@@ -11523,7 +11523,7 @@ a. analyze result : I'll append a new sector named necessary sentences which mea
             <title><![CDATA[在未来]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-7场景_在未来.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-7场景_在未来.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[在未来]]></description>
             <content:encoded><![CDATA[<h1 id="在未来" tabindex="-1">在未来 <a class="header-anchor" href="#在未来" aria-label="Permalink to &quot;在未来&quot;"></a></h1>
 <h2 id="关于语法" tabindex="-1">关于语法 <a class="header-anchor" href="#关于语法" aria-label="Permalink to &quot;关于语法&quot;"></a></h2>
@@ -11634,7 +11634,7 @@ b. I would say</p>
             <title><![CDATA[和睦相处]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-8场景_和睦相处.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-8场景_和睦相处.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[和睦相处]]></description>
             <content:encoded><![CDATA[<h1 id="和睦相处" tabindex="-1">和睦相处 <a class="header-anchor" href="#和睦相处" aria-label="Permalink to &quot;和睦相处&quot;"></a></h1>
 <h2 id="关于语法" tabindex="-1">关于语法 <a class="header-anchor" href="#关于语法" aria-label="Permalink to &quot;关于语法&quot;"></a></h2>
@@ -11698,7 +11698,7 @@ d. e.g. : I had fun/no problems growing up in my family.</p>
             <title><![CDATA[优质读物]]></title>
             <link>https://askaric.com/zh/work/english/03高级口语/3-9场景_优质读物.html</link>
             <guid>https://askaric.com/zh/work/english/03高级口语/3-9场景_优质读物.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[优质读物]]></description>
             <content:encoded><![CDATA[<h1 id="优质读物" tabindex="-1">优质读物 <a class="header-anchor" href="#优质读物" aria-label="Permalink to &quot;优质读物&quot;"></a></h1>
 <h2 id="关于内容" tabindex="-1">关于内容 <a class="header-anchor" href="#关于内容" aria-label="Permalink to &quot;关于内容&quot;"></a></h2>
@@ -11792,7 +11792,7 @@ c. You can use one or ones to avoid repeating countbale nouns. Don't use them af
             <title><![CDATA[如何准备雅思]]></title>
             <link>https://askaric.com/zh/work/english/04雅思考试/4-1week1_雅思考试.html</link>
             <guid>https://askaric.com/zh/work/english/04雅思考试/4-1week1_雅思考试.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[如何准备雅思]]></description>
             <content:encoded><![CDATA[<h1 id="如何准备雅思" tabindex="-1">如何准备雅思 <a class="header-anchor" href="#如何准备雅思" aria-label="Permalink to &quot;如何准备雅思&quot;"></a></h1>
 <h2 id="雅思规则" tabindex="-1">雅思规则 <a class="header-anchor" href="#雅思规则" aria-label="Permalink to &quot;雅思规则&quot;"></a></h2>
@@ -11924,7 +11924,7 @@ c. You can use one or ones to avoid repeating countbale nouns. Don't use them af
             <title><![CDATA[复习剑桥 4B]]></title>
             <link>https://askaric.com/zh/work/english/04雅思考试/4-2week2_复习剑桥4B.html</link>
             <guid>https://askaric.com/zh/work/english/04雅思考试/4-2week2_复习剑桥4B.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[复习剑桥 4B]]></description>
             <content:encoded><![CDATA[<h1 id="复习剑桥-4b" tabindex="-1">复习剑桥 4B <a class="header-anchor" href="#复习剑桥-4b" aria-label="Permalink to &quot;复习剑桥 4B&quot;"></a></h1>
 <h2 id="学习进度" tabindex="-1">学习进度 <a class="header-anchor" href="#学习进度" aria-label="Permalink to &quot;学习进度&quot;"></a></h2>
@@ -12011,7 +12011,7 @@ c. You can use one or ones to avoid repeating countbale nouns. Don't use them af
             <title><![CDATA[多时态表达加分雅思口语考试]]></title>
             <link>https://askaric.com/zh/work/english/04雅思考试/4-3week3_加分策略.html</link>
             <guid>https://askaric.com/zh/work/english/04雅思考试/4-3week3_加分策略.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[多时态表达加分雅思口语考试]]></description>
             <content:encoded><![CDATA[<h1 id="多时态表达加分雅思口语考试" tabindex="-1">多时态表达加分雅思口语考试 <a class="header-anchor" href="#多时态表达加分雅思口语考试" aria-label="Permalink to &quot;多时态表达加分雅思口语考试&quot;"></a></h1>
 <h2 id="进度" tabindex="-1">进度 <a class="header-anchor" href="#进度" aria-label="Permalink to &quot;进度&quot;"></a></h2>
@@ -12131,7 +12131,7 @@ c. You can use one or ones to avoid repeating countbale nouns. Don't use them af
             <title><![CDATA[记录英语学习过程]]></title>
             <link>https://askaric.com/zh/work/english/</link>
             <guid>https://askaric.com/zh/work/english/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[记录英语学习过程]]></description>
             <content:encoded><![CDATA[<h1 id="记录英语学习过程" tabindex="-1">记录英语学习过程 <a class="header-anchor" href="#记录英语学习过程" aria-label="Permalink to &quot;记录英语学习过程&quot;"></a></h1>
 <h2 id="前情提要" tabindex="-1">前情提要 <a class="header-anchor" href="#前情提要" aria-label="Permalink to &quot;前情提要&quot;"></a></h2>
@@ -12145,7 +12145,7 @@ c. You can use one or ones to avoid repeating countbale nouns. Don't use them af
             <title><![CDATA[Start--11g物理DG部署]]></title>
             <link>https://askaric.com/zh/work/oracle/Start-DG.html</link>
             <guid>https://askaric.com/zh/work/oracle/Start-DG.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[
 
 > [DBNEST -- Bilibili DataGuard 基础搭建视频地址](https://www.bilibili.com/video/BV1Ep4y197JA?from=search&seid=17237800447886927935&spm_id_from=333.337.0.0)    
@@ -12589,7 +12589,7 @@ LOG_MODE     FOR
             <title><![CDATA[Oracle 11g RAC 部署搭建]]></title>
             <link>https://askaric.com/zh/work/oracle/Start-OracleRAC.html</link>
             <guid>https://askaric.com/zh/work/oracle/Start-OracleRAC.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Oracle 11g RAC 部署搭建]]></description>
             <content:encoded><![CDATA[<h1 id="oracle-11g-rac-部署搭建" tabindex="-1">Oracle 11g RAC 部署搭建 <a class="header-anchor" href="#oracle-11g-rac-部署搭建" aria-label="Permalink to &quot;Oracle 11g RAC 部署搭建&quot;"></a></h1>
 <blockquote>
@@ -13333,7 +13333,7 @@ Counld not connect to ASM due to following error,ora-12547:TNS:lost comact
             <title><![CDATA[Oracle 11g单库ASM部署]]></title>
             <link>https://askaric.com/zh/work/oracle/Start-Oracle单实例ASM部署.html</link>
             <guid>https://askaric.com/zh/work/oracle/Start-Oracle单实例ASM部署.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Oracle 11g单库ASM部署]]></description>
             <content:encoded><![CDATA[<h1 id="oracle-11g单库asm部署" tabindex="-1">Oracle 11g单库ASM部署 <a class="header-anchor" href="#oracle-11g单库asm部署" aria-label="Permalink to &quot;Oracle 11g单库ASM部署&quot;"></a></h1>
 <blockquote>
@@ -13921,7 +13921,7 @@ perform - mode finished for action: configure</p>
             <title><![CDATA[体系简介]]></title>
             <link>https://askaric.com/zh/work/oracle/Summary-Oracle.html</link>
             <guid>https://askaric.com/zh/work/oracle/Summary-Oracle.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[体系简介]]></description>
             <content:encoded><![CDATA[<h1 id="体系简介" tabindex="-1">体系简介 <a class="header-anchor" href="#体系简介" aria-label="Permalink to &quot;体系简介&quot;"></a></h1>
 <h2 id="一、体系架构" tabindex="-1">一、体系架构 <a class="header-anchor" href="#一、体系架构" aria-label="Permalink to &quot;一、体系架构&quot;"></a></h2>
@@ -13975,7 +13975,7 @@ perform - mode finished for action: configure</p>
             <title><![CDATA[Oracle 文档相关景象梳理]]></title>
             <link>https://askaric.com/zh/work/oracle/Summary-历史镜像梳理.html</link>
             <guid>https://askaric.com/zh/work/oracle/Summary-历史镜像梳理.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Oracle 文档相关景象梳理]]></description>
             <content:encoded><![CDATA[<h1 id="oracle-文档相关景象梳理" tabindex="-1">Oracle 文档相关景象梳理 <a class="header-anchor" href="#oracle-文档相关景象梳理" aria-label="Permalink to &quot;Oracle 文档相关景象梳理&quot;"></a></h1>
 <h2 id="一、oracle-商业版" tabindex="-1">一、Oracle 商业版 <a class="header-anchor" href="#一、oracle-商业版" aria-label="Permalink to &quot;一、Oracle 商业版&quot;"></a></h2>
@@ -14061,7 +14061,7 @@ perform - mode finished for action: configure</p>
             <title><![CDATA[Oracle DataGuard 概念梳理]]></title>
             <link>https://askaric.com/zh/work/oracle/Theory-Oracle DG.html</link>
             <guid>https://askaric.com/zh/work/oracle/Theory-Oracle DG.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Oracle DataGuard 概念梳理]]></description>
             <content:encoded><![CDATA[<h1 id="oracle-dataguard-概念梳理" tabindex="-1">Oracle DataGuard 概念梳理 <a class="header-anchor" href="#oracle-dataguard-概念梳理" aria-label="Permalink to &quot;Oracle DataGuard 概念梳理&quot;"></a></h1>
 <blockquote>
@@ -14139,7 +14139,7 @@ Redo Apply恢复从主数据库接收到的重做数据，并将redo应用于物
             <title><![CDATA[Oracle]]></title>
             <link>https://askaric.com/zh/work/oracle/</link>
             <guid>https://askaric.com/zh/work/oracle/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Oracle]]></description>
             <content:encoded><![CDATA[<h1 id="oracle" tabindex="-1">Oracle <a class="header-anchor" href="#oracle" aria-label="Permalink to &quot;Oracle&quot;"></a></h1>
 ]]></content:encoded>
@@ -14148,7 +14148,7 @@ Redo Apply恢复从主数据库接收到的重做数据，并将redo应用于物
             <title><![CDATA[Start--AlwaysOn集群部署]]></title>
             <link>https://askaric.com/zh/work/sqlserver/AlwaysOn集群部署.html</link>
             <guid>https://askaric.com/zh/work/sqlserver/AlwaysOn集群部署.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <content:encoded><![CDATA[<blockquote>
 <p><a href="./AlwaysOn%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2.pdf">DBNEST -- 旧版文档 “点击” 直接浏览或下载 PDF</a></p>
 </blockquote>
@@ -14158,7 +14158,7 @@ Redo Apply恢复从主数据库接收到的重做数据，并将redo应用于物
             <title><![CDATA[SQL Server]]></title>
             <link>https://askaric.com/zh/work/sqlserver/</link>
             <guid>https://askaric.com/zh/work/sqlserver/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[SQL Server]]></description>
             <content:encoded><![CDATA[<h1 id="sql-server" tabindex="-1">SQL Server <a class="header-anchor" href="#sql-server" aria-label="Permalink to &quot;SQL Server&quot;"></a></h1>
 ]]></content:encoded>
@@ -14167,7 +14167,7 @@ Redo Apply恢复从主数据库接收到的重做数据，并将redo应用于物
             <title><![CDATA[Ansible 部署]]></title>
             <link>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-1Ansible 部署实践/01Ansible 部署与扩缩容.html</link>
             <guid>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-1Ansible 部署实践/01Ansible 部署与扩缩容.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[
 ## Ansible 部署
 
@@ -15418,7 +15418,7 @@ SSH 公钥文件为 /home/tidb/.ssh/id_rsa.pub。</p>
             <title><![CDATA[核心步骤]]></title>
             <link>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-1Ansible 部署实践/02Ansible 修改集群配置.html</link>
             <guid>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-1Ansible 部署实践/02Ansible 修改集群配置.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[1.中控机（tidb01-41）修改集群配置  
 2.中控机执行rolling-update滚动更新  
 3.TiKV任意子节点部署目录检查配置  
@@ -15472,7 +15472,7 @@ SSH 公钥文件为 /home/tidb/.ssh/id_rsa.pub。</p>
             <title><![CDATA[TiDB-TiUP工具集群离线部署方案]]></title>
             <link>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-2TiUP 部署实践/01TiUP 离线部署 TiDB.html</link>
             <guid>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-2TiUP 部署实践/01TiUP 离线部署 TiDB.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB-TiUP工具集群离线部署方案]]></description>
             <content:encoded><![CDATA[<h1 id="tidb-tiup工具集群离线部署方案" tabindex="-1">TiDB-TiUP工具集群离线部署方案 <a class="header-anchor" href="#tidb-tiup工具集群离线部署方案" aria-label="Permalink to &quot;TiDB-TiUP工具集群离线部署方案&quot;"></a></h1>
 <p>时间：2020-12-25</p>
@@ -16095,7 +16095,7 @@ SSH 公钥文件为 /home/tidb/.ssh/id_rsa.pub。</p>
             <title><![CDATA[扩容TiDB、TiKV、PD节点]]></title>
             <link>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-2TiUP 部署实践/02TiUP 扩缩容主要组件.html</link>
             <guid>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-2TiUP 部署实践/02TiUP 扩缩容主要组件.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[
 
 
@@ -16367,7 +16367,7 @@ Type  Host            Ports        OS/Arch       Directories
             <title><![CDATA[TiDB-TiUP工具集群滚动升级]]></title>
             <link>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-2TiUP 部署实践/03TiUP 滚动升级 TiDB.html</link>
             <guid>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-2TiUP 部署实践/03TiUP 滚动升级 TiDB.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB-TiUP工具集群滚动升级]]></description>
             <content:encoded><![CDATA[<h1 id="tidb-tiup工具集群滚动升级" tabindex="-1">TiDB-TiUP工具集群滚动升级 <a class="header-anchor" href="#tidb-tiup工具集群滚动升级" aria-label="Permalink to &quot;TiDB-TiUP工具集群滚动升级&quot;"></a></h1>
 <p>时间：2020-12-25</p>
@@ -16544,7 +16544,7 @@ Type  Host            Ports        OS/Arch       Directories
             <title><![CDATA[TiDB-单机多TiKV实例、多TiDB实例部署]]></title>
             <link>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-2TiUP 部署实践/04TiUP 单机混部多实例.html</link>
             <guid>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-2TiUP 部署实践/04TiUP 单机混部多实例.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB-单机多TiKV实例、多TiDB实例部署]]></description>
             <content:encoded><![CDATA[<h1 id="tidb-单机多tikv实例、多tidb实例部署" tabindex="-1">TiDB-单机多TiKV实例、多TiDB实例部署 <a class="header-anchor" href="#tidb-单机多tikv实例、多tidb实例部署" aria-label="Permalink to &quot;TiDB-单机多TiKV实例、多TiDB实例部署&quot;"></a></h1>
 <p>时间：2021-01-06</p>
@@ -16915,7 +16915,7 @@ Type  Host            Ports        OS/Arch       Directories
             <title><![CDATA[TiDB-TiSpark依靠TiUP工具协助部署集群]]></title>
             <link>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-2TiUP 部署实践/05TiUP 部署 TiSpark.html</link>
             <guid>https://askaric.com/zh/work/tidb/02TIDB-部署实践/2-2TiUP 部署实践/05TiUP 部署 TiSpark.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB-TiSpark依靠TiUP工具协助部署集群]]></description>
             <content:encoded><![CDATA[<h1 id="tidb-tispark依靠tiup工具协助部署集群" tabindex="-1">TiDB-TiSpark依靠TiUP工具协助部署集群 <a class="header-anchor" href="#tidb-tispark依靠tiup工具协助部署集群" aria-label="Permalink to &quot;TiDB-TiSpark依靠TiUP工具协助部署集群&quot;"></a></h1>
 <p>时间：2021-01-16</p>
@@ -17069,7 +17069,7 @@ Type  Host            Ports        OS/Arch       Directories
             <title><![CDATA[TiDB-TLS加密传输安全协议原理与应用]]></title>
             <link>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-1TiDB 监控详解/01TLS 原理与应用.html</link>
             <guid>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-1TiDB 监控详解/01TLS 原理与应用.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB-TLS加密传输安全协议原理与应用]]></description>
             <content:encoded><![CDATA[<h1 id="tidb-tls加密传输安全协议原理与应用" tabindex="-1">TiDB-TLS加密传输安全协议原理与应用 <a class="header-anchor" href="#tidb-tls加密传输安全协议原理与应用" aria-label="Permalink to &quot;TiDB-TLS加密传输安全协议原理与应用&quot;"></a></h1>
 <p>时间：2021-01-15</p>
@@ -17266,7 +17266,7 @@ Type  Host            Ports        OS/Arch       Directories
             <title><![CDATA[TIKV 监控面板 - Approximate region size]]></title>
             <link>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-1TiDB 监控详解/03TiKV Details 详解.html</link>
             <guid>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-1TiDB 监控详解/03TiKV Details 详解.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TIKV 监控面板 - Approximate region size]]></description>
             <content:encoded><![CDATA[<h1 id="tikv-监控面板-approximate-region-size" tabindex="-1">TIKV 监控面板 - Approximate region size <a class="header-anchor" href="#tikv-监控面板-approximate-region-size" aria-label="Permalink to &quot;TIKV 监控面板 - Approximate region size&quot;"></a></h1>
 <h1 id="server" tabindex="-1">Server <a class="header-anchor" href="#server" aria-label="Permalink to &quot;Server&quot;"></a></h1>
@@ -17290,7 +17290,7 @@ Type  Host            Ports        OS/Arch       Directories
             <title><![CDATA[KV Backoff OPS]]></title>
             <link>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-1TiDB 监控详解/04指标简介/KV Backoff OPS.html</link>
             <guid>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-1TiDB 监控详解/04指标简介/KV Backoff OPS.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[KV Backoff OPS]]></description>
             <content:encoded><![CDATA[<h1 id="kv-backoff-ops" tabindex="-1">KV Backoff OPS <a class="header-anchor" href="#kv-backoff-ops" aria-label="Permalink to &quot;KV Backoff OPS&quot;"></a></h1>
 <p><a href="https://github.com/tikv/client-go/blob/6beede6998b6b23aee8e816f95f293d4d0363704/metrics/metrics.go#L156-L164" target="_blank" rel="noreferrer">123</a></p>
@@ -17361,7 +17361,7 @@ isWitness
         <item>
             <link>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-1TiDB 监控详解/TIDB Panel - Disconnection Count.html</link>
             <guid>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-1TiDB 监控详解/TIDB Panel - Disconnection Count.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[1. 面板简介
    该面板统计 APP &lt;--
 2. 面板位置
@@ -17405,7 +17405,7 @@ tidb 官方文档 : <a href="https://docs.pingcap.com/zh/tidb/v7.5/grafana-tidb-
         <item>
             <link>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-1TiDB 监控详解/TIDB Panel - KV Backoff OPS.html</link>
             <guid>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-1TiDB 监控详解/TIDB Panel - KV Backoff OPS.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[1. 面板简介
    该面板的统计位于下图的 tikv client 模块，如图所示，主要用于统计集群层面 TiDB-Server 与 TiKV-Server 交互过程中，不同“重试”类型的频次。
 图]]></description>
@@ -17527,7 +17527,7 @@ tidb 官方文档 : <a href="https://docs.pingcap.com/zh/tidb/v7.5/grafana-tidb-
             <title><![CDATA[TiDB之Prometheus]]></title>
             <link>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-1TiDB 监控详解/TiDB-Prometheus.html</link>
             <guid>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-1TiDB 监控详解/TiDB-Prometheus.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB之Prometheus]]></description>
             <content:encoded><![CDATA[<h1 id="tidb之prometheus" tabindex="-1">TiDB之Prometheus <a class="header-anchor" href="#tidb之prometheus" aria-label="Permalink to &quot;TiDB之Prometheus&quot;"></a></h1>
 <p>如果您需要100%的准确性，例如按请求计费，普罗米修斯不是一个好选择，因为收集的数据可能不够详细和完整。在这种情况下，您最好使用其他系统来收集和分析计费数据，并使用普罗米修斯进行其余的监控。</p>
@@ -17741,7 +17741,7 @@ tidb 官方文档 : <a href="https://docs.pingcap.com/zh/tidb/v7.5/grafana-tidb-
             <title><![CDATA[TIKV 监控面板 - Allocator Stats]]></title>
             <link>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-2TiKV 监控详解/TIKV 监控面板 - Allocator Stats.html</link>
             <guid>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-2TiKV 监控详解/TIKV 监控面板 - Allocator Stats.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TIKV 监控面板 - Allocator Stats]]></description>
             <content:encoded><![CDATA[<h1 id="tikv-监控面板-allocator-stats" tabindex="-1">TIKV 监控面板 - Allocator Stats <a class="header-anchor" href="#tikv-监控面板-allocator-stats" aria-label="Permalink to &quot;TIKV 监控面板 - Allocator Stats&quot;"></a></h1>
 <h2 id="_1-面板简介" tabindex="-1">1. 面板简介 <a class="header-anchor" href="#_1-面板简介" aria-label="Permalink to &quot;1. 面板简介&quot;"></a></h2>
@@ -17793,7 +17793,7 @@ tidb 官方文档 : <a href="https://docs.pingcap.com/zh/tidb/v7.5/grafana-tidb-
             <title><![CDATA[场景描述]]></title>
             <link>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-4非常规恢复/01重建PD.html</link>
             <guid>https://askaric.com/zh/work/tidb/03TiDB-运维管理/3-4非常规恢复/01重建PD.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB 重建 PD
 &lt;!-- TOC --
 
@@ -18007,7 +18007,7 @@ last_tikv.toml 中会记录 tikv 上一次的启动参数，tikv 启动后会检
             <title><![CDATA[SQL Duration 抖动现象问题排查]]></title>
             <link>https://askaric.com/zh/work/tidb/04TiDB-调优实践/4-1生产案例总结/01磁盘抖动导致 Duration 抖动.html</link>
             <guid>https://askaric.com/zh/work/tidb/04TiDB-调优实践/4-1生产案例总结/01磁盘抖动导致 Duration 抖动.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[SQL Duration 抖动现象问题排查]]></description>
             <content:encoded><![CDATA[<h1 id="sql-duration-抖动现象问题排查" tabindex="-1">SQL Duration 抖动现象问题排查 <a class="header-anchor" href="#sql-duration-抖动现象问题排查" aria-label="Permalink to &quot;SQL Duration 抖动现象问题排查&quot;"></a></h1>
 <p>时间：2021-02-02</p>
@@ -18310,7 +18310,7 @@ last_tikv.toml 中会记录 tikv 上一次的启动参数，tikv 启动后会检
             <title><![CDATA[CASE-网卡带宽打满导致Duration升高问题]]></title>
             <link>https://askaric.com/zh/work/tidb/04TiDB-调优实践/4-1生产案例总结/02网卡打满导致 Duration 升高.html</link>
             <guid>https://askaric.com/zh/work/tidb/04TiDB-调优实践/4-1生产案例总结/02网卡打满导致 Duration 升高.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[CASE-网卡带宽打满导致Duration升高问题]]></description>
             <content:encoded><![CDATA[<h1 id="case-网卡带宽打满导致duration升高问题" tabindex="-1">CASE-网卡带宽打满导致Duration升高问题 <a class="header-anchor" href="#case-网卡带宽打满导致duration升高问题" aria-label="Permalink to &quot;CASE-网卡带宽打满导致Duration升高问题&quot;"></a></h1>
 <p>时间：2021-05-07</p>
@@ -18528,13 +18528,13 @@ last_tikv.toml 中会记录 tikv 上一次的启动参数，tikv 启动后会检
         <item>
             <link>https://askaric.com/zh/work/tidb/06TiDB-解决方案/6-1迁移MyCat至TiDB方案/01TiChange脚本转换csv文件适配tidb-lightning.html</link>
             <guid>https://askaric.com/zh/work/tidb/06TiDB-解决方案/6-1迁移MyCat至TiDB方案/01TiChange脚本转换csv文件适配tidb-lightning.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[OGG数据库系统oracle到TiDB异地灾备方案]]></title>
             <link>https://askaric.com/zh/work/tidb/06TiDB-解决方案/6-2迁移Oracle至TiDB方案/01Oracle到TiDB的OGG部署方案.html</link>
             <guid>https://askaric.com/zh/work/tidb/06TiDB-解决方案/6-2迁移Oracle至TiDB方案/01Oracle到TiDB的OGG部署方案.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[OGG数据库系统oracle到TiDB异地灾备方案]]></description>
             <content:encoded><![CDATA[<h1 id="ogg数据库系统oracle到tidb异地灾备方案" tabindex="-1">OGG数据库系统oracle到TiDB异地灾备方案 <a class="header-anchor" href="#ogg数据库系统oracle到tidb异地灾备方案" aria-label="Permalink to &quot;OGG数据库系统oracle到TiDB异地灾备方案&quot;"></a></h1>
 <h2 id="目录" tabindex="-1">目录 <a class="header-anchor" href="#目录" aria-label="Permalink to &quot;目录&quot;"></a></h2>
@@ -19244,7 +19244,7 @@ SELECT setval(SEQ_MES_ELECTRIC_CODE_ID, 10);
             <title><![CDATA[TiDB run and debug on M1]]></title>
             <link>https://askaric.com/zh/work/tidb/07TiDB-源码阅读/7-1TiDB/01TiDB run and debug on M1.html</link>
             <guid>https://askaric.com/zh/work/tidb/07TiDB-源码阅读/7-1TiDB/01TiDB run and debug on M1.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB run and debug on M1]]></description>
             <content:encoded><![CDATA[<h1 id="tidb-run-and-debug-on-m1" tabindex="-1">TiDB run and debug on M1 <a class="header-anchor" href="#tidb-run-and-debug-on-m1" aria-label="Permalink to &quot;TiDB run and debug on M1&quot;"></a></h1>
 <h2 id="一、summary" tabindex="-1">一、Summary <a class="header-anchor" href="#一、summary" aria-label="Permalink to &quot;一、Summary&quot;"></a></h2>
@@ -19301,7 +19301,7 @@ SELECT setval(SEQ_MES_ELECTRIC_CODE_ID, 10);
             <title><![CDATA[一、前言]]></title>
             <link>https://askaric.com/zh/work/tidb/07TiDB-源码阅读/7-1TiDB/02TiDB Point_Get 点查的一生.html</link>
             <guid>https://askaric.com/zh/work/tidb/07TiDB-源码阅读/7-1TiDB/02TiDB Point_Get 点查的一生.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[## 一、前言
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此前，作为 DBA 觉得能看源码是一件很牛的事情，花了**大半年时间**对 Golang 和 Rust 入了个门（**可能入门都不算**），并写了个 Rust 小工具: [TiHC(TiDB Healthy Check)](https://github.com/jansu-dev/tihc) 有兴趣的小伙伴可以自取。  
@@ -19986,7 +19986,7 @@ fn load_data(&mut self, user_key: &Key) -> Result<Option<Value>> {
             <title><![CDATA[如果获取 TiDB 集群初始化时间]]></title>
             <link>https://askaric.com/zh/work/tidb/07TiDB-源码阅读/7-1TiDB/03TIDB how to get init time.html</link>
             <guid>https://askaric.com/zh/work/tidb/07TiDB-源码阅读/7-1TiDB/03TIDB how to get init time.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[如果获取 TiDB 集群初始化时间]]></description>
             <content:encoded><![CDATA[<h1 id="如果获取-tidb-集群初始化时间" tabindex="-1">如果获取 TiDB 集群初始化时间 <a class="header-anchor" href="#如果获取-tidb-集群初始化时间" aria-label="Permalink to &quot;如果获取 TiDB 集群初始化时间&quot;"></a></h1>
 <h2 id="一、前言" tabindex="-1">一、前言 <a class="header-anchor" href="#一、前言" aria-label="Permalink to &quot;一、前言&quot;"></a></h2>
@@ -20027,7 +20027,7 @@ fn load_data(&mut self, user_key: &Key) -> Result<Option<Value>> {
             <title><![CDATA[Macbook M1 体验 Operator 部署 TiDB Cluster]]></title>
             <link>https://askaric.com/zh/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/01TiDB-Operator 部署 TiDB.html</link>
             <guid>https://askaric.com/zh/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/01TiDB-Operator 部署 TiDB.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Macbook M1 体验 Operator 部署 TiDB Cluster]]></description>
             <content:encoded><![CDATA[<h1 id="macbook-m1-体验-operator-部署-tidb-cluster" tabindex="-1">Macbook M1 体验 Operator 部署 TiDB Cluster <a class="header-anchor" href="#macbook-m1-体验-operator-部署-tidb-cluster" aria-label="Permalink to &quot;Macbook M1 体验 Operator 部署 TiDB Cluster&quot;"></a></h1>
 <blockquote>
@@ -20182,7 +20182,7 @@ fn load_data(&mut self, user_key: &Key) -> Result<Option<Value>> {
             <title><![CDATA[Macbook M1 体验 Operator 部署 DM]]></title>
             <link>https://askaric.com/zh/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/02TiDB-Operator 部署 DM.html</link>
             <guid>https://askaric.com/zh/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/02TiDB-Operator 部署 DM.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Macbook M1 体验 Operator 部署 DM]]></description>
             <content:encoded><![CDATA[<h1 id="macbook-m1-体验-operator-部署-dm" tabindex="-1">Macbook M1 体验 Operator 部署 DM <a class="header-anchor" href="#macbook-m1-体验-operator-部署-dm" aria-label="Permalink to &quot;Macbook M1 体验 Operator 部署 DM&quot;"></a></h1>
 <blockquote>
@@ -20596,7 +20596,7 @@ fn load_data(&mut self, user_key: &Key) -> Result<Option<Value>> {
             <title><![CDATA[Macbook M1 体验 Operator 部署 Lightning]]></title>
             <link>https://askaric.com/zh/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/03TiDB-Operator 部署 Lightning.html</link>
             <guid>https://askaric.com/zh/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/03TiDB-Operator 部署 Lightning.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Macbook M1 体验 Operator 部署 Lightning]]></description>
             <content:encoded><![CDATA[<h1 id="macbook-m1-体验-operator-部署-lightning" tabindex="-1">Macbook M1 体验 Operator 部署 Lightning <a class="header-anchor" href="#macbook-m1-体验-operator-部署-lightning" aria-label="Permalink to &quot;Macbook M1 体验 Operator 部署 Lightning&quot;"></a></h1>
 <blockquote>
@@ -20774,7 +20774,7 @@ fn load_data(&mut self, user_key: &Key) -> Result<Option<Value>> {
             <title><![CDATA[Macbook M1 体验 Operator 部署 TiCDC]]></title>
             <link>https://askaric.com/zh/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/04TiDB-Operator 部署 TICDC.html</link>
             <guid>https://askaric.com/zh/work/tidb/08TiDB-Cloud-K8S/8-1TiDB-应用实践/04TiDB-Operator 部署 TICDC.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Macbook M1 体验 Operator 部署 TiCDC]]></description>
             <content:encoded><![CDATA[<h1 id="macbook-m1-体验-operator-部署-ticdc" tabindex="-1">Macbook M1 体验 Operator 部署 TiCDC <a class="header-anchor" href="#macbook-m1-体验-operator-部署-ticdc" aria-label="Permalink to &quot;Macbook M1 体验 Operator 部署 TiCDC&quot;"></a></h1>
 <blockquote>
@@ -20925,7 +20925,7 @@ fn load_data(&mut self, user_key: &Key) -> Result<Option<Value>> {
             <title><![CDATA[Dumpling 快速使用]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-3Dumpling/01Dumpling 快速使用.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-3Dumpling/01Dumpling 快速使用.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Dumpling 快速使用]]></description>
             <content:encoded><![CDATA[<h1 id="dumpling-快速使用" tabindex="-1">Dumpling 快速使用 <a class="header-anchor" href="#dumpling-快速使用" aria-label="Permalink to &quot;Dumpling 快速使用&quot;"></a></h1>
 <h2 id="下载安装包" tabindex="-1">下载安装包 <a class="header-anchor" href="#下载安装包" aria-label="Permalink to &quot;下载安装包&quot;"></a></h2>
@@ -21205,7 +21205,7 @@ fn load_data(&mut self, user_key: &Key) -> Result<Option<Value>> {
             <title><![CDATA[Dumpling 架构原理]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-3Dumpling/02Dumpling 架构原理.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-3Dumpling/02Dumpling 架构原理.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Dumpling 架构原理]]></description>
             <content:encoded><![CDATA[<h1 id="dumpling-架构原理" tabindex="-1">Dumpling 架构原理 <a class="header-anchor" href="#dumpling-架构原理" aria-label="Permalink to &quot;Dumpling 架构原理&quot;"></a></h1>
 <h2 id="基本信息" tabindex="-1">基本信息 <a class="header-anchor" href="#基本信息" aria-label="Permalink to &quot;基本信息&quot;"></a></h2>
@@ -21334,7 +21334,7 @@ f. 然后，使用 <code>estimatedChunks := count / conf.Rows</code> 将其拆�
             <title><![CDATA[DM Architecture Overview]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-4DM/01TiDB-DM 架构总览.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-4DM/01TiDB-DM 架构总览.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[DM Architecture Overview]]></description>
             <content:encoded><![CDATA[<h1 id="dm-architecture-overview" tabindex="-1">DM Architecture Overview <a class="header-anchor" href="#dm-architecture-overview" aria-label="Permalink to &quot;DM Architecture Overview&quot;"></a></h1>
 <h2 id="什么是-dm" tabindex="-1">什么是 DM <a class="header-anchor" href="#什么是-dm" aria-label="Permalink to &quot;什么是 DM&quot;"></a></h2>
@@ -21378,7 +21378,7 @@ f. 然后，使用 <code>estimatedChunks := count / conf.Rows</code> 将其拆�
             <title><![CDATA[TiDB-DM 快速使用]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-4DM/02TiDB-DM 快速使用.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-4DM/02TiDB-DM 快速使用.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB-DM 快速使用]]></description>
             <content:encoded><![CDATA[<h1 id="tidb-dm-快速使用" tabindex="-1">TiDB-DM 快速使用 <a class="header-anchor" href="#tidb-dm-快速使用" aria-label="Permalink to &quot;TiDB-DM 快速使用&quot;"></a></h1>
 <p>这是关于 DM 部署的快速入门，如果你更熟悉 docker，你也可以在 docker 上做。我已经为此准备了另一个内容，<a href="./../../08TiDB-Cloud-K8S/8-1TiDB-应用实践/02TiDB-Operator 部署 DM.html">详情参考这篇文章</a></p>
@@ -22140,7 +22140,7 @@ f. 然后，使用 <code>estimatedChunks := count / conf.Rows</code> 将其拆�
             <title><![CDATA[TiDB DM Master]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-4DM/03TiDB-DM Master.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-4DM/03TiDB-DM Master.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB DM Master]]></description>
             <content:encoded><![CDATA[<h1 id="tidb-dm-master" tabindex="-1">TiDB DM Master <a class="header-anchor" href="#tidb-dm-master" aria-label="Permalink to &quot;TiDB DM Master&quot;"></a></h1>
 <h2 id="what-s-dm-master" tabindex="-1">What's DM Master <a class="header-anchor" href="#what-s-dm-master" aria-label="Permalink to &quot;What's DM Master&quot;"></a></h2>
@@ -22301,7 +22301,7 @@ f. 然后，使用 <code>estimatedChunks := count / conf.Rows</code> 将其拆�
             <title><![CDATA[DM Worker]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-4DM/04TiDB-DM Worker.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-4DM/04TiDB-DM Worker.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[DM Worker]]></description>
             <content:encoded><![CDATA[<h1 id="dm-worker" tabindex="-1">DM Worker <a class="header-anchor" href="#dm-worker" aria-label="Permalink to &quot;DM Worker&quot;"></a></h1>
 <h2 id="what-s-dm-worker" tabindex="-1">What's DM Worker <a class="header-anchor" href="#what-s-dm-worker" aria-label="Permalink to &quot;What's DM Worker&quot;"></a></h2>
@@ -22376,7 +22376,7 @@ f. 然后，使用 <code>estimatedChunks := count / conf.Rows</code> 将其拆�
             <title><![CDATA[DM syncer]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-4DM/05TiDB-DM syncer.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-4DM/05TiDB-DM syncer.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[DM syncer]]></description>
             <content:encoded><![CDATA[<h1 id="dm-syncer" tabindex="-1">DM syncer <a class="header-anchor" href="#dm-syncer" aria-label="Permalink to &quot;DM syncer&quot;"></a></h1>
 <h2 id="what-s-syncer" tabindex="-1">What's syncer <a class="header-anchor" href="#what-s-syncer" aria-label="Permalink to &quot;What's syncer&quot;"></a></h2>
@@ -22487,7 +22487,7 @@ d. <strong>心跳事件收到</strong>: 在 <a href="https://github.com/pingcap/
             <title><![CDATA[Metrics]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-4DM/06TiDB-DM Metrics.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-4DM/06TiDB-DM Metrics.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Metrics]]></description>
             <content:encoded><![CDATA[<h1 id="metrics" tabindex="-1">Metrics <a class="header-anchor" href="#metrics" aria-label="Permalink to &quot;Metrics&quot;"></a></h1>
 <h2 id="overview" tabindex="-1">Overview <a class="header-anchor" href="#overview" aria-label="Permalink to &quot;Overview&quot;"></a></h2>
@@ -22566,7 +22566,7 @@ d. <strong>心跳事件收到</strong>: 在 <a href="https://github.com/pingcap/
             <title><![CDATA[TiDB-Binlog 与 Reparo 原理简介与部署使用]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-6Binlog/01Binlog及Reparo原理与使用.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/5-6Binlog/01Binlog及Reparo原理与使用.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[TiDB-Binlog 与 Reparo 原理简介与部署使用]]></description>
             <content:encoded><![CDATA[<h1 id="tidb-binlog-与-reparo-原理简介与部署使用" tabindex="-1">TiDB-Binlog 与 Reparo 原理简介与部署使用 <a class="header-anchor" href="#tidb-binlog-与-reparo-原理简介与部署使用" aria-label="Permalink to &quot;TiDB-Binlog 与 Reparo 原理简介与部署使用&quot;"></a></h1>
 <blockquote>
@@ -23122,7 +23122,7 @@ d. <strong>心跳事件收到</strong>: 在 <a href="https://github.com/pingcap/
             <title><![CDATA[CDC 组件解析]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/TiCDC/03CDC组件解析.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/TiCDC/03CDC组件解析.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[CDC 组件解析]]></description>
             <content:encoded><![CDATA[<h1 id="cdc-组件解析" tabindex="-1">CDC 组件解析 <a class="header-anchor" href="#cdc-组件解析" aria-label="Permalink to &quot;CDC 组件解析&quot;"></a></h1>
 <ol>
@@ -23134,7 +23134,7 @@ d. <strong>心跳事件收到</strong>: 在 <a href="https://github.com/pingcap/
             <title><![CDATA[监控原理解析]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/TiCDC/04监控原理解析.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/TiCDC/04监控原理解析.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[监控原理解析]]></description>
             <content:encoded><![CDATA[<h1 id="监控原理解析" tabindex="-1">监控原理解析 <a class="header-anchor" href="#监控原理解析" aria-label="Permalink to &quot;监控原理解析&quot;"></a></h1>
 <h2 id="文章意义" tabindex="-1">文章意义 <a class="header-anchor" href="#文章意义" aria-label="Permalink to &quot;文章意义&quot;"></a></h2>
@@ -23656,7 +23656,7 @@ Kafka Sink 面板
             <title><![CDATA[使用背景]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/TiCDC/TiCDC Overview.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/TiCDC/TiCDC Overview.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[使用背景]]></description>
             <content:encoded><![CDATA[<h1 id="使用背景" tabindex="-1">使用背景 <a class="header-anchor" href="#使用背景" aria-label="Permalink to &quot;使用背景&quot;"></a></h1>
 <h2 id="一、项目背景" tabindex="-1">一、项目背景 <a class="header-anchor" href="#一、项目背景" aria-label="Permalink to &quot;一、项目背景&quot;"></a></h2>
@@ -23812,7 +23812,7 @@ Kafka Sink 面板
             <title><![CDATA[剖析架构模型]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/TiCDC/TiCDC Streaming.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-EcosystematicTools/TiCDC/TiCDC Streaming.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[剖析架构模型]]></description>
             <content:encoded><![CDATA[<h1 id="剖析架构模型" tabindex="-1">剖析架构模型 <a class="header-anchor" href="#剖析架构模型" aria-label="Permalink to &quot;剖析架构模型&quot;"></a></h1>
 <h2 id="一、同步模型" tabindex="-1">一、同步模型 <a class="header-anchor" href="#一、同步模型" aria-label="Permalink to &quot;一、同步模型&quot;"></a></h2>
@@ -23926,7 +23926,7 @@ Kafka Sink 面板
             <title><![CDATA[一、论文摘要]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-Principle/Paper Reading/03Spanner 分布式事务.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-Principle/Paper Reading/03Spanner 分布式事务.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Author : Jan   
 Time : 2021-10-19   
 Type : DB Theory
@@ -24075,7 +24075,7 @@ Coordinator Leader 返回给 client 说事务已经提交成功，并且返回�
             <title><![CDATA[一、论文摘要]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-Principle/Paper Reading/04LSMTree 存储笔记.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-Principle/Paper Reading/04LSMTree 存储笔记.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[1. 适用场景： LSM-tree 是一种基于磁盘的 Data Structure，旨在为一段时间内持续插入、删除的文件提供低成本索引，从而解决传统 B-tree 在持续写出场景下，维护活心事务 I/]]></description>
             <content:encoded><![CDATA[<h2 id="一、论文摘要" tabindex="-1">一、论文摘要 <a class="header-anchor" href="#一、论文摘要" aria-label="Permalink to &quot;一、论文摘要&quot;"></a></h2>
 <ol>
@@ -24125,7 +24125,7 @@ Coordinator Leader 返回给 client 说事务已经提交成功，并且返回�
             <title><![CDATA[事务的隔离级别]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-Principle/Paper Reading/05数据库的隔离级别.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-Principle/Paper Reading/05数据库的隔离级别.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[事务的隔离级别]]></description>
             <content:encoded><![CDATA[<h1 id="事务的隔离级别" tabindex="-1">事务的隔离级别 <a class="header-anchor" href="#事务的隔离级别" aria-label="Permalink to &quot;事务的隔离级别&quot;"></a></h1>
 <p>时间：2021-01-14</p>
@@ -24596,7 +24596,7 @@ session 1 在同一个事务中的两次查询，因为 session 2 在另一个�
             <title><![CDATA[Paxos解决的问题]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-Principle/Paper Reading/PaperPaxos Note.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-Principle/Paper Reading/PaperPaxos Note.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Paxos算法常被引用于分布式相关文章，借助针对希腊城邦议会立法的场景，主要探讨在人员不断变化等不确定性因素的前提下如何基于一定的规则达成共识方法。作者借用对场景的探讨隐喻分布式计算机系统的解决办法，]]></description>
             <content:encoded><![CDATA[<h3 id="paxos解决的问题" tabindex="-1">Paxos解决的问题 <a class="header-anchor" href="#paxos解决的问题" aria-label="Permalink to &quot;Paxos解决的问题&quot;"></a></h3>
 <p>Paxos算法常被引用于分布式相关文章，借助针对希腊城邦议会立法的场景，主要探讨在人员不断变化等不确定性因素的前提下如何基于一定的规则达成共识方法。作者借用对场景的探讨隐喻分布式计算机系统的解决办法，以较易于理解的形式阐述、并验证了该算法的正确性。</p>
@@ -24668,7 +24668,7 @@ session 1 在同一个事务中的两次查询，因为 session 2 在另一个�
             <title><![CDATA[Percolator 分布式事务]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-Principle/Paper Reading/Percolator Transaction.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-Principle/Paper Reading/Percolator Transaction.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[Percolator 分布式事务]]></description>
             <content:encoded><![CDATA[<h1 id="percolator-分布式事务" tabindex="-1">Percolator 分布式事务 <a class="header-anchor" href="#percolator-分布式事务" aria-label="Permalink to &quot;Percolator 分布式事务&quot;"></a></h1>
 <h2 id="一、论文摘要" tabindex="-1">一、论文摘要 <a class="header-anchor" href="#一、论文摘要" aria-label="Permalink to &quot;一、论文摘要&quot;"></a></h2>
@@ -24960,7 +24960,7 @@ Using Distributed Transactions and Notifications</a><br>
             <title><![CDATA[What's Logical Optimizing in TiDB]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-Principle/TiDB 优化器/Logical Optimizing in TiDB.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-Principle/TiDB 优化器/Logical Optimizing in TiDB.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[What's Logical Optimizing in TiDB]]></description>
             <content:encoded><![CDATA[<h1 id="what-s-logical-optimizing-in-tidb" tabindex="-1">What's Logical Optimizing in TiDB <a class="header-anchor" href="#what-s-logical-optimizing-in-tidb" aria-label="Permalink to &quot;What's Logical Optimizing in TiDB&quot;"></a></h1>
 <h2 id="first-of-all" tabindex="-1">First of all <a class="header-anchor" href="#first-of-all" aria-label="Permalink to &quot;First of all&quot;"></a></h2>
@@ -25169,7 +25169,7 @@ secondly, when predicate operands are <code>=</code>, <code>&gt;</code>, <code>&
             <title><![CDATA[First of all]]></title>
             <link>https://askaric.com/zh/work/tidb/TiDB-Principle/TiDB 优化器/Physical Optimizing in TiDB.html</link>
             <guid>https://askaric.com/zh/work/tidb/TiDB-Principle/TiDB 优化器/Physical Optimizing in TiDB.html</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[
 
 ## First of all
@@ -25630,7 +25630,7 @@ b. if spill, <code>sort-mem-cost is</code> <code>mem-quota * mem-factor</code> a
             <title><![CDATA[我的 TiDB 笔记简介]]></title>
             <link>https://askaric.com/zh/work/tidb/</link>
             <guid>https://askaric.com/zh/work/tidb/</guid>
-            <pubDate>Fri, 08 Aug 2025 15:33:12 GMT</pubDate>
+            <pubDate>Fri, 08 Aug 2025 15:36:39 GMT</pubDate>
             <description><![CDATA[我的 TiDB 笔记简介]]></description>
             <content:encoded><![CDATA[<h1 id="我的-tidb-笔记简介" tabindex="-1">我的 TiDB 笔记简介 <a class="header-anchor" href="#我的-tidb-笔记简介" aria-label="Permalink to &quot;我的 TiDB 笔记简介&quot;"></a></h1>
 <h2 id="_01tidb-原理总结" tabindex="-1">01TiDB-原理总结 <a class="header-anchor" href="#_01tidb-原理总结" aria-label="Permalink to &quot;01TiDB-原理总结&quot;"></a></h2>

@@ -1,3 +1,8 @@
+---
+title: scenario of success and happiness
+description: scenario of success and happiness
+---
+
 # scenario of success and happiness
 
 ## About content

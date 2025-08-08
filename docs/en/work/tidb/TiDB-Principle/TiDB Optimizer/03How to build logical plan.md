@@ -1,3 +1,8 @@
+---
+title: How to build logical plan
+description: How to build logical plan
+---
+
 # How to build logical plan
 
 ## 1. One SQL'll be translated into AST

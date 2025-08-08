@@ -1,3 +1,8 @@
+---
+title: Analysis of monitoring principle
+description: Analysis of monitoring principle
+---
+
 # Analysis of monitoring principle
 
 ## Meaning of the article

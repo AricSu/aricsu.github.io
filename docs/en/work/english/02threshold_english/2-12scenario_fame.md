@@ -1,3 +1,8 @@
+---
+title: Scenario of fame
+description: Scenario of fame
+---
+
 # Scenario of fame
 
 ## First of all

@@ -1,3 +1,8 @@
+---
+title: What problem does Paxos reslove
+description: What problem does Paxos reslove
+---
+
 # What problem does Paxos reslove
 
 Paxos算法常被引用于分布式相关文章，借助针对希腊城邦议会立法的场景，主要探讨在人员不断变化等不确定性因素的前提下如何基于一定的规则达成共识方法。作者借用对场景的探讨隐喻分布式计算机系统的解决办法，以较易于理解的形式阐述、并验证了该算法的正确性。

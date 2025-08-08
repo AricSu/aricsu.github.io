@@ -1,3 +1,8 @@
+---
+title: Oracle 11g单库ASM部署
+description: Oracle 11g单库ASM部署
+---
+
 # Oracle 11g单库ASM部署
 
 > [DBNEST -- 旧版文档 “点击” 直接浏览或下载 PDF](./Oracle11g单实例ASM静默安装.pdf)

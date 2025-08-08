@@ -1,3 +1,8 @@
+---
+title: 解析慢日志
+description: 解析慢日志
+---
+
 # 解析慢日志
 
 使用 `tihc tools slowlog` 命令解析 TiDB 集群的慢查询日志文件，并以异步的方式导入任意与 MySQL 兼容的数据库中以便分析。

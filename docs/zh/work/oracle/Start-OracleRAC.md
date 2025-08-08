@@ -1,3 +1,8 @@
+---
+title: Oracle 11g RAC 部署搭建
+description: Oracle 11g RAC 部署搭建
+---
+
 # Oracle 11g RAC 部署搭建
 
 > [DBNEST -- Bilibili RAC 基础搭建视频地址](https://www.bilibili.com/video/BV1ZT4y157NN?from=search&seid=17237800447886927935&spm_id_from=333.337.0.0)

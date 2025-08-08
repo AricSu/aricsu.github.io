@@ -1,3 +1,8 @@
+---
+title: Macbook M1 体验 Operator 部署 TiCDC
+description: Macbook M1 体验 Operator 部署 TiCDC
+---
+
 # Macbook M1 体验 Operator 部署 TiCDC
 
 > **该文档已经发布，即从 “[论坛-技术随笔]” 中移出，原文档变为后期维护，可在 [原文档](http://forum.dbnest.net/t/topic/26) 中提出您对文档的建议。**

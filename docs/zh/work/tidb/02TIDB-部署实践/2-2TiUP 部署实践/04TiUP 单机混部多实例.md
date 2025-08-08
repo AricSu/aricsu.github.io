@@ -1,3 +1,8 @@
+---
+title: TiDB-单机多TiKV实例、多TiDB实例部署
+description: TiDB-单机多TiKV实例、多TiDB实例部署
+---
+
 # TiDB-单机多TiKV实例、多TiDB实例部署
 时间：2021-01-06
 

@@ -1,3 +1,8 @@
+---
+title: Analyzing the Architecture Model
+description: Analyzing the Architecture Model
+---
+
 # Analyzing the Architecture Model
 
 ## 1. Synchronization Model

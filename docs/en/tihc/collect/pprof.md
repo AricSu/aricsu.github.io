@@ -1,3 +1,8 @@
+---
+title: Collect Pprof
+description: Collect Pprof
+---
+
 # Collect Pprof
 
 Use the `tihc collect pprof` command to collect pprof information from various components in a TiDB cluster.

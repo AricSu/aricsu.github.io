@@ -1,3 +1,8 @@
+---
+title: Sceranrio of culture
+description: Sceranrio of culture
+---
+
 # Sceranrio of culture
 
 ## About content

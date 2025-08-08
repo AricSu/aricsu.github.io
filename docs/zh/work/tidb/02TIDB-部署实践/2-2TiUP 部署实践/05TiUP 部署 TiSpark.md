@@ -1,3 +1,8 @@
+---
+title: TiDB-TiSpark依靠TiUP工具协助部署集群
+description: TiDB-TiSpark依靠TiUP工具协助部署集群
+---
+
 # TiDB-TiSpark依靠TiUP工具协助部署集群
 时间：2021-01-16
 

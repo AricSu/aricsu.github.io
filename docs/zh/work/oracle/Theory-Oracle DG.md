@@ -1,3 +1,8 @@
+---
+title: Oracle DataGuard 概念梳理
+description: Oracle DataGuard 概念梳理
+---
+
 # Oracle DataGuard 概念梳理
 
 > [DBNEST -- Bilibili DataGuard 基础搭建视频地址](https://www.bilibili.com/video/BV1Ep4y197JA?from=search&seid=17237800447886927935&spm_id_from=333.337.0.0)

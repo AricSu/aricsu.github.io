@@ -1,3 +1,8 @@
+---
+title: Learn about skiing
+description: Learn about skiing
+---
+
 # Learn about skiing
 
 

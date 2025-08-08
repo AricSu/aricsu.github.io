@@ -52,16 +52,52 @@ export default {
     const { frontmatter } = toRefs(data);
     const route = useRoute();
 
+    // 动态设置 category 和 categoryId
+    const getCategoryConfig = (path: string) => {
+      if (path.includes('/tihc')) {
+        return {
+          category: 'AskAric[TiHC]',
+          categoryId: 'DIC_kwDOE3Tswc4Crqyn' // 替换为实际的 TiHC category ID
+        };
+      } else if (path.includes('/motor')) {
+        return {
+          category: 'Motor',
+          categoryId: 'DIC_kwDOE3Tswc4CskH9' // 替换为实际的 Motor category ID
+        };
+      } else if (path.includes('/skiing')) {
+        return {
+          category: 'Skiing',
+          categoryId: 'DIC_kwDOE3Tswc4CskH2' // 替换为实际的 Skiing category ID
+        };
+      } else if (path.includes('/tennis')) {
+        return {
+          category: 'Tennis',
+          categoryId: 'DIC_kwDOE3Tswc4CskHv' // 替换为实际的 Tennis category ID
+        };
+      } else if (path.includes('/coffee')) {
+        return {
+          category: 'Coffee',
+          categoryId: 'DIC_kwDOE3Tswc4CskH-' // 替换为实际的 Coffee category ID
+        };
+      }
+      return {
+        category: 'Blog',
+        categoryId: 'DIC_kwDOE3Tswc4CskIR'
+      };
+    };
+
+    const categoryConfig = getCategoryConfig(route.path);
+
     // https://giscus.app/zh-CN
     giscusTalk(
       {
-        repo: 'AricSu/askAricComments',
-        repoId: 'R_kgDONeqM7A',
-        category: 'General', // 默认: `General`
-        categoryId: 'DIC_kwDONeqM7M4ClSWa',
-        mapping: 'pathname', // 默认: `pathname`
+        repo: 'AricSu/aricsu.github.io',
+        repoId: 'MDEwOlJlcG9zaXRvcnkzMjY0Mjk4ODk=',
+        category: categoryConfig.category,
+        categoryId: categoryConfig.categoryId,
+        mapping: 'title', // 默认: `pathname`
         inputPosition: 'bottom', // 默认: `top`
-        lang: 'zh-CN', // 默认: `zh-CN`
+        lang: 'en', // 默认: `zh-CN`
         lightTheme: 'light', // 默认: `light`
         darkTheme: 'dark', // 默认: `transparent_dark`
         loading: 'eager',

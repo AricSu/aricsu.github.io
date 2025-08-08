@@ -1,3 +1,8 @@
+---
+title: Scenario of strange events
+description: Scenario of strange events
+---
+
 # Scenario of strange events
 
 ## First of all

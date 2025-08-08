@@ -1,3 +1,8 @@
+---
+title: TiDB-Lighting Architecture
+description: TiDB-Lighting Architecture
+---
+
 # TiDB-Lighting Architecture
 
 ## 1. Overview

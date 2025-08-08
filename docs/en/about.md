@@ -1,3 +1,8 @@
+---
+title: About Aric
+description: About Aric
+---
+
 # About Aric
 
 ![header](../images/header.jpg)

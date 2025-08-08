@@ -1,3 +1,8 @@
+---
+title: TiDB-Binlog 与 Reparo 原理简介与部署使用
+description: TiDB-Binlog 与 Reparo 原理简介与部署使用
+---
+
 # TiDB-Binlog 与 Reparo 原理简介与部署使用
 
 

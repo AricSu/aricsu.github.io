@@ -1,3 +1,8 @@
+---
+title: TiDB run and debug on M1
+description: TiDB run and debug on M1
+---
+
 # TiDB run and debug on M1
 
 ## 一、Summary

@@ -1,3 +1,8 @@
+---
+title: TiDB-TiUP工具集群滚动升级
+description: TiDB-TiUP工具集群滚动升级
+---
+
 # TiDB-TiUP工具集群滚动升级
 时间：2020-12-25
 

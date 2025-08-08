@@ -1,3 +1,8 @@
+---
+title: DocDB 数据收集
+description: DocDB 数据收集
+---
+
 # DocDB 数据收集
 
 使用 `tihc collect docdb` 命令收集存储在 TiDB 集群 Docdb 中 TOPSQL 的 DocDB 相关数据。

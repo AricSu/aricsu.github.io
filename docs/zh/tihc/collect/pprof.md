@@ -1,3 +1,8 @@
+---
+title: Collect Pprof
+description: Collect Pprof
+---
+
 # Collect Pprof
 
 实用 tihc collect pprof 命令，收集 TiDB 集群中各组件的 pprof 信息。

@@ -1,3 +1,8 @@
+---
+title: TiDB之Prometheus
+description: TiDB之Prometheus
+---
+
 # TiDB之Prometheus
 
 如果您需要100%的准确性，例如按请求计费，普罗米修斯不是一个好选择，因为收集的数据可能不够详细和完整。在这种情况下，您最好使用其他系统来收集和分析计费数据，并使用普罗米修斯进行其余的监控。

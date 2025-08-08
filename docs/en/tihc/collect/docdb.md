@@ -1,3 +1,8 @@
+---
+title: docdb
+description: docdb
+---
+
 # docdb
 
 Use the `tihc collect docdb` command to collect TOPSQL storaged in DocDB of TiDB cluster.

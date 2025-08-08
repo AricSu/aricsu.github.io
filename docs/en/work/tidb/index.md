@@ -1,3 +1,8 @@
+---
+title: My introduction of TiDB notes
+description: My introduction of TiDB notes
+---
+
 # My introduction of TiDB notes
 
 ## 01TiDB-Principle

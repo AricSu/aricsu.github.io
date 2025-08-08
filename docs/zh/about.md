@@ -1,3 +1,8 @@
+---
+title: 博客及博主简介
+description: 博客及博主简介
+---
+
 # 博客及博主简介
 
 ![header](../images/header.jpg)

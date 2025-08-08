@@ -1,3 +1,8 @@
+---
+title: TiDB-DM Quick Start
+description: TiDB-DM Quick Start
+---
+
 # TiDB-DM Quick Start
 
 ## Something you have to know

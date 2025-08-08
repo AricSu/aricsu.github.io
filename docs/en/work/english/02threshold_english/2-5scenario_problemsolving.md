@@ -1,3 +1,8 @@
+---
+title: Scenario of problem solving
+description: Scenario of problem solving
+---
+
 # Scenario of problem solving
 
 ## First of all

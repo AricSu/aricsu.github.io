@@ -1,3 +1,8 @@
+---
+title: OGG数据库系统oracle到TiDB异地灾备方案
+description: OGG数据库系统oracle到TiDB异地灾备方案
+---
+
 # OGG数据库系统oracle到TiDB异地灾备方案
 
 ## 目录  

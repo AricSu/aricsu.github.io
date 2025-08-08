@@ -1,3 +1,8 @@
+---
+title: TiHC (TiDB Health Checker)
+description: TiHC (TiDB Health Checker)
+---
+
 # TiHC (TiDB Health Checker)
 
 

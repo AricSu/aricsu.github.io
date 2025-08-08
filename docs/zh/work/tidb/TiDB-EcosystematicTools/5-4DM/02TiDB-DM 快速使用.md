@@ -1,3 +1,8 @@
+---
+title: TiDB-DM 快速使用
+description: TiDB-DM 快速使用
+---
+
 # TiDB-DM 快速使用
 
 这是关于 DM 部署的快速入门，如果你更熟悉 docker，你也可以在 docker 上做。我已经为此准备了另一个内容，[详情参考这篇文章](../../08TiDB-Cloud-K8S/8-1TiDB-%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/02TiDB-Operator%20%E9%83%A8%E7%BD%B2%20DM.md)

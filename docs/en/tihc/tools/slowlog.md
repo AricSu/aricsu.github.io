@@ -1,3 +1,8 @@
+---
+title: Parse Slow Log
+description: Parse Slow Log
+---
+
 # Parse Slow Log
 
 Use the `tihc tools slowlog` command to parse TiDB cluster's slow query log files and asynchronously import them into any MySQL-compatible database for analysis.

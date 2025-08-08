@@ -1,3 +1,8 @@
+---
+title: Scenario of world culture
+description: Scenario of world culture
+---
+
 # Scenario of world culture
 
 ## First of all

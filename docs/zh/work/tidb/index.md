@@ -1,3 +1,8 @@
+---
+title: 我的 TiDB 笔记简介
+description: 我的 TiDB 笔记简介
+---
+
 # 我的 TiDB 笔记简介
 
 ## 01TiDB-原理总结

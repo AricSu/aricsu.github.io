@@ -1,3 +1,8 @@
+---
+title: BR tuning
+description: BR tuning
+---
+
 # BR tuning
 
 4.1 Parameter ratelimit can't limit the effect on TiKV

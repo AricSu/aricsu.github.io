@@ -1,3 +1,8 @@
+---
+title: Scenario of socializing
+description: Scenario of socializing
+---
+
 # Scenario of socializing
 
 ## First of all

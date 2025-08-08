@@ -1,3 +1,8 @@
+---
+title: scernario of getting along
+description: scernario of getting along
+---
+
 # scernario of getting along
 
 ## About grammar

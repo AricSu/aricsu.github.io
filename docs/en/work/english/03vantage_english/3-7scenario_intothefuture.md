@@ -1,3 +1,8 @@
+---
+title: scernario into the future
+description: scernario into the future
+---
+
 # scernario into the future
 
 ## About grammar

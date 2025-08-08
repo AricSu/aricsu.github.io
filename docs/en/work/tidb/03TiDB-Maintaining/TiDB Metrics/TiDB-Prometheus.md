@@ -1,3 +1,8 @@
+---
+title: The Prometheus of TiDB
+description: The Prometheus of TiDB
+---
+
 # The Prometheus of TiDB
 
 If you need 100% accuracy, such as billing on request, Prometheus is not a good choice because the data collected may not be detailed and complete enough. In this case, you are better off using other systems to collect and analyze the billing data, and using Prometheus for the rest of the monitoring.

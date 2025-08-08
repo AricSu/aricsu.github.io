@@ -1,3 +1,8 @@
+---
+title: What's Logical Optimizing in TiDB
+description: What's Logical Optimizing in TiDB
+---
+
 # What's Logical Optimizing in TiDB
 
 ## First of all

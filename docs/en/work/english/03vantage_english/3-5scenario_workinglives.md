@@ -1,3 +1,8 @@
+---
+title: scernario working lives
+description: scernario working lives
+---
+
 # scernario working lives
 
 ## First of all

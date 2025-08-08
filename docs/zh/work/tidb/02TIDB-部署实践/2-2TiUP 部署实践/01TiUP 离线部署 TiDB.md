@@ -1,3 +1,8 @@
+---
+title: TiDB-TiUP工具集群离线部署方案
+description: TiDB-TiUP工具集群离线部署方案
+---
+
 # TiDB-TiUP工具集群离线部署方案
 时间：2020-12-25
 

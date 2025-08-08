@@ -1,3 +1,8 @@
+---
+title: CDC Component in TiKV
+description: CDC Component in TiKV
+---
+
 # CDC Component in TiKV
 
 ## Lazy worker of cdc component

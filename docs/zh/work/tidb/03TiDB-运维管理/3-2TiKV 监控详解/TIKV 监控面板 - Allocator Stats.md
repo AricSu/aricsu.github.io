@@ -1,3 +1,8 @@
+---
+title: TIKV 监控面板 - Allocator Stats
+description: TIKV 监控面板 - Allocator Stats
+---
+
 # TIKV 监控面板 - Allocator Stats
 
 ## 1. 面板简介

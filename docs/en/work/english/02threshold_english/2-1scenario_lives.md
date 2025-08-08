@@ -1,3 +1,8 @@
+---
+title: Scenario of lives
+description: Scenario of lives
+---
+
 # Scenario of lives
 
 ## First of all

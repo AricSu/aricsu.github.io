@@ -27,9 +27,7 @@ features:
     link: /zh/about/
 ---
 
-## Ask Channel
-
-You can ask everything you want!
+## 💬 向 Aric 提问
 
 <QandAList />
 

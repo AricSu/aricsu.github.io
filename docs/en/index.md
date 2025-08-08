@@ -23,6 +23,12 @@ features:
     title: Self-introduction
     link: /en/about/
 ---
+
+## 💬 Ask Aric
+
+<QandAList />
+
+
 <panda-hr/>
 <vendors-en/>
 <panda-hr/>

@@ -1,0 +1,96 @@
+name: Fetch GitHub Discussions
+
+on:
+  schedule:
+    # 每小时执行一次（可以根据需要调整）
+    - cron: '0 * * * *'
+  workflow_dispatch: # 手动触发
+  push:
+    branches: [ main ]
+
+jobs:
+  fetch-discussions:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Create workflow directory
+      run: mkdir -p docs/public/workflow
+      
+    - name: Fetch and process discussions data
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # 获取 aricsu.github.io 仓库的讨论
+        curl -H "Authorization: token $GITHUB_TOKEN" \
+             -H "Accept: application/vnd.github.v3+json" \
+             "https://api.github.com/repos/AricSu/aricsu.github.io/discussions?per_page=100&state=open" \
+             | jq '[.[] | {
+               id: .id,
+               title: .title,
+               category: {
+                 name: .category.name,
+                 description: .category.description,
+                 id: .category.id
+               },
+               user: {
+                 login: .user.login,
+                 avatar_url: .user.avatar_url
+               },
+               comments: .comments,
+               created_at: .created_at,
+               updated_at: .updated_at,
+               html_url: .html_url,
+               body: (.body | if length > 200 then .[:200] + "..." else . end)
+             }]' > temp_discussions.json
+             
+        # 生成合并的数据结构
+        node -e "
+        const fs = require('fs');
+        const discussions = JSON.parse(fs.readFileSync('temp_discussions.json', 'utf8'));
+        
+        // 按分类统计
+        const categoryStats = {};
+        discussions.forEach(d => {
+          const catName = d.category.name;
+          categoryStats[catName] = (categoryStats[catName] || 0) + 1;
+        });
+        
+        const categories = Object.entries(categoryStats).map(([name, count]) => ({name, count}));
+        
+        const data = {
+          meta: {
+            last_updated: new Date().toISOString(),
+            repository: {
+              name: 'aricsu.github.io',
+              total_discussions: discussions.length,
+              categories: categories
+            }
+          },
+          discussions: discussions
+        };
+        
+        fs.writeFileSync('docs/public/workflow/discussions-data.json', JSON.stringify(data, null, 2));
+        "
+        
+        # 删除临时文件
+        rm temp_discussions.json
+    
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs/public/workflow/
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "chore: update discussions data $(date -u +"%Y-%m-%d %H:%M UTC")"
+          git push
+        fi

@@ -1,9 +1,9 @@
 {
   "meta": {
-    "last_updated": "2025-08-25T03:08:07.942Z",
+    "last_updated": "2025-08-26T03:02:57.877Z",
     "repository": {
       "name": "aricsu.github.io",
-      "total_discussions": 4,
+      "total_discussions": 5,
       "categories": [
         {
           "name": "Announcements",
@@ -15,7 +15,7 @@
         },
         {
           "name": "AskAric[TiHC]",
-          "count": 1
+          "count": 2
         }
       ]
     }
@@ -92,6 +92,24 @@
       "updated_at": "2025-08-08T15:28:15Z",
       "html_url": "https://github.com/AricSu/aricsu.github.io/discussions/15",
       "body": "# TiHC (TiDB Health Checker) | AskAric\n\nTiHC (TiDB Health Checker)\n\nhttps://www.askaric.com/en/tihc/\n\n<!-- sha1: 6f39233785c41bfd48bc6111c54bc7274cb1a336 -->"
+    },
+    {
+      "id": 8800698,
+      "title": "[TiHC Proposal] Plugin report engine",
+      "category": {
+        "name": "AskAric[TiHC]",
+        "description": "Share ideas for new features",
+        "id": 45001895
+      },
+      "user": {
+        "login": "AricSu",
+        "avatar_url": "https://avatars.githubusercontent.com/u/76909042?v=4"
+      },
+      "comments": 0,
+      "created_at": "2025-08-25T23:45:05Z",
+      "updated_at": "2025-08-25T23:47:26Z",
+      "html_url": "https://github.com/AricSu/aricsu.github.io/discussions/16",
+      "body": "## 1. Goals & Non‑Goals\r\n\r\n### 1.1 Goals\r\n\r\n* 统一实现 **巡检（Health Check）** 与 **诊断（Diagnosis）** 的可插拔引擎。\r\n* 支持多数据源：**Prometheus 指标**、**日志文件/流**、**Cluster Config**、**System Variables**、（可扩展）SQL 执行计划、系统信息。\r\n..."
     }
   ]
 }

@@ -1,8 +1,16 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 const route = useRoute()
 
-const { data: page } = await useAsyncData('blog', () => queryCollection('blog').first())
-const { data: posts } = await useAsyncData(route.path, () => queryCollection('posts').all())
+const { locale } = useI18n()
+console.log('Locale:', locale.value)
+
+const blogCollection = locale.value === 'zh-cn' ? 'blogZh' : 'blogEn'
+const postsCollection = locale.value === 'zh-cn' ? 'postsZh' : 'postsEn'
+
+const { data: page } = await useAsyncData('blog', () => queryCollection(blogCollection).first())
+const { data: posts } = await useAsyncData(route.path, () => queryCollection(postsCollection).all())
 
 const title = page.value?.seo?.title || page.value?.title
 const description = page.value?.seo?.description || page.value?.description
@@ -14,7 +22,7 @@ useSeoMeta({
   ogDescription: description
 })
 
-defineOgImageComponent('Saas')
+// defineOgImageComponent('Saas')
 </script>
 
 <template>

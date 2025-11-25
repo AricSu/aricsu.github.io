@@ -1,7 +1,11 @@
 <script setup lang="ts">
-const colorMode = useColorMode()
+import { en, zh_cn } from '@nuxt/ui/locale'
 
+const localePath = useLocalePath()
+const colorMode = useColorMode()
 const color = computed(() => colorMode.value === 'dark' ? '#020618' : 'white')
+
+const { locale, t } = useI18n()
 
 useHead({
   meta: [
@@ -13,47 +17,41 @@ useHead({
     { rel: 'icon', href: '/favicon.ico' }
   ],
   htmlAttrs: {
-    lang: 'en'
+    lang: locale.value
   }
 })
 
 useSeoMeta({
-  titleTemplate: '%s - Nuxt SaaS template',
+  titleTemplate: 'AskAric',
   ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/saas-light.png',
   twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/saas-light.png',
   twitterCard: 'summary_large_image'
 })
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs'), {
+const routeLocale = useRoute().params.locale || 'en'
+const indexCollection = routeLocale === 'zh-cn' ? 'docsZh' : 'docsEn'
+
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation(indexCollection), {
   transform: data => data.find(item => item.path === '/docs')?.children || []
 })
-const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
+const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections(indexCollection), {
   server: false
 })
 
-const links = [{
-  label: 'Docs',
-  icon: 'i-lucide-book',
-  to: '/docs/getting-started'
-}, {
-  label: 'Pricing',
-  icon: 'i-lucide-credit-card',
-  to: '/pricing'
-}, {
-  label: 'Blog',
-  icon: 'i-lucide-pencil',
-  to: '/blog'
-}, {
-  label: 'Changelog',
-  icon: 'i-lucide-history',
-  to: '/changelog'
-}]
+const links = [
+  { label: t('nav.docs'), icon: 'i-lucide-book', to: localePath('/docs/1.getting-started') },
+  { label: t('nav.pricing'), icon: 'i-lucide-credit-card', to: localePath('/pricing') },
+  { label: t('nav.blog'), icon: 'i-lucide-pencil', to: localePath('/blog') },
+  { label: t('nav.changelog'), icon: 'i-lucide-history', to: localePath('/changelog') }
+]
 
 provide('navigation', navigation)
 </script>
 
 <template>
-  <UApp>
+  <UApp
+    :locale="locale === 'zh-cn' ? zh_cn : en"
+  >
     <NuxtLoadingIndicator />
 
     <NuxtLayout>
@@ -62,7 +60,8 @@ provide('navigation', navigation)
 
     <ClientOnly>
       <LazyUContentSearch
-        :files="files"
+        :files="
+          files"
         shortcut="meta_k"
         :navigation="navigation"
         :links="links"

@@ -33,8 +33,8 @@ const createImageSchema = () => z.object({
 })
 
 export const collections = {
-  index: defineCollection({
-    source: '0.index.yml',
+  indexEn: defineCollection({
+    source: 'en/0.index.yml',
     type: 'page',
     schema: z.object({
       hero: z.object(({
@@ -71,12 +71,56 @@ export const collections = {
       })
     })
   }),
-  docs: defineCollection({
-    source: '1.docs/**/*',
-    type: 'page'
+  indexZh: defineCollection({
+    source: 'zh-cn/0.index.yml',
+    type: 'page',
+    schema: z.object({
+      hero: z.object(({
+        links: z.array(createLinkSchema())
+      })),
+      sections: z.array(
+        createBaseSchema().extend({
+          id: z.string().nonempty(),
+          orientation: orientationEnum.optional(),
+          reverse: z.boolean().optional(),
+          features: z.array(createFeatureItemSchema())
+        })
+      ),
+      features: createBaseSchema().extend({
+        items: z.array(createFeatureItemSchema())
+      }),
+      testimonials: createBaseSchema().extend({
+        headline: z.string().optional(),
+        items: z.array(
+          z.object({
+            quote: z.string().nonempty(),
+            user: z.object({
+              name: z.string().nonempty(),
+              description: z.string().nonempty(),
+              to: z.string().nonempty(),
+              target: z.string().nonempty(),
+              avatar: createImageSchema()
+            })
+          })
+        )
+      }),
+      cta: createBaseSchema().extend({
+        links: z.array(createLinkSchema())
+      })
+    })
   }),
-  pricing: defineCollection({
-    source: '2.pricing.yml',
+  docsEn: defineCollection({
+    source: 'en/1.docs/**/*',
+    type: 'page',
+    pathPrefix: '/docs'
+  }),
+  docsZh: defineCollection({
+    source: 'zh-cn/1.docs/**/*',
+    type: 'page',
+    pathPrefix: '/docs'
+  }),
+  pricingEn: defineCollection({
+    source: 'en/2.pricing.yml',
     type: 'page',
     schema: z.object({
       plans: z.array(
@@ -108,12 +152,65 @@ export const collections = {
       })
     })
   }),
-  blog: defineCollection({
-    source: '3.blog.yml',
+  pricingZh: defineCollection({
+    source: 'zh-cn/2.pricing.yml',
+    type: 'page',
+    schema: z.object({
+      plans: z.array(
+        z.object({
+          title: z.string().nonempty(),
+          description: z.string().nonempty(),
+          price: z.object({
+            month: z.string().nonempty(),
+            year: z.string().nonempty()
+          }),
+          billing_period: z.string().nonempty(),
+          billing_cycle: z.string().nonempty(),
+          button: createLinkSchema(),
+          features: z.array(z.string().nonempty()),
+          highlight: z.boolean().optional()
+        })
+      ),
+      logos: z.object({
+        title: z.string().nonempty(),
+        icons: z.array(z.string())
+      }),
+      faq: createBaseSchema().extend({
+        items: z.array(
+          z.object({
+            label: z.string().nonempty(),
+            content: z.string().nonempty()
+          })
+        )
+      })
+    })
+  }),
+  blogEn: defineCollection({
+    source: 'en/3.blog.yml',
     type: 'page'
   }),
-  posts: defineCollection({
-    source: '3.blog/**/*',
+  blogZh: defineCollection({
+    source: 'zh-cn/3.blog.yml',
+    type: 'page'
+  }),
+  postsEn: defineCollection({
+    source: 'en/3.blog/**/*',
+    type: 'page',
+    schema: z.object({
+      image: z.object({ src: z.string().nonempty().editor({ input: 'media' }) }),
+      authors: z.array(
+        z.object({
+          name: z.string().nonempty(),
+          to: z.string().nonempty(),
+          avatar: z.object({ src: z.string().nonempty().editor({ input: 'media' }) })
+        })
+      ),
+      date: z.date(),
+      badge: z.object({ label: z.string().nonempty() })
+    })
+  }),
+  postsZh: defineCollection({
+    source: 'zh-cn/3.blog/**/*',
     type: 'page',
     schema: z.object({
       image: z.object({ src: z.string().nonempty().editor({ input: 'media' }) }),
@@ -129,11 +226,25 @@ export const collections = {
     })
   }),
   changelog: defineCollection({
-    source: '4.changelog.yml',
+    source: 'en/4.changelog.yml',
     type: 'page'
   }),
-  versions: defineCollection({
-    source: '4.changelog/**/*',
+  changelogZh: defineCollection({
+    source: 'zh-cn/4.changelog.yml',
+    type: 'page'
+  }),
+  versionsEn: defineCollection({
+    source: 'en/4.changelog/**/*',
+    type: 'page',
+    schema: z.object({
+      title: z.string().nonempty(),
+      description: z.string(),
+      date: z.date(),
+      image: z.string()
+    })
+  }),
+  versionsZh: defineCollection({
+    source: 'zh-cn/4.changelog/**/*',
     type: 'page',
     schema: z.object({
       title: z.string().nonempty(),

@@ -1,20 +1,49 @@
 <script setup lang="ts">
-const route = useRoute()
+import { ref, watch, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRoute, useRouter } from 'vue-router'
 
-const items = computed(() => [{
-  label: 'Docs',
-  to: '/docs',
-  active: route.path.startsWith('/docs')
-}, {
-  label: 'Pricing',
-  to: '/pricing'
-}, {
-  label: 'Blog',
-  to: '/blog'
-}, {
-  label: 'Changelog',
-  to: '/changelog'
-}])
+const localeOptions = [
+  { label: 'English', value: 'en' },
+  { label: '简体中文', value: 'zh-cn' }
+]
+
+const route = useRoute()
+const router = useRouter()
+const { t, locale, setLocale } = useI18n()
+const localePath = useLocalePath()
+const currentLocale = ref(locale.value)
+
+watch(currentLocale, (val) => {
+  if (locale.value !== val) {
+    setLocale(val)
+    const path = route.fullPath.replace(/^\/(en|zh-cn)/, '')
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur()
+    }
+    router.push(localePath(path))
+  }
+})
+
+const items = computed(() => [
+  {
+    label: t('nav.docs'),
+    to: localePath('/docs'),
+    active: route.path.startsWith('/docs')
+  },
+  {
+    label: t('nav.pricing'),
+    to: localePath('/pricing')
+  },
+  {
+    label: t('nav.blog'),
+    to: localePath('/blog')
+  },
+  {
+    label: t('nav.changelog'),
+    to: localePath('/changelog')
+  }
+])
 </script>
 
 <template>
@@ -34,11 +63,18 @@ const items = computed(() => [{
     <template #right>
       <UColorModeButton />
 
+      <USelect
+        v-model="currentLocale"
+        icon="i-lucide-globe"
+        color="neutral"
+        variant="ghost"
+        :items="localeOptions"
+      />
       <UButton
         icon="i-lucide-log-in"
         color="neutral"
         variant="ghost"
-        to="/login"
+        :to="localePath('/login')"
         class="lg:hidden"
       />
 
@@ -46,7 +82,7 @@ const items = computed(() => [{
         label="Sign in"
         color="neutral"
         variant="outline"
-        to="/login"
+        :to="localePath('/login')"
         class="hidden lg:inline-flex"
       />
 
@@ -55,7 +91,7 @@ const items = computed(() => [{
         color="neutral"
         trailing-icon="i-lucide-arrow-right"
         class="hidden lg:inline-flex"
-        to="/signup"
+        :to="localePath('/signup')"
       />
     </template>
 
@@ -72,14 +108,14 @@ const items = computed(() => [{
         label="Sign in"
         color="neutral"
         variant="subtle"
-        to="/login"
+        :to="localePath('/login')"
         block
         class="mb-3"
       />
       <UButton
         label="Sign up"
         color="neutral"
-        to="/signup"
+        :to="localePath('/signup')"
         block
       />
     </template>

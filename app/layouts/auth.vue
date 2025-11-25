@@ -2,7 +2,7 @@
   <div class="h-screen flex items-center justify-center px-4">
     <UButton
       icon="i-lucide-chevron-left"
-      to="/"
+      :to="localePath('/')"
       size="xl"
       color="neutral"
       variant="subtle"
@@ -17,3 +17,9 @@
     </UPageCard>
   </div>
 </template>
+
+<script setup>
+import { useLocalePath } from '#imports'
+
+const localePath = useLocalePath()
+</script>

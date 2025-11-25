@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('index', () => queryCollection('index').first())
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
+const indexCollection = locale.value === 'zh-cn' ? 'indexZh' : 'indexEn'
+const { data: page } = await useAsyncData('index', () => queryCollection(indexCollection).first())
 
 const title = page.value?.seo?.title || page.value?.title
 const description = page.value?.seo?.description || page.value?.description

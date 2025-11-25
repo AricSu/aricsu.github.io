@@ -6,8 +6,12 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
-    'nuxt-og-image'
+    'nuxt-og-image',
+    '@nuxtjs/i18n',
+    '@nuxtjs/seo'
   ],
+
+  ssr: false,
 
   devtools: {
     enabled: true
@@ -16,11 +20,10 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   routeRules: {
-    '/docs': { redirect: '/docs/getting-started', prerender: false }
+    '/en/docs': { redirect: '/en/docs/getting-started', prerender: false },
+    '/zh-cn/docs': { redirect: '/zh-cn/docs/getting-started', prerender: false }
   },
-
   compatibilityDate: '2024-07-11',
-
   nitro: {
     prerender: {
       routes: [
@@ -37,5 +40,25 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
+  },
+
+  i18n: {
+    locales: [
+      {
+        code: 'zh-cn',
+        iso: 'zh-CN',
+        name: '简体中文',
+        file: 'zh-cn.json'
+      },
+      {
+        code: 'en',
+        iso: 'en-US',
+        name: 'English',
+        file: 'en.json'
+      }
+    ],
+    defaultLocale: 'en',
+    strategy: 'prefix',
+    langDir: 'locales/'
   }
 })

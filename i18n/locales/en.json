@@ -1,0 +1,12 @@
+{
+	"nav": {
+		"docs": "Docs",
+		"pricing": "Pricing",
+		"blog": "Blog",
+		"changelog": "Changelog"
+	},
+	"home": {
+		"title": "Welcome to AskAric",
+		"intro": "This is the English introduction."
+	}
+}

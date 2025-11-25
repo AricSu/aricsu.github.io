@@ -1,5 +1,10 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('pricing', () => queryCollection('pricing').first())
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
+
+const pricingCollection = locale.value === 'zh-cn' ? 'pricingZh' : 'pricingEn'
+const { data: page } = await useAsyncData('pricing', () => queryCollection(pricingCollection).first())
 
 const title = page.value?.seo?.title || page.value?.title
 const description = page.value?.seo?.description || page.value?.description
@@ -11,7 +16,7 @@ useSeoMeta({
   ogDescription: description
 })
 
-defineOgImageComponent('Saas')
+// defineOgImageComponent('Saas')
 
 const isYearly = ref('0')
 

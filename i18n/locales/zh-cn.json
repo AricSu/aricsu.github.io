@@ -1,0 +1,12 @@
+{
+	"nav": {
+		"docs": "文档",
+		"pricing": "价格",
+		"blog": "博客",
+		"changelog": "更新日志"
+	},
+	"home": {
+		"title": "欢迎来到 AskAric",
+		"intro": "这是中文介绍。"
+	}
+}

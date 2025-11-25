@@ -16,6 +16,8 @@
     "@nuxt/content": "^3.8.2",
     "@nuxt/image": "^2.0.0",
     "@nuxt/ui": "^4.2.1",
+    "@nuxtjs/i18n": "^10.2.1",
+    "@nuxtjs/seo": "^3.2.2",
     "@standard-schema/spec": "^1.0.0",
     "@vueuse/nuxt": "^13.9.0",
     "better-sqlite3": "^12.4.6",
@@ -29,5 +31,5 @@
     "typescript": "^5.9.3",
     "vue-tsc": "^3.1.5"
   },
-  "packageManager": "pnpm@10.23.0"
+  "packageManager": "yarn@1.22.21"
 }

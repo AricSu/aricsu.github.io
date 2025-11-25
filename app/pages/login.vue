@@ -2,6 +2,10 @@
 import * as z from 'zod'
 import type { FormSubmitEvent } from '@nuxt/ui'
 
+import { useLocalePath } from '#imports'
+
+const localePath = useLocalePath()
+
 definePageMeta({
   layout: 'auth'
 })
@@ -67,14 +71,14 @@ function onSubmit(payload: FormSubmitEvent<Schema>) {
   >
     <template #description>
       Don't have an account? <ULink
-        to="/signup"
+        :to="localePath('/signup')"
         class="text-primary font-medium"
       >Sign up</ULink>.
     </template>
 
     <template #password-hint>
       <ULink
-        to="/"
+        :to="localePath('/')"
         class="text-primary font-medium"
         tabindex="-1"
       >Forgot password?</ULink>
@@ -82,7 +86,7 @@ function onSubmit(payload: FormSubmitEvent<Schema>) {
 
     <template #footer>
       By signing in, you agree to our <ULink
-        to="/"
+        :to="localePath('/')"
         class="text-primary font-medium"
       >Terms of Service</ULink>.
     </template>

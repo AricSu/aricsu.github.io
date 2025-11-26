@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import Hero from './hero.vue'
 
 const { locale } = useI18n()
 const indexCollection = locale.value === 'zh-cn' ? 'indexZh' : 'indexEn'
@@ -20,7 +19,7 @@ useSeoMeta({
 
 <template>
   <div v-if="page">
-    <!-- <UPageHero
+    <UPageHero
       :title="page.title"
       :description="page.description"
       :links="page.hero.links"
@@ -37,9 +36,8 @@ useSeoMeta({
       </template>
 
       <PromotionalVideo />
-    </UPageHero> -->
+    </UPageHero>
 
-    <Hero />
     <UPageSection
       v-for="(section, index) in page.sections"
       :key="index"

@@ -55,7 +55,10 @@ function onSubmit() {
     class="h-px"
   />
 
-  <UFooter :ui="{ top: 'border-b border-default' }">
+  <UFooter
+    :ui="{ top: 'border-b border-default' }"
+    class="bg-black text-white"
+  >
     <template #top>
       <UContainer>
         <UFooterColumns :columns="columns">

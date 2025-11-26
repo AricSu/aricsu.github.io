@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import Hero from './hero.vue'
+import Profile from './profile.vue'
 
 const { locale } = useI18n()
 const indexCollection = locale.value === 'zh-cn' ? 'indexZh' : 'indexEn'
@@ -40,6 +41,7 @@ useSeoMeta({
     </UPageHero> -->
 
     <Hero />
+    <Profile />
     <UPageSection
       v-for="(section, index) in page.sections"
       :key="index"

@@ -24,6 +24,7 @@
     "gsap": "^3.13.0",
     "nuxt": "^4.2.1",
     "nuxt-og-image": "^5.1.12",
+    "split-type": "^0.3.4",
     "zod": "^4.1.13"
   },
   "devDependencies": {

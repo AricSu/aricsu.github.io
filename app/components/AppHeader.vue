@@ -52,7 +52,7 @@ const items = computed(() => [
       <NuxtLink to="/">
         <AppLogo class="w-auto h-6 shrink-0" />
       </NuxtLink>
-      <TemplateMenu />
+      <!-- <TemplateMenu /> -->
     </template>
 
     <UNavigationMenu
@@ -61,13 +61,13 @@ const items = computed(() => [
     />
 
     <template #right>
-      <UColorModeButton />
+      <!-- <UColorModeButton /> -->
 
       <USelect
         v-model="currentLocale"
         icon="i-lucide-globe"
         color="neutral"
-        variant="ghost"
+        variant="outline"
         :items="localeOptions"
       />
       <UButton

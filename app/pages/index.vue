@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import Hero from './hero.vue'
 import Profile from './profile.vue'
+import Cta from './cta.vue'
 
 const { locale } = useI18n()
 const indexCollection = locale.value === 'zh-cn' ? 'indexZh' : 'indexEn'
@@ -20,7 +21,10 @@ useSeoMeta({
 </script>
 
 <template>
-  <div v-if="page">
+  <div
+    v-if="page"
+    class="bg-gray-200"
+  >
     <!-- <UPageHero
       :title="page.title"
       :description="page.description"
@@ -57,6 +61,7 @@ useSeoMeta({
     <UPageSection
       :title="page.features.title"
       :description="page.features.description"
+      class="bg-black text-white"
     >
       <UPageGrid>
         <UPageCard
@@ -67,6 +72,8 @@ useSeoMeta({
         />
       </UPageGrid>
     </UPageSection>
+
+    <Cta />
 
     <UPageSection
       id="testimonials"
@@ -92,14 +99,14 @@ useSeoMeta({
       </UPageColumns>
     </UPageSection>
 
-    <USeparator />
+    <!-- <USeparator /> -->
 
-    <UPageCTA
+    <!-- <UPageCTA
       v-bind="page.cta"
       variant="naked"
       class="overflow-hidden"
     >
       <LazyStarsBg />
-    </UPageCTA>
+    </UPageCTA> -->
   </div>
 </template>

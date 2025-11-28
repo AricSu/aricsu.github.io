@@ -46,6 +46,7 @@ useSeoMeta({
 
     <Hero />
     <Profile />
+    <ProfileRefactorSplit />
     <UPageSection
       v-for="(section, index) in page.sections"
       :key="index"

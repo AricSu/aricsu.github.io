@@ -46,7 +46,6 @@ useSeoMeta({
 
     <Hero />
     <Profile />
-    <ProfileRefactorSplit />
     <UPageSection
       v-for="(section, index) in page.sections"
       :key="index"
@@ -62,7 +61,6 @@ useSeoMeta({
     <UPageSection
       :title="page.features.title"
       :description="page.features.description"
-      class="bg-black text-white"
     >
       <UPageGrid>
         <UPageCard
@@ -76,7 +74,7 @@ useSeoMeta({
 
     <Cta />
 
-    <UPageSection
+    <!-- <UPageSection
       id="testimonials"
       :headline="page.testimonials.headline"
       :title="page.testimonials.title"
@@ -98,7 +96,7 @@ useSeoMeta({
           </template>
         </UPageCard>
       </UPageColumns>
-    </UPageSection>
+    </UPageSection> -->
 
     <!-- <USeparator /> -->
 

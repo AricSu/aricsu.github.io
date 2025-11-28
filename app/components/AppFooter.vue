@@ -50,11 +50,6 @@ function onSubmit() {
 </script>
 
 <template>
-  <USeparator
-    icon="i-simple-icons-nuxtdotjs"
-    class="h-px"
-  />
-
   <UFooter
     :ui="{ top: 'border-b border-default' }"
     class="bg-black text-white"
@@ -93,32 +88,32 @@ function onSubmit() {
 
     <template #left>
       <p class="text-muted text-sm">
-        Built with Nuxt UI • © {{ new Date().getFullYear() }}
+        Powered By AricSu • © {{ new Date().getFullYear() }}
       </p>
     </template>
 
     <template #right>
       <UButton
-        to="https://go.nuxt.com/discord"
+        to="https://www.youtube.com/@askaric"
         target="_blank"
-        icon="i-simple-icons-discord"
-        aria-label="Nuxt on Discord"
+        icon="i-simple-icons-youtube"
+        aria-label="Youtube"
         color="neutral"
         variant="ghost"
       />
       <UButton
-        to="https://go.nuxt.com/x"
+        to="https://space.bilibili.com/318184941"
         target="_blank"
-        icon="i-simple-icons-x"
-        aria-label="Nuxt on X"
+        icon="i-simple-icons-bilibili"
+        aria-label="Bilibili"
         color="neutral"
         variant="ghost"
       />
       <UButton
-        to="https://github.com/nuxt-ui-templates/saas"
+        to="https://github.com/AricSu"
         target="_blank"
         icon="i-simple-icons-github"
-        aria-label="Nuxt UI on GitHub"
+        aria-label="GitHub"
         color="neutral"
         variant="ghost"
       />

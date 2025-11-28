@@ -20,7 +20,7 @@ hero:
       to: https://github.com/nuxt-ui-templates/saas
       target: _blank
 sections:
-  - title: 基于 Nuxt UI 组件库
+  - title: 热爱网球
     description: 访问完整的 Nuxt UI 组件库，100+ 风格精美、可访问且可定制的 Vue 组件。构建专业 SaaS 应用所需的一切。
     id: features
     orientation: horizontal
@@ -34,7 +34,35 @@ sections:
       - name: TypeScript 优先
         description: 完全支持 TypeScript，所有组件和组合式 API 都有类型提示和自动补全。
         icon: i-lucide-code-2
-  - title: 为现代 SaaS 而生
+  - title: 喜欢滑雪
+    description: 从美观的营销页到复杂的仪表盘，助你快速上线和扩展 SaaS。生产级模式加速交付。
+    orientation: horizontal
+    reverse: true
+    features:
+      - name: 边缘性能
+        description: 针对核心 Web Vitals 优化，自动代码分割、懒加载和 SSR/SSG 支持。
+        icon: i-lucide-zap
+      - name: 暗黑模式就绪
+        description: 自动主题切换，平滑过渡。尊重系统偏好并记忆用户选择。
+        icon: i-lucide-moon
+      - name: 全球化支持
+        description: 内置 i18n，支持 50+ 语言，RTL/LTR 布局和 @nuxt/fonts 集成。
+        icon: i-lucide-globe
+  - title: 喜欢摩托
+    description: 访问完整的 Nuxt UI 组件库，100+ 风格精美、可访问且可定制的 Vue 组件。构建专业 SaaS 应用所需的一切。
+    id: features
+    orientation: horizontal
+    features:
+      - name: 100+ UI 组件
+        description: 从按钮到弹窗、数据表到表单——全部采用 Tailwind CSS 样式，开箱即用且可访问。
+        icon: i-lucide-package
+      - name: 认证流程就绪
+        description: 预置登录、注册和密码重置流程。只需连接后端即可开始用户引导。
+        icon: i-lucide-shield
+      - name: TypeScript 优先
+        description: 完全支持 TypeScript，所有组件和组合式 API 都有类型提示和自动补全。
+        icon: i-lucide-code-2
+  - title: 制作咖啡
     description: 从美观的营销页到复杂的仪表盘，助你快速上线和扩展 SaaS。生产级模式加速交付。
     orientation: horizontal
     reverse: true
@@ -49,7 +77,7 @@ sections:
         description: 内置 i18n，支持 50+ 语言，RTL/LTR 布局和 @nuxt/fonts 集成。
         icon: i-lucide-globe
 features:
-  title: 一切你需要的功能
+  title: 基于 AI 制作了 TiHC 工具
   description: 不再从零开始。专注于你的独特特性，Nuxt UI 为你打好基础，组件和模式都经过实战验证。
   items:
     - title: 精美设计系统
@@ -144,7 +172,7 @@ cta:
       target: _blank
       trailingIcon: i-lucide-arrow-right
     - label: 查看 GitHub
-      to: 'https://github.com/nuxt-ui-templates/saas'
+      to: 'https://github.com/aricsu'
       target: _blank
       variant: subtle
       icon: i-simple-icons-github

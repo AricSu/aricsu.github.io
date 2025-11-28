@@ -1,13 +1,18 @@
 <script setup lang="ts">
-const route = useRoute()
+import { useI18n } from 'vue-i18n'
 
-const { data: post } = await useAsyncData(route.path, () => queryCollection('posts').path(route.path).first())
+const route = useRoute()
+const { locale } = useI18n()
+
+const postsCollection = locale.value === 'zh-cn' ? 'postsZh' : 'postsEn'
+
+const { data: post } = await useAsyncData(route.path, () => queryCollection(postsCollection).path(route.path).first())
 if (!post.value) {
   throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
 }
 
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
-  return queryCollectionItemSurroundings('posts', route.path, {
+  return queryCollectionItemSurroundings(postsCollection, route.path, {
     fields: ['description']
   })
 })
@@ -22,15 +27,15 @@ useSeoMeta({
   ogDescription: description
 })
 
-if (post.value.image?.src) {
-  defineOgImage({
-    url: post.value.image.src
-  })
-} else {
-  defineOgImageComponent('Saas', {
-    headline: 'Blog'
-  })
-}
+// if (post.value.image?.src) {
+//   defineOgImage({
+//     url: post.value.image.src
+//   })
+// } else {
+//   defineOgImageComponent('Saas', {
+//     headline: 'Blog'
+//   })
+// }
 </script>
 
 <template>

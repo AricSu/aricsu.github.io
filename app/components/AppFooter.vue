@@ -2,35 +2,47 @@
 const columns = [{
   label: 'Resources',
   children: [{
-    label: 'Help center'
+    label: 'Aric\'s Blog',
+    to: '/blog',
+    target: '_blank'
   }, {
-    label: 'Docs'
+    label: 'TiHC Docs',
+    to: '/docs',
+    target: '_blank'
   }, {
-    label: 'Roadmap'
-  }, {
-    label: 'Changelog'
+    label: 'Changelog',
+    to: '/changelog',
+    target: '_blank'
   }]
 }, {
-  label: 'Features',
+  label: 'Personal Info',
   children: [{
-    label: 'Affiliates'
+    label: 'Github',
+    to: 'https://github.com/AricSu',
+    target: '_blank'
   }, {
-    label: 'Portal'
+    label: 'Bilibili',
+    to: 'https://space.bilibili.com/318184941',
+    target: '_blank'
   }, {
-    label: 'Jobs'
+    label: 'Youtube',
+    to: 'https://www.youtube.com/@askaric',
+    target: '_blank'
   }, {
-    label: 'Sponsors'
+    label: 'Instagram',
+    to: 'https://www.instagram.com/aricsu36/',
+    target: '_blank'
   }]
 }, {
-  label: 'Company',
+  label: 'Shop',
   children: [{
-    label: 'About'
+    label: 'Aric\'s Shop',
+    to: 'https://shop.askaric.com/',
+    target: '_blank'
   }, {
-    label: 'Pricing'
-  }, {
-    label: 'Careers'
-  }, {
-    label: 'Blog'
+    label: 'About Shop',
+    to: 'https://shop.askaric.com/pages/test',
+    target: '_blank'
   }]
 }]
 

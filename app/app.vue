@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { en, zh_cn } from '@nuxt/ui/locale'
 
+import type { ContentNavigationItem } from '@nuxt/content'
+
 const localePath = useLocalePath()
 const colorMode = useColorMode()
 const color = computed(() => colorMode.value === 'dark' ? '#020618' : 'white')
@@ -28,15 +30,27 @@ useSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-const routeLocale = useRoute().params.locale || 'en'
-const indexCollection = routeLocale === 'zh-cn' ? 'docsZh' : 'docsEn'
-
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation(indexCollection), {
-  transform: data => data.find(item => item.path === '/docs')?.children || []
-})
-const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections(indexCollection), {
-  server: false
-})
+const routeLocale = computed(() => useRoute().params.locale || locale.value || 'en')
+const indexCollection = computed(() => routeLocale.value === 'zh-cn' ? 'docsZh' : 'docsEn')
+const navigation = ref<ContentNavigationItem[]>([])
+async function loadNavigation() {
+  const raw = await queryCollectionNavigation(indexCollection.value)
+  const rootPath = routeLocale.value === 'zh-cn' ? '/zh-cn' : '/en'
+  const root = raw.find(item => item.path === rootPath)
+  const docsPath = `${rootPath}/docs`
+  const docsNode = root?.children?.find(item => item.path === docsPath)
+  const filtered = docsNode?.children || []
+  navigation.value = filtered
+}
+watch([locale, routeLocale], loadNavigation, { immediate: true })
+const { data: files } = useLazyAsyncData(
+  () => `search-${routeLocale.value}`,
+  () => queryCollectionSearchSections(indexCollection.value),
+  {
+    server: false,
+    watch: [routeLocale]
+  }
+)
 
 const links = [
   { label: t('nav.docs'), icon: 'i-lucide-book', to: localePath('/docs/1.getting-started') },
@@ -66,6 +80,7 @@ provide('navigation', navigation)
         :navigation="navigation"
         :links="links"
         :fuse="{ resultLimit: 42 }"
+        :color-mode="false"
       />
     </ClientOnly>
   </UApp>

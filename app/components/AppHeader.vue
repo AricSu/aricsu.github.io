@@ -31,10 +31,10 @@ const items = computed(() => [
     to: localePath('/docs'),
     active: route.path.startsWith('/docs')
   },
-  {
-    label: t('nav.pricing'),
-    to: localePath('/pricing')
-  },
+  // {
+  //   label: t('nav.pricing'),
+  //   to: localePath('/pricing')
+  // },
   {
     label: t('nav.blog'),
     to: localePath('/blog')
@@ -70,6 +70,7 @@ const items = computed(() => [
         variant="outline"
         :items="localeOptions"
       />
+      <!--
       <UButton
         icon="i-lucide-log-in"
         color="neutral"
@@ -92,11 +93,11 @@ const items = computed(() => [
         trailing-icon="i-lucide-arrow-right"
         class="hidden lg:inline-flex"
         :to="localePath('/signup')"
-      />
+      /> -->
     </template>
 
     <template #body>
-      <UNavigationMenu
+      <!-- <UNavigationMenu
         :items="items"
         orientation="vertical"
         class="-mx-2.5"
@@ -117,7 +118,7 @@ const items = computed(() => [
         color="neutral"
         :to="localePath('/signup')"
         block
-      />
+      /> -->
     </template>
   </UHeader>
 </template>

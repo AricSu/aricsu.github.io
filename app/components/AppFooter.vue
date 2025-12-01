@@ -122,6 +122,22 @@ function onSubmit() {
         variant="ghost"
       />
       <UButton
+        to="https://www.instagram.com/aricsu36/"
+        target="_blank"
+        icon="i-simple-icons-instagram"
+        aria-label="Instagram"
+        color="neutral"
+        variant="ghost"
+      />
+      <UButton
+        to="https://www.xiaohongshu.com/user/profile/5bcff8128f5d1e0001d6f9ce"
+        target="_blank"
+        icon="i-simple-icons-xiaohongshu"
+        aria-label="Xiaohongshu"
+        color="neutral"
+        variant="ghost"
+      />
+      <UButton
         to="https://github.com/AricSu"
         target="_blank"
         icon="i-simple-icons-github"

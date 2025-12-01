@@ -23,12 +23,12 @@ useHead({
   }
 })
 
-useSeoMeta({
-  titleTemplate: 'AskAric',
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/saas-light.png',
-  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/saas-light.png',
-  twitterCard: 'summary_large_image'
-})
+// useSeoMeta({
+//   titleTemplate: 'AskAric',
+//   ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/saas-light.png',
+//   twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/saas-light.png',
+//   twitterCard: 'summary_large_image'
+// })
 
 const routeLocale = computed(() => useRoute().params.locale || locale.value || 'en')
 const indexCollection = computed(() => routeLocale.value === 'zh-cn' ? 'docsZh' : 'docsEn')

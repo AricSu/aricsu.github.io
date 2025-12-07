@@ -29,7 +29,7 @@
       </div>
       <div class="hero_img absolute inset-y-0 right-0 w-[45vh] h-full mr-[8vw] z-10 py-30 sm:left-1/2 sm:translate-x-[-50%] sm:right-auto sm:mr-0 md:right-0 md:translate-x-0 md:left-auto md:mr-[8vw]">
         <img
-          src="/hero.jpg"
+          src="/images/hero/hero.jpg"
           loading="eager"
           alt="Nagara Watch"
           class="hero-img-el w-full h-full object-cover object-center"

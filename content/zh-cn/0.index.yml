@@ -1,24 +1,24 @@
-title: 极速发布你的 [SaaS]{class="text-primary"}
-description: 使用 Nuxt UI 强大的组件、认证流程和企业级特性，快速构建生产级 SaaS 应用。整个 Nuxt 生态都在信赖同一组件库。
+title: 变更日志
+description: 基于 Nuxt 打造高性能、可扩展的个人网站，丰富组件、认证体系和企业级功能，期望带来更好的使用体验。
 seo:
-  title: Nuxt UI SaaS 模板
-  description: 用 Nuxt UI 创建惊艳、快速且可生产部署的 SaaS 应用。100+ Vue 组件、认证、暗黑模式和企业特性，基于 Tailwind CSS 构建。
+  title: 变更日志
+  description: 基于 Nuxt 打造高性能、可扩展的个人网站，丰富组件、认证体系和企业级功能，期望带来更好的使用体验。
 navigation: false
-hero:
-  links:
-    - label: 快速开始
-      icon: i-lucide-arrow-right
-      trailing: true
-      to: https://ui.nuxt.com/docs/getting-started/installation/nuxt
-      target: _blank
-      size: xl
-    - label: 使用此模板
-      icon: i-simple-icons-github
-      size: xl
-      color: neutral
-      variant: subtle
-      to: https://github.com/nuxt-ui-templates/saas
-      target: _blank
+# hero:
+#   links:
+#     - label: 快速开始
+#       icon: i-lucide-arrow-right
+#       trailing: true
+#       to: https://ui.nuxt.com/docs/getting-started/installation/nuxt
+#       target: _blank
+#       size: xl
+#     - label: 使用此模板
+#       icon: i-simple-icons-github
+#       size: xl
+#       color: neutral
+#       variant: subtle
+#       to: https://github.com/nuxt-ui-templates/saas
+#       target: _blank
 sections:
   - title: 热爱网球
     description: 访问完整的 Nuxt UI 组件库，100+ 风格精美、可访问且可定制的 Vue 组件。构建专业 SaaS 应用所需的一切。

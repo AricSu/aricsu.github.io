@@ -70,7 +70,7 @@ const items = computed(() => [
         variant="outline"
         :items="localeOptions"
       />
-      <!--
+
       <UButton
         icon="i-lucide-log-in"
         color="neutral"
@@ -87,7 +87,7 @@ const items = computed(() => [
         class="hidden lg:inline-flex"
       />
 
-      <UButton
+      <!-- <UButton
         label="Sign up"
         color="neutral"
         trailing-icon="i-lucide-arrow-right"

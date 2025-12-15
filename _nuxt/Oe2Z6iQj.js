@@ -1,0 +1,1 @@
+const t={nav:{docs:{t:0,b:{t:2,i:[{t:3}],s:"TiHC Docs"}},pricing:{t:0,b:{t:2,i:[{t:3}],s:"Pricing"}},blog:{t:0,b:{t:2,i:[{t:3}],s:"Blog"}},changelog:{t:0,b:{t:2,i:[{t:3}],s:"Changelog"}}},home:{title:{t:0,b:{t:2,i:[{t:3}],s:"Welcome to AskAric"}},intro:{t:0,b:{t:2,i:[{t:3}],s:"This is the English introduction."}}}};export{t as default};

@@ -1,0 +1,1 @@
+const t={nav:{docs:{t:0,b:{t:2,i:[{t:3}],s:"TiHC 文档"}},pricing:{t:0,b:{t:2,i:[{t:3}],s:"价格"}},blog:{t:0,b:{t:2,i:[{t:3}],s:"博客"}},changelog:{t:0,b:{t:2,i:[{t:3}],s:"更新日志"}}},home:{title:{t:0,b:{t:2,i:[{t:3}],s:"欢迎来到 AskAric"}},intro:{t:0,b:{t:2,i:[{t:3}],s:"这是中文介绍。"}}}};export{t as default};

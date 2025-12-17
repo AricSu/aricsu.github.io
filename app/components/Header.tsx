@@ -27,7 +27,7 @@ export function Header() {
             >
               {t("common.docs", "Docs")}
             </Link>
-            <Link
+            {/* <Link
               to={`/${lang}/posts`}
               className="text-white/60 hover:text-white transition-colors"
             >
@@ -38,7 +38,7 @@ export function Header() {
               className="text-white/60 hover:text-white transition-colors"
             >
               {t("common.changelog", "Changelog")}
-            </Link>
+            </Link> */}
           </nav>
         </div>
         <div className="flex items-center gap-4">

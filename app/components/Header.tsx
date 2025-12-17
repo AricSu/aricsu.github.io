@@ -16,13 +16,13 @@ export function Header() {
           </Link>
           <nav className="hidden md:flex items-center gap-4 text-sm">
             <Link
-              to={`/${lang}`}
+              to={`/${lang}/`}
               className="text-white/60 hover:text-white transition-colors"
             >
               {t("common.home")}
             </Link>
             <Link
-              to={`/${lang}/docs`}
+              to={`/${lang}/docs/`}
               className="text-white/60 hover:text-white transition-colors"
             >
               {t("common.docs", "Docs")}

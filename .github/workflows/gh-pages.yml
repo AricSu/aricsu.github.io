@@ -22,8 +22,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+
       - name: Build project
         run: npm run build
+
+      - name: Copy CNAME for GitHub Pages
+        run: cp public/CNAME build/client/CNAME
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

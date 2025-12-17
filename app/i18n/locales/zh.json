@@ -4,7 +4,10 @@
     "home": "首页",
     "about": "关于",
     "contact": "联系我们",
-    "language": "语言"
+    "language": "语言",
+    "docs": "文档",
+    "posts": "文章",
+    "changelog": "更新日志"
   },
   "home": {
     "title": "欢迎来到首页",

@@ -4,7 +4,10 @@
     "home": "Home",
     "about": "About",
     "contact": "Contact",
-    "language": "Language"
+    "language": "Language",
+    "docs": "Docs",
+    "posts": "Posts",
+    "changelog": "Changelog"
   },
   "home": {
     "title": "Welcome to Homepage",

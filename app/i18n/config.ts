@@ -6,7 +6,7 @@ export const defaultLng = "zh";
 
 // 语言名称映射（用于语言切换器显示）
 export const languageNames: Record<string, string> = {
-  zh: "中文",
+  zh: "简体中文",
   en: "English",
 };
 

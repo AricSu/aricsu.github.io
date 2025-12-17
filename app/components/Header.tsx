@@ -22,22 +22,22 @@ export function Header() {
               {t("common.home")}
             </Link>
             <Link
-              to={`/${lang}/blog`}
+              to={`/${lang}/docs`}
               className="text-white/60 hover:text-white transition-colors"
             >
-              Blog
+              {t("common.docs", "Docs")}
             </Link>
             <Link
-              to={`/${lang}/about`}
+              to={`/${lang}/posts`}
               className="text-white/60 hover:text-white transition-colors"
             >
-              {t("common.about")}
+              {t("common.posts", "Posts")}
             </Link>
             <Link
-              to={`/${lang}/contact`}
+              to={`/${lang}/changelog`}
               className="text-white/60 hover:text-white transition-colors"
             >
-              {t("common.contact")}
+              {t("common.changelog", "Changelog")}
             </Link>
           </nav>
         </div>

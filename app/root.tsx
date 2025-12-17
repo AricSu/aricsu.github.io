@@ -1,10 +1,17 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useParams,
+} from "react-router";
 import type { LinksFunction } from "react-router";
 import { Header } from "~/components/Header";
 import { Footer } from "~/components/Footer";
 import { ToastProvider } from "./components/ui/toast-provider";
-
-import "~/i18n/i18n";
+import { useEffect } from "react";
+import i18n from "~/i18n/i18n";
 import stylesheet from "./assets/tailwind.css?url";
 
 export const links: LinksFunction = () => [
@@ -12,6 +19,12 @@ export const links: LinksFunction = () => [
 ];
 
 export default function App() {
+  const params = useParams();
+  useEffect(() => {
+    if (params.lang && i18n.language !== params.lang) {
+      i18n.changeLanguage(params.lang);
+    }
+  }, [params.lang]);
   return (
     <html>
       <head>

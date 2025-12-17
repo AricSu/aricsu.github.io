@@ -14,20 +14,88 @@ type Pages = {
   "/": {
     params: {};
   };
+  "/:lang?/changelog": {
+    params: {
+      "lang"?: string;
+    };
+  };
+  "/:lang?/changelog/:slug": {
+    params: {
+      "lang"?: string;
+      "slug": string;
+    };
+  };
+  "/:lang?/posts": {
+    params: {
+      "lang"?: string;
+    };
+  };
+  "/:lang?/docs": {
+    params: {
+      "lang"?: string;
+    };
+  };
+  "/:lang?/posts/:slug": {
+    params: {
+      "lang"?: string;
+      "slug": string;
+    };
+  };
+  "/:lang?/docs/:slug": {
+    params: {
+      "lang"?: string;
+      "slug": string;
+    };
+  };
+  "/:lang?": {
+    params: {
+      "lang"?: string;
+    };
+  };
 };
 
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/";
+    page: "/" | "/:lang?/changelog" | "/:lang?/changelog/:slug" | "/:lang?/posts" | "/:lang?/docs" | "/:lang?/posts/:slug" | "/:lang?/docs/:slug" | "/:lang?";
   };
-  "routes/_index.tsx": {
-    id: "routes/_index";
-    page: "/";
+  "routes/($lang).changelog._index.tsx": {
+    id: "routes/($lang).changelog._index";
+    page: "/:lang?/changelog";
+  };
+  "routes/($lang).changelog.$slug.tsx": {
+    id: "routes/($lang).changelog.$slug";
+    page: "/:lang?/changelog/:slug";
+  };
+  "routes/($lang).posts._index.tsx": {
+    id: "routes/($lang).posts._index";
+    page: "/:lang?/posts";
+  };
+  "routes/($lang).docs._index.tsx": {
+    id: "routes/($lang).docs._index";
+    page: "/:lang?/docs";
+  };
+  "routes/($lang).posts.$slug.tsx": {
+    id: "routes/($lang).posts.$slug";
+    page: "/:lang?/posts/:slug";
+  };
+  "routes/($lang).docs.$slug.tsx": {
+    id: "routes/($lang).docs.$slug";
+    page: "/:lang?/docs/:slug";
+  };
+  "routes/($lang)._index.tsx": {
+    id: "routes/($lang)._index";
+    page: "/:lang?";
   };
 };
 
 type RouteModules = {
   "root": typeof import("./app/root.tsx");
-  "routes/_index": typeof import("./app/routes/_index.tsx");
+  "routes/($lang).changelog._index": typeof import("./app/routes/($lang).changelog._index.tsx");
+  "routes/($lang).changelog.$slug": typeof import("./app/routes/($lang).changelog.$slug.tsx");
+  "routes/($lang).posts._index": typeof import("./app/routes/($lang).posts._index.tsx");
+  "routes/($lang).docs._index": typeof import("./app/routes/($lang).docs._index.tsx");
+  "routes/($lang).posts.$slug": typeof import("./app/routes/($lang).posts.$slug.tsx");
+  "routes/($lang).docs.$slug": typeof import("./app/routes/($lang).docs.$slug.tsx");
+  "routes/($lang)._index": typeof import("./app/routes/($lang)._index.tsx");
 };

@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "index",
+    "architecture",
+    "quickstart",
+    "serverless",
+    "oauth",
+    "evaluation",
+    "privacy"
+  ]
+}
+

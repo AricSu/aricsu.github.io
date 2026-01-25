@@ -1,0 +1,27 @@
+{
+  "common": {
+    "welcome": "欢迎",
+    "home": "首页",
+    "about": "关于",
+    "contact": "联系我们",
+    "language": "语言",
+    "docs": "文档",
+    "tihcDocs": "TiHC 文档",
+    "tidbNotes": "TiDB 学习总结",
+    "posts": "文章",
+    "changelog": "更新日志"
+  },
+  "home": {
+    "title": "欢迎来到首页",
+    "description": "这是一个使用 Remix SSG 模式生成的静态网站。"
+  },
+  "meta": {
+    "title": "我的网站",
+    "description": "这是一个支持多语言的静态网站"
+  },
+  "cta": {
+    "title": "TIHC 扩展\n与\nAI",
+    "description": "TiHC 是一款专为 TiDB 用户设计的 Chrome 扩展，提供 AI 驱动的助手，可直接在浏览器侧边栏进行交互式问答。支持流式响应、本地聊天记录（最多 20 条）、代码复制和 Markdown 渲染，轻松高效地获取 TiDB 技术答案和建议。",
+    "button": "立即体验"
+  }
+}

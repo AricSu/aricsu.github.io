@@ -1,0 +1,29 @@
+---
+title: Serverless API
+description: tihc-serverless 的 API、engines、环境变量
+---
+
+## Endpoint
+
+`POST /api/stream_chat`
+
+Request JSON:
+
+```json
+{ "messages": [{ "role": "user", "content": "..." }], "chat_engine": "openai", "stream": true }
+```
+
+Response:
+
+- streaming text（`text/plain; charset=utf-8`）
+
+## Engines
+
+- `openai`
+- `openai_rag`（GraphRAG → OpenAI）
+- `manus`（proxy）
+- `tidb`（proxy）
+
+## Env Vars
+
+见 `tihc-serverless/.env.example`

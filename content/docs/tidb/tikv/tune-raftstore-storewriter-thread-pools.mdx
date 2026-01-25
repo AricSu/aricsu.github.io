@@ -1,0 +1,66 @@
+---
+title: 并发写入调优：Raftstore vs StoreWriter 线程池
+description: 为什么两个指标都会涨？该看哪个做瓶颈判断？
+---
+
+## 背景
+
+现场在调优并发写入速度，参考官方文档中关于 TiKV 线程池的描述：
+
+- `raftstore.store-pool-size`（Raftstore 线程池，默认 2）
+- `raftstore.store-io-pool-size`（StoreWriter 线程池，默认 1）
+
+当前现场配置：
+
+- `raftstore.store-pool-size = 4`
+- `raftstore.store-io-pool-size = 1`
+
+压测期间观察到「Raftstore」与「StoreWriter」相关指标都在上涨，疑问是：这是否异常？应该以哪个为参考？
+
+## 结论（先说答案）
+
+这是正常现象：当 `raftstore.store-io-pool-size > 0` 时，**Raftstore 与 StoreWriter 是一条写入流水线（pipeline）上的不同阶段**，同一条写请求会同时消耗两边的资源，所以两类指标一起涨是预期行为。
+
+## 写入流水线：分工与路径
+
+一条 Client 写入请求大致会经历：
+
+1. **Raftstore 线程（× store-pool-size）**
+   - 接收 propose / 处理 raft message（如 append/vote 等）
+   - 推进 raft 状态机逻辑
+   - 生成需要持久化的 `Ready`（entries 等）
+   - 将 I/O 任务提交给 StoreWriter
+
+2. **StoreWriter 线程（× store-io-pool-size）**
+   - 执行磁盘 I/O：写 raft log / 写入引擎并 `fsync`
+   - 回调通知 Raftstore 持久化完成
+
+3. **Raftstore 线程**
+   - 推进 commit / 触发 apply 等后续阶段
+
+因此：
+
+- Raftstore 忙：通常是 raft 逻辑、消息处理、调度、回调推进等阶段在忙
+- StoreWriter 忙：通常是磁盘写入/`fsync`/存储引擎写入阶段在忙
+
+两者都忙，代表 pipeline 在满负载运行，并不表示配置错误。
+
+## 该看哪个指标做参考？
+
+看谁先成为瓶颈：**瓶颈在哪一段，优化就应该对准哪一段。**
+
+实操判断思路（通用）：
+
+- **优先怀疑 StoreWriter / I/O 瓶颈**：如果出现写入延迟升高、flush/fsync 相关耗时上升、磁盘带宽/IOPS 或延迟明显吃紧，通常是 StoreWriter 侧成为瓶颈。
+- **怀疑 Raftstore / CPU/调度瓶颈**：如果 CPU 飙高、raft message 堆积、ready/apply 相关队列积压，可能是 Raftstore 侧先饱和。
+
+建议用“排队/延迟”类指标比单纯看“计数上涨”更有效：
+
+- 看是否有队列 backlog（等待任务数、pending、latency）
+- 看阶段耗时（I/O、fsync、raft 处理、apply）
+- 看整体写入延迟与吞吐是否被某一段限制
+
+## 备注：`store-io-pool-size = 0` 的差异
+
+当 `store-io-pool-size = 0` 时，I/O 会回到 Raftstore 线程内执行（同步 `fsync`），此时写入路径更容易被 Raftstore 线程阻塞，调优策略会明显不同；而你现在是 `> 0` 的 pipeline 模式，所以 “两边指标都涨” 是符合预期的。
+

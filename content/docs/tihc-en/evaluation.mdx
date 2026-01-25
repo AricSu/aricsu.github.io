@@ -1,0 +1,40 @@
+---
+title: Evaluation
+description: 问题空间收敛评估（gold + traces）
+---
+
+## What we measure
+
+“问题空间收敛”聚焦入口阶段的结构化输出：
+
+- `taskType`
+- `handleability`（HANDLE_NOW / NEED_MORE_INFO / OUT_OF_SCOPE）
+- `missingMep`（缺失槽位）
+- `selfConfidence`（自评置信度）
+
+## Gold eval (supervised)
+
+在 `evalite-demo/`：
+
+- `npm run eval:intake`（trace/ollama provider）
+- `npm run eval:intake:smoke`（example traces）
+
+## User traces (no labels)
+
+在 `evalite-demo/`：
+
+- `npm run eval:intake:traces`
+
+输出：
+
+- `reports/intake-traces-report.md`
+- `reports/intake-traces-report.json`
+
+## Trace collection
+
+在 `tihc` sidepanel：
+
+- 设置 `Eval ID`
+- 点击 `Copy Trace`
+- 追加到 `evalite-demo/data/intake_traces.jsonl`（本地文件，不上传）
+

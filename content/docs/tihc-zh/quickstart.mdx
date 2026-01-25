@@ -1,0 +1,33 @@
+---
+title: Quickstart
+description: 从 0 到可用：Vercel + 扩展 UI + Workspace 登录
+---
+
+## 1) Deploy `tihc-serverless`
+
+在 Vercel 设置环境变量：
+
+- `OPENAI_API_KEY`
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_WORKSPACE_DOMAIN`（例如 `pingcap.com`）
+
+可选：
+
+- `TIDB_API_URL`, `TIDB_API_TOKEN`（启用 `tidb` / `openai_rag`）
+- `MANUS_API_URL`, `MANUS_API_TOKEN`（启用 `manus`）
+
+## 2) Run `tihc` extension
+
+- `cd tihc && npm i && npm run dev`
+- 打开 sidepanel
+- 顶部配置：
+  - `Backend=serverless`
+  - `API=https://YOUR.vercel.app`
+  - `Engine=openai`（或 `openai_rag` / `manus` / `tidb`）
+  - `Google Client ID=<client id>` → 点击 `Login`
+
+如果 serverless 返回 401，说明 token 不满足 Workspace 域名或 client id 校验。
+
+## 3) Eval (optional)
+
+见 `Evaluation` 文档：`/tihc/evaluation`

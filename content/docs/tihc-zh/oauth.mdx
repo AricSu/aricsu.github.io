@@ -1,0 +1,30 @@
+---
+title: Google OAuth (Workspace)
+description: 扩展登录与后端域名限制
+---
+
+## Extension login
+
+`tihc` 使用 `chrome.identity.launchWebAuthFlow`。
+
+sidepanel 顶部会显示：
+
+- `Redirect: https://<EXTENSION_ID>.chromiumapp.org/oauth2`
+
+把它加入 Google Cloud Console 的 OAuth Client “Authorized redirect URIs”。
+
+## Serverless enforcement
+
+`tihc-serverless` 环境变量：
+
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_WORKSPACE_DOMAIN`（例如 `pingcap.com`）
+- `REQUIRE_AUTH=true`（可选）
+
+校验流程：
+
+- 每次请求携带 `Authorization: Bearer <token>`
+- serverless 调用 Google `tokeninfo` 校验有效性
+- 校验 `aud` 与 `GOOGLE_CLIENT_ID` 匹配（若设置）
+- 校验 `hd` 或 `email@domain` 与 `GOOGLE_WORKSPACE_DOMAIN` 匹配
+

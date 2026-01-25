@@ -7,8 +7,14 @@ import {
   ScrollRestoration,
 } from 'react-router';
 import { RootProvider } from 'fumadocs-ui/provider/react-router';
+import { ToastProvider } from './components/ui/toast-provider';
 import type { Route } from './+types/root';
+import { GoogleAnalytics } from "@/components/analytics/google-analytics";
+import { AnalyticsListener } from "@/components/analytics/analytics-listener";
+import { getPublicEnv } from "@/lib/public-env";
+import { StaticSearchDialog } from "@/components/search/StaticSearchDialog";
 import './app.css';
+import './i18n/i18n';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -24,16 +30,48 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { gaMeasurementId, gscSiteVerification } = getPublicEnv();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {gscSiteVerification ? (
+          <meta name="google-site-verification" content={gscSiteVerification} />
+        ) : null}
+        {gaMeasurementId ? (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+            />
+            <script
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: Required for GA bootstrapping.
+              dangerouslySetInnerHTML={{
+                __html: [
+                  "window.dataLayer = window.dataLayer || [];",
+                  "function gtag(){window.dataLayer.push(arguments);}",
+                  "window.gtag = window.gtag || gtag;",
+                  "gtag('js', new Date());",
+                  `gtag('config', '${gaMeasurementId}', { send_page_view: false });`,
+                ].join("\n"),
+              }}
+            />
+          </>
+        ) : null}
         <Meta />
         <Links />
       </head>
       <body className="flex flex-col min-h-screen">
-        <RootProvider>{children}</RootProvider>
+        <RootProvider
+          search={{
+            SearchDialog: StaticSearchDialog,
+            options: { api: "/search-index.json" },
+          }}
+        >
+          <ToastProvider>{children}</ToastProvider>
+        </RootProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -42,7 +80,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <>
+      <GoogleAnalytics />
+      <AnalyticsListener />
+      <Outlet />
+    </>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

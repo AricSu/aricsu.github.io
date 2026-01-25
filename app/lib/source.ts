@@ -1,7 +1,2 @@
-import { loader } from 'fumadocs-core/source';
-import { docs } from 'fumadocs-mdx:collections/server';
-
-export const source = loader({
-  source: docs.toFumadocsSource(),
-  baseUrl: '/docs',
-});
+export * from "./source.tidb";
+export * from "./source.tihc";

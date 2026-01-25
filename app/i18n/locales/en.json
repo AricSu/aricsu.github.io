@@ -1,0 +1,27 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language",
+    "docs": "Docs",
+    "tihcDocs": "TiHC Docs",
+    "tidbNotes": "TiDB Notes",
+    "posts": "Posts",
+    "changelog": "Changelog"
+  },
+  "home": {
+    "title": "Welcome to Homepage",
+    "description": "This is a static website generated with Remix SSG mode."
+  },
+  "meta": {
+    "title": "My Website",
+    "description": "A multi-language static website"
+  },
+  "cta": {
+    "title": "TIHC Extension\nAND\nAI",
+    "description": "TiHC is a Chrome extension designed for TiDB users, providing an AI-powered assistant for interactive Q&A directly in the browser sidebar. It supports streaming responses, local chat history (up to 20 messages), code copying, and Markdown rendering, making it easy to get technical answers and suggestions about TiDB efficiently.",
+    "button": "TRY IT NOW"
+  }
+}

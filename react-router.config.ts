@@ -1,5 +1,5 @@
 import type { Config } from '@react-router/dev/config';
-import { glob, readFile, readdir, rm, writeFile } from 'node:fs/promises';
+import { readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { createGetUrl, getSlugs } from 'fumadocs-core/source';
 import { supportedLngs } from './app/i18n/config';
@@ -15,6 +15,14 @@ async function listFilesRecursively(dir: string): Promise<string[]> {
   }
 
   return files;
+}
+
+async function listMdxEntries(relativeDir: string): Promise<string[]> {
+  const baseDir = path.join(process.cwd(), relativeDir);
+  const files = await listFilesRecursively(baseDir);
+  return files
+    .filter((f) => f.toLowerCase().endsWith('.mdx'))
+    .map((f) => path.relative(baseDir, f).split(path.sep).join('/'));
 }
 
 async function patchRedirectPages(clientBuildDir: string) {
@@ -64,6 +72,7 @@ export default {
   async prerender({ getStaticPaths }) {
     const paths: string[] = [];
     const excluded = new Set<string>(['/api/search/tihc', '/api/search/tidb']);
+    excluded.add('/search-index.json');
     excluded.add('/:lang');
     excluded.add('/:lang/api/search/tihc');
     excluded.add('/:lang/api/search/tidb');
@@ -77,27 +86,14 @@ export default {
       if (!excluded.has(path)) paths.push(path);
     }
 
-    const tihcZhEntries: string[] = [];
-    for await (const entry of glob("**/*.mdx", { cwd: "content/docs/tihc-zh" })) {
-      tihcZhEntries.push(entry);
-    }
-    const tihcEnEntries: string[] = [];
-    for await (const entry of glob("**/*.mdx", { cwd: "content/docs/tihc-en" })) {
-      tihcEnEntries.push(entry);
-    }
-    const tidbEntries: string[] = [];
-    for await (const entry of glob('**/*.mdx', { cwd: 'content/docs/tidb' })) {
-      tidbEntries.push(entry);
-    }
-
-    const postsZhEntries: string[] = [];
-    for await (const entry of glob('**/*.mdx', { cwd: 'content/posts/zh' })) {
-      postsZhEntries.push(entry);
-    }
-    const postsEnEntries: string[] = [];
-    for await (const entry of glob('**/*.mdx', { cwd: 'content/posts/en' })) {
-      postsEnEntries.push(entry);
-    }
+    const [tihcZhEntries, tihcEnEntries, tidbEntries, postsZhEntries, postsEnEntries] =
+      await Promise.all([
+        listMdxEntries('content/docs/tihc-zh'),
+        listMdxEntries('content/docs/tihc-en'),
+        listMdxEntries('content/docs/tidb'),
+        listMdxEntries('content/posts/zh'),
+        listMdxEntries('content/posts/en'),
+      ]);
 
     for (const lang of supportedLngs) {
       paths.push(`/${lang}`);

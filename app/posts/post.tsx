@@ -4,9 +4,137 @@ import { Header } from "@/components/common/Header";
 import { mdxComponents } from "@/components/mdx/mdx-components";
 import { defaultLng, supportedLngs } from "@/i18n/config";
 import { getPostsSourceForLang } from "@/lib/source.posts";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import browserCollections from "fumadocs-mdx:collections/browser";
+import type { TOCItemType } from "fumadocs-core/toc";
+import { InlineTOC } from "fumadocs-ui/components/inline-toc";
+import { TOCProvider, TOCScrollArea } from "@fumadocs/ui/components/toc/index";
+import { TOCItems } from "@fumadocs/ui/components/toc/default";
 import { useTranslation } from "react-i18next";
+import type { ReactNode } from "react";
 import { Link } from "react-router";
+
+type PostFrontmatter = {
+  title: string;
+  description?: string;
+  date?: string | Date;
+  author?: string;
+  tags?: string[];
+};
+
+function formatDate(value: unknown, lang: string) {
+  if (!value) return undefined;
+  const date = value instanceof Date ? value : new Date(value as string);
+  if (Number.isNaN(date.getTime())) return undefined;
+  const locale = lang === "zh" ? "zh-CN" : "en-US";
+  return new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(date);
+}
+
+function PostLayout({
+  lang,
+  toc,
+  children,
+}: {
+  lang: string;
+  toc: TOCItemType[];
+  children: ReactNode;
+}) {
+  const tocTitle = lang === "zh" ? "目录" : "On this page";
+
+  return (
+    <TOCProvider toc={toc}>
+      <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_280px]">
+        <div className="min-w-0">
+          {toc.length ? (
+            <div className="mb-6 xl:hidden">
+              <InlineTOC items={toc}>{tocTitle}</InlineTOC>
+            </div>
+          ) : null}
+          {children}
+        </div>
+
+        {toc.length ? (
+          <aside className="hidden xl:block">
+            <div className="sticky top-24">
+              <div className="mb-3 text-sm font-medium text-fd-muted-foreground">
+                {tocTitle}
+              </div>
+              <TOCScrollArea className="h-[calc(100vh-8rem)] pr-2">
+                <TOCItems />
+              </TOCScrollArea>
+            </div>
+          </aside>
+        ) : null}
+      </div>
+    </TOCProvider>
+  );
+}
+
+function PostCard({
+  lang,
+  backHref,
+  backLabel,
+  frontmatter,
+  children,
+}: {
+  lang: string;
+  backHref: string;
+  backLabel: string;
+  frontmatter: PostFrontmatter;
+  children: ReactNode;
+}) {
+  const dateLabel = formatDate(frontmatter.date, lang);
+
+  return (
+    <Card className="overflow-hidden">
+      <CardHeader className="gap-3">
+        <div className="flex items-center justify-between gap-4">
+          <Button asChild variant="ghost" size="sm" className="-ml-2">
+            <Link to={backHref}>← {backLabel}</Link>
+          </Button>
+        </div>
+
+        <div className="space-y-2">
+          <CardTitle className="text-3xl font-bold tracking-tight">
+            {frontmatter.title}
+          </CardTitle>
+          {frontmatter.description ? (
+            <p className="text-fd-muted-foreground">{frontmatter.description}</p>
+          ) : null}
+
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-fd-muted-foreground">
+            {dateLabel ? <span className="whitespace-nowrap">{dateLabel}</span> : null}
+            {frontmatter.author ? (
+              <>
+                <span className="opacity-40">•</span>
+                <span className="whitespace-nowrap">{frontmatter.author}</span>
+              </>
+            ) : null}
+          </div>
+
+          {frontmatter.tags?.length ? (
+            <div className="flex flex-wrap gap-2">
+              {frontmatter.tags.map((tag) => (
+                <Badge key={tag}>{tag}</Badge>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      </CardHeader>
+
+      <Separator />
+
+      <CardContent className="pt-6">
+        <article className="prose prose-neutral dark:prose-invert max-w-none">
+          {children}
+        </article>
+      </CardContent>
+    </Card>
+  );
+}
 
 export async function loader({ params }: Route.LoaderArgs) {
   const lang =
@@ -27,56 +155,21 @@ export async function loader({ params }: Route.LoaderArgs) {
 
 const clientLoaderZh = browserCollections.postsZh.createClientLoader({
   id: "postsZh",
-  component({ default: Mdx, frontmatter }) {
+  component({ default: Mdx, frontmatter, toc }) {
     return (
       <>
         <title>{frontmatter.title}</title>
         <meta name="description" content={frontmatter.description} />
-        <div className="mb-6">
-          <Link
-            to="/zh/posts"
-            className="text-sm text-fd-muted-foreground hover:text-fd-foreground"
+        <PostLayout lang="zh" toc={toc}>
+          <PostCard
+            lang="zh"
+            backHref="/zh/posts"
+            backLabel="返回 Posts"
+            frontmatter={frontmatter as PostFrontmatter}
           >
-            ← 返回 Posts
-          </Link>
-        </div>
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">{frontmatter.title}</h1>
-          {frontmatter.description ? (
-            <p className="mt-3 text-fd-muted-foreground">{frontmatter.description}</p>
-          ) : null}
-          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-fd-muted-foreground">
-            {frontmatter.date ? (
-              <span className="whitespace-nowrap">
-                {new Date(frontmatter.date).toDateString()}
-              </span>
-            ) : null}
-            {frontmatter.author ? (
-              <>
-                <span className="opacity-40">•</span>
-                <span className="whitespace-nowrap">{frontmatter.author}</span>
-              </>
-            ) : null}
-            {frontmatter.tags?.length ? (
-              <>
-                <span className="opacity-40">•</span>
-                <span className="flex flex-wrap gap-2">
-                  {frontmatter.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-border bg-fd-accent px-2.5 py-1 text-xs text-fd-accent-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </span>
-              </>
-            ) : null}
-          </div>
-        </header>
-        <article className="prose prose-neutral dark:prose-invert max-w-none">
-          <Mdx components={mdxComponents} />
-        </article>
+            <Mdx components={mdxComponents} />
+          </PostCard>
+        </PostLayout>
       </>
     );
   },
@@ -84,56 +177,21 @@ const clientLoaderZh = browserCollections.postsZh.createClientLoader({
 
 const clientLoaderEn = browserCollections.postsEn.createClientLoader({
   id: "postsEn",
-  component({ default: Mdx, frontmatter }) {
+  component({ default: Mdx, frontmatter, toc }) {
     return (
       <>
         <title>{frontmatter.title}</title>
         <meta name="description" content={frontmatter.description} />
-        <div className="mb-6">
-          <Link
-            to="/en/posts"
-            className="text-sm text-fd-muted-foreground hover:text-fd-foreground"
+        <PostLayout lang="en" toc={toc}>
+          <PostCard
+            lang="en"
+            backHref="/en/posts"
+            backLabel="Back to Posts"
+            frontmatter={frontmatter as PostFrontmatter}
           >
-            ← Back to Posts
-          </Link>
-        </div>
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">{frontmatter.title}</h1>
-          {frontmatter.description ? (
-            <p className="mt-3 text-fd-muted-foreground">{frontmatter.description}</p>
-          ) : null}
-          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-fd-muted-foreground">
-            {frontmatter.date ? (
-              <span className="whitespace-nowrap">
-                {new Date(frontmatter.date).toDateString()}
-              </span>
-            ) : null}
-            {frontmatter.author ? (
-              <>
-                <span className="opacity-40">•</span>
-                <span className="whitespace-nowrap">{frontmatter.author}</span>
-              </>
-            ) : null}
-            {frontmatter.tags?.length ? (
-              <>
-                <span className="opacity-40">•</span>
-                <span className="flex flex-wrap gap-2">
-                  {frontmatter.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-border bg-fd-accent px-2.5 py-1 text-xs text-fd-accent-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </span>
-              </>
-            ) : null}
-          </div>
-        </header>
-        <article className="prose prose-neutral dark:prose-invert max-w-none">
-          <Mdx components={mdxComponents} />
-        </article>
+            <Mdx components={mdxComponents} />
+          </PostCard>
+        </PostLayout>
       </>
     );
   },
@@ -146,12 +204,10 @@ export default function PostPage({ loaderData }: Route.ComponentProps) {
 
   return (
     <>
-      <Header className="hidden md:block" />
+      <Header />
       <main className="flex-1">
-        <div className="container mx-auto max-w-4xl px-4 py-10">
-          <div className="rounded-2xl border border-border bg-fd-card p-6 shadow-sm md:p-10">
-            <Content />
-          </div>
+        <div className="mx-auto w-full max-w-7xl px-4 py-10">
+          <Content />
         </div>
       </main>
       <Footer />

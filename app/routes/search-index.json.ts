@@ -95,11 +95,11 @@ async function buildIndexes(): Promise<Index[]> {
     baseUrl: "/en/tihc",
   });
   plan.push({
-    baseDir: path.join(root, "content", "docs", "tidb"),
+    baseDir: path.join(root, "content", "docs", "tidb-zh"),
     baseUrl: "/zh/tidb",
   });
   plan.push({
-    baseDir: path.join(root, "content", "docs", "tidb"),
+    baseDir: path.join(root, "content", "docs", "tidb-en"),
     baseUrl: "/en/tidb",
   });
   plan.push({

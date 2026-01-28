@@ -1,0 +1,127 @@
+---
+title: "Analysis of monitoring principle"
+description: "1. Prometheus was used for monitoring as described in [TiDB website Storage](https://docs.pingcap.com/tidb/stable/tidb-monitoring-framework), scrape\\_interva..."
+type: note
+tags: [tidb, legacy]
+last_updated: 2026-01-28
+---
+# Analysis of monitoring principle
+
+## Meaning of the article
+
+## Reading preface
+
+1. Prometheus was used for monitoring as described in [TiDB website Storage](https://docs.pingcap.com/tidb/stable/tidb-monitoring-framework), scrape\_interval is 15s by default, the following changes all refer to the change logic of monitoring indicators in TiCDC memory, **namely, ignoring the logic of the persistence part of the memory, and focusing on the analysis of the significance of indicators.**
+2. **"prometheus client Function"**, indicated in the following paragraph. For example, the process collector and Go collector are registered to collect basic Linux process information, such as CPU, memory, file descriptor usage, and startup time, and to collect Go runtime information, such as GC, gouroutine, and the number of OS threads. **To avoid redundant articles, this group is collectively referred to as the "prometheus client Function"**. If these indicators are inaccurate, you can view them on the Prometheus Github Repo or create an Issue to discuss them.
+3. Prometheus is packaged within TiDB components (including TiCDC) using Counter, Gauge, and Histogram. For more details, please refer to Prometheus Document or My Blog. metrics are initialized when the process starts, so we'll focus on the change, demise, and role of Metrics.
+4. The Tick mechanism has been mentioned several times in the following paragraphs. The logic is roughly as follows: Essentially, it is a constant action with a fixed frequency, and its action includes update Metrics operation.
+
+   ```yaml
+   Owner.Tick --&gt; changefeed.Tick --&gt; schedulerV2.Tick --&gt; ScheduleDispatcher.Tick
+
+
+                                               |-
+   ----------&gt;feedStateManager.Tick
+   ```
+
+## Server panel
+
+Most indicators on this panel are related to process status and operating system resource consumption.
+
+1. Uptime
+
+**Changed:** When the node process is normal (start\_time value is unchanged), the panel value increases continuously. When restart occurs, the panel value will be reset to zero and a new round of cumulative increment will be started. **Death:** The process restarts start\_time changes. **Action:** Time that the TiKV and TiCDC nodes have been running, including Capture, PD, and TiKV nodes since the last process start. When used for problem diagnosis, analyze the correlation between the build process restart and the current problem. **Principle:** The data is from /proc/stat. The current time minus start\_time minus USER\_HZ is the value in seconds.
+
+2. Goroutine count
+
+变更：进程运行时，go profile 采用统计记录； 消亡：进程结束时 prometheus client 中的 go 收集器退出，不在记录对应指标信息； 作用：TiCDC 节点 Goroutine 的个数，用于问题诊断时，分析组建进程重启与当前问题的相关性。 原理：（下面有个隐藏指标，go\_threads 与 go\_goroutines 功能类似，cdc process 在 linux 创建的线程数，主要用于性能调优，如：goroutine 过多等问题。）
+
+Open FD count 产生：采用 Prometheus Guage 类型统计，打开的文件描述符数量； 变更：以默认 15s 为间隔更新指标值； 消亡：进程结束时指标值归零； 作用：TiCDC 节点打开的文件句柄个数，用于问题诊断时，分析操作系统层面文件句柄打开数量与当前问题的相关性； 原理：该信息源自 /proc/PID/fd。
+
+Ownership 产生：采用 Prometheus Guage 类型统计，进程运行时指标值初始化完毕； 变更：以 owner-flush-interval 为周期，在进程 Tick 时于内存中更新； 消亡：进程结束时指标值归零； 作用：TiCDC 集群中节点的当前状态，指标值包含 Instance（IP:port） 及 Role(Processor 或 Owner)。用于问题诊断时，分析当前问题与 Owner 相关性，如：是否同时存在 2 个 Owner 等。 原理：依据 CDC 的 Tick 机制，在每次 Tick 时 Owner 的 updateMetrics 会以 ownershipCounter.Add(float64(now.Sub(o.lastTickTime)) / float64(time.Second)) 计算加和统计。以 owner-flush-interval 在 Process 启动时构造一个 goroutine ，周期性的完成 Tick 操作，Tick 详细运行机制参考 --&gt; What is tick in cdc
+
+Ownership history 产生：同 Ownership 面板； 变更：同 Ownership 面板； 消亡：同 Ownership 面板； 作用：变换计算方式，用于分析 Owner 的演进历史，有利于问题根因与该指标相关性分析。 CPU usage 变更：采用 Prometheus Guage 类型统计，从操作系统层获取当前进程的 CPU Usage； 消亡：进程结束时指标值归零； 作用：TiCDC 节点使用的 CPU。instance-MaxProcs 表示 Capture 进程可同时使用操作系统 CPU 核数（目前 hard code 在代码中，可 100% 占用操作系统 CPU 核数），instance 表示当前进程已消耗的 CPU 核心使用率。用于问题诊断时，分析操作系统层面进程使用情况与当前问题的相关性； 原理：该信息源自 /proc/PID/status 。 Memory usage 变更：采用 Prometheus Guage 类型统计，从操作系统层面获取进程内存消耗； 消亡：进程结束时指标值归零； 作用：TiCDC 节点使用的内存。process-instance 表示进程实际使用的内存（即：常驻内存集 Resident Set Size），不包括分配但未使用的内存，也不包括换出的内存页面，但包含共享内存。heap-instance 表示 Capture 进程已分配且仍在使用的 heap 字节数，包括所有可达堆对象和不可达的对象(GC尚未释放的）占用的内存。用于问题诊断时，分析操作系统层面进程内存消耗与当前问题的相关性； 原理：该类信息来自 Go 收集器 ，非操作系统。 PD leader history 变更：采用 Prometheus Guage 类型统计，源自 PD 组件，PD 进程切换 Leader 时发生变更； 消亡：当 PD leader 变为 follower 时，指标值归零。PD 进程结束时，指标值为空； 作用：表示 PD Leader 演进历史，因为 PD Cluster 为 TiCDC Cluster 提供一定持久化功能，二者是强绑定关系，所以该面板有利于分析当前问题与 PD Leader 变化的相关性。
+
+Changefeed 面板 Changefeed table count 产生：采用 Prometheus Guage 类型统计，在 Processor 创建时该指标初始化； 变更：在 TablePipeline 协程创建成功后，指标值增加，在 TablePipeline 协程退出后，指标值减少； 消亡：在 Processor 生命周期结束时，删除指标； 作用：一个同步任务中分配到各个 TiCDC 节点同步的数据表个数，当前 TiCDC Cluster 各 Capture 分配的同步表数量是否均衡。 Table count maintained by owner 产生：采用 Prometheus Guage 类型统计，在 Capture 运行时该指标初始化； 变更：以 owner-flush-interval 为周期 Tick 时，循环查找每个 Changefeeds 所用的 Capture，并汇总统计当前 Owner 所管理的表数量； 消亡：进程结束时指标值归零； 作用：TiCDC Owner 维护的复制表的数量。capture-total 表示对应 Capture 上维护的表数量，capture-wip 表示表正处于迁移调度状态的数量。用于问题诊断时，分析 Owner 表调度与当前问题的相关性。 Min resolved table ID 产生：采用 Prometheus Guage 类型统计，在 Capture 运行时该指标初始化； 变更：以 processor-flush-interval 为周期 Tick 时，遍历当前 Processor 所负责的表找出最小 TableID 记录； 消亡：在 Processor 声明周期结束时不再记录； 作用：每个 Changefeed 所在的 Capture 的最小 ResolvedTs 的表的 TableID，以 instance-changefeed-table-id 格式划分指标。用于问题诊断时，将整体延时在 ResolvedTs 层面细分到表级。 Min checkpoint table ID 产生：同 Min resolved table ID 指标； 变更：同 Min resolved table ID 指标； 消亡：同 Min resolved table ID 指标； 作用：每个 Changefeed 所在的 Capture 的最小 CheckpointTs 的表的 TableID，以 instance-changefeed-table-id 格式划分指标。用于问题诊断时，将整体延时在 CheckpointTs 层面细分到表级。 Changefeed checkpoint 产生：approximate current time (s) 源自 PD ，取当前 PD 申请的最大 TSO 表示集群当前时间。changefeed、instance-changefeed、changefeed-barrierTs 均采用 Prometheus Guage 类型统计，在 Capture 运行时该指标初始化； 变更：
+
+1. changefeed 在 Changefeed 初始化时，记录下对应的 ChangefeedID，随着 Owner Tick 会触发 Changefeed Tick ，并在 Changefeed Tick 中将当前 Changefeed CheckpointTs 更新。
+2. instance-changefeed 在 Processor 初始化时，记录下对应 changefeedID 及 advertiseAddr，并在 Processor Tick 中将当前 Processor 负责的复制表的最小 CheckpointTs 作为 minCheckpointTs。
+3. changefeed-barrierTs 在 Changefeed 初始化时，记录下对应的 ChangefeedID，在每次取小的 BarrierTs 作为当前 BarrierTs。 消亡： changefeed、changefeed-barrierTs 在 Changefeed 释放资源时，删除对应 ChangefeedID； instance-changefeed 在 Processor 退出时，删除对应 ChangefeedID； 作用：分别从 changefeed 、每个 Capture 上的 changefeed 看 changefeed 的 minCheckpointTs，表示 changefeed 同步到下游的最小时间。changefeed-barrierTs 表示当前同步的 DDL 及 syncPoint 最小时间。 原理：BarrierTs 被封装在 Changefeed struct 内部，主要有 3 类ddlJobBarrier、syncPointBarrier、finishBarrier，我理解 主要是为了实现 exactly once 加的属性，具体实现就是实验特性 TiCDC syncpoint--&gt; [https://pingcap.feishu.cn/wiki/wikcndyqbDagcVc99chsfkH5Rjf](https://pingcap.feishu.cn/wiki/wikcndyqbDagcVc99chsfkH5Rjf)
+
+Changefeed resolved ts 产生：changefeed、instance-changefeed 采用 Prometheus Guage 类型统计，在 Capture 运行时该指标初始化； 变更：
+
+1. changefeed 同 Changefeed checkpoint 指标；
+2. instance-changefeed 同 Min resolved table ID 指标； 消亡：
+3. changefeed 同 Changefeed checkpoint 指标；
+4. instance-changefeed 同 Min resolved table ID 指标； 作用：分别从 changefeed 、每个 Capture 上的 changefeed 看 changefeed 的 minResolvedTs。
+
+Changefeed checkpoint lag 产生：changefeed、instance-changefeed 采用 Prometheus Guage 类型统计，在 Capture 运行时该指标初始化； 变更：
+
+1. changefeed 同 Changefeed checkpoint 指标，唯一的不同是计算方式，Owner 会便利所有 Capture 取 minCheckpointTs，取 pd 当前 tso 物理位减 checkpointTs；
+2. instance-changefeed 同 Min resolved table ID 指标，唯一的不同是计算方式，遍历负责的所有复制表取出 minCheckpointTs，再取 pd 当前 tso 物理位减 checkpointTs 得出延迟时间； 消亡：
+3. changefeed 同 Changefeed checkpoint 指标；
+4. instance-changefeed 同 Min resolved table ID 指标； 作用：分别从 changefeed 、每个 Capture 上的 changefeed 看 changefeed 的 minCheckpointTs。
+
+Changefeed resolved ts lag 产生：changefeed、instance-changefeed 采用 Prometheus Guage 类型统计，在 Capture 运行时该指标初始化； 变更：
+
+1. changefeed 同 Changefeed checkpoint 指标，唯一的不同是计算方式，Owner 会便利所有 Capture 取 minResolvedTs，取 pd 当前 tso 物理位减 checkpointTs；
+2. instance-changefeed 同 Min resolved table ID 指标，唯一的不同是计算方式，遍历负责的所有复制表取出 minResolvedTs，再取 pd 当前 tso 物理位减 checkpointTs 得出延迟时间； 消亡：
+3. changefeed 同 Changefeed checkpoint 指标；
+4. instance-changefeed 同 Min resolved table ID 指标； 作用：分别从 changefeed 、每个 Capture 上的 changefeed 看 changefeed 的 minResolvedTs。
+
+Changefeed checkpoint derivative 复用的 Changefeed checkpoint 指标，所以产生、变更、消亡与 Changefeed checkpoint 相同，但改变了 prometheus 表达式，使用 derive 函数取 1 分钟内时序数据的简单的线性回归导数； 作用：预测 Changefeed checkpoint 的变化趋势。 The status of changefeeds 产生：同 Min resolved table ID 指标； 变更：在每次 Owner Tick 时，循环便利 changefeed 状态，0 表示 StateNormal、1 表示 StateError、2 表示 StateFailed、3 表示 StateStopped、4 表示 StateFinished、5 表示 StateRemoved。 消亡：在 resign owenr 、Capture 退出或 Capture 部署时会重置； 作用：判断每个 Changefeed 的状态。
+
+Changefeed checkpoint catch-up ETA 产生：复用的 Changefeed checkpoint lag 的 changefeed 及 Changefeed checkpoint derivative 的 changefeed 指标项。计算方式为，取 checkpoint 延迟最大值除 Changefeed checkpoint 变化增量； 作用：评估追平同步延时的时间。
+
+Schema Storage GC progress 产生：approximate current time (s) 源自 PD ，取当前 PD 申请的最大 TSO 表示集群当前时间。changefeed 采用 Prometheus Guage 类型统计，在 Capture 运行时该指标初始化； 变更：每次 Processor Tick 时，取 processor 对应 changefeed 的 CheckpointTs - 1 作为目标时间。processor 建立时产生。 消亡：processor 退出时消亡。 作用：在 Processor 建立时会创建一个 btree 内存维护 Schema 的多版本信息，会在 Tick 时定期 GC，该面板主要反映 GC 进度； Processor Memory Consumption Per Capture 产生： 变更：Tablepipline 会追踪每个 Table 的内存消耗，在每次 Processor Tick 时汇总负责的复制表内存消耗，再用总内存消耗除表数量，得出每个表消耗内存均值。 作用：判断当前同步表的平均内存消耗情况。 Processor Memory Consumption Per Changefeed 产生： 变更：复用 Processor Memory Consumption Per Capture 指标值，但计算方式是用总内存消耗除 Changefeed 数量，得出每个 Changefeed 消耗内存均值。 作用：判断当前 Changefeed 的平均内存消耗情况。 PD etcd requests/s 产生： 变更：所有的 Capture 与 Etcd 交互都会通过 EtcdWorker，在 Etcd 内部会记录所有操作次数，操作类型包含 EtcdPut、EtcdGet、EtcdDel、EtcdTxn、EtcdGrant、EtcdRevoke。 作用：追踪每个 Captreure 与 Etcd 交互情况。 Exit error count/m 产生： 变更：在每次 Processor Tick 的时候，如果遇见 Processor 不可忽略的错误时 Processor 便会退出并将对应值加一。 作用：追踪每个 Changefeed 在 Captreure 上的 Processor 的运行情况。 MySQL Sink 面板 MySQL sink write duration 产生：Histogram 类型 变更：MySQL Sink Worker 向下游以 Batch 执行成功的耗时（包含重试的时间），每次 sink 均会变更该值。 作用：TiCDC 异步刷写数据入下游的耗时直方图。追踪 MySQL sink 的耗时情况（like sql duration，但不是以单个 SQL 为单位，而是以一个 TxnBatch 为单位）。 MySQL sink write duration percentile 复用 Flush sink duration 指标，以分位图展示。 作用：每秒钟中 95%、99% 和 99.9% 的情况下，TiCDC 异步刷写数据入下游所花费的时间。 MySQL sink write rows count/s 产生： 变更：每次 Batch 向下游执行 DML 时，Batch 中的行数； 作用：每秒钟中 95%、99% 和 99.9% 的情况下，TiCDC 将一个事务的 DML 分 Batch 写到下游所花费的时间，其中每个 Batch 的行数计数。 MySQL sink write batch size percentile 复用 MySQL sink write rows count/s 指标，以分位图展示。 作用：每秒钟中 95%、99% 和 99.9% 的情况下，Batch 的情况。 MySQL sink conflict detect duration 产生： 变更： 作用：TiCDC 会将上游事务拆分，并分发给不同 worker 执行会造成事务间的冲突，因此会在分发事务时提前探测存在冲突。如果分发的事务与本一个 worker 存在冲突，则将该事务发送给产生冲突的 worker 队列。如果与多个 worker 存在冲突，则需要等待冲突的事务执行完再执行本事务。该指标记录该过程发生的时间，评估当前 TiCDC 内部是否存在大量事务冲突，以热力图展示。 MySQL sink conflict detect duration percentile 复用 MySQL sink conflict detect duration 指标 作用：每秒钟中 95%、99% 和 99.9% 的情况下，MySQL 写入冲突检测耗时。 MySQL sink ddl execution duration percentile 产生： 变更：记录执行 DDL 耗时； 作用：TiCDC 节点中写 MySQL 线程的负载情况。 MySQL sink worker load 产生： 变更：在 NewMySQLSink 时记录每个 worker 及对应 changefeed。 作用：sinkworker 每执行成功一个 DML txn ，都会将其记录在 metricBucketSize 中。并按照 0-2 row/s、2-10 row/s、10-100 row/s、&gt;100 row/s 的档位划分当前 Sink Worker 负载，区分所有 worker 当前的负载情况。 large data event size (MySQL) 产生： 变更：在 NewMySQLSink 时记录每个 worker 及对应 changefeed。 作用：每秒钟中 95%、99% 和 99.9% 的情况下，大 RowChangedEvent 的统计情况。 原理：每次执行 DML 之前 Capture 会探测 protobuf 消息大小，当超过 128K 时将其记录位大事务。
+
+Dataflow 面板 Puller output events/s 产生：Counter 变更： 作用：以 changefeed, instance, type 分组显示，TiCDC 节点中 Puller 模块每秒收到来自 KV client 模块的数据变更个数。追踪 tikv 到 Capture 的 event 推送情况。 原理：Tablepipline 会申请 TableActor 创建对应的 puller，记录 kv 及 resolved 2 种类型的 RegionFeedEvent ，每接到 1 给对应事件便记录。
+
+Puller output events 复用 Puller output events/s 面板
+
+Sorter output events/s 产生：Counter 变更： 作用：以 changefeed, instance, type 分组显示，TiCDC 节点中缓存在 Sorter 模块中的数据变更个数，只要 Actor 接到了读取消息便会从 LevelDB 中读取出对应的 Event，并将其记录到应该删除数据的 Buffer 中。 原理：Tablepipline 会申请 TableActor 创建对应的 sorter，记录 kv 及 resolved 2 种类型的 RegionFeedEvent ，并在 Actor Sorter Reader 的 Poll 方法中变更监控。
+
+Puller output events 复用 Sorter output events/s
+
+Mounter output events/s 产生：Guage 变更： 作用： 原理：每个 TableActor 启动后，会启动对应的 TableSorter，每个 Sorter 中会记录 PUT 和 DELETE 类型（没有 Resolved 类型）的 Event 解码事件，在每个 sorterNode 启动后 Mounter output events 复用 Mounter output events/s 面板
+
+Table sink output events/s 产生：Guage 变更： 作用： 原理：Table Actor 每次 Poll 的时候，以 sinkFlushInterval = 500 \* time.Millisecond 为周期将结构体中记录的字段更新到监控中，其数据的产生源自每次向下游 flush 时，将其加合到结构体统计字段中。 Table sink output events
+
+Sink received events/s 以 flushMetricsInterval = 5 \* time.Second 为周期，讲 Sink received events 复用 Sink received events/s 面板
+
+Sink flush rows/s 同样是结构体字段
+
+Sink flush rows
+
+DB 面板 On disk data size 变更：以 backgroundJobInterval（15s）为周期，变更指标值。 消亡：Capture（newBackEndPool） 退出时，该指标不再记录新值。 作用：以 instance 分类展示磁盘占用空间，最新版 TiCDC 使用 PebbelDB（LevelDB）作为数据持久化容器，作用为检测该容器内数据大小。 原理：newBackEndPool 中以 0 为 id 被初始化为 metricSorterOnDiskDataSizeGauge ，是一个单独的 goroutine。低于 MaxMemoryConsumption（16GB）且低于 MaxMemoryPercentage（30%）情况下只使用 MemoryBackEnd，就不会用到磁盘空间。 In-memory data size 变更：与 On disk data size 相同 消亡：与 On disk data size 相同 作用：以 instance 分类展示监控内存占用情况。cache-hit-instance 则以 instance 分类展示 PebbleDB 中 LRU BlockCache 的 hit 情况。 原理：memoryBackEnd 内部封装了一个 model.PolymorphicEvent 类型的切片，用于排序数据。ticdc\_db\_block\_cache\_access\_total（cache-hit-instance） 源自于 PebbleDB 内部，用于检测缓存命中情况。 Level files 变更：与 On disk data size 相同 消亡：与 On disk data size 相同 作用：以 instance-level 分类，表示 PebbleDB 每层的文件个数，从 Pebble 的 Metrics（） 接口定期取数据更新监控； 原理：默认开 7 层，都是硬编码目前无法更改，第一层 8 MB ，2~3 层默认为前一层 2 倍大小，其余层默认 2 MB。 Write duration 变更：每次向 PebbleDB 发写请求时，记录请求执行时间。 消亡：对应 Actor 退出时对应指标不再记录。 作用：使用热力图展示 TiCDC 在 PebbleDB 发写请求的执行时间，用于判断在写上是否存在瓶颈。 原理：在向 PebbleDB 发起 Write（force write）、Delete（non-force write） 时，记录每次请求从开始到完成的时间。NewDBActor 创建时对应 ActorID 指标被记录，关闭对应 DBActor 时对应 ActorID 不再记录，每次调用 maybeWrite 记录变更。 Write speed 变更：同 Write duration； 消亡：同 Write duration； 作用：instance-sorter 以 instance 为分类，显示写入 Sorter Actor 数据的大小； instance-amplification 以 instance 为分类，用 histogram 的 total/sum ,即：每分钟平均写入 PebbelDB 字节数 除 每分钟平均写入次数，显示每次平均写入字节数，表示 Event 在落盘排序时放大情况； instance-disk 以 instance 分类，显示写到 PebbleDB 中的数据大小； 原理：与 Write duration 原理相同，只不过记录的数据变成了请求中数据的大小，上述 3 项都是 ticdc\_sorter\_db\_write\_bytes\_total 的不同组合变化所得。 CPU Usage 变更：每次 Actor 系统执行 Poll 请求时记录线程耗时，变更该记录。 消亡：Capture 退出时； 作用：instance-name 以 instance 和 system name 为分类，统计显示每个 worker 的 CPU 线程的使用率； 原理：默认 maxWorkerNum 为 64，如果配置的 numberWorker &lt;= 0 则置为 1，如果大于 nunberWorker &gt; maxWorkerNum，则置为 maxWorkerNum。可配置 NumWorkerPoolGoroutine 修改，但被故意隐藏，即：官网未给出 TiUP 配置方法。每次 Actor 执行 Poll 的时候记录这次 Actor 执行 Poll 的时间。 Write bytes 复用的 Write speed 指标，以热力图的方式整体显示写到 PebbleDB 的大小。 Write OPS 复用的 Write speed 指标，以时序图的方式整体显示每秒写到 PebbleDB 的次数。 Write delay 变更：以 15s 为周期更新 Sorter Actor 发生 WriteStall 导致写延迟的时间及次数。 消亡：PebbleDB 不发生 WriteStall 时不记录。 作用：PebbleDB 发生 WriteStall 时记录。 instance-duration 以 instance 分类，显示 TiCDC 发生写延迟的时间，即：触发 PebbleDB WriteStall 的延迟时间。 instance-count 以 instance 分类，显示 TICDC 发生平均每秒写延迟的发生次数。 原理：通过以 backgroundJobInterval 周期性调用 p.metricWriteStall.duration.Load() 查询 PebbleDB 发生 WriteStall 的时间，记录为写延迟的时间。 Read duration - First 变更：创建 Sorter 时，初始化 first 标签，Actor 每次尝试以 0 为 TS 获取迭代器时发生变更，并记录消耗的时间。 消亡：当 Actor 不再获取迭代器，或 Capture 退出时不再记录第一次 Seek 的时间。 作用：以 instance-sorter 为分类，用热力图形式展示每个 instance 平均每分钟获取迭代器的耗时。 原理：表示 Actor 获取以 0 为 TS Seek 整个 PebbleDB 方式获取迭代器，因为 TS 为 0，所以会迭代所有数据较为耗时，记录第一次迭代消耗时间。 Read duration - Next 变更：每次迭代排序 key 时，记录迭代每个 Key 时消耗的时间； 消亡：没有迭代 key 时不在记录，或 Sorter Actor（Capture） 退出不在记录。 作用：以热力图形式，表示每次迭代 PebbleDB 的 key 的耗时，以便探查 Pebble Sorter 是否存在性能问题。  
+ Read duration - Release 变更：当 Actor 关闭或 Pebble 迭代器不可用（没有相同 key 可迭代了）或超过 iterMaxAliveDuration（10000ms）的时候，释放迭代器，并记录其耗费的时间； 消亡：没有可迭代的 key 时， Actor 迭代器便不记录，或 Capture 退出时不再记录； 作用：用热力图形式，表示每次释放迭代器耗时情况； Read OPS - First 复用 Read duration 指标，表示每秒完成多少次获取 Actor Pebble 迭代器操作。 Read OPS - Next 复用 Read duration 指标，表示每秒完成多少次获取 Actor 迭代 key 操作。 Read OPS - Release 复用 Read duration 指标，表示每秒完成多少次获取 Actor 释放迭代器操作。 Compact duration 变更：每次触发 Poll 对 PebbleDB 进行 Compaction，记录下从触发到完成的耗时； 消亡：未满足触发 Compaction 条件时不记录； 作用：以热力图的方式，表示 Sorter 在 Compaction 操作上的整体耗时，以便分析 Sorter 是否存在性能问题。 原理：Capture 启动时伴随 Actore system 启动， Comapction 个数与默认启动的 PebbleDB instance 数量相同，即： 8个。
+
+Events 面板 Eventfeed count 变更： 消亡： 作用： 原理： 对于 ticdc\_kvclient\_event\_feed\_count 当 changefeed 创建时会在 puller 下初始化一个 changefeedSesion，创建成功则计数会增长，session goroutine 推出会降低； 对于 grpc\_client\_started\_total 并没有在代码中找到对应内容，估计是处于什么考虑后来删除了这个指标。
+
+Event size percentile 变更： received 表示 regionWorker 每处理一个 Event（包含Event\_Entries\_、Event\_Admin\_、Event\_Error、Event\_ResolvedTs），便记录下这个 Event 的 Grpc 大小； dropped 表示在处理 Event 时，如果是 Event\_Entries\_ 类型数据，则记录下 Grpc 大小； 消亡：regionWorker 退出时不再记录数据； 作用：（999 线，99 线）判断 RregionWorker 在接受 TiKV 返回的数据处理上是否存在瓶颈，是否存在大 Event； 原理：regionWorker 以 changefeedID、eventFeedSession（其实就是 table range 的 region 交互会话）、storeAddr 标定唯一的 region Worker，也就是说 1 个 region worker 对应表维护着 N 个数量的 table region，当超过 regionWorkerInputChanSize（128） \* 0.7 便处理对应接收到的 event。WorkerConcurrent 本身是个服用线程池，默认 8 个，即每个 tableRange 的处理会起 8 个 region Worker 去处理接收到的 event。 Eventfeed error/m 变更： NotLeader EpochNotMatch RegionNotFound DuplicateRequest Unknown RPCCtxUnavailable SendRequestToStore ConnectToStore
+
+transfer-leader、move-region是从 PD 获取的 schedule operator 创建情况，用户分析 error 发生原因； 消亡：Puller 或 Capture 退出时 作用：分析当前接收 tikv 是否存在问题，或大量 transfer-leader 导致性能地下； 原理：针对 ticdc\_kvclient\_event\_feed\_error\_count ，每个 eventFeedSession 会统计与 tikv 链接过程中发生的错误，如其名所示，前 5 项是与 Event 相关 TiKV 返回的。
+
+KV client receive events/s 变更：regionWorker 处理 event 时，更新对应指标； 消亡：Puller 或 Capture 退出时 作用：对 Event\_INITIALIZED、Event\_COMMITTED、Event\_COMMIT、Event\_PREWRITE、Event\_ROLLBACK、native-resolved、commit、committed 分类统计，分析接受到 event 的吞吐情况，及翻译 grpc event 为 region event 时是否存在性能问题。 原理：，带 Event\_ 前缀的表示从 GRPC 接到的数据，native-resolved 表示 regionWorker 处理 resolvedTs 的次数，commit、committed 与带前缀的相对应，如：Event\_COMMITTED 类 event 会经过 regionWorker 会将其 grpc event 转换封装成内部 revent（region Event）。 Puller output events/s 变更：只要 puller 在持续不断的 pull 数据便记录下每个 event 处理； 消亡：puller 退出； 作用：记录 puller 吞吐情况； 原理：在 puller 中每处理一个 event 便记录下对应状态，记录的 event 分为 kv，resolved 2 中，分别源自 tikv。 Sink buffer size 貌似已被废弃，无法找到对应指标 Entry sorter sort duration 变更： 消亡： 作用： 原理：puller 输出的 event 会被 sorter 加载到 resolvedTsGroup 中，每个 table 对应一个 SorterActor。每隔 1s 将 resolvedTsGroup 与 unsorted 数据混合一起，全部升序排序后。 Entry sorter sort duration percentile 复用 Entry sorter sort duration 监控指标
+
+Entry sorter merge duration 变更： 消亡： 作用：记录每次 merge 的耗时； 原理：，取 resolvedTsGroup 最后一个 ResolvedTs 作为 maxResolvedTs，经过排序后的 resolvedTsGroup 会再使用双指针法与上一次排序的结果残留的，大于上一次比较 maxResolvedTs 的结果比较，将大于本次 maxResolvedTs 的 event 保留下来用于下一次比较，小于本次 maxResolvedTs 的输出到 Mounter 去解码 RawKV 数据。 Entry sorter merge duration percentile 复用 Entry sorter merge duration 监控指标
+
+Mounter unmarshal duration 变更： 消亡： 作用：Mounter 以 Entry 解码 RawKV 为带有 TableID 的 Event，在此过程中记录下解码每行变更数据的耗时。 Mounter unmarshal duration percentile
+
+KV client dispatch events/s 变更： 消亡： 作用： 原理：regionWorker 的分发速度； 图像 2 复用了 KV client batch resolved size；
+
+KV client batch resolved size 变更： 消亡： 作用：记录每次从 tikv 接收到的每个 ChangeDataEvent 中的 region 个数； 原理： KV client scanning regions 变更： 消亡： 作用：每次向 TiKV 对应 Region 发送请求都会被记录，用于分析 Capture 或 Changefeed 向 TiKV 请求的 RPC负载情况； 原理： KV client gRPC stream count 变更： 消亡： 作用：每隔 1ms 记录下 GRPC 线程池中活跃连接数情况 原理： KV client cached regions 变更： 消亡： 作用：增量扫阶段，会用 regionRouterChanSize（16）去限制发往 tikv 的 region 请求数量，超过部分会先 Cache 在内存中。 原理： Estimate remaining time for initialization 变更： 消亡： 作用：用 cache 的 region 数量除 1 分钟内变化情况，估计多久增量扫过程中所有 region 都建立的 grpc stream 所需的时间。 原理： Unified Sorter 面板 Unified Sorter intake rate 变更： 消亡： 作用： 原理：每个 sorter 会将接收到的 event 计数，如果是 resolvedEvent 则记录为 resolved ，如果是 kv 变化则记为 kv。 Unified Sorter event output rate 变更： 消亡： 作用： 原理：每次 Poll 时，会记录下本次 Actor 处理过程中，出现在 channel 中的数据全部记录下来。 Unified Sorter on disk data size 变更： 消亡： 作用： 原理：每隔 backgroundJobInterval （15s）定期检查下 PebbleDB 中磁盘占用大小。 Unified Sorter in-memory data size 变更： 消亡： 作用： 原理：每隔 backgroundJobInterval （15s）定期检查下评估的内存占用情况。 Unified Sorter flush sizes 变更： 消亡： 作用： 原理：在 Sorter 启动时，会初始化 HeapSorter 并配置 flush 策略，超过ChunkSizeLimit 或小于 flushRateLimitPerSecond，便会将其内存数据 flush 到磁盘上。 Unified Sorter merge size 变更： 消亡： 作用： 原理：Sorter 启动后会归并操作单批次中处理的 event 数量。(目前不太懂为什么要归并 merge)
+
+Etcd 面板 Etcd MVCC DB total size 取自 PD 表示 ETCD 占用的空间大小，用于分析是否存在性能问题。 Etcd health check duration Capture 会每隔 3s 会 check 一下所有 PD 的状态，做的操作是 get 下 /pd/api/v1/health 的接口值，此过程中耗费的时间被该指标记录下来。 EtcdWorker exec etcd txn duration ETCD worker 每次 Tick 操作的耗时被记录下来，可能是 Owner/Processor 的 Tick，因为下面都走 etcdWorker。 EtcdWorker tick reactor duration 复用 EtcdWorker exec etcd txn duration 指标，只是换了一种展示方式。 EtcdWorker exec etcd txn duration EtcdWorker 每做一次 txn 处理，都会记录下执行耗时。 EtcdWorker exec etcd txn duration percentile 复用 EtcdWorker exec etcd txn duration 指标。 EtcdWorker txn size 记录下每次执行 txn 操作时的数据大小。 EtcdWorker txn size percentile 复用 EtcdWorker txn size 大小。 Etcd 99% WAL fsync duration 取自 PD，表示WAL日志持久化的fsync系统调用延时时间，用于分析 PD 中 ETCD 的性能。 Etcd 99% Handle transactions duration 取自 PD，表示 PD 执行 txn 与 ETCD 交互时的延迟时间。 KvClient 面板 ResolveLock count/m [https://github.com/tikv/client-go/blob/57c12f7c64f626a478374de3c405c5134ea3cd42/metrics/metrics.go#L183](https://github.com/tikv/client-go/blob/57c12f7c64f626a478374de3c405c5134ea3cd42/metrics/metrics.go#L183) 表示解锁动作的次数。 RegionCache operation/s [https://github.com/tikv/client-go/blob/681fb6e537b5b114f07cbc9eb0d6564742a470aa/metrics/shortcuts.go#L195-L205](https://github.com/tikv/client-go/blob/681fb6e537b5b114f07cbc9eb0d6564742a470aa/metrics/shortcuts.go#L195-L205) 表示 regionCache 请求类型及请求状态的统计 Backoff percentiles [https://github.com/tikv/client-go/blob/681fb6e537b5b114f07cbc9eb0d6564742a470aa/metrics/shortcuts.go#L158-L169](https://github.com/tikv/client-go/blob/681fb6e537b5b114f07cbc9eb0d6564742a470aa/metrics/shortcuts.go#L158-L169) 表示 client 请求发生 backoff 的主要类型统计 TiKV 面板 CDC CPU 涉及 CDC 工作线程的占用情况，在 tikv 中通过 pid 查 linux 操作系统信息获得。 CDC network traffic TiKV 给 Capture 推 数据之前都会记录推送的 Event 数据的大小， event、resolved\_ts 分别 2 种不同 event，resolved\_ts 是 event 的升级版本，以 batch 形式提高性能。 gRPC message count 源自 tikv-detail 不做解释 CDC memory 源自 linux 操作系统中线程占用内存情况，主要作用是用于辨别，对 TiKV 在内存方面的影响。 省略后main面板 需要时再细看，都是 tikv component 中的内容
+
+Peer Message 面板 p2p 是一个封装了 GRPC 的点对点交互服务，主要用于 owner 与 其他 Capture 节点的交互。 Message Receive Rate Capteure 接收 message 的吞吐情况。 Message Send Rate Capteure 发送 message 的吞吐情况，统计的是每次交互 message 中含有的条目数量。 Message Batch Size 与 Message Send Rate 统计的数据一样，但是可以分位数形式展示。 Receive message batch bytes percentiles 与 Message Send Rate 统计的一样，但统计的数据变成了 entry 的二进制大小。 Receive Message Bytes Percentile 与 Message Send Rate 统计位置一样，但统计的数据 message 中每条 entry 的二进制大小，是 Receive message batch bytes percentiles 的细化。 Stream Count Between Nodes 每接收到一条 GRPC stream 消息都会记录，将发送者记为 from。统计的是，不同 Capture 之间 stream 数量，从而判断是否存在性能问题。 Total Stream Count 与 Stream Count Between Nodes 是同一个指标，但增加了 expected ，计算公式是 capture\_num \* 2 -1。因为 Owner 不需要自己给自己回消息，所以需要减 1，每个 Capture P2P 对应 2 发送端接收端，所以有 2 个。
+
+Actor 面板 CPU usage 每个 Actor 在 Build 时，依据功能初始化不同 label 的指标，不同 label 表示 Actor 的功能。用于统计不同 Actor CPU 占用情况。Lable 有 sorter-db、sorter-compactor、sorter-writer、sorter-reader。 Worker count Actor worker 的数量。 Slow poll duration Poll 即调用 Actor 去执行的时间，这个时间可能是调用去执行，也可能是执行完整个调用，取决于调用信息和类型，每 5s 一更新。 Slow poll duration percentile 如果 Actor Poll 调用时间超过 slowPollThreshold （100ms）则记录展示。 Avg message batch size
+
+Avg actor batch size
+
+Actor poll/s
+
+System poll/s
+
+Runtime instance 面板 这里都是一些 prometheus go 收集器采集出来的信息，一般情况下用不到。只有对需要对系统资源占用进行深入分析时，才会用到。 Redo 面板 基本上见名知意 Kafka Sink 面板 类似于 MySQL Sink 哪些面板的意思。

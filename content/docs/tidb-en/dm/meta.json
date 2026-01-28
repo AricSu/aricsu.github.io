@@ -1,0 +1,6 @@
+{
+  "title": "DM",
+  "defaultOpen": true,
+  "collapsible": true,
+  "pages": ["index", "..."]
+}

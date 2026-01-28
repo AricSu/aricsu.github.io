@@ -265,7 +265,7 @@ export default function About({ params }: Route.ComponentProps) {
 
   return (
     <>
-      <Header className="hidden md:block" />
+      <Header />
       <main className="flex-1">
         <AboutHero title={c.heroTitle} tagline={c.heroTagline} />
         <Certificates />

@@ -11,7 +11,7 @@ function getServer(lang: string) {
   const source = getTihcSourceForLang(lang);
   const created = createFromSource(source, {
     // https://docs.orama.com/docs/orama-js/supported-languages
-    language: "english",
+    language: lang === "en" ? "english" : "cjk",
   });
   servers.set(lang, created);
   return created;

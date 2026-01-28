@@ -1,8 +1,0 @@
-{
-  "pages": [
-    "index",
-    "ticdc/ticdc-resolved-ts-lag-slow-disk",
-    "tikv/tune-raftstore-storewriter-thread-pools",
-    "glossary"
-  ]
-}

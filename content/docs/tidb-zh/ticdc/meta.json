@@ -1,0 +1,6 @@
+{
+  "title": "TiCDC",
+  "defaultOpen": true,
+  "collapsible": true,
+  "pages": ["ticdc-resolved-ts-lag-slow-disk", "..."]
+}

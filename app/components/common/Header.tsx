@@ -13,10 +13,15 @@ export function Header({ className = "" }: { className?: string }) {
       : defaultLng;
 
   return (
-    <header className={`sticky top-0 z-50 w-full border-b border-white/10 bg-black text-white backdrop-blur ${className}`}>
+    <header
+      className={`sticky top-0 z-50 w-full border-b border-white/10 bg-black text-white backdrop-blur ${className}`}
+    >
       <div className="container mx-auto flex items-center justify-between px-4 py-5">
         <div className="flex items-center gap-6">
-          <Link to={`/${lang}`} className="flex items-center gap-2 font-bold text-xl">
+          <Link
+            to={`/${lang}`}
+            className="flex items-center gap-2 font-bold text-xl"
+          >
             <span>🚀</span>
             <span>AskAric</span>
           </Link>

@@ -96,8 +96,8 @@ export function StaticSearchDialog({
       onSearchChange={setSearch}
       isLoading={isLoading}
     >
-      <SearchDialogOverlay />
-      <SearchDialogContent>
+      <SearchDialogOverlay className="z-[100]" />
+      <SearchDialogContent className="z-[101] top-20 md:top-[calc(50%-250px)]">
         <SearchDialogHeader>
           <SearchDialogIcon />
           <SearchDialogInput />

@@ -1,0 +1,156 @@
+---
+title: "TiDB Data Migration (DM): Architecture, Components, and Operations"
+description: "A practical DM overview: architecture, core components (dm-master/dm-worker/syncer), shard DDL modes, tuning, and the key metrics to troubleshoot lag and locks."
+type: note
+tags: [tidb, dm, migration]
+last_updated: 2026-01-28
+---
+
+DM (TiDB Data Migration) is the toolchain for migrating **MySQL → TiDB** (including sharded MySQL) with support for:
+
+- Full data migration (dump + load)
+- Incremental replication (binlog → TiDB)
+- Shard merge (multiple upstream tables → one downstream table), including coordinated shard DDL
+
+## 1. When to use DM
+
+Use DM when you need a **controlled migration** from MySQL to TiDB and you care about:
+
+- One-time migration with minimal downtime (full + incremental catch-up)
+- Continuous replication (for cutover / validation / DR-like workflows)
+- Sharded upstream (merge shards into a single TiDB schema/table)
+
+If you only need changefeed replication from TiDB to downstream systems, that’s TiCDC, not DM.
+
+## 2. High-level architecture
+
+At a high level, DM is split into control-plane and data-plane:
+
+- **dm-master**: cluster brain (scheduling, metadata, shard DDL coordination)
+- **dm-worker**: executes migration units for each upstream source
+- **etcd**: stores cluster metadata and enables leader election / HA
+- **dmctl / OpenAPI**: task and source management
+
+Two helpful mental models:
+
+1. **1 upstream source → 1 subtask → runs on a worker**
+2. A “DM task” is a logical task definition that expands into many subtasks (one per source)
+
+## 3. Data path (full + incremental)
+
+DM usually runs as:
+
+1. **Dump** (Dumper): export MySQL snapshot
+2. **Load** (Loader): import snapshot into TiDB
+3. **Sync** (Syncer): tail binlog and apply DML/DDL to TiDB
+
+Relay log is optional but commonly enabled to make incremental replication more robust:
+
+- Worker pulls upstream binlog into **relay log** on local disk
+- Syncer consumes relay log instead of reading upstream directly
+
+## 4. Core components (what matters operationally)
+
+### 4.1 dm-master (control plane)
+
+What you should care about in production:
+
+- **Leader election**: only the leader runs scheduling/coordination
+- **Scheduler**: assigns sources/subtasks to available workers; reacts to worker keepalive
+- **Shard DDL coordination**: handles DDL conflicts in sharded merge scenarios
+
+Shard DDL has two modes (conceptually):
+
+- **Pessimistic**: block DML until shard DDL is consistent across upstreams, then execute DDL once downstream
+- **Optimistic**: allow DML to continue, detect/resolve conflicts via coordination state
+
+### 4.2 dm-worker (data plane)
+
+Each worker typically hosts:
+
+- **KeepAlive**: heartbeat/lease to etcd so master can detect failures and reschedule
+- **Relay handler** (optional): download and manage relay logs on disk
+- **Subtasks**: runtime units for dump/load/sync
+- **Syncer**: binlog parsing + downstream apply
+
+When you see “lag” symptoms, it’s almost always in the worker side (relay IO, syncer apply, downstream bottlenecks), while master side is usually about **scheduling** and **locks**.
+
+### 4.3 Syncer (incremental replication engine)
+
+The syncer is where most performance and correctness work happens:
+
+- **Binlog streamer** (remote or relay) → decode events
+- **DDL pipeline** (query events) with shard DDL coordination
+- **DML pipeline** (rows events) with parallelization controls (worker-count, batch)
+- **Checkpointing**: persist positions so DM can resume after restart
+- **Compactor** (optional): compact multiple row changes into fewer statements to reduce downstream pressure
+- **Causality** (parallel execution safety): groups statements to preserve correctness while increasing concurrency
+
+## 5. A minimal “quick start” checklist (practical)
+
+This is intentionally high-level; follow the official docs for exact config keys and compatibility constraints.
+
+1. Prepare TiDB (target) connectivity and privileges
+2. Prepare MySQL sources (binlog enabled, correct retention, user grants)
+3. Deploy DM cluster (TiUP DM is common for on-prem)
+4. Register sources (one source config per upstream)
+5. Create task (include block/allow lists, routing, filters as needed)
+6. Start task and monitor:
+   - Load progress (if doing full migration)
+   - Replication lag (incremental)
+   - Shard DDL lock state (if shard merge enabled)
+
+## 6. Shard DDL: what to watch for
+
+Shard DDL is the most common “why is DM stuck?” category.
+
+Typical symptoms:
+
+- Replication stops at a DDL boundary
+- `shard lock resolving` stays > 0
+- Some sources report “waiting” while others have moved on
+
+What usually helps:
+
+- Confirm all upstream shards have produced the same DDL (same schema/table routing)
+- Confirm routing rules are correct (mismatched routing creates “phantom” locks)
+- Use dmctl’s unlock/skip operations carefully (last resort, but sometimes necessary)
+
+## 7. Tuning cheatsheet (what actually moves the needle)
+
+Start with the downstream first: TiDB write capacity, TiKV IO, and TiDB concurrency.
+
+Then consider DM knobs:
+
+- `worker-count`: DML apply concurrency
+- `batch`: batching size for downstream execution
+- **Compactor**: reduce downstream statement count under heavy churn
+- Relay log disk: throughput, latency, and free space (it can become the bottleneck)
+- Checkpoint flush behavior: too frequent flush can add overhead; too rare increases recovery time
+
+## 8. Metrics: the handful that pays off
+
+You don’t need every metric on day one. These are the most actionable categories:
+
+- **Replication lag**: how far syncer is behind upstream binlog time
+- **Remaining time to sync**: “how long to catch up” estimation (use as a trend, not a promise)
+- **Relay disk space**: capacity + remaining; alert early
+- **Shard DDL lock state**: pending/synced/resolving counters
+- **Error counters**: loader/syncer/relay exits, shard DDL errors, apply failures
+
+## 9. Common troubleshooting playbook
+
+1. Is the issue **control-plane** (master scheduling / shard locks) or **data-plane** (worker apply/IO)?
+2. If lag grows:
+   - Check downstream write capacity first
+   - Check relay log IO (if enabled)
+   - Check syncer apply concurrency + batching
+3. If stuck on DDL:
+   - Inspect shard DDL lock state and routing/filters
+   - Verify all sources reached the same DDL
+
+## References
+
+- Official docs: DM architecture and usage: https://docs.pingcap.com/tidb/stable/dm-arch
+- OpenAPI: https://docs.pingcap.com/tidb/stable/dm-open-api
+

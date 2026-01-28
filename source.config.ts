@@ -5,6 +5,8 @@ import {
   frontmatterSchema,
 } from "fumadocs-mdx/config";
 import { remarkMdxMermaid } from "fumadocs-core/mdx-plugins";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import { z } from "zod";
 
 export const tihc = defineDocs({
@@ -16,7 +18,11 @@ export const tihcEn = defineDocs({
 });
 
 export const tidb = defineDocs({
-  dir: 'content/docs/tidb',
+  dir: 'content/docs/tidb-zh',
+});
+
+export const tidbEn = defineDocs({
+  dir: 'content/docs/tidb-en',
 });
 
 const postFrontmatterSchema = frontmatterSchema.extend({
@@ -39,6 +45,7 @@ export const postsEn = defineCollections({
 
 export default defineConfig({
   mdxOptions: {
-    remarkPlugins: (plugins) => [remarkMdxMermaid, ...plugins],
+    remarkPlugins: (plugins) => [remarkMath, remarkMdxMermaid, ...plugins],
+    rehypePlugins: (plugins) => [rehypeKatex, ...plugins],
   },
 });

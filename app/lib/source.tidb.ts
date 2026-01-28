@@ -1,5 +1,5 @@
 import { loader } from "fumadocs-core/source";
-import { tidb } from "fumadocs-mdx:collections/server";
+import { tidb, tidbEn } from "fumadocs-mdx:collections/server";
 
 export function createTidbSource(baseUrl: string) {
   return loader({
@@ -9,5 +9,9 @@ export function createTidbSource(baseUrl: string) {
 }
 
 export function getTidbSourceForLang(lang: string) {
-  return createTidbSource(`/${lang}/tidb`);
+  const docs = lang === "en" ? tidbEn : tidb;
+  return loader({
+    source: docs.toFumadocsSource(),
+    baseUrl: `/${lang}/tidb`,
+  });
 }

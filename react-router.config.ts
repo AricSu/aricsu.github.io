@@ -86,11 +86,12 @@ export default {
       if (!excluded.has(path)) paths.push(path);
     }
 
-    const [tihcZhEntries, tihcEnEntries, tidbEntries, postsZhEntries, postsEnEntries] =
+    const [tihcZhEntries, tihcEnEntries, tidbZhEntries, tidbEnEntries, postsZhEntries, postsEnEntries] =
       await Promise.all([
         listMdxEntries('content/docs/tihc-zh'),
         listMdxEntries('content/docs/tihc-en'),
-        listMdxEntries('content/docs/tidb'),
+        listMdxEntries('content/docs/tidb-zh'),
+        listMdxEntries('content/docs/tidb-en'),
         listMdxEntries('content/posts/zh'),
         listMdxEntries('content/posts/en'),
       ]);
@@ -107,6 +108,7 @@ export default {
       for (const entry of tihcEntries) {
         paths.push(getTihcUrl(getSlugs(entry)));
       }
+      const tidbEntries = lang === "en" ? tidbEnEntries : tidbZhEntries;
       for (const entry of tidbEntries) {
         paths.push(getTidbUrl(getSlugs(entry)));
       }

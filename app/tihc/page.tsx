@@ -12,6 +12,7 @@ import { baseOptions } from "@/lib/layout.shared";
 import { getTihcSourceForLang } from "@/lib/source.tihc";
 import { Footer } from "@/components/common/Footer";
 import { Header } from "@/components/common/Header";
+import { DocsMobileHeader } from "@/components/common/DocsMobileHeader";
 import { defaultLng, supportedLngs } from "@/i18n/config";
 import { mdxComponents } from "@/components/mdx/mdx-components";
 
@@ -70,13 +71,18 @@ export default function Page({ loaderData }: Route.ComponentProps) {
   const clientLoader = loaderData.lang === "en" ? clientLoaderEn : clientLoaderZh;
   const Content = clientLoader.getComponent(loaderData.path);
   const { pageTree } = useFumadocsLoader(loaderData);
+  const layoutOptions = baseOptions();
 
   return (
     <>
       <Header className="hidden md:block" />
       <div className="flex-1">
         <DocsLayout
-          {...baseOptions()}
+          {...layoutOptions}
+          nav={{
+            ...layoutOptions.nav,
+            component: <DocsMobileHeader lang={loaderData.lang} title="AskAric" />,
+          }}
           tree={pageTree}
           sidebar={{
             enabled: true,

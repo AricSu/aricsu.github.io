@@ -7,6 +7,7 @@
     "02ticdc-streaming",
     "03tikv-cdc-component",
     "04all-metrics-in-ticdc",
+    "ticdc-resolved-ts-lag-slow-disk",
     "..."
   ]
 }

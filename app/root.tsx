@@ -15,7 +15,6 @@ import { getPublicEnv } from "@/lib/public-env";
 import { StaticSearchDialog } from "@/components/search/StaticSearchDialog";
 import './app.css';
 import "katex/dist/katex.min.css";
-import './i18n/i18n';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

@@ -1,8 +1,11 @@
 {
   "pages": [
     "index",
+    "dm",
     "ticdc",
     "tikv",
+    "lightning",
+    "metrics",
     "glossary"
   ]
 }

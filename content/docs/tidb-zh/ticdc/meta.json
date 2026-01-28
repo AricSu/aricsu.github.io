@@ -2,5 +2,12 @@
   "title": "TiCDC",
   "defaultOpen": true,
   "collapsible": true,
-  "pages": ["ticdc-resolved-ts-lag-slow-disk", "..."]
+  "pages": [
+    "01ticdc-overview",
+    "02ticdc-streaming",
+    "03tikv-cdc-component",
+    "04all-metrics-in-ticdc",
+    "ticdc-resolved-ts-lag-slow-disk",
+    "..."
+  ]
 }

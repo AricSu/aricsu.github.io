@@ -1,8 +1,9 @@
 import type { Route } from "./+types/lang-layout";
 import { Outlet, redirect, useLoaderData } from "react-router";
 import { supportedLngs, defaultLng, detectUserLanguage } from "@/i18n/config";
-import i18n from "@/i18n/i18n";
-import { useEffect } from "react";
+import { createI18nInstance } from "@/i18n/i18n";
+import { I18nextProvider } from "react-i18next";
+import { useMemo } from "react";
 
 function normalizeLang(input: unknown): string {
   if (typeof input !== "string") return "";
@@ -21,21 +22,16 @@ export async function loader({ params, request }: Route.LoaderArgs) {
     return redirect(`/${lang}${rest}${url.search}${url.hash}`);
   }
 
-  if (i18n.language !== lang) {
-    await i18n.changeLanguage(lang);
-  }
-
   return { lang };
 }
 
 export default function LangLayout() {
   const { lang } = useLoaderData<typeof loader>();
+  const i18n = useMemo(() => createI18nInstance(lang), [lang]);
 
-  useEffect(() => {
-    if (i18n.language !== lang) {
-      void i18n.changeLanguage(lang);
-    }
-  }, [lang]);
-
-  return <Outlet />;
+  return (
+    <I18nextProvider i18n={i18n} key={lang}>
+      <Outlet />
+    </I18nextProvider>
+  );
 }

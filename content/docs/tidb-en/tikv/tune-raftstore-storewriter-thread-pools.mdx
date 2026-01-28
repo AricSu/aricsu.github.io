@@ -1,0 +1,67 @@
+---
+title: "Tuning concurrent writes: Raftstore vs StoreWriter thread pools"
+description: Why do both metrics go up, and which one should you use to identify the bottleneck?
+---
+
+## Background
+
+During on-site tuning for write concurrency, I referenced the official documentation about TiKV thread pools:
+
+- `raftstore.store-pool-size` (Raftstore thread pool, default 2)
+- `raftstore.store-io-pool-size` (StoreWriter thread pool, default 1)
+
+Current configuration:
+
+- `raftstore.store-pool-size = 4`
+- `raftstore.store-io-pool-size = 1`
+
+During the load test, both “Raftstore” and “StoreWriter” related metrics were increasing. Is this abnormal? Which one should be used as the primary reference?
+
+## Conclusion (TL;DR)
+
+This is expected: when `raftstore.store-io-pool-size > 0`, **Raftstore and StoreWriter are different stages of the same write pipeline**. The same write request consumes resources on both sides, so it’s normal to see both categories of metrics go up.
+
+## Write pipeline: responsibilities and path
+
+A client write request roughly goes through:
+
+1. **Raftstore threads (× store-pool-size)**
+   - Receive proposes / handle raft messages (append/vote, etc.)
+   - Drive the raft state machine logic
+   - Generate `Ready` to persist (entries, etc.)
+   - Submit IO tasks to StoreWriter
+
+2. **StoreWriter threads (× store-io-pool-size)**
+   - Perform disk IO: write raft logs / write to the engine and `fsync`
+   - Callback to notify Raftstore that persistence is done
+
+3. **Raftstore threads**
+   - Advance commit / trigger apply and subsequent stages
+
+Therefore:
+
+- If Raftstore is busy: it’s usually busy in raft logic, message handling, scheduling, and callback advancement
+- If StoreWriter is busy: it’s usually bottlenecked on disk writes / `fsync` / storage engine writes
+
+If both are busy, it often means the pipeline is running at full load. It does not necessarily indicate a misconfiguration.
+
+## Which metrics should you use?
+
+Use whichever becomes the bottleneck first: **optimize the stage that limits throughput/latency.**
+
+Practical guidelines:
+
+- **Suspect StoreWriter / IO bottleneck first** if write latency increases, flush/fsync latency rises, or disk bandwidth/IOPS/latency is saturated.
+- **Suspect Raftstore / CPU/scheduling bottleneck** if CPU is high, raft messages backlog, or ready/apply-related queues accumulate.
+
+In practice, “queue/backlog/latency” metrics are more useful than “counters going up”:
+
+- Check for queue backlog (waiting tasks, pending, latency)
+- Check stage latency (IO, fsync, raft processing, apply)
+- Check whether overall write latency/throughput is capped by one stage
+
+## Note: What changes when `store-io-pool-size = 0`?
+
+When `store-io-pool-size = 0`, IO falls back to Raftstore threads (synchronous `fsync`). In that mode, the write path is more likely to be blocked by Raftstore threads, and the tuning strategy can be quite different.
+
+In your case, `store-io-pool-size > 0` enables the pipeline mode, so “both metrics go up” is expected.

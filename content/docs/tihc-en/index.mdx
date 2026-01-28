@@ -1,17 +1,17 @@
 ---
 title: TIHC Overview
-description: TIHC v2 组件、能力与边界（不落库优先）
+description: TIHC v2 components, capabilities, and boundaries (stateless-by-default)
 ---
 
-TIHC 是一个面向 TiDB troubleshooting 的 Chat 系统：
+TIHC is a chat system designed for TiDB troubleshooting:
 
-- `tihc/`：浏览器扩展（sidepanel UI）
-- `tihc-serverless/`：Vercel serverless 后端（OpenAI / Manus / TiDB doc GraphRAG）
-- `evalite-demo/`：评估工程（问题空间收敛 + 自评校准）
+- `tihc/`: browser extension (sidepanel UI)
+- `tihc-serverless/`: Vercel serverless backend (OpenAI / Manus / TiDB-doc GraphRAG)
+- `evalite-demo/`: evaluation project (intake convergence + self-confidence calibration)
 
-核心原则：
+Core principles:
 
-- 默认不存储用户对话/内容（stateless）
-- 必须存时，优先使用 TiDB Serverless（并只存最小必要字段、可加 TTL）
+- Do not persist user conversations/content by default (stateless)
+- If persistence is required, prefer TiDB Serverless and store only minimal fields (optionally with TTL)
 
-下一步建议从 Quickstart 开始：`/tihc/quickstart`
+Start with Quickstart: `/tihc/quickstart`

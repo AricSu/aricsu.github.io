@@ -1,0 +1,7 @@
+{
+  "title": "Lightning",
+  "defaultOpen": true,
+  "collapsible": true,
+  "pages": ["01lighting-architecture", "..."]
+}
+

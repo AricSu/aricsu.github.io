@@ -1,0 +1,92 @@
+---
+title: TiDB Lightning 架构（Legacy）
+description: TiDB Lightning 已并入 TiDB BR 子项目（br/cmd/tidb-lightning）。本文整理 Lightning 的核心流程与关键函数入口，便于阅读旧设计与实现细节。
+type: note
+tags: [tidb, legacy]
+last_updated: 2026-01-28
+---
+
+# TiDB Lightning 架构（Legacy）
+
+## 1. 背景与定位
+
+1. 如果你想了解 [TiDB Lightning](https://github.com/pingcap/tidb-lightning) 的旧实现/旧设计，需要注意：它已合并到 TiDB 仓库的 BR 子项目中（`br/cmd/tidb-lightning`）：https://github.com/pingcap/tidb/tree/master/br/cmd/tidb-lightning
+2. 从架构上可以粗略拆成 **frontend（解析/编码）** 与 **backend（写入/导入）** 两部分。这里有一个分享视频可参考：https://www.bilibili.com/video/BV1D5411L7z5/
+
+![01tidb-lightning-arch](/images/tidb/legacy/01tidb-lightning-arch.DS_8si9i.jpeg)
+
+## 2. 主流程：run() 做了什么
+
+Lightning 的启动链路（概念上）可以理解为：
+
+> `main()` → `app.RunOnceWithOptions` → `lightning.run` → `restore.NewRestoreController` → `Controller.run`
+
+在 `run` 中会按顺序执行一系列步骤（省略非关键细节）：
+
+- `setGlobalVariables`
+- `restoreSchema`
+- `preCheckRequirements`
+- `initCheckpoint`
+- `restoreTables`
+- `fullCompact`
+- `cleanCheckpoints`
+
+下面重点解释更常遇到/更值得看的几个阶段：`preCheckRequirements`、`initCheckpoint`、`restoreTables`、`fullCompact`。
+
+## 3. 关键阶段拆解
+
+### 3.1 preCheckRequirements
+
+用于做前置检查（环境、权限、下游可用性等），确保导入能够安全启动。
+
+### 3.2 initCheckpoint
+
+Checkpoint 的设计是阅读 Lightning 的关键之一。可以先从 checkpoint 的 DB 接口入手（了解它读写哪些 checkpoint 数据、如何恢复）：
+
+- https://github.com/pingcap/tidb/blob/eb35c773b512e4e00c42caf7f04ea7397d00c127/br/pkg/lightning/checkpoints/checkpoints.go#L511
+
+### 3.3 restoreTables（最核心）
+
+`restoreTables` 通常是最“关键”的一段：负责导入的并发模型、与 PD/TiKV 的交互（例如局部暂停调度、GC 控制等），以及表/索引/引擎导入等动作。
+
+两个重要的并发参数：
+
+- `table-concurrency`：表数据导入并发
+- `index-concurrency`：索引导入并发
+
+它们在 tidb-backend 与 local-backend 模式下都生效（不同模式内部细节不同）。
+
+local-backend 模式下通常还有额外动作（相较 tidb-backend），例如：
+
+- 按 key-range 暂停 PD 的部分 scheduler（必要时对 scheduler 做临时处理，导入结束再恢复）
+- 暂停 GC（`tikv://PdAddr?disableGC=true`）
+- 构建 checksum handler 等
+
+关于数据切分（chunks）与并发效率：`populateChunks` 会将源文件切分成更适合并发的区块；如果源文件过大，会出现 “建议按 256MB 拆分” 的提示。
+
+参考：
+
+- `populateChunks`：https://github.com/pingcap/tidb/blob/eb35c773b512e4e00c42caf7f04ea7397d00c127/br/pkg/lightning/restore/table_restore.go#L97
+- `MarkTableRegion`：https://github.com/pingcap/tidb/blob/eb35c773b512e4e00c42caf7f04ea7397d00c127/br/pkg/lightning/mydump/region.go#L149
+
+### 3.4 fullCompact（已废弃的历史阶段）
+
+`fullCompact` 主要用于解决早期导入性能问题，但该能力后来被 **废弃**：TiKV 在导入过程中支持自动 compaction（或相关优化），不再需要在导入完成后专门做 compaction。
+
+相关说明（历史 PR）：https://github.com/pingcap/tidb-lightning/pull/119/commits
+
+## 4. Frontend 与 Backend
+
+### 4.1 Frontend（解析/编码）
+
+- `newChunkRestore` 会创建解析器，将 CSV/SQL/Parquet 等转成 KV：https://github.com/pingcap/tidb/blob/5d2030e1d19629b71811c3f14514bad7ed63261a/br/pkg/lightning/restore/table_restore.go#L494
+- `IR`（中间表示）示例：https://github.com/pingcap/tidb/blob/5d2030e1d19629b71811c3f14514bad7ed63261a/dumpling/export/ir.go#L16
+
+### 4.2 Backend（写入/导入）
+
+不同 backend（tidb-backend / local-backend）决定了数据写入 TiKV 的路径与控制点，也会影响导入期间对集群调度/GC 的处理方式。
+
+## 5. 参数（待补充）
+
+后续如果你希望把这篇从 “Legacy 笔记” 整理成一篇完整可用的导入调优指南，我可以再按实际场景补齐：模式选择、并发参数、磁盘/带宽瓶颈、常见报错与排障等。
+

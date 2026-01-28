@@ -1,0 +1,154 @@
+---
+title: "TiDB Data Migration（DM）：架构、组件与运维要点"
+description: "一篇偏实战的 DM 综述：架构、核心组件（dm-master / dm-worker / syncer）、分库分表 DDL 协调模式、调优思路，以及排查 lag / shard lock 的关键观察点。"
+type: note
+tags: [tidb, dm, migration]
+last_updated: 2026-01-28
+---
+
+DM（TiDB Data Migration）是用于 **MySQL → TiDB**（包含分库分表 MySQL）的迁移/同步工具链，支持：
+
+- 全量迁移（dump + load）
+- 增量复制（binlog → TiDB）
+- 分库分表合并（多上游表 → 单下游表），并支持分片 DDL 协调
+
+## 1. 什么时候用 DM
+
+当你需要从 MySQL 迁移到 TiDB，并且希望迁移过程“可控”（可监控、可暂停/恢复、可回放、可排障）时，优先考虑 DM，例如：
+
+- 一次性迁移并尽量减少停机时间（全量 + 增量追平后切换）
+- 持续复制（用于割接前校验、灰度验证、类似 DR 的工作流）
+- 上游是分库分表，需要汇总合并到 TiDB 的同一个 schema/table
+
+如果你的需求是 **TiDB → 下游（MySQL / Kafka / …）** 的变更订阅，那是 TiCDC 的场景，不是 DM。
+
+## 2. 架构概览
+
+从形态上看，DM 可以拆成控制面与数据面：
+
+- **dm-master**：控制面“大脑”（调度、元信息、分片 DDL 协调）
+- **dm-worker**：数据面执行者（每个 upstream source 的迁移单元在 worker 上跑）
+- **etcd**：存储集群元信息，提供选主 / HA
+- **dmctl / OpenAPI**：管理 source 与 task（创建、启动、暂停、查询状态等）
+
+两个有用的心智模型：
+
+1. **1 个 upstream source → 1 个 subtask → 运行在某个 worker 上**
+2. “DM task” 是逻辑任务定义，最终会展开成多个 subtasks（每个 source 一个）
+
+## 3. 数据链路（全量 + 增量）
+
+DM 的典型执行顺序：
+
+1. **Dump（Dumper）**：导出 MySQL 快照
+2. **Load（Loader）**：将快照导入 TiDB
+3. **Sync（Syncer）**：持续追 binlog，将 DML/DDL 应用到 TiDB
+
+Relay log（中继日志）是可选但生产环境常用的配置，用来增强增量复制的稳定性：
+
+- worker 将上游 binlog 拉到本地磁盘的 **relay log**
+- syncer 消费 relay log，而不是直接读上游
+
+## 4. 核心组件（运维最关心的部分）
+
+### 4.1 dm-master（控制面）
+
+生产上你主要关心：
+
+- **选主**：只有 leader 负责调度/协调
+- **调度器**：将 sources/subtasks 分配给可用 workers；监控 keepalive 并在故障时重调度
+- **分片 DDL 协调**：在分库分表合并场景下处理 DDL 冲突与一致性
+
+分片 DDL（概念上）有两种模式：
+
+- **悲观模式（Pessimistic）**：在分片 DDL 达成一致前阻塞 DML，随后只在下游执行一次 DDL
+- **乐观模式（Optimistic）**：允许 DML 继续推进，通过协调状态检测/解决 DDL 冲突
+
+### 4.2 dm-worker（数据面）
+
+每个 worker 通常包含：
+
+- **KeepAlive**：向 etcd 续租/心跳，master 用于故障检测与重调度
+- **Relay handler（可选）**：拉取并管理本地 relay log
+- **Subtasks**：dump/load/sync 的运行单元
+- **Syncer**：binlog 解析 + 下游 apply
+
+你看到的 “lag” 大多数来自 worker 侧（relay IO、syncer apply、下游瓶颈），master 侧更多是 **调度** 与 **锁（shard DDL lock）**。
+
+### 4.3 Syncer（增量复制引擎）
+
+性能与正确性的大部分工作都在 syncer：
+
+- **Binlog streamer**（直连上游或读取 relay）→ 解码 events
+- **DDL pipeline**（query events）并与分片 DDL 协调联动
+- **DML pipeline**（rows events）并支持并行/批处理（worker-count、batch）
+- **Checkpoint**：持久化 position，用于重启恢复
+- **Compactor（可选）**：将多次 row change 合并，减少下游压力
+- **Causality（并行安全）**：在提高并发的同时保证执行正确性
+
+## 5. 最小上手清单（偏实操）
+
+这里刻意保持高层次，具体参数与兼容性请以官方文档为准：
+
+1. 准备 TiDB（目标端）连接与权限
+2. 准备 MySQL sources（开启 binlog、保证保留策略、用户授权等）
+3. 部署 DM 集群（本地/自建场景常用 TiUP DM）
+4. 注册 sources（每个 upstream 一个 source 配置）
+5. 创建 task（按需配置 block/allow lists、路由、过滤等）
+6. 启动 task 并监控：
+   - 全量阶段进度（如果需要）
+   - 增量 lag
+   - 分片 DDL 锁状态（如果启用分片合并）
+
+## 6. 分片 DDL：最常见的 “为什么卡住”
+
+典型现象：
+
+- 复制在某个 DDL 边界停住
+- `shard lock resolving` 长时间 > 0
+- 部分 sources 显示 “waiting”，其他 sources 已继续推进
+
+常见排查方向：
+
+- 确认所有上游分片都产生了“同一个 DDL”（schema/table 路由一致）
+- 确认路由规则正确（路由不一致会形成“幽灵锁”）
+- 谨慎使用 dmctl 的 unlock/skip（兜底手段，但有时确实需要）
+
+## 7. 调优速查表（真正影响吞吐的点）
+
+优先从下游开始：TiDB 写入能力、TiKV IO、TiDB 并发。
+
+然后再看 DM 的参数：
+
+- `worker-count`：DML apply 并发
+- `batch`：下游执行 batching
+- **Compactor**：高频更新场景减少下游语句数
+- Relay log 磁盘：吞吐、延迟、可用空间（很容易成为瓶颈）
+- Checkpoint 刷新：太频繁会增加开销，太稀疏会拉长故障恢复时间
+
+## 8. 指标：最值得盯的那几类
+
+不必一开始就看全量指标，这几类最“能直接指导行动”：
+
+- **复制延迟（lag）**：syncer 距离上游 binlog 时间的差距
+- **追平时间估算**：用于观察趋势，而不是承诺
+- **Relay 磁盘空间**：容量与剩余，尽早告警
+- **分片 DDL 锁状态**：pending/synced/resolving 等
+- **错误计数**：loader/syncer/relay exits、shard DDL errors、apply failures
+
+## 9. 常用排障流程
+
+1. 先判断问题在 **控制面**（master 调度 / shard locks）还是 **数据面**（worker apply/IO）
+2. 如果 lag 增长：
+   - 先看下游写入能力
+   - 再看 relay log IO（如果启用）
+   - 再看 syncer apply 并发与 batch
+3. 如果卡在 DDL：
+   - 查看 shard DDL lock 状态与路由/过滤规则
+   - 确认所有 sources 都推进到同一个 DDL
+
+## 参考资料
+
+- 官方文档：DM 架构与使用：https://docs.pingcap.com/tidb/stable/dm-arch
+- OpenAPI：https://docs.pingcap.com/tidb/stable/dm-open-api
+

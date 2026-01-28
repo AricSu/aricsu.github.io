@@ -1,0 +1,31 @@
+---
+title: Glossary
+description: Common terms and abbreviations for TiDB / TiKV / TiCDC (ongoing)
+---
+
+## TiDB Ecosystem
+
+- **TiDB**: A distributed HTAP database that provides the SQL layer plus transactional and analytical query capabilities.
+- **TiKV**: A distributed key-value storage engine. It uses Raft replication underneath and serves data reads/writes.
+- **PD (Placement Driver)**: The cluster metadata and scheduling control plane. It provides TSO and Region scheduling capabilities.
+- **TSO (Timestamp Oracle)**: A globally monotonic timestamp service used for MVCC and transaction ordering.
+- **Region**: TiKV’s sharding unit (with a key range boundary). It is also the basic unit for Raft replication and scheduling.
+- **Raft**: The consensus protocol used for multi-replica replication and leader election per Region.
+- **MVCC**: Multi-Version Concurrency Control. A single key can have multiple versions to support snapshot reads and concurrent transactions.
+
+## TiCDC / TiFlow
+
+- **TiCDC**: TiDB’s Change Data Capture (CDC) component. It replicates changes from TiKV to downstream systems (MySQL / Kafka / etc.).
+- **TiFlow**: The project that contains TiCDC (and related scheduling/operations capabilities).
+- **Changefeed**: A CDC replication task (“pipeline”) that captures changes from upstream and emits them to downstream.
+- **Resolved TS**: A global watermark in CDC, indicating changes before this timestamp have been fully processed/emitted.
+- **Resolved TS Lag**: The gap between `now - resolved_ts` (or an equivalent metric), used to measure replication delay.
+- **Incremental Scan**: During CDC initialization, the process of scanning incremental data from a start point (details vary by versions/implementations).
+- **Backpressure**: When downstream consumption is slow and blocks upstream sending/processing, propagating backward along the pipeline.
+
+## Downstream & Storage
+
+- **Sink**: The downstream output (e.g., MySQL, Kafka, S3). It is often a major source of latency/throughput bottlenecks.
+- **Sorter / Sort Engine**: The buffering/sorting engine used to preserve ordering and smooth bursts; it can be disk-IO intensive.
+- **Redo Log**: Logs used for disaster recovery / replay (implementation/config differs by versions). It can also add extra IO pressure.
+

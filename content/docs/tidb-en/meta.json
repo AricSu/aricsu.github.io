@@ -3,7 +3,9 @@
     "index",
     "dm",
     "ticdc",
+    "tikv",
     "lightning",
-    "metrics"
+    "metrics",
+    "glossary"
   ]
 }

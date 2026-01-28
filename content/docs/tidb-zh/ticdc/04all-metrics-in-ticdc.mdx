@@ -1,0 +1,67 @@
+---
+title: "TiCDC 监控面板解读（Legacy 笔记）"
+description: "以排障为导向，整理 TiCDC/TiKV CDC 常用监控指标：这些指标代表什么、正常/异常时怎么变、下一步该看哪里。"
+type: note
+tags: [tidb, ticdc, metrics, legacy]
+last_updated: 2026-01-28
+---
+
+这篇是对 TiCDC 监控的“实战视角”总结：不是逐项穷举所有指标，而是告诉你遇到问题时应该优先看什么，以及如何把多个信号串成一条因果链。
+
+## 1. 前置说明：监控能告诉你什么
+
+- Prometheus 是按固定间隔抓取（常见 15s），仪表盘是 **采样视图**，不是严格审计。
+- 排障不要只看单一指标：通常需要同时看 lag、吞吐、错误、IO、队列/回压。
+
+## 2. 最常用的排障入口
+
+### 2.1 Changefeed 延迟（lag）
+
+当你看到 “同步慢/延迟大” 时，先看：
+
+- `checkpoint ts` / `checkpoint ts lag`
+- `resolved ts` / `resolved ts lag`
+- unresolved regions（如果你的 dashboard 有）
+- per-capture 的表分布（是否明显不均衡）
+
+经验判断：
+
+- `resolved ts lag` 线性增长：通常是 **初始化没完成** 或 **链路回压** 把 resolved-ts 钉住
+- `checkpoint ts lag` 增长但 `resolved ts lag` 稳定：通常是 **sink/downstream** 变慢
+
+### 2.2 Sink / 下游
+
+多数“持续性 lag”最终都和下游有关：
+
+- sink flush 延迟、batch size
+- 错误计数与重试
+- sorter / redo 的磁盘 IO（如果开启落盘，会形成明显瓶颈）
+
+### 2.3 KV client / TiKV CDC
+
+当怀疑初始化慢或回压时，关注：
+
+- gRPC receive rate / message size（TiKV → TiCDC）
+- client-go backoff / retry（网络/调度/限流）
+- TiKV 侧 CDC CPU/网络/内存（如果你的 dashboard 有）
+
+## 3. 控制面与协调面
+
+### 3.1 PD / etcd 健康
+
+TiCDC 依赖 PD/etcd 存储协调状态，建议关注：
+
+- etcd txn latency / size
+- etcd health check
+- PD leader 切换（与不稳定现象做时间相关性）
+
+## 4. 使用这份笔记的方式
+
+把它当成 checklist：
+
+1. 先确认症状是 **lag** / **错误** / **资源饱和**
+2. 判断主要瓶颈在 **下游** / **TiCDC 内部** / **上游 TiKV**
+3. 用一个“边界信号”验证链路（例如 sink flush 慢 → sorter 卡 → puller 卡 → kv recv 变慢）
+
+如果你希望我按你当前 Grafana dashboard 的 panel 名称逐项对齐，我也可以把这篇升级成“按面板逐项解释 + 常见根因映射”的版本。
+

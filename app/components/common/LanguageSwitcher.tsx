@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { supportedLngs } from "@/i18n/config";
-import { useI18n } from "@/i18n/i18n";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useLocation, useNavigate } from "react-router";
+import { defaultLng } from "@/i18n/config";
+import { useLocation, useNavigate, useParams } from "react-router";
 
 // 语言配置：名称 + 国旗 emoji
 const languageConfig: Record<string, { name: string; flag: string }> = {
@@ -12,16 +12,24 @@ const languageConfig: Record<string, { name: string; flag: string }> = {
 };
 
 export function LanguageSwitcher() {
-  const { i18n, setLanguage } = useI18n();
   const location = useLocation();
   const navigate = useNavigate();
+  const { lang: paramLang } = useParams();
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const currentLang = languageConfig[i18n.language] || languageConfig.en;
+  const currentLng =
+    typeof paramLang === "string" &&
+    supportedLngs.includes(paramLang as (typeof supportedLngs)[number])
+      ? (paramLang as (typeof supportedLngs)[number])
+      : defaultLng;
+  const currentLang = languageConfig[currentLng] || languageConfig.en;
 
   const handleSelect = (lng: string) => {
-    setLanguage(lng);
+    if (typeof window !== "undefined") {
+      document.cookie = `lang=${lng};path=/;max-age=31536000`;
+      localStorage.setItem("i18nextLng", lng);
+    }
     // 替换 URL 前缀
     const pathParts = location.pathname.split("/").filter(Boolean);
     if (supportedLngs.includes(pathParts[0] as typeof supportedLngs[number])) {
@@ -72,7 +80,7 @@ export function LanguageSwitcher() {
               onClick={() => handleSelect(lng)}
               className={cn(
                 "flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-sm transition-colors text-white",
-                i18n.language === lng
+                currentLng === lng
                   ? "bg-white/20"
                   : "hover:bg-white/10"
               )}

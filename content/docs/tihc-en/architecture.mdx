@@ -1,34 +1,33 @@
 ---
 title: Architecture
-description: 扩展 UI、serverless 后端、GraphRAG、评估之间的关系
+description: How the extension UI, serverless backend, GraphRAG, and evaluation fit together
 ---
 
 ## Components
 
 - **Extension UI (`tihc`)**
-  - 负责交互、展示流式输出
-  - 支持 Google 登录（获取 token）
-  - 将请求转发到 serverless（默认），本地 WebLLM 作为 fallback
+  - Interaction layer and streaming output UI
+  - Google login (token acquisition)
+  - Forwards requests to serverless by default (local WebLLM as fallback)
 
 - **Serverless (`tihc-serverless`)**
-  - 单入口 API：`POST /api/stream_chat`
-  - 基于 `chat_engine` 选择：
-    - `openai`：OpenAI streaming → 纯文本流
-    - `openai_rag`：GraphRAG 取上下文 → OpenAI 回答
-    - `manus`：代理到 Manus API
-    - `tidb`：代理到 TiDB doc GraphRAG 上游
-  - Google tokeninfo 校验 + Workspace 域名限制（`GOOGLE_WORKSPACE_DOMAIN`）
+  - Single API endpoint: `POST /api/stream_chat`
+  - Selects execution path via `chat_engine`:
+    - `openai`: OpenAI streaming → plain text stream
+    - `openai_rag`: GraphRAG retrieval → OpenAI answer
+    - `manus`: proxy to Manus API
+    - `tidb`: proxy to the TiDB-doc GraphRAG upstream
+  - Google tokeninfo validation + Workspace domain enforcement (`GOOGLE_WORKSPACE_DOMAIN`)
 
 - **Evaluation (`evalite-demo`)**
-  - gold 集：监督评估“问题空间收敛”
-  - traces：真实数据的统计分析（可无标注）
+  - Gold set: supervised evaluation for “intake convergence”
+  - Traces: analysis on real requests (can be unlabeled)
 
 ## Data & Privacy
 
-默认不落库：serverless 只做“请求→工具/模型→流式返回”。
+Stateless by default: serverless only does “request → tools/models → streaming response”.
 
-如果要做访问控制/审计/评估收集，建议只存：
+If you need access control / auditing / evaluation collection, store only the minimum necessary fields:
 
-- user 标识（hash）、时间戳、engine、token 数、latency
-- 不存原始问题文本/对话（或先脱敏）
-
+- User identifier (hashed), timestamp, engine, token counts, latency
+- Do not store raw prompts/conversations (or anonymize first)

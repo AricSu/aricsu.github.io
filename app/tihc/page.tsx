@@ -78,6 +78,7 @@ export default function Page({ loaderData }: Route.ComponentProps) {
       <Header className="hidden md:block" />
       <div className="flex-1">
         <DocsLayout
+          key={loaderData.lang}
           {...layoutOptions}
           nav={{
             ...layoutOptions.nav,

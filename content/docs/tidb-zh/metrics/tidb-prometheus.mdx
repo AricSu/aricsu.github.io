@@ -1,0 +1,73 @@
+---
+title: TiDB 的 Prometheus：原理与常见用法（Legacy）
+description: 为什么 Prometheus 不适合做“100% 精确”的计费？本文整理 Prometheus 的数据模型、时间过滤、聚合、指标类型，以及在 TiDB 监控体系中的常见用法与注意点。
+type: note
+tags: [tidb, legacy]
+last_updated: 2026-01-28
+---
+
+# TiDB 的 Prometheus：原理与常见用法（Legacy）
+
+如果你需要 **100% 精确** 的统计（例如按请求计费），Prometheus 往往不是最合适的选择：它采集的数据可能不够细、也可能不够完整。更适合的做法通常是：用专门的计费/日志/事件系统收集“全量明细”，Prometheus 用来做其余的监控与告警。
+
+> 说明：本文是对历史笔记的整理版本，目标是把核心概念讲清楚，便于你在 TiDB 监控与排障时快速用上。
+
+## 1. Prometheus 的核心特性
+
+参考 Prometheus 官方定义（What is Prometheus）：https://prometheus.io/docs/introduction/overview/#what-is-prometheus
+
+Prometheus 是开源的监控与告警系统，常见特性包括：
+
+1. **多维时间序列数据**：以 time series 为核心，通过 labels（键值对）表达维度。
+2. **PromQL 查询**：类 SQL 的声明式查询语言，用于切片、聚合与告警。
+3. **可视化生态**：可用内置表达式浏览器，也常与 Grafana 集成。
+4. **高效存储**：本地存储 + WAL/Block/Compaction 等机制（v2 之后结构更清晰）。
+5. **部署简单**：单进程为主，依赖本地存储，易部署。
+6. **告警体系**：通过 PromQL 规则 + Alertmanager 进行告警分发。
+7. **多语言 client 支持**：便于应用侧/组件侧自定义埋点与 export。
+8. **丰富的 exporter 集成**：如 Node Exporter、Blackbox Exporter、JMX、HAProxy 等。
+
+## 2. Prometheus 的数据模型（快速理解）
+
+Prometheus 的基本单位是：
+
+> `metric_name{label_name="label_value", ...}`
+
+每条 time series 对应一组 labels 的组合，并随时间产生样本点 `(timestamp, value)`。
+
+## 3. 时间过滤：Instant / Range / Offset
+
+PromQL 里常见的时间过滤方式：
+
+- **Instant vector**：某一时刻的样本集合（按 labels 选出一组 time series，然后取该时刻的样本值）
+- **Range vector**：某个时间范围内的样本集合（通过 `[...]` 指定区间）
+- **Offset**：时间偏移（取过去某个时间点/时间段的数据），例如 `offset 5m`
+
+举例（示意）：
+
+- `tidb_server_handle_query_duration_seconds_bucket{type="select"}`
+- `tidb_server_handle_query_duration_seconds_bucket{type="select"}[2m]`
+- `tidb_server_handle_query_duration_seconds_bucket{type="select"} offset 5m`
+
+## 4. 聚合：理解 “按维度汇总”
+
+聚合的本质是：按你保留/丢弃的 labels 维度，将多个 time series 汇总成更少的 time series（例如 sum/avg/max 等）。
+
+一个实用建议：排障时，先用更细的维度定位问题（保留更多 labels），确认范围后再逐步聚合收敛视图。
+
+## 5. 指标类型：Counter / Gauge / Histogram / Summary
+
+在 client 侧我们通常会区分指标类型（更容易表达语义）；但在 server 侧，Prometheus 主要把它们都当作 time series 存储。常见类型：
+
+- **Counter**：单调递增（重启会归零），常用于计数（如 QPS、错误次数）。
+- **Gauge**：可增可减，表示某个瞬时状态（如连接数、队列长度、region 数量）。
+- **Histogram**：用 bucket 统计分布（延迟、大小等），适合做分位数/分布分析（通常结合 `histogram_quantile`）。
+- **Summary**：在 client 侧计算分位数（与 Histogram 语义不同）。在 TiKV 生态里更多见的是 Counter/Gauge/Histogram。
+
+## 6. 在 TiDB / TiKV / TiCDC 里的使用建议
+
+1. **“对外 SLA” 监控优先用延迟分布**：例如 p95/p99，而不是只看平均值。
+2. **先看全局，再下钻维度**：例如先看集群级别，再看 instance/job/type/sql_type 等标签。
+3. **告警不要只看阈值**：最好结合持续时间（for）、趋势、与上下游指标相关性。
+4. **Prometheus 不是日志系统**：遇到需要“逐条明细/严格对账”的场景，应切换到更合适的系统。
+

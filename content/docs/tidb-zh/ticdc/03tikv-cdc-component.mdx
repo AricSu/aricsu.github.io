@@ -1,0 +1,50 @@
+---
+title: "TiKV CDC 组件：LazyWorker 与 Task 模型（笔记）"
+description: "阅读 TiKV CDC endpoint 的一些笔记：LazyWorker/Worker 的含义、调度/回压位置，以及常见 Task 类型。"
+type: note
+tags: [tidb, tikv, ticdc, legacy]
+last_updated: 2026-01-28
+---
+
+这篇是偏“读源码定位用”的笔记：当你需要解释 CDC 行为（为什么没推、为什么卡住、为什么 backlog）时，可以用这份清单快速找到应该看的模块。
+
+## 1. 什么是 LazyWorker
+
+在 TiKV 里常见的 “lazy worker” 模式可以粗略理解为：
+
+- worker 的运行时结构会先被构建好，但真正的工作由 **消息/任务（task）** 驱动
+- scheduler（sender）把任务投递到 receiver loop
+- receiver loop 负责消费任务，并在内部线程池（如 Yatp）上执行
+- channel size / pending capacity 等位置是常见的 **回压点**
+
+## 2. Worker / LazyWorker（概念层）
+
+实操上你更关心这些点：
+
+- worker 通常封装了线程池 + 调度器 + 接收循环
+- pending capacity 往往是“软限制”（超过会告警但不一定阻止入队）
+- 任务计数/队列深度能帮助判断是否过载与调参方向
+
+## 3. CDC endpoint 的 Task：排障时真正要看的东西
+
+大多数 CDC 问题最终都会落到 “任务如何入队/出队/被阻塞” 上。常见任务类型（按类别理解）：
+
+- Region 生命周期：region 更新、销毁、注册/反注册
+- 周期推进：advance resolved ts、注册推进事件
+- 数据路径：changelog 事件、scan locks、按 apply index 扫描等
+- 配置变更/动态开关
+
+建议排障顺序：
+
+1. 任务从哪里产生（谁在 enqueue）
+2. 任务在哪里消费（runner loop）
+3. 哪些 channel/队列会满（回压点）
+4. 在负载下的延迟、队列深度与吞吐趋势
+
+## 参考（代码入口）
+
+- TiKV 启动 CDC worker（入口随版本可能有差异）：
+  - https://github.com/tikv/tikv/blob/master/components/server/src/server.rs
+- CDC endpoint 的 task enum（查 task 类型列表）：
+  - https://github.com/tikv/tikv/blob/master/components/cdc/src/endpoint.rs
+

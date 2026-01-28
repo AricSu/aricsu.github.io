@@ -1,0 +1,27 @@
+---
+title: Glossary
+description: Terms and abbreviations used in TIHC docs (living document)
+---
+
+## Product & Architecture
+
+- **TIHC**: A chat system designed for TiDB troubleshooting (stateless-by-default).
+- **Extension / Sidepanel**: The browser extension UI used for interaction and streaming output.
+- **Serverless**: A serverless runtime (e.g. Vercel Functions) hosting TIHC APIs and orchestration logic.
+- **Engine / Chat Engine**: The selected execution path for a request (e.g. `openai` / `openai_rag` / `manus` / `tidb`).
+
+## RAG / Retrieval
+
+- **RAG (Retrieval-Augmented Generation)**: Retrieve relevant context first, then generate an answer with that context.
+- **GraphRAG**: A graph-based approach to organizing/retrieving context for RAG.
+- **Embedding**: Representing text as vectors for similarity search.
+- **Chunk**: A smaller segment of a long document used for embedding and retrieval.
+- **Retriever**: The component responsible for fetching candidate context passages.
+- **Reranker**: The component responsible for re-scoring and ordering retrieved candidates.
+
+## Privacy & Data
+
+- **Stateless**: Do not persist user conversation content by default.
+- **PII**: Personally identifiable information.
+- **TTL**: Time-to-live; automatic expiration policy for stored records (only if storage is required).
+

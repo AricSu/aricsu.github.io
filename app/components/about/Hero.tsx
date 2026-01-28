@@ -162,7 +162,7 @@ export function AboutHero({
 
         <div
           className={cn(
-            "hero-img absolute inset-y-0 right-0 z-10 py-[120px]",
+            "hero-img absolute inset-y-0 right-0 z-10 py-30",
             "w-[45vh] h-full mr-[8vw]",
             "sm:left-1/2 sm:-translate-x-1/2 sm:right-auto sm:mr-0",
             "md:right-0 md:translate-x-0 md:left-auto md:mr-[8vw]",
@@ -183,7 +183,7 @@ export function AboutHero({
           />
           <div
             ref={maskRef}
-            className="img-mask pointer-events-none absolute inset-0 bg-black z-[2]"
+            className="img-mask pointer-events-none absolute inset-0 bg-black z-2"
             style={{ opacity: 1 }}
           />
         </div>

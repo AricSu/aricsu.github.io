@@ -4,6 +4,7 @@ import {
   defineDocs,
   frontmatterSchema,
 } from "fumadocs-mdx/config";
+import { remarkMdxMermaid } from "fumadocs-core/mdx-plugins";
 import { z } from "zod";
 
 export const tihc = defineDocs({
@@ -36,4 +37,8 @@ export const postsEn = defineCollections({
   type: "doc",
 });
 
-export default defineConfig();
+export default defineConfig({
+  mdxOptions: {
+    remarkPlugins: (plugins) => [remarkMdxMermaid, ...plugins],
+  },
+});

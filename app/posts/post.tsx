@@ -1,12 +1,12 @@
 import type { Route } from "./+types/post";
-import { Header } from "@/components/common/Header";
 import { Footer } from "@/components/common/Footer";
+import { Header } from "@/components/common/Header";
+import { mdxComponents } from "@/components/mdx/mdx-components";
 import { defaultLng, supportedLngs } from "@/i18n/config";
 import { getPostsSourceForLang } from "@/lib/source.posts";
-import defaultMdxComponents from "fumadocs-ui/mdx";
 import browserCollections from "fumadocs-mdx:collections/browser";
-import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
 export async function loader({ params }: Route.LoaderArgs) {
   const lang =
@@ -75,7 +75,7 @@ const clientLoaderZh = browserCollections.postsZh.createClientLoader({
           </div>
         </header>
         <article className="prose prose-neutral dark:prose-invert max-w-none">
-          <Mdx components={{ ...defaultMdxComponents }} />
+          <Mdx components={mdxComponents} />
         </article>
       </>
     );
@@ -132,7 +132,7 @@ const clientLoaderEn = browserCollections.postsEn.createClientLoader({
           </div>
         </header>
         <article className="prose prose-neutral dark:prose-invert max-w-none">
-          <Mdx components={{ ...defaultMdxComponents }} />
+          <Mdx components={mdxComponents} />
         </article>
       </>
     );

@@ -1,0 +1,31 @@
+---
+title: 术语表
+description: TiDB / TiKV / TiCDC 常见术语与缩写（持续更新）
+---
+
+## TiDB 生态
+
+- **TiDB**：分布式 HTAP 数据库，提供 SQL 层与事务/查询能力。
+- **TiKV**：分布式 KV 存储引擎，底层使用 Raft 复制，承载数据读写。
+- **PD (Placement Driver)**：集群元信息与调度中心，提供 TSO、Region 调度等能力。
+- **TSO (Timestamp Oracle)**：全局单调递增时间戳，用于 MVCC 与事务排序。
+- **Region**：TiKV 的数据分片单位（有范围边界），也是 Raft 复制/调度的基本单位。
+- **Raft**：一致性协议，用于 Region 的多副本复制与选主。
+- **MVCC**：多版本并发控制；同一 Key 会有多个版本以支持快照读与并发事务。
+
+## TiCDC / TiFlow
+
+- **TiCDC**：TiDB 变更数据捕获（CDC）组件，将 TiKV 的变更同步到下游（MySQL / Kafka / etc.）。
+- **TiFlow**：TiCDC 所在的工程/组件集合（包含 CDC、调度、运维相关能力）。
+- **Changefeed**：一条 CDC 同步任务（一个“管道”），从上游捕获变更并输出到下游。
+- **Resolved TS**：CDC 的全局“水位线”；表示在该时间戳之前的变更已经被完整处理/输出。
+- **Resolved TS Lag**：`now - resolved_ts` 的差值（或等价指标），用于衡量同步延迟。
+- **Incremental Scan（增量扫描）**：CDC 初始化阶段从某个起点开始扫描增量数据的过程（不同版本/实现细节会有差异）。
+- **Backpressure（回压）**：下游消费慢导致上游发送/处理阻塞，沿链路向上游逐级传播的现象。
+
+## 下游与存储
+
+- **Sink**：下游输出端（例如 MySQL、Kafka、S3 等），通常是延迟与吞吐瓶颈的重要来源。
+- **Sorter / Sort Engine**：排序/缓冲引擎，用于保证事件顺序、平滑峰值；磁盘 IO 可能较重。
+- **Redo Log**：用于容灾/重放的日志（实现/配置因版本而异），同样可能带来额外 IO 压力。
+

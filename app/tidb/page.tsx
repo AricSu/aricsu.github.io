@@ -6,7 +6,6 @@ import {
   DocsPage,
   DocsTitle,
 } from "fumadocs-ui/layouts/docs/page";
-import defaultMdxComponents from "fumadocs-ui/mdx";
 import { useFumadocsLoader } from "fumadocs-core/source/client";
 import browserCollections from "fumadocs-mdx:collections/browser";
 import { baseOptions } from "@/lib/layout.shared";
@@ -14,6 +13,7 @@ import { getTidbSourceForLang } from "@/lib/source.tidb";
 import { Footer } from "@/components/common/Footer";
 import { Header } from "@/components/common/Header";
 import { defaultLng, supportedLngs } from "@/i18n/config";
+import { mdxComponents } from "@/components/mdx/mdx-components";
 
 export async function loader({ params }: Route.LoaderArgs) {
   const lang =
@@ -42,7 +42,7 @@ const clientLoader = browserCollections.tidb.createClientLoader({
         <DocsTitle>{frontmatter.title}</DocsTitle>
         <DocsDescription>{frontmatter.description}</DocsDescription>
         <DocsBody>
-          <Mdx components={{ ...defaultMdxComponents }} />
+          <Mdx components={mdxComponents} />
         </DocsBody>
       </DocsPage>
     );

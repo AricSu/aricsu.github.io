@@ -4,6 +4,7 @@ import { Footer } from "@/components/common/Footer";
 import { defaultLng, supportedLngs } from "@/i18n/config";
 import { AboutHero } from "@/components/about/Hero";
 import { AboutHobby, type AboutHobbySection } from "@/components/about/Hobby";
+import { Certificates } from "@/components/about/Certificates";
 
 type Lang = (typeof supportedLngs)[number];
 
@@ -23,7 +24,7 @@ const content: Record<
     metaTitle: "关于 Aric",
     metaDescription: "关于 Aric：兴趣、项目与联系方式。",
     heroTitle: "WHO THE\nHELL AM I?",
-    heroTagline: "TIMELESS DESIGN,\nRICH HERITAGE.",
+    heroTagline: "Passionate about technology,\n passionate about life.",
     introTitle: "About Aric",
     introDescription:
       "这里是 AricSu（AskAric）。我喜欢做产品、写工程化的东西，也喜欢把复杂问题讲清楚。除了代码，我也投入网球、滑雪、摩托和咖啡。",
@@ -36,7 +37,8 @@ const content: Record<
         features: [
           {
             name: "回血良药",
-            description: "曾有一段状态低迷，靠着每天投入工作 + 网球，逐渐走出低谷。",
+            description:
+              "曾有一段状态低迷，靠着每天投入工作 + 网球，逐渐走出低谷。",
             icon: "sparkles",
           },
           {
@@ -62,7 +64,8 @@ const content: Record<
         features: [
           {
             name: "速度与激情",
-            description: "滑雪时的速度感和自由感令人兴奋，让人短暂忘记一切烦恼。",
+            description:
+              "滑雪时的速度感和自由感令人兴奋，让人短暂忘记一切烦恼。",
             icon: "zap",
           },
           {
@@ -198,7 +201,8 @@ const content: Record<
           },
           {
             name: "Stamina",
-            description: "Riding trains coordination and overall physical control.",
+            description:
+              "Riding trains coordination and overall physical control.",
             icon: "shield",
           },
           {
@@ -217,7 +221,8 @@ const content: Record<
         features: [
           {
             name: "Beans",
-            description: "Exploring origins and roasts helps me taste more clearly.",
+            description:
+              "Exploring origins and roasts helps me taste more clearly.",
             icon: "bean",
           },
           {
@@ -227,7 +232,8 @@ const content: Record<
           },
           {
             name: "Pour-over",
-            description: "I enjoy the process and the subtle differences cup to cup.",
+            description:
+              "I enjoy the process and the subtle differences cup to cup.",
             icon: "heart",
           },
         ],
@@ -262,6 +268,7 @@ export default function About({ params }: Route.ComponentProps) {
       <Header className="hidden md:block" />
       <main className="flex-1">
         <AboutHero title={c.heroTitle} tagline={c.heroTagline} />
+        <Certificates />
         <AboutHobby sections={c.sections} />
       </main>
       <Footer />

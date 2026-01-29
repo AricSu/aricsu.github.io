@@ -61,6 +61,51 @@ async function writeStaticSearchIndex(clientBuildDir: string) {
   console.log(`[buildEnd] Wrote ${path.relative(process.cwd(), outputPath)}`);
 }
 
+function normalizeSiteOrigin(input: string) {
+  const trimmed = input.trim().replace(/\/+$/, "");
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) return trimmed;
+  return `https://${trimmed}`;
+}
+
+async function resolveSiteOrigin() {
+  const fromEnv =
+    process.env.SITE_URL ??
+    process.env.PUBLIC_SITE_URL ??
+    process.env.VITE_SITE_URL ??
+    process.env.VITE_PUBLIC_SITE_URL ??
+    undefined;
+  if (fromEnv) return normalizeSiteOrigin(fromEnv);
+
+  try {
+    const cnamePath = path.join(process.cwd(), "CNAME");
+    const cname = (await readFile(cnamePath, "utf8")).trim();
+    const host = cname.split(/\r?\n/)[0]?.trim();
+    if (host) return normalizeSiteOrigin(host);
+  } catch {
+    // ignore missing CNAME
+  }
+
+  return "http://localhost";
+}
+
+async function replaceLocalhostOriginInFile(filePath: string, siteOrigin: string) {
+  let contents: string;
+  try {
+    contents = await readFile(filePath, "utf8");
+  } catch {
+    return;
+  }
+
+  const next = contents.replace(
+    /https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?/g,
+    siteOrigin,
+  );
+  if (next === contents) return;
+
+  await writeFile(filePath, next, "utf8");
+  console.log(`[buildEnd] Patched ${path.relative(process.cwd(), filePath)}`);
+}
+
 export default {
   ssr: true,
   routeDiscovery: { mode: "initial" },
@@ -68,6 +113,12 @@ export default {
     const clientBuildDir = path.join(reactRouterConfig.buildDirectory, 'client');
     await patchRedirectPages(clientBuildDir);
     await writeStaticSearchIndex(clientBuildDir);
+
+    const siteOrigin = await resolveSiteOrigin();
+    await replaceLocalhostOriginInFile(path.join(clientBuildDir, "sitemap.xml"), siteOrigin);
+    await replaceLocalhostOriginInFile(path.join(clientBuildDir, "sitemap.xml.data"), siteOrigin);
+    await replaceLocalhostOriginInFile(path.join(clientBuildDir, "robots.txt"), siteOrigin);
+    await replaceLocalhostOriginInFile(path.join(clientBuildDir, "robots.txt.data"), siteOrigin);
   },
   async prerender({ getStaticPaths }) {
     const paths: string[] = [];

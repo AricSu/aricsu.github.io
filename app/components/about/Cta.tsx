@@ -114,21 +114,13 @@ export function AboutCta({
       }
 
       if (btnRef.current) {
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: btnRef.current,
-              start: "top 95%",
-              toggleActions: "play none none reset",
-            },
-          })
-          .from(btnRef.current, {
-            opacity: 0,
-            y: 40,
-            filter: "blur(10px)",
-            duration: 0.7,
-            ease: "power3.out",
-          });
+        gsap.from(btnRef.current, {
+          opacity: 0,
+          y: 40,
+          filter: "blur(10px)",
+          duration: 0.7,
+          ease: "power3.out",
+        });
       }
     }, sectionRef);
 
@@ -144,16 +136,6 @@ export function AboutCta({
       ref={sectionRef}
       className="relative w-full min-h-screen flex items-center justify-end bg-black overflow-hidden"
     >
-      <div className="absolute inset-0 w-full h-full">
-        <img
-          ref={bgImgRef}
-          src="/images/hero/cta/tihc-extension-page-big.png"
-          alt="cta bg"
-          className="object-cover w-full h-full"
-        />
-        <div className="absolute inset-0 bg-black/80" />
-      </div>
-
       <div
         ref={imgRef}
         className="absolute left-0 bottom-0 m-4 md:m-8 w-56 md:w-80 rounded-lg overflow-hidden shadow-xl z-10"

@@ -38,16 +38,23 @@ export async function loader({ request }: Route.LoaderArgs) {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { gaMeasurementId, gscSiteVerification } = getPublicEnv();
-  const { canonicalOrigin } = useLoaderData<typeof loader>();
+  const rootLoaderData = useLoaderData<typeof loader>() as
+    | { canonicalOrigin?: string }
+    | undefined;
   const location = useLocation();
   const canonicalPath = normalizeCanonicalPath(location.pathname);
-  const canonicalHref = `${canonicalOrigin}${canonicalPath}`;
+  const canonicalOrigin =
+    rootLoaderData?.canonicalOrigin ??
+    (typeof window !== "undefined" ? window.location.origin : undefined);
+  const canonicalHref = canonicalOrigin ? `${canonicalOrigin}${canonicalPath}` : undefined;
   const isChinese = canonicalPath === "/zh" || canonicalPath.startsWith("/zh/");
   const htmlLang = isChinese ? "zh" : "en";
 
   const defaultTitle = "AskAric";
   const defaultDescription = "Docs, notes, and posts.";
-  const ogImageUrl = `${canonicalOrigin}/images/hero/hero.jpg`;
+  const ogImageUrl = canonicalOrigin
+    ? `${canonicalOrigin}/images/hero/hero.jpg`
+    : "/images/hero/hero.jpg";
 
   return (
     <html lang={htmlLang} suppressHydrationWarning>
@@ -77,12 +84,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
             />
           </>
         ) : null}
-        <link rel="canonical" href={canonicalHref} />
+        {canonicalHref ? <link rel="canonical" href={canonicalHref} /> : null}
         <meta property="og:site_name" content={defaultTitle} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={defaultTitle} />
         <meta property="og:description" content={defaultDescription} />
-        <meta property="og:url" content={canonicalHref} />
+        {canonicalHref ? <meta property="og:url" content={canonicalHref} /> : null}
         <meta property="og:image" content={ogImageUrl} />
         <meta property="og:locale" content={isChinese ? "zh_CN" : "en_US"} />
         <meta name="twitter:card" content="summary_large_image" />

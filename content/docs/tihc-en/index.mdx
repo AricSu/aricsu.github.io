@@ -1,17 +1,24 @@
 ---
-title: TIHC Overview
-description: TIHC v2 components, capabilities, and boundaries (stateless-by-default)
+title: TIHC Browser Extension
+description: An AI assistant browser extension integrated with TiDB Docs GraphRAG
 ---
 
-TIHC is a chat system designed for TiDB troubleshooting:
+I recently built a browser extension that works like an AI assistant.
 
-- `tihc/`: browser extension (sidepanel UI)
-- `tihc-serverless/`: Vercel serverless backend (OpenAI / Manus / TiDB-doc GraphRAG)
-- `evalite-demo/`: evaluation project (intake convergence + self-confidence calibration)
+It integrates with a GraphRAG built from TiDB Docs, and you can try asking it some basic questions.
 
-Core principles:
+## Download
 
-- Do not persist user conversations/content by default (stateless)
-- If persistence is required, prefer TiDB Serverless and store only minimal fields (optionally with TTL)
+- Chrome Web Store: https://chromewebstore.google.com/detail/tihc-browser-extension/jbpafpnafpjejlocihcmilekfemmhpid?hl=zh-CN&utm_source=ext_sidebar
 
-Start with Quickstart: `/tihc/quickstart`
+## Browser support
+
+- Microsoft Edge
+- Google Chrome
+
+## Status
+
+The extension is still early and has rough edges. If you run into issues or have ideas, please leave feedback on GitHub:
+
+- GitHub: https://github.com/AricSu/tihc
+- Issues: https://github.com/AricSu/tihc/issues

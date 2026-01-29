@@ -3,22 +3,56 @@ title: TIHC 浏览器扩展
 description: 像 AI 助手一样的浏览器扩展，集成 TiDB Docs GraphRAG
 ---
 
-我最近写了一个浏览器扩展，它的使用方式类似一个 AI 助手。
+<img
+  src="/images/hero/cta/tihc-extension-page-big.png"
+  alt="TiHC 浏览器侧边栏助手预览"
+/>
 
-它集成了 TiDB 文档的 GraphRAG，你可以用它问一些基础问题。
+TiHC 是一个面向 TiDB 排障的浏览器侧边栏助手。它把 TiDB Docs 做成 GraphRAG 索引，让你在当前页面旁边直接提问、获得流式回答，并把最近的对话保存在本地（默认不落库）。
 
-## 下载
+<Cards>
+  <Card
+    title="下载"
+    description="从 Chrome Web Store 安装扩展"
+    href="https://chromewebstore.google.com/detail/tihc-browser-extension/jbpafpnafpjejlocihcmilekfemmhpid?hl=zh-CN&utm_source=ext_sidebar"
+    data-analytics-event="cta_clicked"
+    data-analytics-location="tihc_index_download"
+    external
+  />
+  <Card title="隐私与数据" description="数据最小化优先；默认不落库" href="./privacy" />
+  <Card title="术语表" description="TIHC 的常用术语与缩写" href="./glossary" />
+  <Card
+    title="反馈与问题"
+    description="提交 Issue / 想法 / bug"
+    href="https://github.com/AricSu/tihc/issues"
+    external
+  />
+</Cards>
 
-- Chrome Web Store：https://chromewebstore.google.com/detail/tihc-browser-extension/jbpafpnafpjejlocihcmilekfemmhpid?hl=zh-CN&utm_source=ext_sidebar
+<Callout type="warning" title="早期版本">
+  TiHC 仍处于早期阶段，可能会遇到回答不稳定、UI 细节不完善等问题。欢迎在 GitHub 提
+  Issue，我会优先处理可复现的问题。
+</Callout>
+
+## 快速开始
+
+1. 安装扩展：在 Chrome Web Store 点击「添加至 Chrome」。
+2. 打开侧边栏：在浏览器工具栏里打开 TiHC Side Panel。
+3. 提问：把遇到的现象、日志片段、版本信息贴进去（越具体越好）。
+
+示例问题：
+
+```text
+TiKV 99% latency 突然变高，应该从哪些指标/日志开始排查？
+```
 
 ## 浏览器支持
 
 - Microsoft Edge
 - Google Chrome
 
-## 反馈与问题
+## 链接
 
-目前扩展还在早期阶段，仍有不少问题。如果你有任何问题或想法，欢迎在 GitHub 上记录，我会尽量实现：
-
+- Chrome Web Store：https://chromewebstore.google.com/detail/tihc-browser-extension/jbpafpnafpjejlocihcmilekfemmhpid?hl=zh-CN&utm_source=ext_sidebar
 - GitHub：https://github.com/AricSu/tihc
 - Issues：https://github.com/AricSu/tihc/issues

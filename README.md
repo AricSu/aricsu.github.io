@@ -30,7 +30,7 @@ Set `VITE_GA_MEASUREMENT_ID` (example: `G-XXXXXXXXXX`) to enable GA4 pageview tr
 
 ## Google Search Console
 
-- Set `VITE_GSC_SITE_VERIFICATION` to inject the `google-site-verification` meta tag.
+- If you're using a Domain property (DNS verification), no extra HTML meta tag is needed.
 - `GET /sitemap.xml` and `GET /robots.txt` are available for Search Console discovery.
 
 Tip: start from `askaric/.env.example`.

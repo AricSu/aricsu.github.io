@@ -41,7 +41,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { gaMeasurementId, gscSiteVerification } = getPublicEnv();
+  const { gaMeasurementId } = getPublicEnv();
   const rootLoaderData = useLoaderData<typeof loader>() as
     | { canonicalOrigin?: string }
     | undefined;
@@ -65,9 +65,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {gscSiteVerification ? (
-          <meta name="google-site-verification" content={gscSiteVerification} />
-        ) : null}
         {gaMeasurementId ? (
           <>
             <script

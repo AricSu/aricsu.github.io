@@ -3,22 +3,52 @@ title: TIHC Browser Extension
 description: An AI assistant browser extension integrated with TiDB Docs GraphRAG
 ---
 
-I recently built a browser extension that works like an AI assistant.
+<img src="/images/hero/cta/tihc-extension-page-big.png" alt="TiHC side panel preview" />
 
-It integrates with a GraphRAG built from TiDB Docs, and you can try asking it some basic questions.
+TiHC is a browser side panel assistant for TiDB troubleshooting. It builds a GraphRAG index from TiDB Docs, so you can ask questions next to the page you’re reading, get streaming answers, and keep recent chats locally (no database by default).
 
-## Download
+<Cards>
+  <Card
+    title="Download"
+    description="Install from Chrome Web Store"
+    href="https://chromewebstore.google.com/detail/tihc-browser-extension/jbpafpnafpjejlocihcmilekfemmhpid?hl=en&utm_source=ext_sidebar"
+    data-analytics-event="cta_clicked"
+    data-analytics-location="tihc_index_download"
+    external
+  />
+  <Card title="Privacy & Data" description="Data minimization first; no database by default" href="./privacy" />
+  <Card title="Glossary" description="Key terms and abbreviations used in TIHC" href="./glossary" />
+  <Card
+    title="Feedback & Issues"
+    description="Report bugs or share ideas"
+    href="https://github.com/AricSu/tihc/issues"
+    external
+  />
+</Cards>
 
-- Chrome Web Store: https://chromewebstore.google.com/detail/tihc-browser-extension/jbpafpnafpjejlocihcmilekfemmhpid?hl=zh-CN&utm_source=ext_sidebar
+<Callout type="warning" title="Early version">
+  TiHC is still early and may be unstable or rough around the edges. If you hit an issue, please file a GitHub issue with steps to reproduce.
+</Callout>
+
+## Quickstart
+
+1. Install the extension from Chrome Web Store.
+2. Open the side panel from your browser toolbar.
+3. Ask with context: symptoms, logs, and version info (the more specific, the better).
+
+Example question:
+
+```text
+TiKV p99 latency suddenly spiked — which metrics and logs should I check first?
+```
 
 ## Browser support
 
 - Microsoft Edge
 - Google Chrome
 
-## Status
+## Links
 
-The extension is still early and has rough edges. If you run into issues or have ideas, please leave feedback on GitHub:
-
+- Chrome Web Store: https://chromewebstore.google.com/detail/tihc-browser-extension/jbpafpnafpjejlocihcmilekfemmhpid?hl=en&utm_source=ext_sidebar
 - GitHub: https://github.com/AricSu/tihc
 - Issues: https://github.com/AricSu/tihc/issues

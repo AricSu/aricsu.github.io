@@ -20,6 +20,10 @@ import './app.css';
 import "katex/dist/katex.min.css";
 
 export const links: Route.LinksFunction = () => [
+  { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon', sizes: '48x48' },
+  { rel: 'icon', href: '/favicon-48.png', type: 'image/png', sizes: '48x48' },
+  { rel: 'icon', href: '/favicon-192.png', type: 'image/png', sizes: '192x192' },
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' },
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
     rel: 'preconnect',

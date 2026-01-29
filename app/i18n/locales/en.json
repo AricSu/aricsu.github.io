@@ -23,5 +23,11 @@
     "title": "TIHC Extension\nAND\nAI",
     "description": "TiHC is a Chrome extension designed for TiDB users, providing an AI-powered assistant for interactive Q&A directly in the browser sidebar. It supports streaming responses, local chat history (up to 20 messages), code copying, and Markdown rendering, making it easy to get technical answers and suggestions about TiDB efficiently.",
     "button": "TRY IT NOW"
+  },
+  "posts": {
+    "description": "Short notes, troubleshooting writeups, and project updates.",
+    "searchPlaceholder": "Search posts...",
+    "empty": "No posts found.",
+    "readMore": "Read more"
   }
 }

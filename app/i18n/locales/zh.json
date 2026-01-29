@@ -23,5 +23,11 @@
     "title": "TIHC 扩展\n与\nAI",
     "description": "TiHC 是一款专为 TiDB 用户设计的 Chrome 扩展，提供 AI 驱动的助手，可直接在浏览器侧边栏进行交互式问答。支持流式响应、本地聊天记录（最多 20 条）、代码复制和 Markdown 渲染，轻松高效地获取 TiDB 技术答案和建议。",
     "button": "立即体验"
+  },
+  "posts": {
+    "description": "短笔记、故障排查记录与项目更新。",
+    "searchPlaceholder": "搜索文章...",
+    "empty": "未找到文章。",
+    "readMore": "阅读全文"
   }
 }

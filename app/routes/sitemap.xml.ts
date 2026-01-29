@@ -53,6 +53,4 @@ export async function loader({ request }: Route.LoaderArgs) {
   });
 }
 
-export default function SitemapXml() {
-  return null;
-}
+// Resource route: no default export.

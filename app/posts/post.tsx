@@ -6,7 +6,7 @@ import { defaultLng, supportedLngs } from "@/i18n/config";
 import { getPostsSourceForLang } from "@/lib/source.posts";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import browserCollections from "fumadocs-mdx:collections/browser";
 import type { TOCItemType } from "fumadocs-core/toc";
@@ -98,9 +98,9 @@ function PostCard({
         </div>
 
         <div className="space-y-2">
-          <CardTitle className="text-3xl font-bold tracking-tight">
+          <h1 className="text-3xl font-bold tracking-tight text-balance">
             {frontmatter.title}
-          </CardTitle>
+          </h1>
           {frontmatter.description ? (
             <p className="text-fd-muted-foreground">{frontmatter.description}</p>
           ) : null}

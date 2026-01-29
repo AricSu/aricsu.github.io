@@ -5,6 +5,8 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
+  useLocation,
 } from 'react-router';
 import { RootProvider } from 'fumadocs-ui/provider/react-router';
 import { ToastProvider } from './components/ui/toast-provider';
@@ -13,6 +15,7 @@ import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { AnalyticsListener } from "@/components/analytics/analytics-listener";
 import { getPublicEnv } from "@/lib/public-env";
 import { StaticSearchDialog } from "@/components/search/StaticSearchDialog";
+import { getCanonicalOrigin, normalizeCanonicalPath } from "@/lib/canonical";
 import './app.css';
 import "katex/dist/katex.min.css";
 
@@ -29,11 +32,25 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+export async function loader({ request }: Route.LoaderArgs) {
+  return { canonicalOrigin: getCanonicalOrigin(request) };
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   const { gaMeasurementId, gscSiteVerification } = getPublicEnv();
+  const { canonicalOrigin } = useLoaderData<typeof loader>();
+  const location = useLocation();
+  const canonicalPath = normalizeCanonicalPath(location.pathname);
+  const canonicalHref = `${canonicalOrigin}${canonicalPath}`;
+  const isChinese = canonicalPath === "/zh" || canonicalPath.startsWith("/zh/");
+  const htmlLang = isChinese ? "zh" : "en";
+
+  const defaultTitle = "AskAric";
+  const defaultDescription = "Docs, notes, and posts.";
+  const ogImageUrl = `${canonicalOrigin}/images/hero/hero.jpg`;
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={htmlLang} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -60,6 +77,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
             />
           </>
         ) : null}
+        <link rel="canonical" href={canonicalHref} />
+        <meta property="og:site_name" content={defaultTitle} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={defaultTitle} />
+        <meta property="og:description" content={defaultDescription} />
+        <meta property="og:url" content={canonicalHref} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:locale" content={isChinese ? "zh_CN" : "en_US"} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={defaultTitle} />
+        <meta name="twitter:description" content={defaultDescription} />
+        <meta name="twitter:image" content={ogImageUrl} />
         <Meta />
         <Links />
       </head>

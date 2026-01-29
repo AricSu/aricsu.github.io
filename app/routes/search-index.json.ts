@@ -153,6 +153,4 @@ export async function loader({}: Route.LoaderArgs) {
   return search.staticGET();
 }
 
-export default function SearchIndexJson() {
-  return null;
-}
+// Resource route: no default export.

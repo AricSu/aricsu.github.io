@@ -11,7 +11,4 @@ export function loader({ request }: Route.LoaderArgs) {
   });
 }
 
-export default function RobotsTxt() {
-  return null;
-}
-
+// Resource route: no default export.

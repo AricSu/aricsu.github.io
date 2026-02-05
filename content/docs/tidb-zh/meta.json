@@ -1,11 +1,11 @@
 {
   "pages": [
-    "index",
-    "dm",
-    "ticdc",
+    "tidb",
     "tikv",
-    "lightning",
+    "ticdc",
     "metrics",
+    "dm",
+    "lightning",
     "glossary"
   ]
 }

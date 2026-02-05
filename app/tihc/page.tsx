@@ -72,6 +72,7 @@ export default function Page({ loaderData }: Route.ComponentProps) {
   const Content = clientLoader.getComponent(loaderData.path);
   const { pageTree } = useFumadocsLoader(loaderData);
   const layoutOptions = baseOptions();
+  const sectionTitle = "TiHC";
 
   return (
     <>
@@ -82,7 +83,8 @@ export default function Page({ loaderData }: Route.ComponentProps) {
           {...layoutOptions}
           nav={{
             ...layoutOptions.nav,
-            component: <DocsMobileHeader lang={loaderData.lang} title="AskAric" />,
+            title: sectionTitle,
+            component: <DocsMobileHeader lang={loaderData.lang} title={sectionTitle} />,
           }}
           tree={pageTree}
           sidebar={{

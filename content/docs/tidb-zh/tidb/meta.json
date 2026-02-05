@@ -1,0 +1,10 @@
+{
+  "title": "TiDB",
+  "defaultOpen": true,
+  "collapsible": true,
+  "pages": [
+    "01ttl-stale-rows-all-zero-job-history",
+    "..."
+  ]
+}
+

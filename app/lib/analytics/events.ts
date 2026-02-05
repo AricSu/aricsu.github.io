@@ -1,4 +1,5 @@
 export const AnalyticsEvent = {
+  PageView: "page_view",
   CtaClicked: "cta_clicked",
   OutboundLinkClicked: "outbound_link_clicked",
   FileDownloaded: "file_downloaded",
@@ -7,4 +8,3 @@ export const AnalyticsEvent = {
 
 export type AnalyticsEventName =
   (typeof AnalyticsEvent)[keyof typeof AnalyticsEvent];
-

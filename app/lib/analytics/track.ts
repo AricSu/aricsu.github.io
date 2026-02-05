@@ -4,11 +4,18 @@ import { AnalyticsEvent, type AnalyticsEventName } from "./events";
 type Params = Record<string, unknown>;
 
 export function track(eventName: AnalyticsEventName, params: Params = {}) {
-  const { gaMeasurementId } = getPublicEnv();
-  if (!gaMeasurementId) return;
   if (typeof window === "undefined") return;
-  if (typeof window.gtag !== "function") return;
 
+  const { gtmContainerId, gaMeasurementId } = getPublicEnv();
+
+  if (gtmContainerId) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...params });
+    return;
+  }
+
+  if (!gaMeasurementId) return;
+  if (typeof window.gtag !== "function") return;
   window.gtag("event", eventName, params);
 }
 
@@ -49,4 +56,3 @@ export function trackSiteSearch(params: {
 }) {
   track(AnalyticsEvent.SiteSearch, params);
 }
-

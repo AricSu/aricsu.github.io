@@ -41,7 +41,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { gaMeasurementId } = getPublicEnv();
+  const { gaMeasurementId, gtmContainerId } = getPublicEnv();
   const rootLoaderData = useLoaderData<typeof loader>() as
     | { canonicalOrigin?: string }
     | undefined;
@@ -59,13 +59,32 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const ogImageUrl = canonicalOrigin
     ? `${canonicalOrigin}/images/hero/hero.jpg`
     : "/images/hero/hero.jpg";
+  const analyticsMode = gtmContainerId ? "gtm" : gaMeasurementId ? "gtag" : "none";
 
   return (
     <html lang={htmlLang} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {gaMeasurementId ? (
+        {analyticsMode === "gtm" ? (
+          <script
+            // biome-ignore lint/security/noDangerouslySetInnerHtml: Required for GTM bootstrapping.
+            dangerouslySetInnerHTML={{
+              __html: [
+                "(function(w,d,s,l,i){",
+                "w[l]=w[l]||[];",
+                "w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});",
+                "var f=d.getElementsByTagName(s)[0],",
+                "j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';",
+                "j.async=true;",
+                "j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;",
+                "f.parentNode.insertBefore(j,f);",
+                `})(window,document,'script','dataLayer','${gtmContainerId}');`,
+              ].join(""),
+            }}
+          />
+        ) : null}
+        {analyticsMode === "gtag" ? (
           <>
             <script
               async
@@ -101,6 +120,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="flex flex-col min-h-screen">
+        {analyticsMode === "gtm" ? (
+          <noscript>
+            <iframe
+              title="gtm"
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        ) : null}
         <RootProvider
           search={{
             SearchDialog: StaticSearchDialog,
